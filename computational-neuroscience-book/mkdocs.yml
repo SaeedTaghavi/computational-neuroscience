@@ -35,6 +35,8 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.superfences
   - pymdownx.snippets
+  - footnotes
+
   - toc:
       title: در این صفحه  
 
