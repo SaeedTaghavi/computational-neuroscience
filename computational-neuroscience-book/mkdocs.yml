@@ -27,6 +27,7 @@ plugins:
 nav:
 - 'index.md'
 - 'ch01.md'
+- 'ch02.md'
 
 markdown_extensions:
   - attr_list
