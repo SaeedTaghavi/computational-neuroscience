@@ -1,4 +1,7 @@
 site_name: کتاب علوم اعصاب محاسباتی
+site_url: https://computational-neuroscience.ir/
+site_description: کتاب آنلاین علوم اعصاب محاسباتی به زبان فارسی — از غشای تحریک‌پذیر و سیستم‌های دینامیکی تا مدل‌های نورون، شبکه‌های اسپایکی و مدل‌سازی مغز کامل.
+site_author: Saeed Taghavi
 
 theme: 
   direction: rtl
@@ -84,4 +87,3 @@ extra_javascript:
   - javascripts/config.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-
