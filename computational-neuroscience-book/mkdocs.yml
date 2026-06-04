@@ -3,15 +3,17 @@ site_url: https://computational-neuroscience.ir/
 site_description: کتاب آنلاین علوم اعصاب محاسباتی به زبان فارسی — از غشای تحریک‌پذیر و سیستم‌های دینامیکی تا مدل‌های نورون، شبکه‌های اسپایکی و مدل‌سازی مغز کامل.
 site_author: Saeed Taghavi
 
-theme:
+theme: 
   direction: rtl
   name: material
-  language: custom
+  language: custom        # ← must be "custom", not "fa"
   custom_dir: overrides
   features:
-    - navigation.sections   # render Parts as bold section headers
-    - navigation.top        # back-to-top button
-  font:
+    # - navigation.sections   # render top-level groups as bold section headers, expanded
+    # - navigation.indexes    # lets a Part have its own landing page (see below)
+    # - navigation.top        # back-to-top button
+    # - toc.integrate         # optional: fold the page TOC into the left sidebar
+  font: 
     text: Noto Naskh Arabic
   palette:
     - scheme: default
@@ -26,14 +28,11 @@ theme:
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
-
 plugins:
   - search:
       lang:
         - en
-        - ar
-  - social
-
+        - ar 
 nav:
   - خانه: index.md
   - "پیش‌نیازها":
@@ -41,7 +40,7 @@ nav:
       - سیستم‌های دینامیکی: ch02.md
   - "مدل‌های نورون":
       - مدل هاجکین-هاکسلی: ch03.md
-      - "مدل‌های ساده‌شده: LIF، QIF، EIF، ایژیکویچ و AdEx": ch04.md
+      - "مدل‌های ساده‌شده: LIF، EIF، AdEx": ch04.md
   - "شبکه‌های نورون‌های نقطه‌ای":
       - از نورون به جمعیت: ch05.md
       - شبکه‌های تصادفی متعادل: ch06.md
@@ -53,11 +52,35 @@ nav:
   - "پیوست‌ها":
       - "حل عددی معادلات دیفرانسیل": appendix-ode.md
       - "روش اویلر–مارویاما (SDE)": appendix-sde.md
-      - "معرفی بستهٔ شبیه‌سازی NEST": appendix-nest.md
-      - "معرفی بستهٔ شبیه‌سازی neurolib": appendix-neurolib.md
+      - "معرفی بسته شبیه‌سازی  NEST": appendix-nest.md
+      - "معرفی بسته شبیه‌سازی  neurolib": appendix-neurolib.md
 
 extra_css:
   - stylesheets/extra.css
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - footnotes
+  - pymdownx.arithmatex:
+      generic: true
+  - tables
+  - toc:
+      title: "فهرست در این صفحه"
+
+  - pymdownx.highlight:
+      linenums: true
+      linenums_style: pymdownx-inline
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.emoji:     # enables the :material-...: icons
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 extra_javascript:
   - javascripts/extra.js
@@ -65,30 +88,6 @@ extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/SaeedTaghavi/computational-neuroscience
-    - icon: fontawesome/solid/envelope
-      link: mailto:saeed.taghavi.v@gmail.com
 
-markdown_extensions:
-  - meta
-  - attr_list
-  - md_in_html
-  - footnotes
-  - tables
-  - pymdownx.inlinehilite
-  - pymdownx.keys
-  - pymdownx.snippets
-  - pymdownx.superfences
-  - pymdownx.highlight:
-      linenums: true
-      linenums_style: pymdownx-inline
-  - pymdownx.arithmatex:
-      generic: true
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - toc:
-      title: "فهرست در این صفحه"
+
+
