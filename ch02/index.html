@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="fa" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -12,23 +12,32 @@
         <link rel="prev" href="../ch01/">
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
-    
-    
+        <link rel="next" href="../ch03/">
       
-        <title>سیستم‌های دینامیکی در علوم اعصاب - کتاب علوم اعصاب محاسباتی</title>
-      
-    
-    
-      <link rel="stylesheet" href="../assets/stylesheets/main.ded33207.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>سیستم‌های دینامیکی - کتاب علوم اعصاب محاسباتی</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
+
     
+    
+      
     
     
       
@@ -40,11 +49,12 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
-    
     
     
   </head>
@@ -60,9 +70,6 @@
     <body dir="rtl" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
-    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
@@ -70,7 +77,7 @@
       
         
         <a href="#_1" class="md-skip">
-          Skip to content
+          پرش به محتویات
         </a>
       
     </div>
@@ -84,15 +91,16 @@
   
 
 <header class="md-header md-header--shadow" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
+  <nav class="md-header__inner md-grid" aria-label="سرتیتر">
     <a href=".." title="کتاب علوم اعصاب محاسباتی" class="md-header__button md-logo" aria-label="کتاب علوم اعصاب محاسباتی" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -104,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              سیستم‌های دینامیکی در علوم اعصاب
+              سیستم‌های دینامیکی
             
           </span>
         </div>
@@ -113,57 +121,66 @@
     
       
         <form class="md-header__option" data-md-component="palette">
-          
-            
-            
-            
-            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
-            
-              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-              </label>
-            
-          
-            
-            
-            
-            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
-            
-              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
-              </label>
-            
-          
-        </form>
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
       
     
     
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="جستجو" placeholder="جستجو" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="جستجو">
+        
+        <button type="reset" class="md-search__icon md-icon" title="بازنشانی" aria-label="بازنشانی" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            راه‌اندازی جستجو
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -171,6 +188,7 @@
     </div>
   </div>
 </div>
+      
     
     
   </nav>
@@ -195,12 +213,13 @@
                     
 
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+<nav class="md-nav md-nav--primary" aria-label="هدایت" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="کتاب علوم اعصاب محاسباتی" class="md-nav__button md-logo" aria-label="کتاب علوم اعصاب محاسباتی" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
     کتاب علوم اعصاب محاسباتی
@@ -210,14 +229,26 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href=".." class="md-nav__link">
-        علوم اعصاب محاسباتی
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    خانه
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
@@ -225,26 +256,87 @@
     
       
       
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پیش‌نیازها
+  
 
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پیش‌نیازها
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../ch01/" class="md-nav__link">
-        غشای تحریک‌پذیر
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    غشای تحریک‌پذیر
+  
+
+    
+  </span>
+  
+  
+
       </a>
     </li>
   
 
-    
-      
-      
-      
-
+              
+            
+              
+                
   
   
     
+  
   
   
     <li class="md-nav__item md-nav__item--active">
@@ -256,19 +348,45 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          سیستم‌های دینامیکی در علوم اعصاب
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیستم‌های دینامیکی
+  
+
+    
+  </span>
+  
+  
+
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        سیستم‌های دینامیکی در علوم اعصاب
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیستم‌های دینامیکی
+  
+
+    
+  </span>
+  
+  
+
       </a>
       
         
 
   
 
-<nav class="md-nav md-nav--secondary" aria-label="در این صفحه">
+<nav class="md-nav md-nav--secondary" aria-label="فهرست در این صفحه">
   
   
   
@@ -277,41 +395,217 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      در این صفحه
+      فهرست در این صفحه
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    دینامیک نورون‌ها
+    <span class="md-ellipsis">
+      
+        سیستم دینامیکی چیست؟
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    تحریک‌پذیری نورون‌ها
+    <span class="md-ellipsis">
+      
+        فضای حالت و میدان برداری
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    چرکنویس
+    <span class="md-ellipsis">
+      
+        نقاط ثابت و پایداری
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="نقاط ثابت و پایداری">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        خطی‌سازی و ماتریس ژاکوبین
+      
+    </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    عنوان اول
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    عنوان دوم
+    <span class="md-ellipsis">
+      
+        صفحهٔ فاز و نول‌کلاین‌ها
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="صفحهٔ فاز و نول‌کلاین‌ها">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        رده‌بندی نقاط ثابت دوبعدی
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        دوشاخه‌شدن
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        مدل فیتزهیو–ناگومو
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="مدل فیتزهیو–ناگومو">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        معادله‌ها و انگیزهٔ زیستی
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        نول‌کلاین‌ها و صفحهٔ فاز
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تحریک‌پذیری: پاسخ همه‌یا‌هیچ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        شلیک تونیک و چرخهٔ حدی
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        مدل موریس–لِکار
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="مدل موریس–لِکار">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        استخراج زیست‌فیزیکی معادله‌ها
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        نول‌کلاین‌ها و صفحهٔ فاز
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تحریک‌پذیری و انواع آن
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        جمع‌بندی
+      
+    </span>
   </a>
   
 </li>
@@ -319,6 +613,566 @@
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های نورون
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مدل‌های نورون
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل هاجکین-هاکسلی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های ساده‌شده: LIF، EIF، AdEx
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    شبکه‌های نورون‌های نقطه‌ای
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    شبکه‌های نورون‌های نقطه‌ای
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    از نورون به جمعیت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    شبکه‌های تصادفی متعادل
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نوسانات در شبکه‌های تحریکی-مهاری
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پلاستیسیتی وابسته به زمان اسپایک (STDP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های جمعیتی و توده عصبی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مدل‌های جمعیتی و توده عصبی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    معادلات نرخ آتش
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل ویلسون-کوان
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پیوست‌ها
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پیوست‌ها
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-ode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    حل عددی معادلات دیفرانسیل
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-sde/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    روش اویلر–مارویاما (SDE)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-nest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    معرفی بسته شبیه‌سازی  NEST
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-neurolib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    معرفی بسته شبیه‌سازی  neurolib
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -339,7 +1193,7 @@
 
   
 
-<nav class="md-nav md-nav--secondary" aria-label="در این صفحه">
+<nav class="md-nav md-nav--secondary" aria-label="فهرست در این صفحه">
   
   
   
@@ -348,41 +1202,217 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      در این صفحه
+      فهرست در این صفحه
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    دینامیک نورون‌ها
+    <span class="md-ellipsis">
+      
+        سیستم دینامیکی چیست؟
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    تحریک‌پذیری نورون‌ها
+    <span class="md-ellipsis">
+      
+        فضای حالت و میدان برداری
+      
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    چرکنویس
+    <span class="md-ellipsis">
+      
+        نقاط ثابت و پایداری
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="نقاط ثابت و پایداری">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        خطی‌سازی و ماتریس ژاکوبین
+      
+    </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    عنوان اول
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    عنوان دوم
+    <span class="md-ellipsis">
+      
+        صفحهٔ فاز و نول‌کلاین‌ها
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="صفحهٔ فاز و نول‌کلاین‌ها">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        رده‌بندی نقاط ثابت دوبعدی
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        دوشاخه‌شدن
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        مدل فیتزهیو–ناگومو
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="مدل فیتزهیو–ناگومو">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        معادله‌ها و انگیزهٔ زیستی
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        نول‌کلاین‌ها و صفحهٔ فاز
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تحریک‌پذیری: پاسخ همه‌یا‌هیچ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        شلیک تونیک و چرخهٔ حدی
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        مدل موریس–لِکار
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="مدل موریس–لِکار">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        استخراج زیست‌فیزیکی معادله‌ها
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        نول‌کلاین‌ها و صفحهٔ فاز
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تحریک‌پذیری و انواع آن
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        جمع‌بندی
+      
+    </span>
   </a>
   
 </li>
@@ -397,65 +1427,176 @@
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
+  
                   
 
 
+
 <h1 id="_1">سیستم‌های دینامیکی در علوم اعصاب</h1>
-<p>رویکرد سیستم‌های دینامیکی به علوم اعصاب از دینامیک غیرخطی برای درک و مدل‌سازی سیستم عصبی و عملکردهای آن استفاده می‌کند. در یک سیستم دینامیکی، تمام حالت های ممکن با یک فضای فاز بیان می شود.
-چنین سیستم‌هایی می‌توانند با تغییر برخی از پارامترها تغییر کیفی اساسی در رفتارشان(دوشاخگی یا انشعاب) تجربه کنند، و همچنین ممکن است در مجموعه ای از پارامترها رفتار آشوبناک از خودشان بروز دهند.
-در این رهیافت رفتار دینامیکی غیر خطی در سطوح مختلف مغز از تک تورون‌ها فرایندهای شناختی، مراحل مختلف خواب و رفتار نورون‌ها در شبیه‌سازی‌های نورونی درشت مقیاس توصیف می‌شوند. </p>
-<p>یکی از اولین رخدادهای شناخته شده‌ای که در آن نورون‌ها بر اساس ریاضی و فیزیکی مدل شدند، مدل ادغام و آتش بود که در سال ۱۹۰۷ توسعه یافت. دهه‌ها بعد، کشف آکسون غول پیکر ماهی مرکب در نهایت باعث شد تا آلن هاجکین و اندرو هاکسلی(برادر ناتنی آلدوس هاکسلی) مدل عصبی هاجکین-هاکسلی را توسعه دادند. در سال ۱۹۶۲ مدل هاجکین-هاکسلی در مدلی ساده تر به نام مدل فیتزهیو-ناگومو ارایه گردید. در سال ۱۹۸۱ نیز مدل موریس-لکار برای مدلسازی عضله بارناکل توسعه داده شد. </p>
-<p>این مدل‌های ریاضی مفید بودند و هنوز در خیلی از کارهای پژوهشی امروزه مورد استفاده قرار می‌گیرند، بزرگترین مشکل در رابطه با این مدل های ارایه شده غیرخطی بودن آنهاست. این امر بررسی و مطالعه آن‌ها را به روش‌های استاندارد نظری غیرممکن کرد.
- با این حال، توانایی کامپیوترها در حل تقریبی جواب معادلات غیرخطی، درهای زیادی را به روی همه علوم و همچنین علوم اعصاب باز کردند.</p>
-<h2 id="_2">دینامیک نورون‌ها</h2>
-<p>انگیزه رویکرد سیستم‌های دینامیکی به علوم اعصاب ناشی از علاقه به پیچیدگی فیزیکی رفتار نورون است.
-به عنوان مثال، برهمکنش جفت شده بین پتانسیل غشا یک نورون و فعال شدن کانال های یونی در سراسر غشا نورون را در نظر بگیرید.
-وقتی که پتانسیل غشا یک نورون به اندازه کافی افزایش یابد، کانال‌های یونی غشا باز می‌شوند تا یون‌های بیشتری وارد یا خارج شوند.
-شار یونی پتانسیل غشا را بیشتر تغییر می‌دهد،
-که باعث می‌شود کانال‌های یونی بیشتر فعال شوند، که پتانسیل غشا را تحت تأثیر قرار می دهد و ....</p>
-<p>این ماهیت معادلات غیرخطی جفت شده است. یک مثال تقریباً ساده از این مدل موریس-لکار است
-$$
- C \frac{dV}{dt}=g_{Ca}M_{ss}(V-V_{Ca}) - g_{K}N(V-V_{K}) - g_{L}(V-V_{L}) + I_{app} 
-$$
-$$
- \frac{N}{dt} = \frac{ N_{ss} - N }{\tau_{N}}
-$$</p>
-<p>https://en.wikipedia.org/wiki/Dynamical_neuroscience</p>
-<p>https://en.wikipedia.org/wiki/Biological_neuron_model</p>
-<p>http://www.scholarpedia.org/article/Attractor_network</p>
-<h2 id="_3">تحریک‌پذیری نورون‌ها</h2>
-<h2 id="_4">چرکنویس</h2>
-<p>اما توسعه اواخر قرن بیستم مطالعه دینامیکی نورون‌ها را حتی بیشتر کرد: فناوری رایانه. </p>
-<h2 id="_5">عنوان اول</h2>
+<p>در فصل پیش دیدیم که پتانسیل غشای نورون از برهم‌کنش جریان‌های یونی پدید می‌آید و در زمان تغییر می‌کند. برای آن‌که این تغییرات را نه به‌زبان کیفی، بلکه به‌زبان ریاضی توصیف و پیش‌بینی کنیم، به چارچوبی نیاز داریم که «تحول یک سامانه در گذر زمان» را مدل کند. آن چارچوب، <strong>نظریهٔ سیستم‌های دینامیکی</strong> است.</p>
+<p>این فصل، زبانِ ریاضیِ همهٔ فصل‌های بعد است؛ بنابراین می‌کوشیم آن را محکم و خودبسنده بسازیم. نخست ابزارهای پایه را معرفی می‌کنیم — نقاط ثابت، پایداری، صفحهٔ فاز، نول‌کلاین‌ها و دوشاخه‌شدن — و سپس همین ابزارها را روی دو مدل واقعیِ نورون به کار می‌بندیم: مدل فیتزهیو–ناگومو و مدل موریس–لِکار. در هر دو مورد معادله‌ها را استخراج می‌کنیم، صفحهٔ فاز را رسم می‌کنیم و نشان می‌دهیم تحریک‌پذیری نورون چگونه از هندسهٔ سامانه بیرون می‌آید.</p>
+<h2 id="_2">سیستم دینامیکی چیست؟</h2>
+<p>یک <strong>سیستم دینامیکی</strong> از دو جزء ساخته می‌شود: متغیرهایی که «حالت» سامانه را مشخص می‌کنند و یک «قانون تحول» که می‌گوید حالت چگونه در زمان تغییر می‌کند. اگر حالِ حاضرِ سامانه آیندهٔ آن را به‌طور یکتا تعیین کند، سامانه را <strong>تعیین‌پذیر</strong> می‌نامیم. نکتهٔ مهمی که در این فصل بارها به آن بازخواهیم گشت این است که تعیین‌پذیری به‌معنای پیش‌بینی‌پذیریِ بلندمدت نیست.</p>
+<p>در سامانه‌های <strong>زمان‌پیوسته</strong> قانون تحول یک دستگاه معادلهٔ دیفرانسیل است؛ غشای نورون از این دسته است و تمرکز ما بر همین گونه خواهد بود. در سامانه‌های <strong>زمان‌گسسته</strong>، قانون تحول یک نگاشت تکرارشونده مانند <span class="arithmatex">\(x_{n+1}=g(x_n)\)</span> است.</p>
+<h2 id="_3">فضای حالت و میدان برداری</h2>
+<p>حالت سامانه را با بردار <span class="arithmatex">\(\mathbf{x}=(x_1,\dots,x_m)\)</span> نشان می‌دهیم و فضای همهٔ حالت‌های ممکن را <strong>فضای فاز</strong> می‌نامیم. قانون تحولِ یک سامانهٔ زمان‌پیوستهٔ خودگردان به‌صورت زیر است:</p>
+<div class="arithmatex">\[
+\dot{\mathbf{x}} = \mathbf{f}(\mathbf{x}),
+\qquad \dot{x}_i = f_i(x_1,\dots,x_m).
+\]</div>
+<p>تابع <span class="arithmatex">\(\mathbf{f}\)</span> به هر نقطه از فضای فاز یک بردار نسبت می‌دهد و یک <strong>میدان برداری</strong> می‌سازد که جهت و سرعت حرکت سامانه را در آن نقطه نشان می‌دهد. واژهٔ «خودگردان» به این معناست که <span class="arithmatex">\(\mathbf{f}\)</span> صریحاً به زمان وابسته نیست. حل معادله از یک شرط اولیه، منحنی‌ای در فضای فاز می‌سازد که آن را <strong>منحنی فاز</strong> یا مدار می‌نامیم. قضیهٔ وجود و یکتایی تضمین می‌کند که از هر نقطه تنها یک مدار می‌گذرد، پس <strong>منحنی‌های فاز یکدیگر را قطع نمی‌کنند</strong>. مجموعهٔ این منحنی‌ها، <strong>پرترهٔ فاز</strong> را می‌سازد؛ نقشه‌ای که سرنوشت کیفیِ همهٔ حالت‌های ممکن را، بدون حل صریح معادله، نشان می‌دهد.</p>
+<h2 id="_4">نقاط ثابت و پایداری</h2>
+<p>نقطه‌ای که در آن میدان برداری صفر شود، <span class="arithmatex">\(\mathbf{f}(\mathbf{x}^*)=\mathbf{0}\)</span>، یک <strong>نقطهٔ ثابت</strong> (نقطهٔ تعادل) است. سامانه اگر دقیقاً در آن قرار گیرد برای همیشه می‌ماند. در علوم اعصاب، <strong>حالت استراحت</strong> نورون چیزی جز یک نقطهٔ ثابتِ پویایی غشا نیست. اما پرسش تعیین‌کننده پایداری است: یک نقطهٔ ثابت <strong>پایدار</strong> است اگر هر اختلال کوچک میرا شود و سامانه بازگردد، و <strong>ناپایدار</strong> است اگر اختلال کوچک رشد کند.</p>
+<p>در ساده‌ترین حالت، سامانهٔ تک‌بعدی <span class="arithmatex">\(\dot{x}=f(x)\)</span>، معیار پایداری به مشتق فرومی‌کاهد: نقطهٔ ثابت <span class="arithmatex">\(x^*\)</span> پایدار است اگر <span class="arithmatex">\(f'(x^*)&lt;0\)</span> و ناپایدار است اگر <span class="arithmatex">\(f'(x^*)&gt;0\)</span>.</p>
+<h3 id="_5">خطی‌سازی و ماتریس ژاکوبین</h3>
+<p>برای سامانه‌های چندبعدی، رفتار را در همسایگیِ نقطهٔ ثابت <strong>خطی‌سازی</strong> می‌کنیم. با تعریف انحراف کوچک <span class="arithmatex">\(\delta\mathbf{x}=\mathbf{x}-\mathbf{x}^*\)</span> و بسط تیلور تا مرتبهٔ اول:</p>
+<div class="arithmatex">\[
+\dot{\delta\mathbf{x}} \approx J(\mathbf{x}^*)\,\delta\mathbf{x},
+\qquad J_{ij}=\frac{\partial f_i}{\partial x_j}\bigg|_{\mathbf{x}^*}.
+\]</div>
+<p>ماتریس <span class="arithmatex">\(J\)</span> همان <strong>ژاکوبینِ</strong> میدان برداری است و سرنوشت اختلال را <strong>مقادیر ویژهٔ</strong> آن تعیین می‌کنند. اگر بخش حقیقیِ همهٔ مقادیر ویژه منفی باشد، تعادل پایدار است؛ اگر دستِ‌کم یکی بخش حقیقیِ مثبت داشته باشد، ناپایدار است. مقادیر ویژهٔ مختلط به نوسانِ میرا یا فزاینده پیرامون تعادل می‌انجامند.</p>
+<h2 id="_6">صفحهٔ فاز و نول‌کلاین‌ها</h2>
+<p>بیشتر مدل‌های کاربردیِ نورون را می‌توان به دو متغیر فروکاست؛ یکی شبیه ولتاژ غشا و دیگری یک متغیر «بازیابی» کندتر. در این حالت فضای فاز یک صفحه است و ابزار اصلیِ تحلیل، <strong>نول‌کلاین</strong> است.</p>
+<p>نول‌کلاین‌ها خط‌ها (یا منحنی‌هایی) هستند که در آن‌ها آهنگ تغییرِ یکی از متغیرها صفر می‌شود. برای سامانهٔ دوبعدیِ <span class="arithmatex">\(\dot V=f(V,w)\)</span> و <span class="arithmatex">\(\dot w=g(V,w)\)</span>، نول‌کلاینِ <span class="arithmatex">\(V\)</span> مجموعهٔ نقاطی است که <span class="arithmatex">\(\dot V=0\)</span> و نول‌کلاینِ <span class="arithmatex">\(w\)</span> مجموعهٔ نقاطی که <span class="arithmatex">\(\dot w=0\)</span>. روی نول‌کلاینِ <span class="arithmatex">\(V\)</span> بردار جریان قائم است (فقط <span class="arithmatex">\(w\)</span> تغییر می‌کند) و روی نول‌کلاینِ <span class="arithmatex">\(w\)</span> بردار افقی است (فقط <span class="arithmatex">\(V\)</span> تغییر می‌کند). <strong>محل تقاطع دو نول‌کلاین دقیقاً نقطهٔ ثابت سامانه است</strong>، چون در آنجا هر دو آهنگ صفر می‌شوند. نول‌کلاین‌ها صفحه را به نواحی‌ای تقسیم می‌کنند که در هر یک، جهتِ کلیِ جریان معلوم است؛ همین، ترسیم کیفیِ پرترهٔ فاز را ممکن می‌سازد.</p>
+<h3 id="_7">رده‌بندی نقاط ثابت دوبعدی</h3>
+<p>برای یک سامانهٔ دوبعدی، رفتار نزدیکِ نقطهٔ ثابت را تنها دو کمیتِ ماتریس ژاکوبین تعیین می‌کنند: رد (مجموع عناصر قطری) <span class="arithmatex">\(\tau=\operatorname{tr}J\)</span> و دترمینان <span class="arithmatex">\(\Delta=\det J\)</span>. مقادیر ویژه از رابطهٔ <span class="arithmatex">\(\lambda=\tfrac{1}{2}\big(\tau\pm\sqrt{\tau^2-4\Delta}\big)\)</span> به‌دست می‌آیند، و از روی علامتِ <span class="arithmatex">\(\tau\)</span> و <span class="arithmatex">\(\Delta\)</span> می‌توان نوع نقطهٔ ثابت را خواند: اگر <span class="arithmatex">\(\Delta&lt;0\)</span> نقطه <strong>زینی</strong> است؛ اگر <span class="arithmatex">\(\Delta&gt;0\)</span> و <span class="arithmatex">\(\tau&lt;0\)</span> پایدار (گره یا کانون) و اگر <span class="arithmatex">\(\tau&gt;0\)</span> ناپایدار است؛ سهمیِ <span class="arithmatex">\(\Delta=\tau^2/4\)</span> مرز میان گره (مقادیر ویژهٔ حقیقی) و کانونِ مارپیچی (مقادیر ویژهٔ مختلط) است.</p>
+<figure>
+  <img alt="Image title" src="../trace_determinant.png" />
+<br />
+<figcaption>رده‌بندی نقاط ثابت یک سامانهٔ دوبعدی بر حسب رد و دترمینان ماتریس ژاکوبین</figcaption>
+</figure>
+<p>نقطهٔ زینی نقشی محوری در تحریک‌پذیری دارد: شاخهٔ جذب‌کنندهٔ آن مرزی به نام <strong>جداساز</strong> می‌سازد که آستانهٔ شلیک را تعیین می‌کند.</p>
+<h2 id="_8">دوشاخه‌شدن</h2>
+<p>رفتار نورون به پارامترهایی مانند جریان ورودی بستگی دارد و این پارامترها می‌توانند تغییر کنند. <strong>دوشاخه‌شدن</strong> تغییرِ کیفیِ ناگهانیِ پرترهٔ فاز است که با تغییر آرامِ یک پارامتر رخ می‌دهد. دو سناریوی پرتکرار در نورون‌ها:</p>
 <ul>
-<li>آیتم اول</li>
-<li>آیتم دوم</li>
+<li><strong>دوشاخه‌شدن زین–گره:</strong> یک نقطهٔ ثابتِ پایدار و یک زینی به هم می‌رسند و نابود می‌شوند. اگر این رویداد روی یک مدار رخ دهد (دوشاخه‌شدنِ زین–گره روی دایره، SNIC)، شلیک می‌تواند با فرکانسِ نزدیک به صفر آغاز شود؛ این مشخصهٔ <strong>تحریک‌پذیری نوع یک</strong> است.</li>
+<li><strong>دوشاخه‌شدن هوپف:</strong> یک نقطهٔ ثابتِ پایدار با عبور یک جفت مقدار ویژهٔ مختلط از محور موهومی، پایداری خود را از دست می‌دهد و یک چرخهٔ حدی متولد می‌شود. شلیک در اینجا با فرکانسی غیرصفر و ناگهانی آغاز می‌شود؛ مشخصهٔ <strong>تحریک‌پذیری نوع دو</strong>.</li>
 </ul>
-<h2 id="_6">عنوان دوم</h2>
+<p>شروعِ شلیک نورون با افزایش جریان ورودی، در زبان دقیق همین دوشاخه‌شدن است؛ جریانی که در آن شلیک آغاز می‌شود، <strong>جریان رئوبیس</strong> نامیده می‌شود.</p>
+<h2 id="_9">مدل فیتزهیو–ناگومو</h2>
+<p>مدل کامل هاجکین–هاکسلی چهاربعدی است و تحلیل هندسیِ مستقیم آن دشوار است. مدل <strong>فیتزهیو–ناگومو</strong> (FHN) یک فروکاستِ دوبعدی است که جوهرِ تحریک‌پذیری را با کمترین تعداد متغیر نگه می‌دارد. ایدهٔ آن چنین است: ولتاژ غشا متغیری «سریع» با یک بازخوردِ مثبتِ خودبازتولیدکننده است (که با یک جملهٔ غیرخطیِ مکعبی مدل می‌شود)، و فرایندهای بازیابیِ کندتر (مانند غیرفعال‌شدنِ سدیم و فعال‌شدنِ پتاسیم در HH) در یک متغیرِ «کند» به نام <span class="arithmatex">\(w\)</span> ادغام می‌شوند.</p>
+<h3 id="_10">معادله‌ها و انگیزهٔ زیستی</h3>
+<p>مدل به‌صورت زیر نوشته می‌شود:</p>
+<div class="arithmatex">\[
+\dot V = V - \frac{V^3}{3} - w + I,
+\qquad
+\dot w = \varepsilon\,(V + a - b\,w),
+\]</div>
+<p>که در آن <span class="arithmatex">\(V\)</span> متغیرِ شبه‌ولتاژ، <span class="arithmatex">\(w\)</span> متغیر بازیابی، <span class="arithmatex">\(I\)</span> جریان ورودی و <span class="arithmatex">\(0&lt;\varepsilon\ll 1\)</span> است؛ کوچک‌بودنِ <span class="arithmatex">\(\varepsilon\)</span> یعنی <span class="arithmatex">\(w\)</span> بسیار کندتر از <span class="arithmatex">\(V\)</span> تغییر می‌کند. مقادیر کلاسیک عبارت‌اند از <span class="arithmatex">\(a=0.7\)</span>، <span class="arithmatex">\(b=0.8\)</span> و <span class="arithmatex">\(\varepsilon=0.08\)</span>. جملهٔ مکعبیِ <span class="arithmatex">\(-V^3/3\)</span> همان بازخوردِ بازتولیدکننده‌ای است که برخاستِ سریعِ پتانسیل عمل را ممکن می‌سازد.</p>
+<h3 id="_11">نول‌کلاین‌ها و صفحهٔ فاز</h3>
+<p>با صفرقراردادنِ آهنگ‌ها، نول‌کلاین‌ها به‌دست می‌آیند. نول‌کلاینِ <span class="arithmatex">\(V\)</span> یک منحنیِ مکعبیِ <span class="arithmatex">\(N\)</span>-شکل است و نول‌کلاینِ <span class="arithmatex">\(w\)</span> یک خط راست:</p>
+<div class="arithmatex">\[
+\dot V=0:\quad w = V - \frac{V^3}{3} + I,
+\qquad
+\dot w=0:\quad w = \frac{V+a}{b}.
+\]</div>
+<p>تقاطعِ این دو، نقطهٔ ثابتِ سامانه است. برای جریانِ کوچک، تقاطع روی شاخهٔ چپِ منحنیِ مکعبی می‌افتد و نقطهٔ ثابت پایدار است؛ این همان حالتِ استراحت است.</p>
+<figure>
+  <img alt="Image title" src="../fhn_phase_plane.png" />
+<br />
+<figcaption>صفحهٔ فاز مدل فیتزهیو–ناگومو با I=۰. مسیر سبز یک اختلال زیرآستانه است که مستقیم به تعادل بازمی‌گردد؛ مسیر بنفش یک اختلال فراآستانه است که پیش از بازگشت، یک گردشِ بزرگ (پتانسیل عمل) می‌زند.</figcaption>
+</figure>
+<h3 id="_12">تحریک‌پذیری: پاسخ همه‌یا‌هیچ</h3>
+<p>شکل بالا کلِ پدیدهٔ تحریک‌پذیری را نشان می‌دهد. اگر اختلالِ ورودی کوچک باشد، نقطهٔ حالت کمی از تعادل دور می‌شود و چون هنوز در سمت چپِ شاخهٔ میانیِ منحنیِ مکعبی است، مستقیماً به تعادل بازمی‌گردد (مسیر سبز). اما اگر اختلال به‌قدر کافی بزرگ باشد و نقطهٔ حالت را از شاخهٔ میانی (که نقشِ آستانه را بازی می‌کند) عبور دهد، جریانِ سریعِ افقی آن را به شاخهٔ راستِ منحنی (حالتِ دپلاریزه) پرتاب می‌کند؛ سپس متغیرِ کندِ <span class="arithmatex">\(w\)</span> سامانه را بالا و سرانجام به شاخهٔ چپ بازمی‌گرداند. حاصل، یک گردشِ بزرگ در صفحهٔ فاز است: یک پتانسیل عمل (مسیر بنفش). میان این دو پاسخ، حالتِ میانی وجود ندارد؛ این همان خاصیتِ <strong>همه‌یا‌هیچ</strong> است.</p>
+<figure>
+  <img alt="Image title" src="../fhn_timeseries.png" />
+<br />
+<figcaption>پاسخ همه‌یا‌هیچ در حوزهٔ زمان: اختلال زیرآستانه تنها افتی کوچک می‌سازد، اما اختلال فراآستانه یک پتانسیل عملِ کامل تولید می‌کند.</figcaption>
+</figure>
+<h3 id="_13">شلیک تونیک و چرخهٔ حدی</h3>
+<p>اگر جریانِ ورودی را به‌طور پیوسته افزایش دهیم، منحنیِ مکعبی بالا می‌رود و نقطهٔ تقاطع به‌سمتِ شاخهٔ میانی جابه‌جا می‌شود. آنجا نقطهٔ ثابت از راهِ یک دوشاخه‌شدنِ هوپف پایداری خود را از دست می‌دهد و یک <strong>چرخهٔ حدیِ پایدار</strong> متولد می‌شود. سامانه دیگر آرام نمی‌گیرد، بلکه پیوسته روی این مدارِ بسته می‌چرخد: نورون به <strong>شلیک تونیک</strong> (منظم و پیاپی) می‌افتد.</p>
+<figure>
+  <img alt="Image title" src="../fhn_limit_cycle.png" />
+<br />
+<figcaption>با جریان ورودیِ پایدار (I=۰٫۵)، نقطهٔ ثابت ناپایدار می‌شود و یک چرخهٔ حدیِ پایدار پدید می‌آید؛ این چرخه، شلیک تونیک نورون است.</figcaption>
+</figure>
+<h2 id="_14">مدل موریس–لِکار</h2>
+<p>برخلاف فیتزهیو–ناگومو که انتزاعی و کیفی است، مدل <strong>موریس–لِکار</strong> (ML) یک مدلِ زیست‌فیزیکیِ واقعی است که نخست برای فیبر ماهیچهٔ کشتی‌چسب (barnacle) ارائه شد. این مدل، با حفظِ معنای زیستیِ پارامترها، همچنان دوبعدی و در نتیجه قابل‌تحلیل در صفحهٔ فاز است؛ به همین دلیل پلِ خوبی میان مدل انتزاعیِ FHN و مدل کاملِ هاجکین–هاکسلی است.</p>
+<h3 id="_15">استخراج زیست‌فیزیکی معادله‌ها</h3>
+<p>نقطهٔ شروع، همان قانون پایستگیِ بار روی غشاست: جریانِ خازنیِ غشا برابر است با جریانِ تزریقی منهای مجموع جریان‌های یونی. در مدل ML سه جریان در نظر گرفته می‌شود: جریانِ کلسیمِ تحریکی، جریانِ پتاسیمِ بازدارنده و یک جریانِ نشتی. هر جریان از قانونِ اهمِ یونی پیروی می‌کند، یعنی متناسب با اختلافِ ولتاژ از پتانسیل تعادلِ همان یون (که در فصل اول با معادلهٔ نرنست به‌دست آوردیم) است:</p>
+<div class="arithmatex">\[
+C\frac{dV}{dt} = I - g_L\,(V-E_L) - g_{\mathrm{Ca}}\,m_\infty(V)\,(V-E_{\mathrm{Ca}}) - g_K\,w\,(V-E_K).
+\]</div>
+<p>نکتهٔ کلیدیِ فروکاستِ بُعد اینجاست: فعال‌شدنِ کانال کلسیم بسیار سریع است، چنان‌که می‌توان فرض کرد در هر لحظه به مقدار تعادلیِ خود می‌رسد؛ پس به‌جای یک متغیرِ دینامیکی برای آن، تابعِ ایستای <span class="arithmatex">\(m_\infty(V)\)</span> را می‌نشانیم. تنها متغیرِ دروازه‌ایِ دینامیکی، کسرِ بازبودنِ کانال پتاسیم <span class="arithmatex">\(w\)</span> است که با آهنگی متناهی به مقدار تعادلیِ خود نزدیک می‌شود:</p>
+<div class="arithmatex">\[
+\frac{dw}{dt} = \phi\,\frac{w_\infty(V) - w}{\tau_w(V)}.
+\]</div>
+<p>توابعِ فعال‌سازی به‌صورتِ سیگموییدیِ زیر مدل می‌شوند و <span class="arithmatex">\(\phi\)</span> یک ضریبِ مقیاسِ زمانی است:</p>
+<div class="arithmatex">\[
+m_\infty(V)=\tfrac{1}{2}\!\left[1+\tanh\!\frac{V-V_1}{V_2}\right],\quad
+w_\infty(V)=\tfrac{1}{2}\!\left[1+\tanh\!\frac{V-V_3}{V_4}\right],\quad
+\tau_w(V)=\frac{1}{\cosh\!\frac{V-V_3}{2V_4}}.
+\]</div>
+<p>مجموعهٔ پارامترهای به‌کاررفته در شکلِ زیر (که به دوشاخه‌شدنِ هوپف و تحریک‌پذیریِ نوع دو می‌انجامد) چنین است: <span class="arithmatex">\(C=20\)</span>، <span class="arithmatex">\(g_L=2\)</span>، <span class="arithmatex">\(g_{\mathrm{Ca}}=4.4\)</span>، <span class="arithmatex">\(g_K=8\)</span>، <span class="arithmatex">\(E_L=-60\)</span>، <span class="arithmatex">\(E_{\mathrm{Ca}}=120\)</span>، <span class="arithmatex">\(E_K=-84\)</span> (بر حسب میلی‌ولت)، <span class="arithmatex">\(V_1=-1.2\)</span>، <span class="arithmatex">\(V_2=18\)</span>، <span class="arithmatex">\(V_3=2\)</span>، <span class="arithmatex">\(V_4=30\)</span> و <span class="arithmatex">\(\phi=0.04\)</span>.</p>
+<h3 id="_16">نول‌کلاین‌ها و صفحهٔ فاز</h3>
+<p>نول‌کلاین‌ها را مانند پیش با صفرقراردادنِ آهنگ‌ها می‌یابیم. نول‌کلاینِ <span class="arithmatex">\(V\)</span> یک منحنیِ <span class="arithmatex">\(N\)</span>-شکل و نول‌کلاینِ <span class="arithmatex">\(w\)</span> همان سیگمویید است:</p>
+<div class="arithmatex">\[
+\dot V=0:\;\; w=\frac{I - g_L(V-E_L) - g_{\mathrm{Ca}}\,m_\infty(V)(V-E_{\mathrm{Ca}})}{g_K\,(V-E_K)},
+\qquad
+\dot w=0:\;\; w=w_\infty(V).
+\]</div>
+<figure>
+  <img alt="Image title" src="../ml_phase_plane.png" />
+<br />
+<figcaption>صفحهٔ فاز مدل موریس–لِکار. نول‌کلاینِ N-شکلِ ولتاژ و نول‌کلاینِ سیگموییدیِ بازیابی در نقطهٔ ثابت تقاطع می‌کنند؛ مسیر بنفش یک پتانسیل عمل کامل و مسیر سبز یک پاسخ زیرآستانه را نشان می‌دهد.</figcaption>
+</figure>
+<p>ساختارِ هندسی همانی است که در FHN دیدیم: یک نول‌کلاینِ <span class="arithmatex">\(N\)</span>-شکل برای ولتاژ، یک نول‌کلاینِ یکنوای بازیابی، و تحریک‌پذیری‌ای که از شکلِ این دو منحنی و محلِ تقاطعشان برمی‌خیزد. تفاوت در آن است که اینجا محورها و پارامترها معنای زیست‌فیزیکیِ مستقیم دارند: <span class="arithmatex">\(V\)</span> بر حسب میلی‌ولت و <span class="arithmatex">\(w\)</span> کسرِ بازبودنِ کانال پتاسیم است.</p>
+<h3 id="_17">تحریک‌پذیری و انواع آن</h3>
+<p>زیباییِ مدل موریس–لِکار در آن است که با تغییرِ پارامترها هر دو نوعِ تحریک‌پذیری را بازتولید می‌کند. با مجموعهٔ پارامترهای بالا، از دستِ‌رفتنِ پایداریِ نقطهٔ ثابت از راهِ <strong>دوشاخه‌شدنِ هوپف</strong> رخ می‌دهد و نورون از نوع دو است: شلیک با فرکانسی غیرصفر آغاز می‌شود. با مجموعهٔ دیگری از پارامترها (برای مثال <span class="arithmatex">\(V_3=12\)</span>، <span class="arithmatex">\(V_4=17.4\)</span>، <span class="arithmatex">\(\phi=0.0667\)</span> و <span class="arithmatex">\(g_{\mathrm{Ca}}=4\)</span>)، دوشاخه‌شدن از نوعِ <strong>زین–گره روی دایره (SNIC)</strong> خواهد بود و نورون از نوع یک می‌شود: فرکانسِ شلیک می‌تواند از نزدیکِ صفر آغاز شود و به‌نرمی با جریان زیاد شود. همین تفاوتِ ظریف در هندسهٔ دوشاخه‌شدن، تعیین می‌کند که نورون به محرک‌ها چگونه پاسخ دهد — موضوعی که پیامدهای مهمی در رمزگذاریِ عصبی دارد.</p>
+<h2 id="_18">جمع‌بندی</h2>
+<p>در این فصل زبانِ مشترکِ همهٔ مدل‌های بعدی را ساختیم. آموختیم که حالتِ یک نورون نقطه‌ای در فضای فاز است، حالتِ استراحت یک نقطهٔ ثابتِ پایدار، آستانهٔ شلیک یک جداساز یا یک دوشاخه‌شدن، پتانسیل عمل یک گردشِ بزرگ در فضای فاز و شلیکِ تونیک یک چرخهٔ حدیِ پایدار است. دو مدلِ فیتزهیو–ناگومو و موریس–لِکار نشان دادند که چگونه این مفاهیمِ انتزاعی، تحریک‌پذیریِ واقعیِ نورون را توضیح می‌دهند. در گامِ بعد، مدل کاملِ هاجکین–هاکسلی را — که این هر دو از آن برمی‌خیزند — با همین ابزارها بررسی خواهیم کرد.</p>
+<hr />
+<p>برای مطالعهٔ بیشتر:</p>
+<div dir="ltr">
 <ul>
-<li>آیتم اول<ul>
-<li>اول<ul>
-<li>اول</li>
-<li>دوم</li>
+<li>Izhikevich, E.M., 2007. Dynamical systems in neuroscience. MIT press.</li>
+<li>Strogatz, S.H., 2024. Nonlinear dynamics and chaos: with applications to physics, biology, chemistry, and engineering. Chapman and Hall/CRC.</li>
 </ul>
-</li>
-<li>دوم</li>
-</ul>
-</li>
-<li>آیتم دوم</li>
-</ul>
+</div>
+
+
+
+
+
+
+
 
 
 
 
 
                 
+
+  
+    
+    
+
+    <hr>
+    <div class="page-actions" dir="rtl">
+      <a class="md-button"
+         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=enhancement&title=پیشنهاد برای فصل: %D8%B3%DB%8C%D8%B3%D8%AA%D9%85%E2%80%8C%D9%87%D8%A7%DB%8C%20%D8%AF%DB%8C%D9%86%D8%A7%D9%85%DB%8C%DA%A9%DB%8C">
+        پیشنهاد در گیت‌هاب
+      </a>
+      <a class="md-button"
+         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=bug&title=گزارش اشکال در فصل: %D8%B3%DB%8C%D8%B3%D8%AA%D9%85%E2%80%8C%D9%87%D8%A7%DB%8C%20%D8%AF%DB%8C%D9%86%D8%A7%D9%85%DB%8C%DA%A9%DB%8C">
+        گزارش اشکال در گیت‌هاب
+      </a>
+      <a class="md-button"
+         href="mailto:saeed.taghavi.v@gmail.com?subject=بازخورد دربارهٔ فصل: سیستم‌های دینامیکی">
+        ارسال بازخورد با ایمیل
+      </a>
+    </div>
+  
+
+
               </article>
             </div>
           
           
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
@@ -483,10 +1624,16 @@ $$</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.51198bba.min.js"></script>
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u06a9\u067e\u06cc \u0634\u062f", "clipboard.copy": "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646", "search.result.more.one": "1 \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.more.other": "# \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.none": "\u0633\u0646\u062f\u06cc \u06cc\u0627\u0641\u062a \u0646\u0634\u062f", "search.result.one": "1 \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.other": "# \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.placeholder": "\u0628\u0631\u0627\u06cc \u062c\u0633\u062a\u062c\u0648 \u062a\u0627\u06cc\u067e \u06a9\u0646\u06cc\u062f", "search.result.term.missing": "\u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a", "select.version": "\u0627\u0646\u062a\u062e\u0627\u0628 \u0648\u06cc\u0631\u0627\u06cc\u0634"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/extra.js"></script>
       
         <script src="../javascripts/config.js"></script>
       
