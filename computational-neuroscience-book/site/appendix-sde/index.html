@@ -1,0 +1,1384 @@
+
+<!doctype html>
+<html lang="fa" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../appendix-ode/">
+      
+      
+        <link rel="next" href="../appendix-nest/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>روش اویلر–مارویاما (SDE) - کتاب علوم اعصاب محاسباتی</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Naskh+Arabic:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Naskh Arabic";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="rtl" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          پرش به محتویات
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="سرتیتر">
+    <a href=".." title="کتاب علوم اعصاب محاسباتی" class="md-header__button md-logo" aria-label="کتاب علوم اعصاب محاسباتی" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            کتاب علوم اعصاب محاسباتی
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              روش اویلر–مارویاما (SDE)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="جستجو" placeholder="جستجو" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="جستجو">
+        
+        <button type="reset" class="md-search__icon md-icon" title="بازنشانی" aria-label="بازنشانی" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            راه‌اندازی جستجو
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="هدایت" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="کتاب علوم اعصاب محاسباتی" class="md-nav__button md-logo" aria-label="کتاب علوم اعصاب محاسباتی" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    کتاب علوم اعصاب محاسباتی
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    خانه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پیش‌نیازها
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پیش‌نیازها
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    غشای تحریک‌پذیر
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیستم‌های دینامیکی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های نورون
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مدل‌های نورون
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل هاجکین-هاکسلی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های ساده‌شده: LIF، EIF، AdEx
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    شبکه‌های نورون‌های نقطه‌ای
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    شبکه‌های نورون‌های نقطه‌ای
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    از نورون به جمعیت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    شبکه‌های تصادفی متعادل
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نوسانات در شبکه‌های تحریکی-مهاری
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پلاستیسیتی وابسته به زمان اسپایک (STDP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های جمعیتی و توده عصبی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مدل‌های جمعیتی و توده عصبی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    معادلات نرخ آتش
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل ویلسون-کوان
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پیوست‌ها
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پیوست‌ها
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-ode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    حل عددی معادلات دیفرانسیل
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    روش اویلر–مارویاما (SDE)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    روش اویلر–مارویاما (SDE)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="فهرست در این صفحه">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      فهرست در این صفحه
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        فرایند وینر: سنگ‌بنای نوفه
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        معادلهٔ دیفرانسیل تصادفی
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        روش اویلر–مارویاما
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        مثال: فرایند اورنشتاین–اولنبک
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        مثال: نوسانگر هماهنگ با ورودی نوفه‌ای
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        مثال: مدل فیتزهیو–ناگومو با جریان نوفه‌ای
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        همگرایی: قوی، ضعیف و بهای نوفه
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        نکته‌ها و گام‌های بعدی
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-nest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    معرفی بسته شبیه‌سازی  NEST
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-neurolib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    معرفی بسته شبیه‌سازی  neurolib
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="فهرست در این صفحه">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      فهرست در این صفحه
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        فرایند وینر: سنگ‌بنای نوفه
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        معادلهٔ دیفرانسیل تصادفی
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        روش اویلر–مارویاما
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        مثال: فرایند اورنشتاین–اولنبک
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        مثال: نوسانگر هماهنگ با ورودی نوفه‌ای
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        مثال: مدل فیتزهیو–ناگومو با جریان نوفه‌ای
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        همگرایی: قوی، ضعیف و بهای نوفه
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        نکته‌ها و گام‌های بعدی
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+
+<h1 id="_1">پیوست: حل عددی معادلات دیفرانسیل تصادفی (روش اویلر–مارویاما)</h1>
+<p>تا اینجا سامانه‌ها را قطعی فرض کردیم: شرطِ اولیه آینده را به‌طورِ یکتا تعیین می‌کرد. اما نورون‌ها در محیطی پرنوفه زندگی می‌کنند — بازشدنِ تصادفیِ کانال‌های یونی، بمبارانِ سیناپسیِ نامنظم و ورودی‌های پس‌زمینه همگی نوفه‌اند. برای مدل‌کردنِ این پدیده‌ها به <strong>معادلهٔ دیفرانسیلِ تصادفی</strong> (SDE) و روشی برای حلِ عددیِ آن نیاز داریم. ساده‌ترین و پرکاربردترین چنین روشی، <strong>اویلر–مارویاما</strong> است.</p>
+<h2 id="_2">فرایند وینر: سنگ‌بنای نوفه</h2>
+<p>نوفهٔ پایه در این چارچوب، <strong>فرایند وینر</strong> (یا حرکتِ براونی) <span class="arithmatex">\(W(t)\)</span> است. تنها ویژگیِ موردِ نیازِ ما این است که افزایش‌های آن در بازه‌های جدا از هم مستقل‌اند و توزیعِ نرمال با واریانسی برابرِ طولِ بازه دارند:</p>
+<div class="arithmatex">\[
+\Delta W = W(t+\Delta t) - W(t) \sim \mathcal{N}(0, \Delta t).
+\]</div>
+<p>نکتهٔ کلیدی و سرنوشت‌ساز در همین‌جاست: انحرافِ معیارِ <span class="arithmatex">\(\Delta W\)</span> نه با <span class="arithmatex">\(\Delta t\)</span>، بلکه با <span class="arithmatex">\(\sqrt{\Delta t}\)</span> مقیاس می‌خورد. همین ریشهٔ دوم است که حسابِ تصادفی را از حسابِ معمولی جدا می‌کند و، چنان‌که خواهیم دید، مرتبهٔ همگراییِ روش را نصف می‌کند.</p>
+<h2 id="_3">معادلهٔ دیفرانسیل تصادفی</h2>
+<p>یک SDE دو بخش دارد: یک جملهٔ <strong>روند</strong> (drift) که مانندِ یک ODE معمولی رفتارِ متوسط را می‌راند، و یک جملهٔ <strong>پخش</strong> (diffusion) که نوفه را وارد می‌کند:</p>
+<div class="arithmatex">\[
+dX = \underbrace{a(X, t)\,dt}_{\text{drift}} + \underbrace{b(X, t)\,dW}_{\text{diffusion}}.
+\]</div>
+<p>در تفسیرِ ایتو، که در این‌جا به‌کار می‌بریم، جملهٔ پخش در آغازِ هر بازه ارزیابی می‌شود. این معادله را باید به‌صورتِ شکلِ انتگرالی فهمید، چون <span class="arithmatex">\(W\)</span> مشتق‌پذیر نیست؛ اما برای شبیه‌سازی، تنها به شکلِ گسسته‌شدهٔ آن نیاز داریم.</p>
+<h2 id="_4">روش اویلر–مارویاما</h2>
+<p>روشِ اویلر–مارویاما دقیقاً همان اویلرِ پیشرو است، با یک افزوده: گامِ نوفه. هر بازه را گسسته می‌کنیم و افزایشِ وینر را با یک عددِ تصادفیِ نرمال می‌سازیم:</p>
+<div class="arithmatex">\[
+X_{n+1} = X_n + a(X_n, t_n)\,\Delta t + b(X_n, t_n)\,\sqrt{\Delta t}\;\xi_n,
+\qquad \xi_n \sim \mathcal{N}(0, 1).
+\]</div>
+<p>توجه کنید که جملهٔ نوفه در <span class="arithmatex">\(\sqrt{\Delta t}\)</span> ضرب می‌شود، نه در <span class="arithmatex">\(\Delta t\)</span> — این مستقیماً از ویژگیِ فرایندِ وینر می‌آید و قلبِ تفاوتِ این روش با اویلرِ معمولی است.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">def</span> <span class="nf">euler_maruyama</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">rng</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="n">rng</span> <span class="o">=</span> <span class="n">rng</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">);</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="n">dW</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">))</span>      <span class="c1"># Wiener increment ~ N(0, dt)</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">*</span><span class="n">dt</span> <span class="o">+</span> <span class="n">b</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">*</span><span class="n">dW</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">*</span><span class="n">dt</span><span class="p">,</span> <span class="n">x</span>
+</code></pre></div>
+<h2 id="_5">مثال: فرایند اورنشتاین–اولنبک</h2>
+<p>نمونهٔ کلاسیک، فرایندِ <strong>اورنشتاین–اولنبک</strong> (OU) است که یک سامانهٔ خطیِ بازگشت‌به‌میانگین را با نوفه توصیف می‌کند و در علوم اعصاب برای مدل‌کردنِ ولتاژِ زیرآستانه با ورودیِ پس‌زمینه به‌کار می‌رود:</p>
+<div class="arithmatex">\[
+dX = -\theta\,X\,dt + \sigma\,dW.
+\]</div>
+<p>جملهٔ روندِ <span class="arithmatex">\(-\theta X\)</span> متغیر را به‌سمتِ صفر بازمی‌کشد و جملهٔ پخشِ <span class="arithmatex">\(\sigma\,dW\)</span> آن را پراکنده می‌کند. تعادلِ این دو، یک توزیعِ ایستا با انحرافِ معیارِ <span class="arithmatex">\(\sigma/\sqrt{2\theta}\)</span> می‌سازد. اگر چند مسیرِ نمونه را شبیه‌سازی کنیم، می‌بینیم که میانگین به‌صورتِ نمایی به صفر می‌رسد و پراکندگیِ مسیرها در همان نوارِ ایستا تثبیت می‌شود:</p>
+<figure>
+  <img alt="Image title" src="../em_ou_paths.png" />
+<br />
+<figcaption>چند مسیرِ نمونهٔ فرایند اورنشتاین–اولنبک با روش اویلر–مارویاما. میانگینِ تجربی (سیاه) به‌صورت نمایی به صفر بازمی‌گردد و پراکندگیِ مسیرها در نوارِ ایستای ±σ/√(2θ) (خط‌چینِ قرمز) تثبیت می‌شود.</figcaption>
+</figure>
+<h2 id="_6">مثال: نوسانگر هماهنگ با ورودی نوفه‌ای</h2>
+<p>روش به همان سادگی به سامانه‌های دوبعدی تعمیم می‌یابد. نوسانگرِ هماهنگ را در نظر بگیرید که یک جریانِ نوفه‌ای روی سرعتِ آن اثر می‌گذارد — نمونه‌ای ساده از یک سامانهٔ نوسانی که پیوسته تحتِ تأثیرِ نوفهٔ پس‌زمینه است:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+dx &amp;= v\,dt,\\
+dv &amp;= -\omega^2 x\,dt + \sigma\,dW.
+\end{aligned}
+\]</div>
+<p>تنها معادلهٔ سرعت یک جملهٔ پخش دارد، چون نوفه روی نیرو (و نه مستقیماً روی مکان) وارد می‌شود. در شکلِ گسسته، فقط همان معادله یک گامِ <span class="arithmatex">\(\sigma\sqrt{\Delta t}\,\xi\)</span> می‌گیرد. نکتهٔ ظریف این است که برای پایدارماندنِ دامنهٔ نوسانِ نسخهٔ قطعی، سرعت را پیش از مکان به‌روزرسانی می‌کنیم و سپس از سرعتِ تازه برای مکان استفاده می‌کنیم؛ این همان ترتیبِ نیمه‌ضمنیِ (سیمپلکتیکِ) پیوستِ معادلات قطعی است که از انباشتِ مصنوعیِ انرژی در اویلر جلوگیری می‌کند.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">def</span> <span class="nf">sho_step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">rng</span><span class="p">):</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="n">dW</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">))</span>         <span class="c1"># Wiener increment ~ N(0, dt)</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="n">v_new</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="n">omega</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">dt</span> <span class="o">+</span> <span class="n">sigma</span><span class="o">*</span><span class="n">dW</span>  <span class="c1"># update velocity first (noise here)</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="n">x_new</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v_new</span><span class="o">*</span><span class="n">dt</span>                        <span class="c1"># semi-implicit: use the new velocity</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="k">return</span> <span class="n">x_new</span><span class="p">,</span> <span class="n">v_new</span>
+</code></pre></div>
+<p>اکنون به‌جای یک مقدارِ نوفه، چند مقدار را امتحان می‌کنیم تا اثرِ توانِ نوفه را ببینیم. با <span class="arithmatex">\(\sigma=0\)</span> نوسان کاملاً منظم و دامنه‌اش ثابت است (در صفحهٔ فاز یک دایرهٔ بسته). با افزایشِ <span class="arithmatex">\(\sigma\)</span>، نوفه پیوسته نوسانگر را از مدارش بیرون می‌راند: نوسان نامنظم‌تر می‌شود و دایرهٔ صفحهٔ فاز به یک حلقهٔ پهن و پُرنوفه بدل می‌شود، اما نوسان از میان نمی‌رود.</p>
+<figure>
+  <img alt="Image title" src="../em_sho.png" />
+<br />
+<figcaption>نوسانگر هماهنگ با توان‌های فزایندهٔ نوفه (σ = ۰، ۰٫۱، ۰٫۳، ۰٫۶). ستون چپ سری زمانی و ستون راست صفحهٔ فاز است. با σ=۰ مدار یک دایرهٔ بسته است؛ هرچه σ بزرگ‌تر شود، مدار به حلقه‌ای پهن‌تر و نامنظم‌تر تبدیل می‌شود.</figcaption>
+</figure>
+<h2 id="_7">مثال: مدل فیتزهیو–ناگومو با جریان نوفه‌ای</h2>
+<p>نمونهٔ مهم‌تر برای علوم اعصاب، افزودنِ نوفه به جریانِ ورودیِ یک نورونِ تحریک‌پذیر است. مدلِ فیتزهیو–ناگومو (که در فصل دوم دیدیم) را با یک جملهٔ نوفه روی معادلهٔ ولتاژ می‌نویسیم:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+dv &amp;= \Big(v - \tfrac{v^3}{3} - w + I\Big)\,dt + \sigma\,dW,\\
+dw &amp;= \varepsilon\,(v + a - b\,w)\,dt.
+\end{aligned}
+\]</div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">def</span> <span class="nf">fhn_step</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">rng</span><span class="p">):</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="n">dW</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">))</span>                <span class="c1"># Wiener increment ~ N(0, dt)</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="n">v_new</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">v</span><span class="o">**</span><span class="mi">3</span><span class="o">/</span><span class="mi">3</span> <span class="o">-</span> <span class="n">w</span> <span class="o">+</span> <span class="n">I</span><span class="p">)</span><span class="o">*</span><span class="n">dt</span> <span class="o">+</span> <span class="n">sigma</span><span class="o">*</span><span class="n">dW</span>    <span class="c1"># noisy input current</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="n">w_new</span> <span class="o">=</span> <span class="n">w</span> <span class="o">+</span> <span class="n">eps</span><span class="o">*</span><span class="p">(</span><span class="n">v</span> <span class="o">+</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="o">*</span><span class="n">w</span><span class="p">)</span><span class="o">*</span><span class="n">dt</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="k">return</span> <span class="n">v_new</span><span class="p">,</span> <span class="n">w_new</span>
+</code></pre></div>
+<p>جریانِ ورودیِ <span class="arithmatex">\(I\)</span> را زیرِ آستانهٔ شلیک انتخاب می‌کنیم؛ در نتیجه نسخهٔ قطعی روی نقطهٔ تعادلِ پایدار می‌ماند و کاملاً خاموش است. حال همان شبیه‌سازی را برای چند توانِ نوفه تکرار می‌کنیم. با <span class="arithmatex">\(\sigma=0\)</span> نورون ساکت است؛ اما همین‌که نوفه را بزرگ‌تر کنیم، تلنگرهای تصادفی نورون را از آستانه عبور می‌دهند و پتانسیل‌های عمل پدید می‌آیند — و هرچه توانِ نوفه بیشتر، شلیک‌ها پُرتکرارتر. این پدیده به <strong>شلیکِ القاشده با نوفه</strong> مشهور است و نشان می‌دهد که نرخِ شلیک می‌تواند مستقیماً با شدتِ نوفه تنظیم شود.</p>
+<figure>
+  <img alt="Image title" src="../em_fhn.png" />
+<br />
+<figcaption>مدل فیتزهیو–ناگومو با جریان زیرآستانه (I=۰٫۲۵) و توان‌های فزایندهٔ نوفه. با σ=۰ نورون خاموش است؛ با افزایش σ شمار پتانسیل‌های عملِ القاشده با نوفه به‌طور یکنواخت بیشتر می‌شود.</figcaption>
+</figure>
+<p>این دو مثال نشان می‌دهند که نوفه صرفاً «اخلال» نیست؛ شدتِ آن می‌تواند رفتارِ سامانه را به‌طور پیوسته تنظیم کند و گاه رفتارِ کیفیِ تازه‌ای (مانندِ شلیکِ یک نورونِ خاموش) بیافریند.</p>
+<h2 id="_8">همگرایی: قوی، ضعیف و بهای نوفه</h2>
+<p>در سامانه‌های تصادفی دو نوع همگرایی را از هم جدا می‌کنیم. <strong>همگراییِ قوی</strong> به دقتِ خودِ مسیر (به‌ازای همان تحققِ نوفه) می‌پردازد، حال‌آن‌که <strong>همگراییِ ضعیف</strong> تنها دقتِ کمیت‌های میانگین مانندِ امید یا واریانس را می‌سنجد. روشِ اویلر–مارویاما مرتبهٔ همگراییِ <strong>قویِ</strong> <span class="arithmatex">\(1/2\)</span> و مرتبهٔ همگراییِ <strong>ضعیفِ</strong> <span class="arithmatex">\(1\)</span> دارد.</p>
+<p>مرتبهٔ قویِ <span class="arithmatex">\(1/2\)</span> پیامدِ مستقیمِ همان <span class="arithmatex">\(\sqrt{\Delta t}\)</span> است و آن را می‌توان به‌روشنی دید: اگر خطای قوی را بر حسبِ گام در مقیاسِ لگاریتمی رسم کنیم، شیبِ خط نزدیکِ <span class="arithmatex">\(1/2\)</span> است — یعنی نصفِ مرتبهٔ اویلرِ معمولی برای ODEها. به بیانِ دیگر، نوفه نیمی از مرتبهٔ دقت را می‌گیرد.</p>
+<figure>
+  <img alt="Image title" src="../em_convergence.png" />
+<br />
+<figcaption>همگراییِ قویِ روش اویلر–مارویاما. خطای قوی با شیبی نزدیک به ۱/۲ کاهش می‌یابد؛ نصفِ مرتبهٔ اویلرِ پیشرو برای معادلات قطعی. این، بهای حضورِ نوفه است.</figcaption>
+</figure>
+<h2 id="_9">نکته‌ها و گام‌های بعدی</h2>
+<p>دو نکتهٔ تکمیلی ارزشِ یادآوری دارند. نخست، <strong>تفسیرِ ایتو در برابرِ استراتونوویچ</strong>: وقتی جملهٔ پخش به حالت بستگی دارد (<span class="arithmatex">\(b\)</span> تابعی از <span class="arithmatex">\(X\)</span>)، انتخابِ نقطهٔ ارزیابیِ نوفه در نتیجه اثر می‌گذارد؛ ما تفسیرِ ایتو را به‌کار بردیم که با شکلِ اویلر–مارویاما سازگار است. دوم، روشِ <strong>میلستین</strong> با افزودنِ یک جملهٔ تصحیحی، مرتبهٔ همگراییِ قوی را به <span class="arithmatex">\(1\)</span> می‌رساند و گزینهٔ بعدی است اگر دقتِ مسیرها اهمیت داشته باشد.</p>
+<p>این ابزار در بخش‌های بعدی بارها به کار می‌آید: از مدل‌های نورونِ نوفه‌ای و نسخهٔ تصادفیِ هاجکین–هاکسلی گرفته تا ورودیِ پس‌زمینهٔ تصادفی در شبکه‌های بزرگ که در بخشِ شبکه‌ها به آن می‌پردازیم.</p>
+<hr />
+<p>برای مطالعهٔ بیشتر:</p>
+<div dir="ltr">
+<ul>
+<li>Higham, D.J., 2001. An algorithmic introduction to numerical simulation of stochastic differential equations. SIAM Review 43(3), 525–546.</li>
+<li>Kloeden, P.E., Platen, E., 1992. Numerical Solution of Stochastic Differential Equations. Springer.</li>
+<li>Gardiner, C., 2009. Stochastic Methods, 4th ed. Springer.</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+  
+    
+    
+
+    <hr>
+    <div class="page-actions" dir="rtl">
+      <a class="md-button"
+         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=enhancement&title=پیشنهاد برای فصل: %D8%B1%D9%88%D8%B4%20%D8%A7%D9%88%DB%8C%D9%84%D8%B1%E2%80%93%D9%85%D8%A7%D8%B1%D9%88%DB%8C%D8%A7%D9%85%D8%A7%20%28SDE%29">
+        پیشنهاد در گیت‌هاب
+      </a>
+      <a class="md-button"
+         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=bug&title=گزارش اشکال در فصل: %D8%B1%D9%88%D8%B4%20%D8%A7%D9%88%DB%8C%D9%84%D8%B1%E2%80%93%D9%85%D8%A7%D8%B1%D9%88%DB%8C%D8%A7%D9%85%D8%A7%20%28SDE%29">
+        گزارش اشکال در گیت‌هاب
+      </a>
+      <a class="md-button"
+         href="mailto:saeed.taghavi.v@gmail.com?subject=بازخورد دربارهٔ فصل: روش اویلر–مارویاما (SDE)">
+        ارسال بازخورد با ایمیل
+      </a>
+    </div>
+  
+
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u06a9\u067e\u06cc \u0634\u062f", "clipboard.copy": "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646", "search.result.more.one": "1 \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.more.other": "# \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.none": "\u0633\u0646\u062f\u06cc \u06cc\u0627\u0641\u062a \u0646\u0634\u062f", "search.result.one": "1 \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.other": "# \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.placeholder": "\u0628\u0631\u0627\u06cc \u062c\u0633\u062a\u062c\u0648 \u062a\u0627\u06cc\u067e \u06a9\u0646\u06cc\u062f", "search.result.term.missing": "\u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a", "select.version": "\u0627\u0646\u062a\u062e\u0627\u0628 \u0648\u06cc\u0631\u0627\u06cc\u0634"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/extra.js"></script>
+      
+        <script src="../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

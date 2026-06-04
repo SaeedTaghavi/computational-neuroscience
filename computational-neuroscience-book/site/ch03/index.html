@@ -1,0 +1,1565 @@
+
+<!doctype html>
+<html lang="fa" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ch02/">
+      
+      
+        <link rel="next" href="../ch04/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>مدل هاجکین-هاکسلی - کتاب علوم اعصاب محاسباتی</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Naskh+Arabic:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Naskh Arabic";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="rtl" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#-" class="md-skip">
+          پرش به محتویات
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="سرتیتر">
+    <a href=".." title="کتاب علوم اعصاب محاسباتی" class="md-header__button md-logo" aria-label="کتاب علوم اعصاب محاسباتی" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            کتاب علوم اعصاب محاسباتی
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              مدل هاجکین-هاکسلی
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="جستجو" placeholder="جستجو" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="جستجو">
+        
+        <button type="reset" class="md-search__icon md-icon" title="بازنشانی" aria-label="بازنشانی" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            راه‌اندازی جستجو
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="هدایت" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="کتاب علوم اعصاب محاسباتی" class="md-nav__button md-logo" aria-label="کتاب علوم اعصاب محاسباتی" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    کتاب علوم اعصاب محاسباتی
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    خانه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پیش‌نیازها
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پیش‌نیازها
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    غشای تحریک‌پذیر
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیستم‌های دینامیکی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های نورون
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مدل‌های نورون
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل هاجکین-هاکسلی
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل هاجکین-هاکسلی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="فهرست در این صفحه">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      فهرست در این صفحه
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        غشا به‌مثابهٔ یک مدار الکتریکی
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        معادلهٔ پایهٔ غشا
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        جریان‌های وابسته به رسانایی
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        رسانایی‌های متغیر و متغیرهای دروازه‌ای
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        معادله‌های کامل هاجکین-هاکسلی
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        شبیه‌سازی عددی: انتگرال‌گیری اویلر از صفر
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        نتایج: پتانسیل عمل
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        سازوکار: متغیرهای دروازه‌ای و رسانایی‌ها در طول اسپایک
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        چرخهٔ هاجکین-هاکسلی در صفحهٔ فاز
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        منحنی F–I و تحریک‌پذیری نوع دو
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        جمع‌بندی
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های ساده‌شده: LIF، EIF، AdEx
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    شبکه‌های نورون‌های نقطه‌ای
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    شبکه‌های نورون‌های نقطه‌ای
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    از نورون به جمعیت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    شبکه‌های تصادفی متعادل
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نوسانات در شبکه‌های تحریکی-مهاری
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پلاستیسیتی وابسته به زمان اسپایک (STDP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های جمعیتی و توده عصبی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مدل‌های جمعیتی و توده عصبی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    معادلات نرخ آتش
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل ویلسون-کوان
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پیوست‌ها
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پیوست‌ها
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-ode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    حل عددی معادلات دیفرانسیل
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-sde/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    روش اویلر–مارویاما (SDE)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-nest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    معرفی بسته شبیه‌سازی  NEST
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-neurolib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    معرفی بسته شبیه‌سازی  neurolib
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="فهرست در این صفحه">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      فهرست در این صفحه
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        غشا به‌مثابهٔ یک مدار الکتریکی
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        معادلهٔ پایهٔ غشا
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        جریان‌های وابسته به رسانایی
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        رسانایی‌های متغیر و متغیرهای دروازه‌ای
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        معادله‌های کامل هاجکین-هاکسلی
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        شبیه‌سازی عددی: انتگرال‌گیری اویلر از صفر
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        نتایج: پتانسیل عمل
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        سازوکار: متغیرهای دروازه‌ای و رسانایی‌ها در طول اسپایک
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        چرخهٔ هاجکین-هاکسلی در صفحهٔ فاز
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        منحنی F–I و تحریک‌پذیری نوع دو
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        جمع‌بندی
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+
+<h1 id="-">مدل هاجکین-هاکسلی</h1>
+<p>در فصل اول دیدیم که غشای نورون یون‌ها را جدا نگه می‌دارد و یک پتانسیل استراحت می‌سازد، و در فصل دوم زبانِ سیستم‌های دینامیکی را آموختیم. اکنون این دو را به هم می‌رسانیم. مدل <strong>هاجکین–هاکسلی</strong> (HH) که در سال ۱۹۵۲ بر پایهٔ آزمایش‌های روی آکسونِ غول‌پیکرِ ماهی مرکب ارائه شد و جایزهٔ نوبل را برای صاحبانش به ارمغان آورد، نخستین توصیفِ کمّی و موفق از پتانسیل عمل است. این فصل جایی است که پیوندِ میان فیزیک و علوم اعصاب عینی و ملموس می‌شود: از قانون پایستگیِ بار و مفهومِ خازن آغاز می‌کنیم، به یک دستگاهِ چهار معادله‌ایِ دیفرانسیل می‌رسیم، و سپس با چند خط کدِ پایتون — که خودمان انتگرال‌گیری اویلر را در آن می‌نویسیم — یک پتانسیل عملِ واقعی می‌سازیم.</p>
+<h2 id="_1">غشا به‌مثابهٔ یک مدار الکتریکی</h2>
+<p>غشای لیپیدی، که در فصل اول دیدیم نسبت به یون‌ها نفوذناپذیر است، دو صفحهٔ رسانا (محلولِ یونیِ درون و بیرون) را با یک لایهٔ عایق از هم جدا می‌کند؛ این دقیقاً تعریفِ یک <strong>خازن</strong> است. اگر بارِ انباشته بر دو سوی غشا را <span class="arithmatex">\(Q\)</span> و اختلاف پتانسیل را <span class="arithmatex">\(V\)</span> بنامیم، رابطهٔ خازن می‌گوید:</p>
+<div class="arithmatex">\[
+Q = C_m\,V,
+\]</div>
+<p>که در آن <span class="arithmatex">\(C_m\)</span> ظرفیت خازنیِ غشاست (برای غشای زیستی نوعاً نزدیک به <span class="arithmatex">\(1\ \mu\mathrm{F/cm^2}\)</span>). جریانی که بارِ خازن را تغییر می‌دهد، <strong>جریان خازنی</strong> است؛ با مشتق‌گیری از رابطهٔ بالا:</p>
+<div class="arithmatex">\[
+I_C = \frac{dQ}{dt} = C_m\,\frac{dV}{dt}.
+\]</div>
+<p>از سوی دیگر، کانال‌های یونی مسیرهایی رسانا در دلِ همین عایق فراهم می‌کنند. پس مدارِ معادلِ غشا یک خازن است که به‌موازاتِ آن، برای هر گونه یون، یک شاخهٔ رسانا قرار دارد. هر شاخه از یک رسانایی و یک منبعِ ولتاژ (باتری) ساخته شده است؛ این باتری همان پتانسیل تعادلِ نرنستِ آن یون است که در فصل اول به‌دست آوردیم.</p>
+<h2 id="_2">معادلهٔ پایهٔ غشا</h2>
+<p>قانون پایستگیِ بار (قانون جریانِ کیرشهف) می‌گوید مجموعِ جریان‌هایی که به گرهٔ درونِ سلول وارد و خارج می‌شوند صفر است. اگر جریانِ تزریقیِ خارجی را <span class="arithmatex">\(I\)</span> بگیریم، این جریان یا بارِ خازن را تغییر می‌دهد یا از راهِ کانال‌ها به‌صورتِ جریانِ یونی عبور می‌کند:</p>
+<div class="arithmatex">\[
+I = I_C + I_{\text{ion}} = C_m\,\frac{dV}{dt} + I_{\text{ion}}.
+\]</div>
+<p>با مرتب‌کردن، معادلهٔ بنیادیِ تحولِ ولتاژ غشا به‌دست می‌آید:</p>
+<div class="arithmatex">\[
+C_m\,\frac{dV}{dt} = I - I_{\text{ion}}.
+\]</div>
+<p>همهٔ کارِ باقی‌مانده این است که بفهمیم <span class="arithmatex">\(I_{\text{ion}}\)</span> چیست. این همان نقطه‌ای است که نبوغِ هاجکین و هاکسلی آشکار می‌شود.</p>
+<h2 id="_3">جریان‌های وابسته به رسانایی</h2>
+<p>هر جریانِ یونی از یک قانونِ اهمِ ساده پیروی می‌کند: جریان متناسب است با رسانایی، ضرب در نیرویِ محرکهٔ الکتریکی. نیرویِ محرکه، فاصلهٔ ولتاژ غشا از پتانسیل تعادلِ همان یون است:</p>
+<div class="arithmatex">\[
+I_{\text{ion}} = g_{\text{ion}}\,(V - E_{\text{ion}}).
+\]</div>
+<p>این رابطه با شهودِ فصل اول سازگار است: وقتی <span class="arithmatex">\(V = E_{\text{ion}}\)</span> باشد، جریانِ خالصِ آن یون صفر است — دقیقاً همان پتانسیل تعادلی که از معادلهٔ نرنست آمد. هرچه ولتاژ از تعادل دورتر باشد، نیرویِ محرکه و در نتیجه جریان بزرگ‌تر است.</p>
+<p>در مدل HH سه جریان در نظر گرفته می‌شود: سدیم، پتاسیم و یک جریانِ نشتیِ جمع‌بندی‌شده (که عمدتاً کلر و سایر یون‌هاست). پس:</p>
+<div class="arithmatex">\[
+I_{\text{ion}} = g_{\mathrm{Na}}\,(V-E_{\mathrm{Na}}) + g_{\mathrm{K}}\,(V-E_{\mathrm{K}}) + g_L\,(V-E_L).
+\]</div>
+<p>اگر رسانایی‌ها ثابت بودند، این تنها یک مدارِ خطیِ ساده بود و هرگز پتانسیل عمل تولید نمی‌شد. کشفِ کلیدیِ هاجکین و هاکسلی این بود که <strong>رسانایی‌های سدیم و پتاسیم ثابت نیستند؛ آن‌ها به ولتاژ و به زمان وابسته‌اند.</strong></p>
+<h2 id="_4">رسانایی‌های متغیر و متغیرهای دروازه‌ای</h2>
+<p>هاجکین و هاکسلی برای توصیفِ وابستگیِ رسانایی به ولتاژ، مفهومِ <strong>متغیر دروازه‌ای</strong> را معرفی کردند. تصور کنید هر کانال از چند «دروازه» ساخته شده است و تنها وقتی همهٔ دروازه‌ها باز باشند، کانال جریان عبور می‌دهد. اگر <span class="arithmatex">\(x\)</span> احتمالِ بازبودنِ یک دروازهٔ منفرد باشد، و این دروازه میان دو حالتِ باز و بسته با آهنگ‌های وابسته به ولتاژ جابه‌جا شود، داریم:</p>
+<div class="arithmatex">\[
+\frac{dx}{dt} = \alpha_x(V)\,(1-x) - \beta_x(V)\,x,
+\]</div>
+<p>که در آن <span class="arithmatex">\(\alpha_x(V)\)</span> آهنگِ گذار از بسته به باز و <span class="arithmatex">\(\beta_x(V)\)</span> آهنگِ گذارِ معکوس است. این معادلهٔ خطیِ مرتبهٔ اول را می‌توان به شکلِ گویاتری بازنوشت. اگر تعریف کنیم</p>
+<div class="arithmatex">\[
+x_\infty(V) = \frac{\alpha_x(V)}{\alpha_x(V)+\beta_x(V)},
+\qquad
+\tau_x(V) = \frac{1}{\alpha_x(V)+\beta_x(V)},
+\]</div>
+<p>آنگاه معادله به‌صورتِ زیر درمی‌آید:</p>
+<div class="arithmatex">\[
+\frac{dx}{dt} = \frac{x_\infty(V) - x}{\tau_x(V)}.
+\]</div>
+<p>این فرم تفسیرِ روشنی دارد: متغیرِ دروازه‌ای با ثابت‌زمانیِ <span class="arithmatex">\(\tau_x(V)\)</span> به‌سمتِ مقدارِ تعادلیِ <span class="arithmatex">\(x_\infty(V)\)</span> میل می‌کند، و هر دوِ این کمیت‌ها به ولتاژ بستگی دارند.</p>
+<p>هاجکین و هاکسلی با برازشِ داده‌های تجربی دریافتند که رسانایی‌ها به توان‌هایی از متغیرهای دروازه‌ای وابسته‌اند. کانال پتاسیم با چهار دروازهٔ فعال‌سازِ همسان (<span class="arithmatex">\(n\)</span>) مدل می‌شود و کانال سدیم با سه دروازهٔ فعال‌ساز (<span class="arithmatex">\(m\)</span>) و یک دروازهٔ غیرفعال‌ساز (<span class="arithmatex">\(h\)</span>). اگر دروازه‌ها مستقل باشند، احتمالِ بازبودنِ همهٔ آن‌ها حاصل‌ضربِ احتمال‌هاست؛ از این‌رو:</p>
+<div class="arithmatex">\[
+g_{\mathrm{Na}} = \bar g_{\mathrm{Na}}\,m^3 h,
+\qquad
+g_{\mathrm{K}} = \bar g_{\mathrm{K}}\,n^4,
+\]</div>
+<p>که در آن <span class="arithmatex">\(\bar g_{\mathrm{Na}}\)</span> و <span class="arithmatex">\(\bar g_{\mathrm{K}}\)</span> بیشینهٔ رسانایی هستند. متغیر <span class="arithmatex">\(m\)</span> سریع است و با دپلاریزه‌شدن به‌سرعت بالا می‌رود (فعال‌سازیِ سدیم)، <span class="arithmatex">\(h\)</span> کند است و با دپلاریزه‌شدن پایین می‌آید (غیرفعال‌سازیِ سدیم)، و <span class="arithmatex">\(n\)</span> نیز کند است و دپلاریزه‌شدن آن را بالا می‌برد (فعال‌سازیِ پتاسیم). همین جدا بودنِ مقیاس‌های زمانی، چنان‌که خواهیم دید، رازِ شکل‌گیریِ پتانسیل عمل است.</p>
+<h2 id="-_1">معادله‌های کامل هاجکین-هاکسلی</h2>
+<p>با کنار هم گذاشتنِ همهٔ اجزا، مدلِ کامل یک دستگاهِ چهار معادله‌ایِ دیفرانسیلِ معمولی است؛ یک معادله برای ولتاژ و سه معادله برای متغیرهای دروازه‌ای:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+C_m\frac{dV}{dt} &amp;= I - \bar g_{\mathrm{Na}}\,m^3 h\,(V-E_{\mathrm{Na}}) - \bar g_{\mathrm{K}}\,n^4\,(V-E_{\mathrm{K}}) - g_L\,(V-E_L),\\[4pt]
+\frac{dm}{dt} &amp;= \alpha_m(V)(1-m) - \beta_m(V)\,m,\\[2pt]
+\frac{dh}{dt} &amp;= \alpha_h(V)(1-h) - \beta_h(V)\,h,\\[2pt]
+\frac{dn}{dt} &amp;= \alpha_n(V)(1-n) - \beta_n(V)\,n.
+\end{aligned}
+\]</div>
+<p>مقادیرِ استانداردِ پارامترها برای آکسونِ ماهی مرکب (در قراردادِ امروزی، با ولتاژ بر حسب میلی‌ولت و پتانسیل استراحتِ نزدیک به <span class="arithmatex">\(-65\)</span> میلی‌ولت) چنین‌اند:</p>
+<table>
+<thead>
+<tr>
+<th>پارامتر</th>
+<th>مقدار</th>
+<th>پارامتر</th>
+<th>مقدار</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(C_m\)</span></td>
+<td>۱ µF/cm²</td>
+<td><span class="arithmatex">\(E_{\mathrm{Na}}\)</span></td>
+<td>۵۰ mV</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\bar g_{\mathrm{Na}}\)</span></td>
+<td>۱۲۰ mS/cm²</td>
+<td><span class="arithmatex">\(E_{\mathrm{K}}\)</span></td>
+<td>۷۷− mV</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\bar g_{\mathrm{K}}\)</span></td>
+<td>۳۶ mS/cm²</td>
+<td><span class="arithmatex">\(E_L\)</span></td>
+<td>۵۴٫۴− mV</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(g_L\)</span></td>
+<td>۰٫۳ mS/cm²</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>و توابعِ آهنگ، که هاجکین و هاکسلی بر داده‌ها برازش دادند، عبارت‌اند از:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\alpha_m &amp;= \frac{0.1\,(V+40)}{1-e^{-(V+40)/10}}, &amp; \beta_m &amp;= 4\,e^{-(V+65)/18},\\[4pt]
+\alpha_h &amp;= 0.07\,e^{-(V+65)/20}, &amp; \beta_h &amp;= \frac{1}{1+e^{-(V+35)/10}},\\[4pt]
+\alpha_n &amp;= \frac{0.01\,(V+55)}{1-e^{-(V+55)/10}}, &amp; \beta_n &amp;= 0.125\,e^{-(V+65)/80}.
+\end{aligned}
+\]</div>
+<h2 id="_5">شبیه‌سازی عددی: انتگرال‌گیری اویلر از صفر</h2>
+<p>این دستگاه جوابِ تحلیلیِ بسته ندارد، پس آن را عددی حل می‌کنیم. ساده‌ترین روش، <strong>روش اویلرِ پیشرو</strong> است. ایدهٔ آن مستقیماً از تعریفِ مشتق می‌آید: اگر <span class="arithmatex">\(\dot y = f(y)\)</span> باشد، برای گامِ زمانیِ کوچکِ <span class="arithmatex">\(\Delta t\)</span> تقریب می‌زنیم</p>
+<div class="arithmatex">\[
+y(t+\Delta t) \approx y(t) + \Delta t\,f\big(y(t)\big).
+\]</div>
+<p>یعنی از حالتِ کنونی، با شیبِ کنونی، یک گامِ کوچک به جلو برمی‌داریم. در ادامه این روش را برای مدل HH از صفر در پایتون پیاده می‌کنیم؛ تنها چیزی که به آن نیاز داریم آرایه‌ها برای ذخیرهٔ نتایج و یک حلقهٔ ساده است. حلقهٔ انتگرال‌گیری را خودمان می‌نویسیم.</p>
+<p>نخست پارامترها و توابعِ آهنگ را تعریف می‌کنیم:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="c1"># membrane parameters (units: mV, ms, uF/cm^2, mS/cm^2)</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="n">Cm</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="n">gNa</span><span class="p">,</span> <span class="n">gK</span><span class="p">,</span> <span class="n">gL</span> <span class="o">=</span> <span class="mf">120.0</span><span class="p">,</span> <span class="mf">36.0</span><span class="p">,</span> <span class="mf">0.3</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="n">ENa</span><span class="p">,</span> <span class="n">EK</span><span class="p">,</span> <span class="n">EL</span> <span class="o">=</span> <span class="mf">50.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">77.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">54.387</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="c1"># alpha/beta rate functions for each gating variable</span>
+<span class="linenos" data-linenos="10 "></span><span class="k">def</span> <span class="nf">alpha_m</span><span class="p">(</span><span class="n">V</span><span class="p">):</span> <span class="k">return</span> <span class="mf">0.1</span><span class="o">*</span><span class="p">(</span><span class="n">V</span><span class="o">+</span><span class="mi">40</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">V</span><span class="o">+</span><span class="mi">40</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">))</span>
+<span class="linenos" data-linenos="11 "></span><span class="k">def</span> <span class="nf">beta_m</span><span class="p">(</span><span class="n">V</span><span class="p">):</span>  <span class="k">return</span> <span class="mf">4.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">V</span><span class="o">+</span><span class="mi">65</span><span class="p">)</span><span class="o">/</span><span class="mi">18</span><span class="p">)</span>
+<span class="linenos" data-linenos="12 "></span><span class="k">def</span> <span class="nf">alpha_h</span><span class="p">(</span><span class="n">V</span><span class="p">):</span> <span class="k">return</span> <span class="mf">0.07</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">V</span><span class="o">+</span><span class="mi">65</span><span class="p">)</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span>
+<span class="linenos" data-linenos="13 "></span><span class="k">def</span> <span class="nf">beta_h</span><span class="p">(</span><span class="n">V</span><span class="p">):</span>  <span class="k">return</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">V</span><span class="o">+</span><span class="mi">35</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">))</span>
+<span class="linenos" data-linenos="14 "></span><span class="k">def</span> <span class="nf">alpha_n</span><span class="p">(</span><span class="n">V</span><span class="p">):</span> <span class="k">return</span> <span class="mf">0.01</span><span class="o">*</span><span class="p">(</span><span class="n">V</span><span class="o">+</span><span class="mi">55</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">V</span><span class="o">+</span><span class="mi">55</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">))</span>
+<span class="linenos" data-linenos="15 "></span><span class="k">def</span> <span class="nf">beta_n</span><span class="p">(</span><span class="n">V</span><span class="p">):</span>  <span class="k">return</span> <span class="mf">0.125</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">V</span><span class="o">+</span><span class="mi">65</span><span class="p">)</span><span class="o">/</span><span class="mi">80</span><span class="p">)</span>
+</code></pre></div>
+<p>توابعِ <span class="arithmatex">\(\alpha_m\)</span> و <span class="arithmatex">\(\alpha_n\)</span> در نقاطِ <span class="arithmatex">\(V=-40\)</span> و <span class="arithmatex">\(V=-55\)</span> صورت و مخرجِ صفر دارند (یک ناپیوستگیِ برداشتنی)؛ مقدارِ حدیِ آن‌ها به‌ترتیب <span class="arithmatex">\(1\)</span> و <span class="arithmatex">\(0.1\)</span> است. در عمل، چون ولتاژ به‌ندرت دقیقاً بر این مقادیر می‌افتد، مشکلی پیش نمی‌آید؛ اما برای استواری می‌توان این حالت‌ها را جداگانه مدیریت کرد.</p>
+<p>سپس شرایط اولیه را برابرِ مقادیرِ تعادلیِ متغیرهای دروازه‌ای در پتانسیل استراحت می‌گیریم:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">def</span> <span class="nf">steady</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span> <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># steady-state value x_inf</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="n">V0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">65.0</span>
+<span class="linenos" data-linenos="4 "></span><span class="n">m0</span> <span class="o">=</span> <span class="n">steady</span><span class="p">(</span><span class="n">alpha_m</span><span class="p">(</span><span class="n">V0</span><span class="p">),</span> <span class="n">beta_m</span><span class="p">(</span><span class="n">V0</span><span class="p">))</span>
+<span class="linenos" data-linenos="5 "></span><span class="n">h0</span> <span class="o">=</span> <span class="n">steady</span><span class="p">(</span><span class="n">alpha_h</span><span class="p">(</span><span class="n">V0</span><span class="p">),</span> <span class="n">beta_h</span><span class="p">(</span><span class="n">V0</span><span class="p">))</span>
+<span class="linenos" data-linenos="6 "></span><span class="n">n0</span> <span class="o">=</span> <span class="n">steady</span><span class="p">(</span><span class="n">alpha_n</span><span class="p">(</span><span class="n">V0</span><span class="p">),</span> <span class="n">beta_n</span><span class="p">(</span><span class="n">V0</span><span class="p">))</span>
+</code></pre></div>
+<p>اکنون قلبِ کار: حلقهٔ اویلر. آرایه‌ها را می‌سازیم، یک جریانِ تزریقیِ کوتاه تعریف می‌کنیم و در هر گام، چهار معادله را هم‌زمان به‌روزرسانی می‌کنیم:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="n">T</span><span class="p">,</span> <span class="n">dt</span> <span class="o">=</span> <span class="mf">50.0</span><span class="p">,</span> <span class="mf">0.01</span>           <span class="c1"># total time and time step (ms)</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="n">steps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span><span class="o">*</span><span class="n">dt</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">steps</span><span class="p">);</span> <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">steps</span><span class="p">);</span> <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">V0</span><span class="p">,</span> <span class="n">m0</span><span class="p">,</span> <span class="n">h0</span><span class="p">,</span> <span class="n">n0</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="c1"># injected current: a brief suprathreshold pulse</span>
+<span class="linenos" data-linenos="10 "></span><span class="k">def</span> <span class="nf">I_ext</span><span class="p">(</span><span class="n">tt</span><span class="p">):</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="k">return</span> <span class="mf">20.0</span> <span class="k">if</span> <span class="p">(</span><span class="mf">5.0</span> <span class="o">&lt;=</span> <span class="n">tt</span> <span class="o">&lt;</span> <span class="mf">5.5</span><span class="p">)</span> <span class="k">else</span> <span class="mf">0.0</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="n">v</span> <span class="o">=</span> <span class="n">V</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="c1"># ionic currents at the current step</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="n">INa</span> <span class="o">=</span> <span class="n">gNa</span> <span class="o">*</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">ENa</span><span class="p">)</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="n">IK</span>  <span class="o">=</span> <span class="n">gK</span>  <span class="o">*</span> <span class="n">n</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">4</span>        <span class="o">*</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">EK</span><span class="p">)</span>
+<span class="linenos" data-linenos="18 "></span>    <span class="n">IL</span>  <span class="o">=</span> <span class="n">gL</span>                   <span class="o">*</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">EL</span><span class="p">)</span>
+<span class="linenos" data-linenos="19 "></span>    <span class="c1"># Euler step for voltage</span>
+<span class="linenos" data-linenos="20 "></span>    <span class="n">V</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="p">(</span><span class="n">I_ext</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="n">INa</span> <span class="o">-</span> <span class="n">IK</span> <span class="o">-</span> <span class="n">IL</span><span class="p">)</span> <span class="o">/</span> <span class="n">Cm</span>
+<span class="linenos" data-linenos="21 "></span>    <span class="c1"># Euler step for gating variables</span>
+<span class="linenos" data-linenos="22 "></span>    <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="p">(</span><span class="n">alpha_m</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="n">beta_m</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="linenos" data-linenos="23 "></span>    <span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="p">(</span><span class="n">alpha_h</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="n">beta_h</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="linenos" data-linenos="24 "></span>    <span class="n">n</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="p">(</span><span class="n">alpha_n</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">n</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="n">beta_n</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="n">n</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="linenos" data-linenos="25 "></span>
+<span class="linenos" data-linenos="26 "></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">V</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;t (ms)&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;V (mV)&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p>همین چند خط، کلِ مدلِ هاجکین–هاکسلی است. گامِ زمانیِ کوچک (اینجا <span class="arithmatex">\(0.01\)</span> میلی‌ثانیه) برای پایداریِ روشِ اویلر ضروری است؛ اگر آن را خیلی بزرگ بگیرید، جوابْ واگرا و بی‌معنا می‌شود — تجربه‌اش کنید.</p>
+<h2 id="_6">نتایج: پتانسیل عمل</h2>
+<p>اگر این کد را با یک پالسِ فراآستانه و یک پالسِ زیرآستانه اجرا کنیم، مشخصهٔ بنیادیِ نورون آشکار می‌شود: پاسخِ <strong>همه‌یا‌هیچ</strong>. پالسِ کوچک تنها افتی گذرا می‌سازد و میرا می‌شود، اما پالسِ به‌قدرِ کافی بزرگ یک پتانسیل عملِ کامل را برمی‌انگیزد که شکل و دامنهٔ آن مستقل از شدتِ محرک است.</p>
+<figure>
+  <img alt="Image title" src="../hh_action_potential.png" />
+<br />
+<figcaption>پتانسیل عمل همه‌یا‌هیچ در مدل هاجکین–هاکسلی؛ پالس زیرآستانه میرا می‌شود اما پالس فراآستانه یک اسپایک کامل تولید می‌کند که به اوجِ حدود ۴۰+ میلی‌ولت می‌رسد و سپس با یک فروجهشِ گذرا به استراحت بازمی‌گردد.</figcaption>
+</figure>
+<h2 id="_7">سازوکار: متغیرهای دروازه‌ای و رسانایی‌ها در طول اسپایک</h2>
+<p>چرا اسپایک این شکل را دارد؟ پاسخ در رقصِ هماهنگِ متغیرهای دروازه‌ای نهفته است. با دپلاریزه‌شدنِ غشا، متغیرِ سریعِ <span class="arithmatex">\(m\)</span> به‌سرعت بالا می‌رود و کانال‌های سدیم باز می‌شوند؛ هجومِ سدیم به درون، غشا را بازهم دپلاریزه‌تر می‌کند و این یک <strong>بازخوردِ مثبت</strong> است که برخاستِ تندِ اسپایک را رقم می‌زند. اما دو فرایندِ کندتر در راه‌اند: غیرفعال‌سازیِ سدیم (<span class="arithmatex">\(h\)</span> پایین می‌آید) جریانِ سدیم را قطع می‌کند، و فعال‌سازیِ پتاسیم (<span class="arithmatex">\(n\)</span> بالا می‌رود) جریانِ روبه‌بیرونِ پتاسیم را برقرار می‌کند. این دو با هم غشا را دوباره رپلاریزه می‌کنند و حتی تا زیرِ پتانسیل استراحت می‌برند (فروجهش).</p>
+<figure>
+  <img alt="Image title" src="../hh_gating.png" />
+<br />
+<figcaption>تحول متغیرهای دروازه‌ای در طول پتانسیل عمل. متغیر سریعِ m پیش از همه بالا می‌رود؛ سپس h فرومی‌افتد (غیرفعال‌سازی سدیم) و n به‌آرامی بالا می‌رود (فعال‌سازی پتاسیم).</figcaption>
+</figure>
+<p>اثرِ این متغیرها بر رسانایی‌ها مستقیماً دیده می‌شود: نخست یک افزایشِ تند و گذرا در رسانایی سدیم رخ می‌دهد و بلافاصله پس از آن، افزایشی کندتر و پایدارتر در رسانایی پتاسیم. همین ترتیبِ زمانی است که شکلِ اسپایک را تعیین می‌کند.</p>
+<figure>
+  <img alt="Image title" src="../hh_conductances.png" />
+<br />
+<figcaption>رسانایی‌های یونی در طول اسپایک: افزایش سریع و گذرای سدیم، و سپس افزایش کندتر و دیرپاتر پتاسیم.</figcaption>
+</figure>
+<h2 id="-_2">چرخهٔ هاجکین-هاکسلی در صفحهٔ فاز</h2>
+<p>اکنون به ابزارِ فصل دوم بازمی‌گردیم. هرچند فضای فازِ کاملِ HH چهاربعدی است، می‌توانیم مسیرِ حرکت را روی صفحهٔ <span class="arithmatex">\((V, n)\)</span> تصویر کنیم تا ساختارِ هندسیِ آن را ببینیم. در این تصویر، یک پتانسیل عملِ منفرد یک <strong>گردشِ بزرگ</strong> است که از حالتِ استراحت آغاز می‌شود و به آن بازمی‌گردد — درست همان «گردشِ بزرگ در فضای فاز» که در مدل‌های فیتزهیو–ناگومو و موریس–لِکار دیدیم. و اگر به‌جای پالسِ کوتاه، جریانی پایدار تزریق کنیم، سامانه روی یک <strong>چرخهٔ حدیِ پایدار</strong> می‌افتد و به شلیکِ تونیک می‌پردازد.</p>
+<figure>
+  <img alt="Image title" src="../hh_phase_plane.png" />
+<br />
+<figcaption>چرخهٔ هاجکین–هاکسلی در صفحهٔ (V, n). مسیرِ یک اسپایکِ منفرد (آبی) از حالت استراحت یک حلقهٔ بزرگ می‌زند و بازمی‌گردد؛ تحت جریانِ پایدار، سامانه روی یک چرخهٔ حدیِ پایدار (بنفش) می‌چرخد که همان شلیک تونیک است.</figcaption>
+</figure>
+<p>این تصویر، پلِ مفهومیِ میانِ سه فصل است: مدلِ زیست‌فیزیکیِ کاملِ HH همان رفتارِ کیفی‌ای را نشان می‌دهد که مدل‌های ساده‌شدهٔ دوبعدیِ فصل دوم پیش‌بینی می‌کردند. در واقع، مدل‌های فیتزهیو–ناگومو و موریس–لِکار را می‌توان به‌عنوانِ فروکاستِ همین مدلِ HH فهمید: متغیرِ سریعِ <span class="arithmatex">\(m\)</span> را با مقدارِ تعادلیِ آن جایگزین و متغیرهای کندِ <span class="arithmatex">\(h\)</span> و <span class="arithmatex">\(n\)</span> را در یک متغیرِ بازیابی ادغام می‌کنیم.</p>
+<h2 id="fi">منحنی F–I و تحریک‌پذیری نوع دو</h2>
+<p>تا اینجا پاسخِ مدل را به یک پالسِ کوتاه دیدیم. اگر به‌جای آن، جریانی <strong>پایدار</strong> با شدت‌های مختلف تزریق کنیم و نرخِ شلیکِ پایا را اندازه بگیریم، منحنیِ F–I به‌دست می‌آید — همان ابزاری که در فصل بعد برای مقایسهٔ مدل‌های ساده‌شده به‌کار خواهیم برد. برای این کار کافی است شبیه‌سازی را برای هر جریان به‌اندازهٔ کافی طولانی اجرا کنیم، گذرای آغازین را کنار بگذاریم و تعدادِ اسپایک‌ها را در واحدِ زمان بشماریم.</p>
+<figure>
+  <img alt="Image title" src="../hh_fi_curve.png" />
+<br />
+<figcaption>منحنی F–I مدل هاجکین–هاکسلی. زیرِ جریانِ رئوبیس (حدود ۶٫۵ میکروآمپر بر سانتی‌متر مربع) نورون خاموش است؛ سپس شلیک به‌طور ناگهانی و با فرکانسی غیرصفر (حدود ۵۷ هرتز) آغاز می‌شود.</figcaption>
+</figure>
+<p>نکتهٔ کلیدی، شکلِ <strong>شروعِ</strong> این منحنی است: نرخِ شلیک از صفر به یک مقدارِ متناهی <strong>می‌جهد</strong> و هرگز فرکانس‌های دلخواه پایین را تجربه نمی‌کند. این همان امضای <strong>تحریک‌پذیریِ نوع دو</strong> است که در فصل دوم با دوشاخه‌شدنِ هوپف پیوند خورد: نقطهٔ تعادلِ پایدار با عبورِ یک جفت مقدار ویژهٔ مختلط از محور موهومی، ناگهان جای خود را به یک چرخهٔ حدی با دامنه و فرکانسِ غیرصفر می‌دهد. در فصل بعد خواهیم دید که مدل‌های ساده‌شده می‌توانند هر دو نوعِ تحریک‌پذیری را بازتولید کنند؛ برای نمونه، شروعِ ناگهانیِ LIF نیز از همین نوع است، حال‌آن‌که منحنیِ ریشه‌دومیِ QIF نمونه‌ای از تحریک‌پذیریِ نوع یک است.</p>
+<h2 id="_8">جمع‌بندی</h2>
+<p>مدل هاجکین–هاکسلی نشان می‌دهد که چگونه از سه مؤلفهٔ فیزیکی — ظرفیت خازنیِ غشا، جریان‌های یونیِ اهمی، و رسانایی‌های وابسته به ولتاژ — یک پدیدهٔ پیچیده مانندِ پتانسیل عمل به‌طور کامل و کمّی پدید می‌آید. این مدل از نظرِ زیست‌فیزیکی غنی است، اما همین غنا آن را از نظرِ تحلیلی کدر می‌کند: چهار معادلهٔ غیرخطیِ درهم‌تنیده را نمی‌توان به‌سادگی روی کاغذ تحلیل کرد. در فصل بعد می‌بینیم که چگونه با چشم‌پوشی از جزئیات و حفظِ جوهرِ رفتار، به مدل‌های ساده‌شده‌ای مانند LIF، EIF و AdEx می‌رسیم که هم سریع‌اند و هم تحلیل‌پذیر.</p>
+<hr />
+<p>برای مطالعهٔ بیشتر:</p>
+<div dir="ltr">
+<ul>
+<li>Gerstner, W., Kistler, W.M., Naud, R., Paninski, L., 2014. Neuronal Dynamics. Cambridge University Press.</li>
+<li>Izhikevich, E.M., 2003. Simple model of spiking neurons. IEEE Transactions on Neural Networks 14(6), 1569–1572.</li>
+<li>Dayan, P. and Abbott, L.F., 2005. Theoretical neuroscience: computational and mathematical modeling of neural systems. MIT press.</li>
+<li>Hodgkin, A.L. and Huxley, A.F., 1952. A quantitative description of membrane current and its application to conduction and excitation in nerve. The Journal of physiology, 117(4), p.500.</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+  
+    
+    
+
+    <hr>
+    <div class="page-actions" dir="rtl">
+      <a class="md-button"
+         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=enhancement&title=پیشنهاد برای فصل: %D9%85%D8%AF%D9%84%20%D9%87%D8%A7%D8%AC%DA%A9%DB%8C%D9%86-%D9%87%D8%A7%DA%A9%D8%B3%D9%84%DB%8C">
+        پیشنهاد در گیت‌هاب
+      </a>
+      <a class="md-button"
+         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=bug&title=گزارش اشکال در فصل: %D9%85%D8%AF%D9%84%20%D9%87%D8%A7%D8%AC%DA%A9%DB%8C%D9%86-%D9%87%D8%A7%DA%A9%D8%B3%D9%84%DB%8C">
+        گزارش اشکال در گیت‌هاب
+      </a>
+      <a class="md-button"
+         href="mailto:saeed.taghavi.v@gmail.com?subject=بازخورد دربارهٔ فصل: مدل هاجکین-هاکسلی">
+        ارسال بازخورد با ایمیل
+      </a>
+    </div>
+  
+
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u06a9\u067e\u06cc \u0634\u062f", "clipboard.copy": "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646", "search.result.more.one": "1 \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.more.other": "# \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.none": "\u0633\u0646\u062f\u06cc \u06cc\u0627\u0641\u062a \u0646\u0634\u062f", "search.result.one": "1 \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.other": "# \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.placeholder": "\u0628\u0631\u0627\u06cc \u062c\u0633\u062a\u062c\u0648 \u062a\u0627\u06cc\u067e \u06a9\u0646\u06cc\u062f", "search.result.term.missing": "\u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a", "select.version": "\u0627\u0646\u062a\u062e\u0627\u0628 \u0648\u06cc\u0631\u0627\u06cc\u0634"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/extra.js"></script>
+      
+        <script src="../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
