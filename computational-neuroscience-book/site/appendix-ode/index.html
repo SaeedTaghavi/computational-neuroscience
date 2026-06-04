@@ -6,7 +6,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="کتاب آنلاین علوم اعصاب محاسباتی به زبان فارسی — از غشای تحریک‌پذیر و سیستم‌های دینامیکی تا مدل‌های نورون، شبکه‌های اسپایکی و مدل‌سازی مغز کامل.">
       
+      
+        <meta name="author" content="Saeed Taghavi">
+      
+      
+        <link rel="canonical" href="https://computational-neuroscience.ir/appendix-ode/">
       
       
         <link rel="prev" href="../ch10/">
@@ -76,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#description-rk4-rk45" class="md-skip">
           پرش به محتویات
         </a>
       
@@ -812,8 +818,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -858,8 +862,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -868,6 +870,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#description-rk4-rk45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        description: حل عددی معادلات دیفرانسیل معمولی — اویلر پیشرو و پسرو، نقطهٔ میانی، RK4، RK45 و انتگرال‌گیرهای سیمپلکتیک برای سامانه‌های هامیلتونی.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        پیوست: حل عددی معادلات دیفرانسیل معمولی
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="پیوست: حل عددی معادلات دیفرانسیل معمولی">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -877,8 +902,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -888,8 +913,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -899,8 +924,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -910,8 +935,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -921,8 +946,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -932,8 +957,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -943,8 +968,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -952,6 +977,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1074,8 +1104,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1084,6 +1112,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#description-rk4-rk45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        description: حل عددی معادلات دیفرانسیل معمولی — اویلر پیشرو و پسرو، نقطهٔ میانی، RK4، RK45 و انتگرال‌گیرهای سیمپلکتیک برای سامانه‌های هامیلتونی.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        پیوست: حل عددی معادلات دیفرانسیل معمولی
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="پیوست: حل عددی معادلات دیفرانسیل معمولی">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1093,8 +1144,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1104,8 +1155,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1115,8 +1166,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1126,8 +1177,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1137,8 +1188,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1148,8 +1199,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1159,8 +1210,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1168,6 +1219,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1189,6 +1245,11 @@
 
 
 
+<p>================================================================================
+docs/appendix-ode.md
+================================================================================</p>
+<hr />
+<h2 id="description-rk4-rk45">description: حل عددی معادلات دیفرانسیل معمولی — اویلر پیشرو و پسرو، نقطهٔ میانی، RK4، RK45 و انتگرال‌گیرهای سیمپلکتیک برای سامانه‌های هامیلتونی.</h2>
 <h1 id="_1">پیوست: حل عددی معادلات دیفرانسیل معمولی</h1>
 <p>تقریباً همهٔ مدل‌های این کتاب — از هاجکین–هاکسلی تا ویلسون–کوان — به‌صورتِ معادلهٔ دیفرانسیلِ معمولی نوشته می‌شوند و جوابِ تحلیلیِ بسته ندارند. بنابراین آن‌ها را عددی حل می‌کنیم. این پیوست، روش‌های پایه‌ای را که در سراسرِ کتاب به‌کار می‌بریم گرد هم می‌آورد. مسئله این است: با داشتنِ</p>
 <div class="arithmatex">\[
