@@ -1,0 +1,5 @@
+{% import "partials/languages/fa.html" as fallback %}
+{% macro t(key) %}{{ {
+  "search.placeholder": "جستجو",
+  "search.result.placeholder": "برای جستجو تایپ کنید"
+}[key] or fallback.t(key) }}{% endmacro %}

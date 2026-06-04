@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {{ super() }}
+
+  {% if not page.is_homepage %}
+    {% set repo = "https://github.com/SaeedTaghavi/computational-neuroscience" %}
+    {% set title = page.title | urlencode %}
+
+    <hr>
+    <div class="page-actions" dir="rtl">
+      <a class="md-button"
+         href="{{ repo }}/issues/new?labels=enhancement&title=پیشنهاد برای فصل: {{ title }}">
+        پیشنهاد در گیت‌هاب
+      </a>
+      <a class="md-button"
+         href="{{ repo }}/issues/new?labels=bug&title=گزارش اشکال در فصل: {{ title }}">
+        گزارش اشکال در گیت‌هاب
+      </a>
+      <a class="md-button"
+         href="mailto:saeed.taghavi.v@gmail.com?subject=بازخورد دربارهٔ فصل: {{ page.title }}">
+        ارسال بازخورد با ایمیل
+      </a>
+    </div>
+  {% endif %}
+
+{% endblock %}

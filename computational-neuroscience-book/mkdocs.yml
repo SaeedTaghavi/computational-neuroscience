@@ -2,8 +2,14 @@ site_name: کتاب علوم اعصاب محاسباتی
 
 theme: 
   direction: rtl
-
   name: material
+  language: custom        # ← must be "custom", not "fa"
+  custom_dir: overrides
+  features:
+    # - navigation.sections   # render top-level groups as bold section headers, expanded
+    # - navigation.indexes    # lets a Part have its own landing page (see below)
+    # - navigation.top        # back-to-top button
+    # - toc.integrate         # optional: fold the page TOC into the left sidebar
   font: 
     text: Noto Naskh Arabic
   palette:
@@ -25,9 +31,29 @@ plugins:
         - en
         - ar 
 nav:
-- 'index.md'
-- 'ch01.md'
-- 'ch02.md'
+  - خانه: index.md
+  - "پیش‌نیازها":
+      - غشای تحریک‌پذیر: ch01.md
+      - سیستم‌های دینامیکی: ch02.md
+  - "مدل‌های نورون":
+      - مدل هاجکین-هاکسلی: ch03.md
+      - "مدل‌های ساده‌شده: LIF، EIF، AdEx": ch04.md
+  - "شبکه‌های نورون‌های نقطه‌ای":
+      - از نورون به جمعیت: ch05.md
+      - شبکه‌های تصادفی متعادل: ch06.md
+      - نوسانات در شبکه‌های تحریکی-مهاری: ch07.md
+      - "پلاستیسیتی وابسته به زمان اسپایک (STDP)": ch08.md
+  - "مدل‌های جمعیتی و توده عصبی":
+      - معادلات نرخ آتش: ch09.md
+      - مدل ویلسون-کوان: ch10.md
+  - "پیوست‌ها":
+      - "حل عددی معادلات دیفرانسیل": appendix-ode.md
+      - "روش اویلر–مارویاما (SDE)": appendix-sde.md
+      - "معرفی بسته شبیه‌سازی  NEST": appendix-nest.md
+      - "معرفی بسته شبیه‌سازی  neurolib": appendix-neurolib.md
+
+extra_css:
+  - stylesheets/extra.css
 
 markdown_extensions:
   - attr_list
@@ -37,9 +63,11 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.snippets
   - footnotes
-
+  - pymdownx.arithmatex:
+      generic: true
+  - tables
   - toc:
-      title: در این صفحه  
+      title: "فهرست در این صفحه"
 
   - pymdownx.highlight:
       linenums: true
@@ -47,7 +75,12 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.arithmatex:
       generic: true
+  - pymdownx.emoji:     # enables the :material-...: icons
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
 extra_javascript:
+  - javascripts/extra.js
   - javascripts/config.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
