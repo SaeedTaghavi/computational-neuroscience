@@ -2,62 +2,98 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://computational-neuroscience.ir/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://computational-neuroscience.ir/appendix-nest/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://computational-neuroscience.ir/appendix-neurolib/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://computational-neuroscience.ir/appendix-ode/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://computational-neuroscience.ir/appendix-sde/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://computational-neuroscience.ir/ch-modelling-01-overview/</loc>
+         <lastmod>2026-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://computational-neuroscience.ir/ch-modelling-02-classification/</loc>
+         <lastmod>2026-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://computational-neuroscience.ir/ch-modelling-03-decisions/</loc>
+         <lastmod>2026-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://computational-neuroscience.ir/ch-modelling-04-uncertainty/</loc>
+         <lastmod>2026-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://computational-neuroscience.ir/ch-modelling-05-verify-validate/</loc>
+         <lastmod>2026-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://computational-neuroscience.ir/ch-modelling-06-goodness-of-fit/</loc>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://computational-neuroscience.ir/ch01/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://computational-neuroscience.ir/ch02/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://computational-neuroscience.ir/ch03/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://computational-neuroscience.ir/ch04/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://computational-neuroscience.ir/ch05/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://computational-neuroscience.ir/ch06/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://computational-neuroscience.ir/ch07/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://computational-neuroscience.ir/ch08/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://computational-neuroscience.ir/ch09/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-10</lastmod>
     </url>
     <url>
          <loc>https://computational-neuroscience.ir/ch10/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://computational-neuroscience.ir/ch16/</loc>
+         <lastmod>2026-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://computational-neuroscience.ir/ch22/</loc>
+         <lastmod>2026-06-10</lastmod>
+    </url>
+    <url>
+         <loc>https://computational-neuroscience.ir/ch23/</loc>
+         <lastmod>2026-06-10</lastmod>
     </url>
 </urlset>

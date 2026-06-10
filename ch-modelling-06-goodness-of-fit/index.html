@@ -6,19 +6,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="حل عددی معادلات دیفرانسیل معمولی — اویلر پیشرو و پسرو، نقطهٔ میانی، RK4، RK45 و انتگرال‌گیرهای سیمپلکتیک برای سامانه‌های هامیلتونی.">
+        <meta name="description" content="کتاب آنلاین علوم اعصاب محاسباتی به زبان فارسی — از غشای تحریک‌پذیر و سیستم‌های دینامیکی تا مدل‌های نورون، شبکه‌های اسپایکی و مدل‌سازی مغز کامل.">
       
       
         <meta name="author" content="Saeed Taghavi">
       
       
-        <link rel="canonical" href="https://computational-neuroscience.ir/appendix-ode/">
+        <link rel="canonical" href="https://computational-neuroscience.ir/ch-modelling-06-goodness-of-fit/">
       
       
-        <link rel="prev" href="../ch10/">
+        <link rel="prev" href="../ch-modelling-05-verify-validate/">
       
       
-        <link rel="next" href="../appendix-sde/">
+        <link rel="next" href="../ch16/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>حل عددی معادلات دیفرانسیل - کتاب علوم اعصاب محاسباتی</title>
+        <title>نیکویی برازش - کتاب علوم اعصاب محاسباتی</title>
       
     
     
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              حل عددی معادلات دیفرانسیل
+              نیکویی برازش
             
           </span>
         </div>
@@ -264,8 +264,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -276,11 +278,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -301,7 +303,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -316,6 +318,8 @@
                 
   
   
+    
+  
   
   
     
@@ -325,11 +329,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
         
           
           <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
@@ -350,7 +354,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -365,6 +369,8 @@
                 
   
   
+    
+  
   
   
     
@@ -374,11 +380,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" checked>
         
           
           <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
@@ -399,7 +405,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_1_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -554,10 +560,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../ch-modelling-06-goodness-of-fit/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نیکویی برازش
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -573,6 +606,83 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="فهرست در این صفحه">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      فهرست در این صفحه
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        مانده‌ها: سنگ‌بنای سنجش
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        سنجه‌های عددی
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        مثال: برازش به نوسانگر میرا
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        خطر بیش‌برازش
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        جمع‌بندی
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1147,8 +1257,6 @@
       
   
   
-    
-  
   
   
     
@@ -1161,11 +1269,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
@@ -1186,7 +1294,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1201,37 +1309,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    حل عددی معادلات دیفرانسیل
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../appendix-ode/" class="md-nav__link">
         
   
   
@@ -1247,116 +1328,6 @@
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="فهرست در این صفحه">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      فهرست در این صفحه
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        روش اویلر پیشرو
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        روش اویلر پسرو
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        روش نقطهٔ میانی
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        روش پرش‌قورباغه
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        روش‌های رونگه–کوتای مرتبهٔ بالا و گام وفقی
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        مرتبهٔ دقت در عمل
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        دینامیک هامیلتونی و انتگرال‌گیرهای سیمپلکتیک
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        جمع‌بندی
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1485,7 +1456,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        روش اویلر پیشرو
+        مانده‌ها: سنگ‌بنای سنجش
       
     </span>
   </a>
@@ -1496,7 +1467,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        روش اویلر پسرو
+        سنجه‌های عددی
       
     </span>
   </a>
@@ -1507,7 +1478,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        روش نقطهٔ میانی
+        مثال: برازش به نوسانگر میرا
       
     </span>
   </a>
@@ -1518,7 +1489,7 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        روش پرش‌قورباغه
+        خطر بیش‌برازش
       
     </span>
   </a>
@@ -1527,39 +1498,6 @@
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        روش‌های رونگه–کوتای مرتبهٔ بالا و گام وفقی
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        مرتبهٔ دقت در عمل
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        دینامیک هامیلتونی و انتگرال‌گیرهای سیمپلکتیک
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
         جمع‌بندی
@@ -1587,160 +1525,47 @@
 
 
 
-<h1 id="_1">پیوست: حل عددی معادلات دیفرانسیل معمولی</h1>
-<p>تقریباً همهٔ مدل‌های این کتاب — از هاجکین–هاکسلی تا ویلسون–کوان — به‌صورتِ معادلهٔ دیفرانسیلِ معمولی نوشته می‌شوند و جوابِ تحلیلیِ بسته ندارند. بنابراین آن‌ها را عددی حل می‌کنیم. این پیوست، روش‌های پایه‌ای را که در سراسرِ کتاب به‌کار می‌بریم گرد هم می‌آورد. مسئله این است: با داشتنِ</p>
+<h1 id="_1">نیکویی برازش</h1>
+<p>پس از واسنجیِ یک مدل، باید به‌صورتِ کمّی بسنجیم که مدل تا چه اندازه با داده‌ها هم‌خوانی دارد. «به‌نظر خوب می‌آید» کافی نیست؛ به سنجه‌های عددی نیاز داریم که کارایی مدل‌ها را قابلِ مقایسه کنند. این فصل، مفهومِ <strong>نیکویی برازش</strong> و سنجه‌های اصلیِ آن را معرفی می‌کند.</p>
+<h2 id="_2">مانده‌ها: سنگ‌بنای سنجش</h2>
+<p>پایهٔ همهٔ سنجه‌ها، <strong>مانده</strong> است، یعنی تفاوتِ میانِ مقدارِ مشاهده‌شده و مقدارِ پیش‌بینی‌شدهٔ مدل. اگر <span class="arithmatex">\(y_i\)</span> دادهٔ <span class="arithmatex">\(i\)</span>ام و <span class="arithmatex">\(\hat{y}_i\)</span> پیش‌بینیِ مدل باشد، مانده چنین است:</p>
 <div class="arithmatex">\[
-\frac{d\mathbf{x}}{dt} = \mathbf{f}(\mathbf{x}, t), \qquad \mathbf{x}(t_0) = \mathbf{x}_0,
+r_i = y_i - \hat{y}_i.
 \]</div>
-<p>می‌خواهیم <span class="arithmatex">\(\mathbf{x}(t)\)</span> را برای <span class="arithmatex">\(t&gt;t_0\)</span> تقریب بزنیم. همهٔ روش‌ها زمان را به گام‌های کوچکِ <span class="arithmatex">\(\Delta t\)</span> می‌شکنند و از حالتِ کنونی، حالتِ گامِ بعد را می‌سازند.</p>
-<h2 id="_2">روش اویلر پیشرو</h2>
-<p>ساده‌ترین روش، مستقیماً از تعریفِ مشتق می‌آید. تقریبِ <span class="arithmatex">\(\frac{d\mathbf{x}}{dt}\approx\frac{\mathbf{x}(t+\Delta t)-\mathbf{x}(t)}{\Delta t}\)</span> می‌دهد:</p>
+<p>یک مدلِ خوب مانده‌های کوچک و <strong>بدونِ الگو</strong> دارد. اگر مانده‌ها الگوی منظمی نشان دهند، مثلاً همه در یک بازه مثبت و در بازه‌ای دیگر منفی باشند، این نشان می‌دهد که مدل بخشی از ساختارِ داده را توضیح نداده است. بنابراین، نخستین و مهم‌ترین گام، <strong>رسمِ مانده‌ها</strong> در برابرِ زمان یا متغیرِ مستقل است.</p>
+<h2 id="_3">سنجه‌های عددی</h2>
+<p>از مانده‌ها چند سنجهٔ خلاصه ساخته می‌شود.</p>
+<p><strong>مجموع مربعات مانده‌ها (SSR).</strong> ساده‌ترین سنجه، مجموعِ مربعاتِ مانده‌هاست:</p>
 <div class="arithmatex">\[
-\mathbf{x}_{n+1} = \mathbf{x}_n + \Delta t\,\mathbf{f}(\mathbf{x}_n, t_n).
+\mathrm{SSR} = \sum_{i=1}^{n} r_i^2 = \sum_{i=1}^{n}\big(y_i - \hat{y}_i\big)^2.
 \]</div>
-<p>این روش <strong>صریح</strong> است (سمتِ راست فقط به مقادیرِ معلومِ گامِ کنونی بستگی دارد) و <strong>مرتبهٔ یک</strong>: خطای محلی در هر گام از مرتبهٔ <span class="arithmatex">\(\mathcal{O}(\Delta t^2)\)</span> و خطای سراسری از مرتبهٔ <span class="arithmatex">\(\mathcal{O}(\Delta t)\)</span> است. سادگیِ آن بهای پایداریِ ضعیف دارد: برای گامِ بزرگ واگرا می‌شود، و چنان‌که خواهیم دید، برای سامانه‌های نوسانی انرژی را به‌طورِ مصنوعی می‌افزاید.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">def</span> <span class="nf">forward_euler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
-<span class="linenos" data-linenos="2 "></span>    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
-</code></pre></div>
-<h2 id="_3">روش اویلر پسرو</h2>
-<p>اگر به‌جای شیبِ گامِ کنونی، شیبِ گامِ بعد را به‌کار بریم، روشِ <strong>ضمنی</strong> اویلر پسرو به‌دست می‌آید:</p>
+<p>این همان کمیتی است که در برآوردِ کمترین‌مربعات کمینه می‌شود.</p>
+<p><strong>ریشهٔ میانگین مربعات خطا (RMSE).</strong> برای آن‌که سنجه‌ای هم‌واحد با خودِ داده داشته باشیم:</p>
 <div class="arithmatex">\[
-\mathbf{x}_{n+1} = \mathbf{x}_n + \Delta t\,\mathbf{f}(\mathbf{x}_{n+1}, t_{n+1}).
+\mathrm{RMSE} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}\big(y_i - \hat{y}_i\big)^2}.
 \]</div>
-<p>اکنون <span class="arithmatex">\(\mathbf{x}_{n+1}\)</span> در هر دو سو ظاهر می‌شود، پس در هر گام باید یک معادله را حل کنیم (برای سامانه‌های خطی یک دستگاهِ خطی، و برای غیرخطی با روشی مانندِ نیوتن). در ازای این هزینه، روش <strong>پایداریِ</strong> بسیار بهتری دارد و برای سامانه‌های <strong>سفت</strong> (stiff) — که در آن‌ها مقیاس‌های زمانیِ بسیار متفاوت کنار هم‌اند — مناسب است. عیبِ آن، میرایی عددیِ مصنوعی است. برای معادلهٔ نمونهٔ خطیِ <span class="arithmatex">\(x'=-x\)</span>، حل صریح است: <span class="arithmatex">\(x_{n+1}=x_n/(1+\Delta t)\)</span>.</p>
-<h2 id="_4">روش نقطهٔ میانی</h2>
-<p>دقت را می‌توان با ارزیابیِ شیب در میانهٔ گام بالا برد. این روش، که نمونه‌ای از روش‌های <strong>رونگه–کوتای مرتبهٔ دو</strong> است، چنین است:</p>
+<p>RMSE «خطای نوعی» مدل را به واحدِ داده، مثلاً متر برای جابه‌جایی، بیان می‌کند و تفسیرِ آسانی دارد.</p>
+<p><strong>ضریب تعیین (<span class="arithmatex">\(R^2\)</span>).</strong> این سنجه می‌گوید مدل چه کسری از تغییراتِ داده را توضیح می‌دهد:</p>
 <div class="arithmatex">\[
-\mathbf{k}_1 = \mathbf{f}(\mathbf{x}_n, t_n), \qquad
-\mathbf{x}_{n+1} = \mathbf{x}_n + \Delta t\,\mathbf{f}\!\left(\mathbf{x}_n + \tfrac{\Delta t}{2}\mathbf{k}_1,\; t_n + \tfrac{\Delta t}{2}\right).
+R^2 = 1 - \frac{\sum_i (y_i - \hat{y}_i)^2}{\sum_i (y_i - \bar{y})^2},
 \]</div>
-<p>خطای سراسریِ آن از مرتبهٔ <span class="arithmatex">\(\mathcal{O}(\Delta t^2)\)</span> است؛ یعنی نصف‌کردنِ گام، خطا را به یک‌چهارم می‌رساند.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">def</span> <span class="nf">midpoint</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
-<span class="linenos" data-linenos="2 "></span>    <span class="n">k1</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
-<span class="linenos" data-linenos="3 "></span>    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">k1</span><span class="p">,</span> <span class="n">t</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="p">)</span>
-</code></pre></div>
-<h2 id="_5">روش پرش‌قورباغه</h2>
-<p>برای سامانه‌های مرتبهٔ دومِ مکانیکی به شکلِ <span class="arithmatex">\(\ddot{x} = a(x)\)</span> (که در آن نیرو تنها به مکان بستگی دارد، مانندِ سامانه‌های هامیلتونی)، روشِ <strong>پرش‌قورباغه</strong> (leapfrog) — یا شکلِ هم‌ارزِ آن، وِرلهٔ سرعتی — انتخابِ طبیعی است. در این روش مکان و سرعت به‌صورتِ «درهم‌بافته» به‌روزرسانی می‌شوند:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-v_{n+1/2} &amp;= v_n + \tfrac{\Delta t}{2}\,a(x_n),\\
-x_{n+1} &amp;= x_n + \Delta t\,v_{n+1/2},\\
-v_{n+1} &amp;= v_{n+1/2} + \tfrac{\Delta t}{2}\,a(x_{n+1}).
-\end{aligned}
-\]</div>
-<p>این روش مرتبهٔ دو، صریح، و <strong>برگشت‌پذیر در زمان</strong> است و — مهم‌تر از همه — یک <strong>انتگرال‌گیرِ سیمپلکتیک</strong> است؛ ویژگی‌ای که در بخشِ پایانیِ این پیوست به اهمیتِ آن می‌پردازیم.</p>
-<h2 id="_6">روش‌های رونگه–کوتای مرتبهٔ بالا و گام وفقی</h2>
-<p>پرکاربردترین روشِ همه‌منظوره، <strong>رونگه–کوتای مرتبهٔ چهار</strong> (RK4) است که با ترکیبِ وزن‌دارِ چهار ارزیابیِ شیب در هر گام، خطای سراسریِ <span class="arithmatex">\(\mathcal{O}(\Delta t^4)\)</span> به‌دست می‌دهد:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-\mathbf{k}_1 &amp;= \mathbf{f}(\mathbf{x}_n, t_n), &amp;
-\mathbf{k}_2 &amp;= \mathbf{f}(\mathbf{x}_n + \tfrac{\Delta t}{2}\mathbf{k}_1,\, t_n + \tfrac{\Delta t}{2}),\\
-\mathbf{k}_3 &amp;= \mathbf{f}(\mathbf{x}_n + \tfrac{\Delta t}{2}\mathbf{k}_2,\, t_n + \tfrac{\Delta t}{2}), &amp;
-\mathbf{k}_4 &amp;= \mathbf{f}(\mathbf{x}_n + \Delta t\,\mathbf{k}_3,\, t_n + \Delta t),
-\end{aligned}
-\]</div>
-<div class="arithmatex">\[
-\mathbf{x}_{n+1} = \mathbf{x}_n + \frac{\Delta t}{6}\big(\mathbf{k}_1 + 2\mathbf{k}_2 + 2\mathbf{k}_3 + \mathbf{k}_4\big).
-\]</div>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">def</span> <span class="nf">rk4</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
-<span class="linenos" data-linenos="2 "></span>    <span class="n">k1</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
-<span class="linenos" data-linenos="3 "></span>    <span class="n">k2</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">k1</span><span class="p">,</span> <span class="n">t</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="p">)</span>
-<span class="linenos" data-linenos="4 "></span>    <span class="n">k3</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">k2</span><span class="p">,</span> <span class="n">t</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="p">)</span>
-<span class="linenos" data-linenos="5 "></span>    <span class="n">k4</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="n">k3</span><span class="p">,</span> <span class="n">t</span> <span class="o">+</span> <span class="n">dt</span><span class="p">)</span>
-<span class="linenos" data-linenos="6 "></span>    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="p">(</span><span class="n">dt</span><span class="o">/</span><span class="mf">6.0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">k1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k3</span> <span class="o">+</span> <span class="n">k4</span><span class="p">)</span>
-</code></pre></div>
-<p>روش‌های <strong>گام‌وفقی</strong> مانندِ RK45 (زوجِ دورماند–پرینس) یک گام جلوتر می‌روند: در هر گام دو تقریب با مرتبه‌های متفاوت (چهار و پنج) محاسبه می‌کنند و از تفاوتِ آن‌ها برای برآوردِ خطا و تنظیمِ خودکارِ <span class="arithmatex">\(\Delta t\)</span> استفاده می‌کنند — گامِ کوچک آن‌جا که جواب تند تغییر می‌کند و گامِ بزرگ آن‌جا که هموار است. تابعِ <code>solve_ivp</code> در کتابخانهٔ <code>scipy</code> به‌طورِ پیش‌فرض همین روش را به‌کار می‌برد و برای بیشترِ کارهای غیرسفت انتخابِ خوبی است.</p>
-<h2 id="_7">مرتبهٔ دقت در عمل</h2>
-<p>تفاوتِ مرتبه‌ها را می‌توان مستقیماً دید: اگر خطای سراسری را در زمانِ پایانیِ ثابت بر حسبِ <span class="arithmatex">\(\Delta t\)</span> در مقیاسِ لگاریتمی رسم کنیم، هر روش خطی با شیبی برابرِ مرتبه‌اش ظاهر می‌شود.</p>
-<figure>
-  <img alt="Image title" src="../ode_convergence.png" />
-<br />
-<figcaption>خطای سراسری بر حسب گام زمانی برای معادلهٔ آزمونِ x'=-x. شیبِ هر خط برابرِ مرتبهٔ روش است: ۱ برای اویلر، ۲ برای نقطهٔ میانی و ۴ برای RK4. کاهشِ گام در RK4 خطا را بسیار تندتر کم می‌کند.</figcaption>
-</figure>
-<p>این تفاوت در عمل اهمیت دارد. برای نمونه، در مدلِ فیتزهیو–ناگومو با گامِ نسبتاً بزرگ، اویلرِ پیشرو خطای فازِ محسوسی انباشت می‌کند، حال‌آن‌که RK4 با همان گام به جوابِ مرجع بسیار نزدیک می‌ماند:</p>
-<figure>
-  <img alt="Image title" src="../fhn_euler_vs_rk4.png" />
-<br />
-<figcaption>مدل فیتزهیو–ناگومو با گام درشتِ Δt=0.5: اویلرِ پیشرو نسبت به جوابِ مرجع (RK4 با گام ریز) خطای فاز انباشت می‌کند، در حالی که RK4 با همان گامِ درشت بسیار دقیق‌تر است.</figcaption>
-</figure>
-<h2 id="_8">دینامیک هامیلتونی و انتگرال‌گیرهای سیمپلکتیک</h2>
-<p>دسته‌ای ویژه از سامانه‌ها، <strong>سامانه‌های هامیلتونی</strong> هستند که در آن‌ها کمیتی به نامِ انرژی (هامیلتونیِ <span class="arithmatex">\(H\)</span>) در طولِ حرکت پایسته می‌ماند و جریانِ سامانه حجمِ فضای فاز را حفظ می‌کند (قضیهٔ لیوویل). نوسانگرِ هماهنگ ساده‌ترین نمونه است، و سامانه‌های مدارِی و مسئلهٔ سه‌جسمی نمونه‌های پیچیده‌ترِ آن‌اند. مشکل این‌جاست که روش‌های همه‌منظوره مانندِ اویلر یا حتی RK4 این ساختار را حفظ نمی‌کنند: انرژیِ عددی به‌تدریج از مقدارِ درستش دور می‌شود (در اویلرِ پیشرو می‌افزاید، در اویلرِ پسرو می‌کاهد) و در شبیه‌سازی‌های بلندمدت جواب بی‌اعتبار می‌شود.</p>
-<p><strong>انتگرال‌گیرهای سیمپلکتیک</strong> برای همین ساخته شده‌اند: آن‌ها ساختارِ هندسیِ (سیمپلکتیکِ) فضای فاز را دقیقاً حفظ می‌کنند. در نتیجه، هرچند انرژی را کاملاً ثابت نگه نمی‌دارند، خطای انرژی را <strong>کران‌دار</strong> می‌کنند — انرژی پیرامونِ مقدارِ درست نوسان می‌کند اما به‌طورِ مداوم دور نمی‌شود. اویلرِ سیمپلکتیک (نیمه‌ضمنی) و روشِ پرش‌قورباغه نمونه‌های ساده‌ای از این انتگرال‌گیرها هستند. شکلِ زیر تفاوت را آشکار می‌کند:</p>
-<figure>
-  <img alt="Image title" src="../symplectic_energy.png" />
-<br />
-<figcaption>نوسانگر هماهنگ با Δt=0.25. چپ: در صفحهٔ فاز، اویلرِ پیشرو به بیرون و اویلرِ پسرو به درون مارپیچ می‌زند، اما اویلرِ سیمپلکتیک روی مداری بسته نزدیکِ مدارِ دقیق می‌ماند. راست: انرژی در اویلرِ پیشرو می‌افزاید، در پسرو می‌میرد، و در سیمپلکتیک کران‌دار می‌ماند.</figcaption>
-</figure>
-<p>به همین دلیل، هرگاه با سامانه‌ای هامیلتونی سر و کار داشته باشیم و به شبیه‌سازیِ بلندمدتِ پایدار نیاز باشد، انتگرال‌گیرِ سیمپلکتیک انتخابِ درست است، نه لزوماً روشی با مرتبهٔ دقتِ بالاتر.</p>
-<h2 id="_9">جمع‌بندی</h2>
-<p>جدولِ زیر روش‌ها را کنار هم می‌گذارد:</p>
-<table>
-<thead>
-<tr>
-<th>روش</th>
-<th>مرتبه</th>
-<th>نوع</th>
-<th>کاربردِ شاخص</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>اویلر پیشرو</td>
-<td>۱</td>
-<td>صریح</td>
-<td>آموزشی، گامِ بسیار ریز</td>
-</tr>
-<tr>
-<td>اویلر پسرو</td>
-<td>۱</td>
-<td>ضمنی</td>
-<td>سامانه‌های سفت</td>
-</tr>
-<tr>
-<td>نقطهٔ میانی (RK2)</td>
-<td>۲</td>
-<td>صریح</td>
-<td>مصالحهٔ ساده دقت/هزینه</td>
-</tr>
-<tr>
-<td>پرش‌قورباغه / ورله</td>
-<td>۲</td>
-<td>صریح (سیمپلکتیک)</td>
-<td>سامانه‌های هامیلتونی</td>
-</tr>
-<tr>
-<td>RK4</td>
-<td>۴</td>
-<td>صریح</td>
-<td>پیش‌فرضِ همه‌منظوره</td>
-</tr>
-<tr>
-<td>RK45 (گام‌وفقی)</td>
-<td>۴–۵</td>
-<td>صریح</td>
-<td>کنترلِ خودکارِ خطا</td>
-</tr>
-</tbody>
-</table>
-<p>در سراسرِ این کتاب، برای سادگی و شفافیتِ آموزشی بیشتر از اویلرِ پیشرو با گامِ ریز استفاده کرده‌ایم؛ اما برای کارِ پژوهشیِ جدی، RK4 یا <code>solve_ivp</code> انتخابِ بهتری است، و برای سامانه‌های هامیلتونی، یک انتگرال‌گیرِ سیمپلکتیک.</p>
-<hr />
-<p>برای مطالعهٔ بیشتر:</p>
-<div dir="ltr">
-<ul>
-<li>Hairer, E., Nørsett, S.P., Wanner, G., 1993. Solving Ordinary Differential Equations I. Springer.</li>
-<li>Press, W.H., Teukolsky, S.A., Vetterling, W.T., Flannery, B.P., 2007. Numerical Recipes, 3rd ed. Cambridge University Press.</li>
-<li>Hairer, E., Lubich, C., Wanner, G., 2006. Geometric Numerical Integration. Springer.</li>
-</ul>
-</div>
+<p>که در آن <span class="arithmatex">\(\bar{y}\)</span> میانگینِ داده‌هاست. مقدارِ <span class="arithmatex">\(R^2=1\)</span> یعنی برازشِ کامل، و <span class="arithmatex">\(R^2=0\)</span> یعنی مدل دقتی بیش از پیش‌بینی با میانگینِ داده‌ها ندارد. هرچه به ۱ نزدیک‌تر، بهتر، اما با احتیاطی که در ادامه می‌آید.</p>
+<h2 id="_4">مثال: برازش به نوسانگر میرا</h2>
+<p>فرض کنید جابه‌جاییِ یک نوسانگرِ میرا را اندازه گرفته‌ایم و دو مدل را آزمایش می‌کنیم: یکی نوسانگرِ هماهنگِ ساده و بدونِ میرایی، و دیگری نوسانگرِ میرا. مدلِ بی‌میرایی مانده‌هایی با الگوی روشن خواهد داشت، چون افتِ دامنه را نمی‌گیرد؛ در بازه‌هایی پیش‌بینی‌اش از داده بزرگ‌تر و در بازه‌هایی کوچک‌تر است. RMSE‌اش بزرگ و <span class="arithmatex">\(R^2\)</span>‌اش پایین است. مدلِ میرا مانده‌های کوچک و بی‌الگو، RMSE کم و <span class="arithmatex">\(R^2\)</span> نزدیک به ۱ دارد. این مقایسهٔ کمّی، انتخابِ مدلِ بهتر را روشن می‌کند.</p>
+<h2 id="_5">خطر بیش‌برازش</h2>
+<p>یک هشدارِ مهم: <strong>برازشِ بهتر همیشه به‌معنای مدلِ بهتر نیست.</strong> اگر به مدل پارامترهای بیشتری بدهیم، تقریباً همیشه <span class="arithmatex">\(R^2\)</span> بالا می‌رود و RMSE پایین می‌آید، حتی اگر آن پارامترهای افزوده هیچ معنای فیزیکی نداشته باشند.</p>
+<p>این نکته را می‌توان دقیق بیان کرد. یک چندجمله‌ای از درجهٔ <span class="arithmatex">\(n\)</span> دارای <span class="arithmatex">\(n+1\)</span> ضریبِ آزاد است و می‌تواند <strong>دقیقاً</strong> از هر <span class="arithmatex">\(n+1\)</span> نقطهٔ دلخواه بگذرد. ساده‌ترین نمونه یک خط است: یک خط، چندجمله‌ای از درجهٔ یک با دو ضریب (<span class="arithmatex">\(y = ax + b\)</span>) است و همواره می‌توان خطی یافت که دقیقاً از <strong>دو</strong> نقطه بگذرد. به‌همین ترتیب، یک سهمی، چندجمله‌ای از درجهٔ دو با سه ضریب (<span class="arithmatex">\(y = ax^2 + bx + c\)</span>) است و همواره می‌توان سهمی‌ای یافت که دقیقاً از <strong>سه</strong> نقطه بگذرد. این الگو ادامه دارد: پس اگر درجهٔ چندجمله‌ای را به‌اندازهٔ کافی بزرگ بگیریم، می‌تواند از هر مجموعه‌ای از نقاط دقیقاً عبور کند و برازشی کامل (<span class="arithmatex">\(R^2=1\)</span>) بسازد.</p>
+<p>اما چنین مدلی نوفه را به‌جای فیزیک «حفظ» کرده و بر داده‌های تازه فاجعه‌بار است؛ هرچند از تک‌تکِ نقاط می‌گذرد، در فاصلهٔ میانِ آن‌ها رفتاری پرنوسان و بی‌معنا پیدا می‌کند و هیچ پیش‌بینیِ قابلِ‌اعتمادی به‌دست نمی‌دهد. این پدیده <strong>بیش‌برازش</strong> نام دارد.</p>
+<p>به یاد بیاوریم که، به گفتهٔ جورج باکس، همهٔ مدل‌ها نادرست‌اند اما برخی سودمندند؛ هدفِ ما نه برازشِ بی‌نقص به نقاطِ موجود، بلکه ساختنِ مدلی است که بر داده‌های تازه نیز سودمند بماند. راهِ مقابله با بیش‌برازش همان درسِ فصلِ پیش است: کارایی را بر <strong>داده‌های مستقل</strong> بسنجید، یعنی داده‌هایی که در برازش به کار نرفته‌اند، نه بر همان داده‌هایی که مدل به آن‌ها برازش شده است.</p>
+<p>ایدهٔ مکملِ دیگر این است که هنگامِ مقایسهٔ مدل‌ها، مدلِ ساده‌تر را بر مدلِ پیچیده‌تر ترجیح دهیم، مگر آن‌که پیچیدگیِ بیشتر واقعاً برازش را به‌طورِ چشمگیر بهتر کند. این همان <strong>اصلِ صرفه‌جویی</strong> (یا تیغِ اوکام، Occam's razor) است. مشکلِ <span class="arithmatex">\(R^2\)</span> ساده این است که با افزودنِ هر پارامتر، هرگز کم نمی‌شود و معمولاً بالا می‌رود، پس به‌تنهایی نمی‌تواند بگوید آیا یک پارامترِ تازه ارزشش را داشته است یا نه. برای رفعِ این مشکل، سنجه‌هایی ساخته شده‌اند که <strong>هزینهٔ پیچیدگی</strong> را به حساب می‌آورند: آن‌ها به ازای هر پارامترِ افزوده، نمرهٔ مدل را اندکی جریمه می‌کنند، تا تنها زمانی مدلِ پیچیده‌تر برنده شود که بهبودِ برازش از این جریمه بیشتر باشد. دو نمونهٔ پرکاربرد، <strong><span class="arithmatex">\(R^2\)</span> تعدیل‌شده</strong> (adjusted <span class="arithmatex">\(R^2\)</span>؛ نسخه‌ای از <span class="arithmatex">\(R^2\)</span> که برای تعدادِ پارامترها تصحیح می‌شود) و <strong>معیارهای اطلاعاتی</strong> مانندِ AIC (معیار اطلاعاتی آکائیکه، Akaike Information Criterion) و BIC (معیار اطلاعاتی بیزی، Bayesian Information Criterion) هستند. در فصلِ برآورد پارامتر به این ایده‌ها بازمی‌گردیم.</p>
+<h2 id="_6">جمع‌بندی</h2>
+<p>نیکویی برازش، کارایی مدل را از حالتِ کیفیِ «خوب به‌نظر می‌رسد» به سنجه‌های کمّی و قابلِ‌مقایسه می‌برد: مانده‌ها، RMSE و <span class="arithmatex">\(R^2\)</span>. اما این سنجه‌ها را باید با احتیاط به کار برد؛ برازشِ بهتر به داده‌های موجود، به‌ویژه با افزودنِ پارامتر، می‌تواند نشانهٔ بیش‌برازش باشد، نه مدلِ بهتر. سنجشِ نهایی همواره بر داده‌های مستقل است.</p>
 
 
 
 
 
 
-
-  
-  
 
 
 
@@ -1756,15 +1581,15 @@ v_{n+1} &amp;= v_{n+1/2} + \tfrac{\Delta t}{2}\,a(x_{n+1}).
     <hr>
     <div class="page-actions" dir="rtl">
       <a class="md-button"
-         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=enhancement&title=پیشنهاد برای فصل: %D8%AD%D9%84%20%D8%B9%D8%AF%D8%AF%DB%8C%20%D9%85%D8%B9%D8%A7%D8%AF%D9%84%D8%A7%D8%AA%20%D8%AF%DB%8C%D9%81%D8%B1%D8%A7%D9%86%D8%B3%DB%8C%D9%84">
+         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=enhancement&title=پیشنهاد برای فصل: %D9%86%DB%8C%DA%A9%D9%88%DB%8C%DB%8C%20%D8%A8%D8%B1%D8%A7%D8%B2%D8%B4">
         پیشنهاد در گیت‌هاب
       </a>
       <a class="md-button"
-         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=bug&title=گزارش اشکال در فصل: %D8%AD%D9%84%20%D8%B9%D8%AF%D8%AF%DB%8C%20%D9%85%D8%B9%D8%A7%D8%AF%D9%84%D8%A7%D8%AA%20%D8%AF%DB%8C%D9%81%D8%B1%D8%A7%D9%86%D8%B3%DB%8C%D9%84">
+         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=bug&title=گزارش اشکال در فصل: %D9%86%DB%8C%DA%A9%D9%88%DB%8C%DB%8C%20%D8%A8%D8%B1%D8%A7%D8%B2%D8%B4">
         گزارش اشکال در گیت‌هاب
       </a>
       <a class="md-button"
-         href="mailto:saeed.taghavi.v@gmail.com?subject=بازخورد دربارهٔ فصل: حل عددی معادلات دیفرانسیل">
+         href="mailto:saeed.taghavi.v@gmail.com?subject=بازخورد دربارهٔ فصل: نیکویی برازش">
         ارسال بازخورد با ایمیل
       </a>
     </div>
@@ -1793,7 +1618,7 @@ v_{n+1} &amp;= v_{n+1/2} + \tfrac{\Delta t}{2}\,a(x_{n+1}).
       <nav class="md-footer__inner md-grid" aria-label="پاورقی" >
         
           
-          <a href="../ch10/" class="md-footer__link md-footer__link--prev" aria-label="قبلی: مدل ویلسون-کوان">
+          <a href="../ch-modelling-05-verify-validate/" class="md-footer__link md-footer__link--prev" aria-label="قبلی: راستی‌آزمایی و اعتبارسنجی">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1803,20 +1628,20 @@ v_{n+1} &amp;= v_{n+1/2} + \tfrac{\Delta t}{2}\,a(x_{n+1}).
                 قبلی
               </span>
               <div class="md-ellipsis">
-                مدل ویلسون-کوان
+                راستی‌آزمایی و اعتبارسنجی
               </div>
             </div>
           </a>
         
         
           
-          <a href="../appendix-sde/" class="md-footer__link md-footer__link--next" aria-label="بعدی: روش اویلر–مارویاما (SDE)">
+          <a href="../ch16/" class="md-footer__link md-footer__link--next" aria-label="بعدی: مفاهیم مدل‌سازی و خطا">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 بعدی
               </span>
               <div class="md-ellipsis">
-                روش اویلر–مارویاما (SDE)
+                مفاهیم مدل‌سازی و خطا
               </div>
             </div>
             <div class="md-footer__button md-icon">
