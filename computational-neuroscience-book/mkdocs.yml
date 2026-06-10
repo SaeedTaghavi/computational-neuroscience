@@ -9,6 +9,9 @@ theme:
   language: custom        # ← must be "custom", not "fa"
   custom_dir: overrides
   features:
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
     # - navigation.sections   # render top-level groups as bold section headers, expanded
     # - navigation.indexes    # lets a Part have its own landing page (see below)
     # - navigation.top        # back-to-top button
@@ -36,8 +39,30 @@ plugins:
 nav:
   - خانه: index.md
   - "پیش‌نیازها":
+    - "روش‌های عددی و تحلیل داده":
+        - "مفاهیم مدل‌سازی":
+            - "مفاهیم پایه": ch-modelling-01-overview.md
+            - "رده‌بندی مدل‌ها": ch-modelling-02-classification.md
+            - "تصمیم‌های مدل‌سازی": ch-modelling-03-decisions.md
+            - "رده‌بندی عدم‌قطعیت": ch-modelling-04-uncertainty.md
+            - "راستی‌آزمایی و اعتبارسنجی": ch-modelling-05-verify-validate.md
+            - "نیکویی برازش": ch-modelling-06-goodness-of-fit.md
+        - "مفاهیم مدل‌سازی و خطا": ch16.md
+        # - "تفاضل محدود و مشتق عددی": ch17.md
+        # - "حل عددی معادلات دیفرانسیل معمولی": ch18.md
+        # - "معادلات با مشتقات جزئی": ch19.md
+        # - "احتمال و توزیع‌ها": ch20.md
+        # - "انتشار عدم‌قطعیت و مونت‌کارلو": ch21.md
+        # - "برآورد پارامتر": ch22.md
+        # - "پردازش سیگنال": ch23.md
+        # - "تحلیل سری‌های زمانی": ch24.md
+        # - "بهینه‌سازی": ch25.md
+        # - "روش اجزای محدود (FEM)": ch26.md
+        # - "تحلیل مقادیر فرین": ch27.md
+        # - "ریسک و قابلیت اطمینان": ch28.md
+    - "بیوفیزیک نورون":
       - غشای تحریک‌پذیر: ch01.md
-      - سیستم‌های دینامیکی: ch02.md
+    - سیستم‌های دینامیکی: ch02.md
   - "مدل‌های نورون":
       - مدل هاجکین-هاکسلی: ch03.md
       - "مدل‌های ساده‌شده: LIF، EIF، AdEx": ch04.md
@@ -55,10 +80,13 @@ nav:
       - "معرفی بسته شبیه‌سازی  NEST": appendix-nest.md
       - "معرفی بسته شبیه‌سازی  neurolib": appendix-neurolib.md
 
+
 extra_css:
   - stylesheets/extra.css
 
 markdown_extensions:
+  - admonition
+  - pymdownx.details
   - meta
   - attr_list
   - md_in_html
