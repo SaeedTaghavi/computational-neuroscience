@@ -63,11 +63,6 @@
 }
 
 
-/* .md-typeset blockquote {
-  color: var(--md-default-fg-color);
-} */
-
-
 
 /* shrink the prev/next footer links */
 .md-footer__link {
@@ -97,4 +92,21 @@
 .md-footer__link {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+
+
+
+/* recolor the "quote" admonition box */
+.md-typeset .admonition.quote,
+.md-typeset details.quote {
+  border-color: #d4a017;                          /* amber border */
+}
+.md-typeset .quote > .admonition-title,
+.md-typeset .quote > summary {
+  background-color: rgba(212, 160, 23, 0.12);     /* faint amber title bar */
+}
+.md-typeset .quote > .admonition-title::before,
+.md-typeset .quote > summary::before {
+  background-color: #d4a017;                       /* amber quote icon */
 }
