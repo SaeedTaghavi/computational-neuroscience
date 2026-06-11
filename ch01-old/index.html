@@ -6,19 +6,15 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="حل عددی معادلات دیفرانسیل معمولی — اویلر پیشرو و پسرو، نقطهٔ میانی، RK4، RK45 و انتگرال‌گیرهای سیمپلکتیک برای سامانه‌های هامیلتونی.">
+        <meta name="description" content="غشای تحریک‌پذیر نورون — ساختار سلول، کانال‌های یونی، پتانسیل استراحت، معادلهٔ نرنست و معادلهٔ گلدمن، با استخراج گام‌به‌گام.">
       
       
         <meta name="author" content="Saeed Taghavi">
       
       
-        <link rel="canonical" href="https://computational-neuroscience.ir/appendix-ode/">
+        <link rel="canonical" href="https://computational-neuroscience.ir/ch01-old/">
       
       
-        <link rel="prev" href="../ch10/">
-      
-      
-        <link rel="next" href="../appendix-sde/">
       
       
         
@@ -29,7 +25,7 @@
     
     
       
-        <title>حل عددی معادلات دیفرانسیل - کتاب علوم اعصاب محاسباتی</title>
+        <title>غشای تحریک‌پذیر - کتاب علوم اعصاب محاسباتی</title>
       
     
     
@@ -118,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              حل عددی معادلات دیفرانسیل
+              غشای تحریک‌پذیر
             
           </span>
         </div>
@@ -1288,8 +1284,6 @@
       
   
   
-    
-  
   
   
     
@@ -1302,11 +1296,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
@@ -1327,7 +1321,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1342,37 +1336,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    حل عددی معادلات دیفرانسیل
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../appendix-ode/" class="md-nav__link">
         
   
   
@@ -1388,116 +1355,6 @@
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="فهرست در این صفحه">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      فهرست در این صفحه
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        روش اویلر پیشرو
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        روش اویلر پسرو
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        روش نقطهٔ میانی
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        روش پرش‌قورباغه
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        روش‌های رونگه–کوتای مرتبهٔ بالا و گام وفقی
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        مرتبهٔ دقت در عمل
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        دینامیک هامیلتونی و انتگرال‌گیرهای سیمپلکتیک
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        جمع‌بندی
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1626,7 +1483,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        روش اویلر پیشرو
+        ساختار سلول
       
     </span>
   </a>
@@ -1637,7 +1494,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        روش اویلر پسرو
+        سلول‌های عصبی
       
     </span>
   </a>
@@ -1648,7 +1505,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        روش نقطهٔ میانی
+        ساختار فسفولیپیدی
       
     </span>
   </a>
@@ -1659,32 +1516,38 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        روش پرش‌قورباغه
+        کانال‌های یونی
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="کانال‌های یونی">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        روش‌های رونگه–کوتای مرتبهٔ بالا و گام وفقی
+        باز و بسته شدن کانال‌های یونی
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        مرتبهٔ دقت در عمل
+        گزینش یون‌ها
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1692,7 +1555,7 @@
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        دینامیک هامیلتونی و انتگرال‌گیرهای سیمپلکتیک
+        ترکیب یونی داخل و خارج سلول
       
     </span>
   </a>
@@ -1703,7 +1566,46 @@
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        جمع‌بندی
+        پتانسیل استراحت
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        معادلهٔ نرنست
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="معادلهٔ نرنست">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        اشتقاق معادلهٔ نرنست
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        معادلهٔ گلدمن
       
     </span>
   </a>
@@ -1728,150 +1630,218 @@
 
 
 
-<h1 id="_1">پیوست: حل عددی معادلات دیفرانسیل معمولی</h1>
-<p>تقریباً همهٔ مدل‌های این کتاب — از هاجکین–هاکسلی تا ویلسون–کوان — به‌صورتِ معادلهٔ دیفرانسیلِ معمولی نوشته می‌شوند و جوابِ تحلیلیِ بسته ندارند. بنابراین آن‌ها را عددی حل می‌کنیم. این پیوست، روش‌های پایه‌ای را که در سراسرِ کتاب به‌کار می‌بریم گرد هم می‌آورد. مسئله این است: با داشتنِ</p>
-<div class="arithmatex">\[
-\frac{d\mathbf{x}}{dt} = \mathbf{f}(\mathbf{x}, t), \qquad \mathbf{x}(t_0) = \mathbf{x}_0,
-\]</div>
-<p>می‌خواهیم <span class="arithmatex">\(\mathbf{x}(t)\)</span> را برای <span class="arithmatex">\(t&gt;t_0\)</span> تقریب بزنیم. همهٔ روش‌ها زمان را به گام‌های کوچکِ <span class="arithmatex">\(\Delta t\)</span> می‌شکنند و از حالتِ کنونی، حالتِ گامِ بعد را می‌سازند.</p>
-<h2 id="_2">روش اویلر پیشرو</h2>
-<p>ساده‌ترین روش، مستقیماً از تعریفِ مشتق می‌آید. تقریبِ <span class="arithmatex">\(\frac{d\mathbf{x}}{dt}\approx\frac{\mathbf{x}(t+\Delta t)-\mathbf{x}(t)}{\Delta t}\)</span> می‌دهد:</p>
-<div class="arithmatex">\[
-\mathbf{x}_{n+1} = \mathbf{x}_n + \Delta t\,\mathbf{f}(\mathbf{x}_n, t_n).
-\]</div>
-<p>این روش <strong>صریح</strong> است (سمتِ راست فقط به مقادیرِ معلومِ گامِ کنونی بستگی دارد) و <strong>مرتبهٔ یک</strong>: خطای محلی در هر گام از مرتبهٔ <span class="arithmatex">\(\mathcal{O}(\Delta t^2)\)</span> و خطای سراسری از مرتبهٔ <span class="arithmatex">\(\mathcal{O}(\Delta t)\)</span> است. سادگیِ آن بهای پایداریِ ضعیف دارد: برای گامِ بزرگ واگرا می‌شود، و چنان‌که خواهیم دید، برای سامانه‌های نوسانی انرژی را به‌طورِ مصنوعی می‌افزاید.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">def</span> <span class="nf">forward_euler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
-<span class="linenos" data-linenos="2 "></span>    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
-</code></pre></div>
-<h2 id="_3">روش اویلر پسرو</h2>
-<p>اگر به‌جای شیبِ گامِ کنونی، شیبِ گامِ بعد را به‌کار بریم، روشِ <strong>ضمنی</strong> اویلر پسرو به‌دست می‌آید:</p>
-<div class="arithmatex">\[
-\mathbf{x}_{n+1} = \mathbf{x}_n + \Delta t\,\mathbf{f}(\mathbf{x}_{n+1}, t_{n+1}).
-\]</div>
-<p>اکنون <span class="arithmatex">\(\mathbf{x}_{n+1}\)</span> در هر دو سو ظاهر می‌شود، پس در هر گام باید یک معادله را حل کنیم (برای سامانه‌های خطی یک دستگاهِ خطی، و برای غیرخطی با روشی مانندِ نیوتن). در ازای این هزینه، روش <strong>پایداریِ</strong> بسیار بهتری دارد و برای سامانه‌های <strong>سفت</strong> (stiff) — که در آن‌ها مقیاس‌های زمانیِ بسیار متفاوت کنار هم‌اند — مناسب است. عیبِ آن، میرایی عددیِ مصنوعی است. برای معادلهٔ نمونهٔ خطیِ <span class="arithmatex">\(x'=-x\)</span>، حل صریح است: <span class="arithmatex">\(x_{n+1}=x_n/(1+\Delta t)\)</span>.</p>
-<h2 id="_4">روش نقطهٔ میانی</h2>
-<p>دقت را می‌توان با ارزیابیِ شیب در میانهٔ گام بالا برد. این روش، که نمونه‌ای از روش‌های <strong>رونگه–کوتای مرتبهٔ دو</strong> است، چنین است:</p>
-<div class="arithmatex">\[
-\mathbf{k}_1 = \mathbf{f}(\mathbf{x}_n, t_n), \qquad
-\mathbf{x}_{n+1} = \mathbf{x}_n + \Delta t\,\mathbf{f}\!\left(\mathbf{x}_n + \tfrac{\Delta t}{2}\mathbf{k}_1,\; t_n + \tfrac{\Delta t}{2}\right).
-\]</div>
-<p>خطای سراسریِ آن از مرتبهٔ <span class="arithmatex">\(\mathcal{O}(\Delta t^2)\)</span> است؛ یعنی نصف‌کردنِ گام، خطا را به یک‌چهارم می‌رساند.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">def</span> <span class="nf">midpoint</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
-<span class="linenos" data-linenos="2 "></span>    <span class="n">k1</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
-<span class="linenos" data-linenos="3 "></span>    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">k1</span><span class="p">,</span> <span class="n">t</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="p">)</span>
-</code></pre></div>
-<h2 id="_5">روش پرش‌قورباغه</h2>
-<p>برای سامانه‌های مرتبهٔ دومِ مکانیکی به شکلِ <span class="arithmatex">\(\ddot{x} = a(x)\)</span> (که در آن نیرو تنها به مکان بستگی دارد، مانندِ سامانه‌های هامیلتونی)، روشِ <strong>پرش‌قورباغه</strong> (leapfrog) — یا شکلِ هم‌ارزِ آن، وِرلهٔ سرعتی — انتخابِ طبیعی است. در این روش مکان و سرعت به‌صورتِ «درهم‌بافته» به‌روزرسانی می‌شوند:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-v_{n+1/2} &amp;= v_n + \tfrac{\Delta t}{2}\,a(x_n),\\
-x_{n+1} &amp;= x_n + \Delta t\,v_{n+1/2},\\
-v_{n+1} &amp;= v_{n+1/2} + \tfrac{\Delta t}{2}\,a(x_{n+1}).
-\end{aligned}
-\]</div>
-<p>این روش مرتبهٔ دو، صریح، و <strong>برگشت‌پذیر در زمان</strong> است و — مهم‌تر از همه — یک <strong>انتگرال‌گیرِ سیمپلکتیک</strong> است؛ ویژگی‌ای که در بخشِ پایانیِ این پیوست به اهمیتِ آن می‌پردازیم.</p>
-<h2 id="_6">روش‌های رونگه–کوتای مرتبهٔ بالا و گام وفقی</h2>
-<p>پرکاربردترین روشِ همه‌منظوره، <strong>رونگه–کوتای مرتبهٔ چهار</strong> (RK4) است که با ترکیبِ وزن‌دارِ چهار ارزیابیِ شیب در هر گام، خطای سراسریِ <span class="arithmatex">\(\mathcal{O}(\Delta t^4)\)</span> به‌دست می‌دهد:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-\mathbf{k}_1 &amp;= \mathbf{f}(\mathbf{x}_n, t_n), &amp;
-\mathbf{k}_2 &amp;= \mathbf{f}(\mathbf{x}_n + \tfrac{\Delta t}{2}\mathbf{k}_1,\, t_n + \tfrac{\Delta t}{2}),\\
-\mathbf{k}_3 &amp;= \mathbf{f}(\mathbf{x}_n + \tfrac{\Delta t}{2}\mathbf{k}_2,\, t_n + \tfrac{\Delta t}{2}), &amp;
-\mathbf{k}_4 &amp;= \mathbf{f}(\mathbf{x}_n + \Delta t\,\mathbf{k}_3,\, t_n + \Delta t),
-\end{aligned}
-\]</div>
-<div class="arithmatex">\[
-\mathbf{x}_{n+1} = \mathbf{x}_n + \frac{\Delta t}{6}\big(\mathbf{k}_1 + 2\mathbf{k}_2 + 2\mathbf{k}_3 + \mathbf{k}_4\big).
-\]</div>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">def</span> <span class="nf">rk4</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
-<span class="linenos" data-linenos="2 "></span>    <span class="n">k1</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
-<span class="linenos" data-linenos="3 "></span>    <span class="n">k2</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">k1</span><span class="p">,</span> <span class="n">t</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="p">)</span>
-<span class="linenos" data-linenos="4 "></span>    <span class="n">k3</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">k2</span><span class="p">,</span> <span class="n">t</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dt</span><span class="p">)</span>
-<span class="linenos" data-linenos="5 "></span>    <span class="n">k4</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="n">k3</span><span class="p">,</span> <span class="n">t</span> <span class="o">+</span> <span class="n">dt</span><span class="p">)</span>
-<span class="linenos" data-linenos="6 "></span>    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="p">(</span><span class="n">dt</span><span class="o">/</span><span class="mf">6.0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">k1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k3</span> <span class="o">+</span> <span class="n">k4</span><span class="p">)</span>
-</code></pre></div>
-<p>روش‌های <strong>گام‌وفقی</strong> مانندِ RK45 (زوجِ دورماند–پرینس) یک گام جلوتر می‌روند: در هر گام دو تقریب با مرتبه‌های متفاوت (چهار و پنج) محاسبه می‌کنند و از تفاوتِ آن‌ها برای برآوردِ خطا و تنظیمِ خودکارِ <span class="arithmatex">\(\Delta t\)</span> استفاده می‌کنند — گامِ کوچک آن‌جا که جواب تند تغییر می‌کند و گامِ بزرگ آن‌جا که هموار است. تابعِ <code>solve_ivp</code> در کتابخانهٔ <code>scipy</code> به‌طورِ پیش‌فرض همین روش را به‌کار می‌برد و برای بیشترِ کارهای غیرسفت انتخابِ خوبی است.</p>
-<h2 id="_7">مرتبهٔ دقت در عمل</h2>
-<p>تفاوتِ مرتبه‌ها را می‌توان مستقیماً دید: اگر خطای سراسری را در زمانِ پایانیِ ثابت بر حسبِ <span class="arithmatex">\(\Delta t\)</span> در مقیاسِ لگاریتمی رسم کنیم، هر روش خطی با شیبی برابرِ مرتبه‌اش ظاهر می‌شود.</p>
+<h1 id="_1">غشای تحریک‌پذیر</h1>
+<p>این فصل برای معرفی رسمی و کتابی نظریهٔ عمومی علوم اعصاب نیست، بلکه
+یک مقدمهٔ کوتاه دربارهٔ نورون‌هاست که متناسب با فصل‌های بعدی نوشته شده است. فصل‌های بعدی با
+مدل‌های مختلف ریاضی که برای توصیف فعالیت‌های عصبی به‌کار برده می‌شوند سر و کار دارند. از آنجا که نورون‌ها
+سلول هستند، با معرفی مختصری از سلول‌ها شروع می‌کنیم و پس از آن مدل‌های ریاضی استاندارد انتقال
+سیگنال توسط نورون‌ها را معرفی خواهیم کرد.</p>
+<h2 id="_2">ساختار سلول</h2>
+<p>سلول‌ها واحدهای بنیادین حیات هستند. یک سلول از محلول آبی غلیظی از مواد شیمیایی تشکیل شده است و قادر است خود را با رشد و تقسیم تکثیر کند.
+ساده‌ترین شکل حیات تک‌سلولی است، مانند مخمر، آمیب یا یک باکتری. سلول‌هایی که هسته دارند یوکاریوت و سلول‌هایی که هسته ندارند پروکاریوت نامیده می‌شوند. باکتری‌ها پروکاریوت هستند، در حالی که مخمر و آمیب یوکاریوت‌اند. حیوانات موجوداتی چندسلولی با سلول‌های یوکاریوتی هستند. قطر یک سلول نوعی در حدود ۵ تا ۲۰ میکرومتر است (یک میکرومتر برابر است با یک‌میلیونیم متر)، اما یک تخمک ممکن است به اندازهٔ یک میلی‌متر قطر داشته باشد. تخمین زده می‌شود که بدن انسان حدود ۳۰ تریلیون سلول داشته باشد. در یک دسته‌بندی، سلول‌ها بر اساس وظایفی که در بدن دارند مشخص می‌شوند که بسیار متنوع‌اند. با این حال، همهٔ سلول‌های یوکاریوت ساختار اساسی شبیه به هم دارند. همهٔ آن‌ها از یک هسته، اندامک‌ها و مولکول‌های متنوع و یک غشای پلاسمایی تشکیل شده‌اند (گلبول قرمز یک استثناست، زیرا هسته ندارد).</p>
 <figure>
-  <img alt="Image title" src="../ode_convergence.png" />
+  <img alt="Image title" src="../03-cell.png" />
 <br />
-<figcaption>خطای سراسری بر حسب گام زمانی برای معادلهٔ آزمونِ x'=-x. شیبِ هر خط برابرِ مرتبهٔ روش است: ۱ برای اویلر، ۲ برای نقطهٔ میانی و ۴ برای RK4. کاهشِ گام در RK4 خطا را بسیار تندتر کم می‌کند.</figcaption>
+<figcaption>یک سلول با هسته و تعدادی اندامک</figcaption>
 </figure>
-<p>این تفاوت در عمل اهمیت دارد. برای نمونه، در مدلِ فیتزهیو–ناگومو با گامِ نسبتاً بزرگ، اویلرِ پیشرو خطای فازِ محسوسی انباشت می‌کند، حال‌آن‌که RK4 با همان گام به جوابِ مرجع بسیار نزدیک می‌ماند:</p>
+<p>DNA،
+کد ژنتیکی سلول، از دو رشتهٔ زنجیرهٔ پلیمری با پیکربندی مارپیچ دوگانه، با واحدهای نوکلئوتیدی مکرر
+A، C، G و T
+تشکیل شده است. هر
+A
+در یک رشته توسط یک پیوند هیدروژنی به
+T
+در رشتهٔ
+دیگر متصل می‌شود و به‌طور مشابه هر
+C
+به
+G
+پیوند
+هیدروژنی دارد.
+DNA
+در کروموزوم‌های هسته بسته‌بندی شده است.
+غشای پلاسمایی سلول از یک دولایهٔ لیپیدی تشکیل شده است که در جاهای مختلف آن پروتئین‌هایی قرار گرفته‌اند.</p>
 <figure>
-  <img alt="Image title" src="../fhn_euler_vs_rk4.png" />
+  <img alt="Image title" src="../04-membrane.png" />
 <br />
-<figcaption>مدل فیتزهیو–ناگومو با گام درشتِ Δt=0.5: اویلرِ پیشرو نسبت به جوابِ مرجع (RK4 با گام ریز) خطای فاز انباشت می‌کند، در حالی که RK4 با همان گامِ درشت بسیار دقیق‌تر است.</figcaption>
+<figcaption>دو لایهٔ لیپیدی تشکیل‌دهندهٔ غشای سلول</figcaption>
 </figure>
-<h2 id="_8">دینامیک هامیلتونی و انتگرال‌گیرهای سیمپلکتیک</h2>
-<p>دسته‌ای ویژه از سامانه‌ها، <strong>سامانه‌های هامیلتونی</strong> هستند که در آن‌ها کمیتی به نامِ انرژی (هامیلتونیِ <span class="arithmatex">\(H\)</span>) در طولِ حرکت پایسته می‌ماند و جریانِ سامانه حجمِ فضای فاز را حفظ می‌کند (قضیهٔ لیوویل). نوسانگرِ هماهنگ ساده‌ترین نمونه است، و سامانه‌های مدارِی و مسئلهٔ سه‌جسمی نمونه‌های پیچیده‌ترِ آن‌اند. مشکل این‌جاست که روش‌های همه‌منظوره مانندِ اویلر یا حتی RK4 این ساختار را حفظ نمی‌کنند: انرژیِ عددی به‌تدریج از مقدارِ درستش دور می‌شود (در اویلرِ پیشرو می‌افزاید، در اویلرِ پسرو می‌کاهد) و در شبیه‌سازی‌های بلندمدت جواب بی‌اعتبار می‌شود.</p>
-<p><strong>انتگرال‌گیرهای سیمپلکتیک</strong> برای همین ساخته شده‌اند: آن‌ها ساختارِ هندسیِ (سیمپلکتیکِ) فضای فاز را دقیقاً حفظ می‌کنند. در نتیجه، هرچند انرژی را کاملاً ثابت نگه نمی‌دارند، خطای انرژی را <strong>کران‌دار</strong> می‌کنند — انرژی پیرامونِ مقدارِ درست نوسان می‌کند اما به‌طورِ مداوم دور نمی‌شود. اویلرِ سیمپلکتیک (نیمه‌ضمنی) و روشِ پرش‌قورباغه نمونه‌های ساده‌ای از این انتگرال‌گیرها هستند. شکلِ زیر تفاوت را آشکار می‌کند:</p>
+<p>سیتوپلاسم بخشی از سلول است که در خارج از هسته و در داخل غشای سلول قرار دارد. هر اندامک یک ساختار مجزا در سیتوپلاسم است که برای انجام یک عملکرد خاص تخصص یافته است. میتوکندری اندامکی غشادار است که از اکسیژن برای تولید انرژی استفاده می‌کند؛ انرژی‌ای که سلول برای انجام وظایف مختلف خود به آن نیاز دارد. شبکهٔ آندوپلاسمی
+(ER)
+یکی دیگر از اندامک‌های محدود به غشاست که در آن لیپیدها ساخته می‌شوند و پروتئین‌های متصل به غشا تولید می‌شوند. سیتوپلاسم حاوی تعدادی اندامک میتوکندری و
+ER
+و همچنین اندامک‌های دیگری مانند لیزوزوم است که هضم درون‌سلولی در آن‌ها رخ می‌دهد. ساختارهای دیگری که از پروتئین‌ها تشکیل شده‌اند را می‌توان در سلول یافت، مانند رشته‌های مختلفی که برخی از آن‌ها وظیفهٔ تقویت مکانیکی سلول (اسکلت سلولی یا سیتواسکلتون) را بر عهده دارند. سلول همچنین حاوی مولکول‌های اسید آمینه، که واحدهای سازندهٔ پروتئین‌ها هستند، و بسیاری از مولکول‌های دیگر است.</p>
+<h2 id="_3">سلول‌های عصبی</h2>
+<p>در بدن انسان سلول‌های متنوعی وجود دارند. این سلول‌ها شامل (۱) انواع سلول‌های ماهیچه‌ای، (۲) انواع سلول‌های حسی نظیر سلول‌های میله‌ای شبکیه و سلول‌های مویی گوش داخلی، (۳) گلبول‌های قرمز و انواع گلبول‌های سفید و (۴) سلول‌های عصبی یا همان نورون‌ها هستند.
+وظیفهٔ بنیادی نورون‌ها دریافت، هدایت و انتقال سیگنال است. نورون‌ها سیگنال‌هایی را از اندام‌های حسی به سمت داخل، به سیستم عصبی مرکزی<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> که شامل مغز و نخاع است، منتقل می‌کنند. در سیستم عصبی مرکزی، سیگنال‌ها توسط مجموعه‌ای از نورون‌ها و مدارهای نورونی تجزیه، تحلیل و تفسیر می‌شوند؛ سپس سیستم نورونی پاسخی به این ورودی تولید می‌کند و پاسخ مجدداً توسط نورون‌ها به سمت بیرون، برای اقدام، به سلول‌های عضلانی و غدد ارسال می‌شود.</p>
+<p>نورون‌ها اشکال و اندازه‌های مختلفی دارند، اما همهٔ آن‌ها دارای برخی ویژگی‌های مشترک هستند. یک نورون نوعی از چهار بخش تشکیل شده است: جسم سلولی یا سوما، دندریت‌ها، اکسون، و ترمینال‌های عصبی یا پایانه‌های پیش‌سیناپسی.</p>
 <figure>
-  <img alt="Image title" src="../symplectic_energy.png" />
+  <img alt="Image title" src="../05-neuron.png" />
 <br />
-<figcaption>نوسانگر هماهنگ با Δt=0.25. چپ: در صفحهٔ فاز، اویلرِ پیشرو به بیرون و اویلرِ پسرو به درون مارپیچ می‌زند، اما اویلرِ سیمپلکتیک روی مداری بسته نزدیکِ مدارِ دقیق می‌ماند. راست: انرژی در اویلرِ پیشرو می‌افزاید، در پسرو می‌میرد، و در سیمپلکتیک کران‌دار می‌ماند.</figcaption>
+<figcaption>یک سلول عصبی؛ جهت فلش‌ها جهت هدایت سیگنال را نشان می‌دهد.</figcaption>
 </figure>
-<p>به همین دلیل، هرگاه با سامانه‌ای هامیلتونی سر و کار داشته باشیم و به شبیه‌سازیِ بلندمدتِ پایدار نیاز باشد، انتگرال‌گیرِ سیمپلکتیک انتخابِ درست است، نه لزوماً روشی با مرتبهٔ دقتِ بالاتر.</p>
-<h2 id="_9">جمع‌بندی</h2>
-<p>جدولِ زیر روش‌ها را کنار هم می‌گذارد:</p>
+<h2 id="_4">ساختار فسفولیپیدی</h2>
+<p>فسفولیپید نوعی از لیپیدهاست که از یک مولکول گلیسرول، دو مولکول اسید چرب و یک مولکول فسفات تشکیل شده است. فسفولیپیدها یک سر آب‌دوست و دو دم آب‌گریز دارند. همین خاصیت دوگانه باعث می‌شود که در محیط آبی به‌طور خودبه‌خود به شکل یک دولایه سامان یابند: سرهای آب‌دوست رو به محلول آبی درون و بیرون سلول و دم‌های آب‌گریز رو به یکدیگر در میانهٔ غشا. این دولایه برای یون‌ها و مولکول‌های آب‌دوست تقریباً نفوذناپذیر است و همین، پایهٔ جداسازی الکتریکی درون سلول از بیرون آن را فراهم می‌کند.</p>
+<figure>
+  <img alt="Image title" src="../01-phospholipid.jpg" />
+<br />
+<figcaption>دو لایهٔ فسفولیپیدی</figcaption>
+</figure>
+<figure>
+  <img alt="Image title" src="../0102_Lipid_Bilayer_With_Various_Components.jpg" />
+<br />
+<figcaption>دو لایهٔ فسفولیپیدی با مؤلفه‌های مختلف</figcaption>
+</figure>
+<h2 id="_5">کانال‌های یونی</h2>
+<p>کانال یونی گروهی از پروتئین‌های تراغشایی غشای سلول هستند که معمولاً نسبت به بعضی یون‌ها مثل سدیم، پتاسیم، کلسیم و کلر بسیار گزینشی رفتار می‌کنند. چون دولایهٔ لیپیدی به‌تنهایی نسبت به یون‌ها نفوذناپذیر است، این کانال‌ها تنها مسیرهای عبور سریع یون از عرض غشا را فراهم می‌کنند. عبور یون از یک کانال باز یک فرایند غیرفعال است: یون‌ها در جهت شیب الکتروشیمیایی خود حرکت می‌کنند و هیچ انرژی متابولیکی مستقیماً مصرف نمی‌شود.</p>
+<figure>
+  <img alt="Image title" src="../02-ion_channel.png" />
+<br />
+<figcaption>نمایی از یک کانال یونی در غشای سلول</figcaption>
+</figure>
+<h3 id="_6">باز و بسته شدن کانال‌های یونی</h3>
+<p>بسیاری از کانال‌های یونی می‌توانند میان دو حالت «باز» و «بسته» جابه‌جا شوند؛ به این فرایند دریچه‌گذاری یا گِیتینگ (gating) گفته می‌شود. در حالت بسته، بخشی از زنجیرهٔ پروتئینی مانند دروازه‌ای مسیر عبور یون را می‌بندد، و یک محرک مشخص باعث تغییر شکل (تغییر کنفورماسیون) پروتئین و باز شدن مسیر می‌شود. کانال‌ها را بر اساس نوع محرکی که آن‌ها را باز یا بسته می‌کند دسته‌بندی می‌کنند:</p>
+<ul>
+<li><strong>کانال‌های وابسته به ولتاژ:</strong> باز و بسته شدن آن‌ها به اختلاف پتانسیل دو سوی غشا بستگی دارد. این کانال‌ها در تولید و انتشار پتانسیل عمل نقش کلیدی دارند و در فصل‌های بعد، در مدل هاجکین–هاکسلی، با جزئیات بررسی خواهند شد.</li>
+<li><strong>کانال‌های وابسته به لیگاند:</strong> با اتصال یک مولکول خاص (لیگاند) مانند یک ناقل عصبی به جایگاه گیرنده روی کانال باز می‌شوند. این کانال‌ها پایهٔ انتقال سیناپسی شیمیایی هستند.</li>
+<li><strong>کانال‌های مکانیکی:</strong> با کشش یا فشار مکانیکی غشا باز می‌شوند و در حس لامسه، شنوایی و تعادل دخیل‌اند.</li>
+</ul>
+<p>علاوه بر این کانال‌های دریچه‌دار، دسته‌ای از کانال‌ها به نام <strong>کانال‌های نشتی</strong> وجود دارند که عملاً همیشه باز هستند و عبور پیوستهٔ مقدار کمی یون (به‌ویژه پتاسیم) را در حالت استراحت ممکن می‌سازند. همان‌طور که خواهیم دید، این کانال‌های نشتی نقش تعیین‌کننده‌ای در شکل‌گیری پتانسیل استراحت دارند.</p>
+<h3 id="_7">گزینش یون‌ها</h3>
+<p>ویژگی برجستهٔ بسیاری از کانال‌های یونی، گزینش‌گری بالای آن‌هاست: یک کانال پتاسیمی می‌تواند یون پتاسیم (<span class="arithmatex">\(\text{K}^+\)</span>) را با سرعت بسیار بالا عبور دهد، اما عبور یون سدیم (<span class="arithmatex">\(\text{Na}^+\)</span>) را تا حدود هزار برابر بیشتر سد می‌کند، با آنکه سدیم کوچک‌تر است. این رفتار در نگاه اول متناقض به نظر می‌رسد و توضیح آن در ساختار بخشی از کانال به نام <strong>فیلتر گزینشگر</strong> نهفته است.</p>
+<p>هر یون در محلول آبی با پوسته‌ای از مولکول‌های آب احاطه شده است (هیدراته شده است). برای عبور از فیلتر گزینشگر، یون باید این پوستهٔ آبی را از دست بدهد، که خود مستلزم صرف انرژی است. در فیلتر کانال پتاسیمی، اتم‌های اکسیژن کربونیلِ زنجیرهٔ پروتئینی طوری آرایش یافته‌اند که فاصله‌شان دقیقاً با اندازهٔ یون پتاسیمِ بدون آب جور است؛ بنابراین این اکسیژن‌ها جای مولکول‌های آب را می‌گیرند و هزینهٔ آب‌زدایی پتاسیم را جبران می‌کنند. یون سدیم کوچک‌تر است و در همان آرایش نمی‌تواند به‌خوبی با اکسیژن‌ها تماس برقرار کند، در نتیجه هزینهٔ آب‌زدایی آن جبران نمی‌شود و عبورش پرهزینه و کند می‌ماند. به این ترتیب گزینش‌گری نه صرفاً بر پایهٔ اندازهٔ منفذ، بلکه بر پایهٔ توازن دقیق میان انرژی آب‌زدایی و برهم‌کنش یون با دیوارهٔ فیلتر استوار است.</p>
+<h2 id="_8">ترکیب یونی داخل و خارج سلول</h2>
+<p>غلظت یون‌ها در دو سوی غشای سلول یکسان نیست؛ این تفاوت غلظت، که شیب غلظتی نامیده می‌شود، نیروی محرکهٔ اصلی همهٔ پدیده‌های الکتریکی نورون است. به‌طور کلی غلظت پتاسیم در درون سلول بسیار بیشتر از بیرون، و غلظت سدیم، کلر و کلسیم در بیرون بسیار بیشتر از درون است. این عدم تعادل توسط پمپ‌های فعال غشا، به‌ویژه پمپ سدیم–پتاسیم، که با مصرف انرژی یون‌ها را خلاف شیب غلظتی‌شان جابه‌جا می‌کند، برقرار و نگه‌داشته می‌شود.</p>
+<p>جدول زیر مقادیر نمونه‌وار غلظت یون‌های اصلی را در یک نورون پستانداران (برحسب میلی‌مولار) نشان می‌دهد. این اعداد تقریبی‌اند و میان منابع و میان سلول‌های مختلف اندکی متفاوت‌اند:</p>
 <table>
 <thead>
 <tr>
-<th>روش</th>
-<th>مرتبه</th>
-<th>نوع</th>
-<th>کاربردِ شاخص</th>
+<th>یون</th>
+<th>غلظت بیرون سلول (mM)</th>
+<th>غلظت درون سلول (mM)</th>
+<th>ظرفیت (<span class="arithmatex">\(z\)</span>)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>اویلر پیشرو</td>
-<td>۱</td>
-<td>صریح</td>
-<td>آموزشی، گامِ بسیار ریز</td>
-</tr>
-<tr>
-<td>اویلر پسرو</td>
-<td>۱</td>
-<td>ضمنی</td>
-<td>سامانه‌های سفت</td>
-</tr>
-<tr>
-<td>نقطهٔ میانی (RK2)</td>
-<td>۲</td>
-<td>صریح</td>
-<td>مصالحهٔ ساده دقت/هزینه</td>
-</tr>
-<tr>
-<td>پرش‌قورباغه / ورله</td>
-<td>۲</td>
-<td>صریح (سیمپلکتیک)</td>
-<td>سامانه‌های هامیلتونی</td>
-</tr>
-<tr>
-<td>RK4</td>
+<td>پتاسیم <span class="arithmatex">\(\text{K}^+\)</span></td>
 <td>۴</td>
-<td>صریح</td>
-<td>پیش‌فرضِ همه‌منظوره</td>
+<td>۱۴۰</td>
+<td>‎+۱</td>
 </tr>
 <tr>
-<td>RK45 (گام‌وفقی)</td>
-<td>۴–۵</td>
-<td>صریح</td>
-<td>کنترلِ خودکارِ خطا</td>
+<td>سدیم <span class="arithmatex">\(\text{Na}^+\)</span></td>
+<td>۱۴۵</td>
+<td>۱۲</td>
+<td>‎+۱</td>
+</tr>
+<tr>
+<td>کلر <span class="arithmatex">\(\text{Cl}^-\)</span></td>
+<td>۱۲۰</td>
+<td>۴</td>
+<td>‎−۱</td>
+</tr>
+<tr>
+<td>کلسیم <span class="arithmatex">\(\text{Ca}^{2+}\)</span></td>
+<td>۱٫۸</td>
+<td>۱۰⁻⁴</td>
+<td>‎+۲</td>
 </tr>
 </tbody>
 </table>
-<p>در سراسرِ این کتاب، برای سادگی و شفافیتِ آموزشی بیشتر از اویلرِ پیشرو با گامِ ریز استفاده کرده‌ایم؛ اما برای کارِ پژوهشیِ جدی، RK4 یا <code>solve_ivp</code> انتخابِ بهتری است، و برای سامانه‌های هامیلتونی، یک انتگرال‌گیرِ سیمپلکتیک.</p>
-<hr />
-<p>برای مطالعهٔ بیشتر:</p>
-<div dir="ltr">
+<p>نکتهٔ شایان توجه دربارهٔ کلسیم آن است که غلظت آزاد آن در درون سلول بسیار ناچیز (در حدّ ۱۰⁻⁴ میلی‌مولار) است؛ همین شیب غلظتی بسیار بزرگ باعث می‌شود که ورود اندکی کلسیم به سلول بتواند به‌عنوان یک پیام درون‌سلولی عمل کند.</p>
+<h2 id="_9">پتانسیل استراحت</h2>
+<p>اگر دو الکترود را، یکی درون و دیگری بیرون یک نورون که فعالیتی ندارد قرار دهیم، اختلاف پتانسیلی پایدار در حدود ۶۵- تا ۷۰- میلی‌ولت اندازه می‌گیریم؛ یعنی درون سلول نسبت به بیرون منفی است. این اختلاف پتانسیل پایدار را <strong>پتانسیل استراحت</strong> می‌نامیم. قرارداد رایج آن است که پتانسیل غشا را به‌صورت اختلاف پتانسیل درون منهای بیرون تعریف کنیم:</p>
+<div class="arithmatex">\[
+V_m = \phi_{\text{in}} - \phi_{\text{out}}
+\]</div>
+<p>پرسش این است که چنین اختلاف پتانسیلی از کجا می‌آید. پاسخ، ترکیبی از دو عامل است: شیب غلظتی یون‌ها و نفوذپذیری گزینشی غشا نسبت به آن‌ها. در حالت استراحت، غشا عمدتاً نسبت به پتاسیم نفوذپذیر است (چون کانال‌های نشتی پتاسیمی باز هستند). پتاسیم در جهت شیب غلظتی خود از درون به بیرون نشت می‌کند و چون بار مثبت با خود می‌برد، درون سلول را اندک‌اندک منفی‌تر می‌کند. این منفی‌شدن، خود نیرویی الکتریکی پدید می‌آورد که پتاسیمِ مثبت را به درون بازمی‌گرداند. در نقطه‌ای که این دو نیرو — کشش غلظتی به بیرون و کشش الکتریکی به درون — یکدیگر را خنثی کنند، شار خالص پتاسیم صفر می‌شود و پتانسیل به تعادل می‌رسد. این پتانسیلِ تعادل برای هر یون را می‌توان به‌دقت با <strong>معادلهٔ نرنست</strong> محاسبه کرد.</p>
+<p>دو نکتهٔ تکمیلی: نخست آنکه غشا کاملاً نسبت به سدیم نفوذناپذیر نیست؛ نشت اندک سدیم به درون باعث می‌شود پتانسیل استراحت کمی مثبت‌تر از پتانسیل تعادل پتاسیم باشد. دوم آنکه نشت پیوستهٔ پتاسیم به بیرون و سدیم به درون در درازمدت شیب غلظتی را از بین می‌برد؛ پمپ سدیم–پتاسیم با مصرف ATP و جابه‌جایی سه یون سدیم به بیرون در ازای دو یون پتاسیم به درون، این شیب‌ها را پیوسته بازسازی می‌کند و پایداری پتانسیل استراحت را تضمین می‌نماید.</p>
+<h2 id="_10">معادلهٔ نرنست</h2>
+<p>معادلهٔ نرنست پتانسیلِ تعادلِ یک یون منفرد را، یعنی پتانسیل غشایی که در آن شار خالصِ آن یون صفر می‌شود، بر حسب نسبت غلظت‌های دو سوی غشا می‌دهد. برای یون <span class="arithmatex">\(X\)</span> با ظرفیت <span class="arithmatex">\(z\)</span>:</p>
+<div class="arithmatex">\[
+E_X = \frac{RT}{zF}\,\ln\frac{[X]_{\text{out}}}{[X]_{\text{in}}}
+\]</div>
+<p>در این رابطه <span class="arithmatex">\(R\)</span> ثابت جهانی گازها (<span class="arithmatex">\(8.314\ \mathrm{J\,K^{-1}\,mol^{-1}}\)</span>)، <span class="arithmatex">\(T\)</span> دمای مطلق بر حسب کلوین، <span class="arithmatex">\(F\)</span> ثابت فارادی (<span class="arithmatex">\(96485\ \mathrm{C\,mol^{-1}}\)</span>) و <span class="arithmatex">\(z\)</span> ظرفیت (بار) یون است. <span class="arithmatex">\(E_X\)</span> را پتانسیل نرنست یا پتانسیل تعادل یون <span class="arithmatex">\(X\)</span> می‌نامند.</p>
+<h3 id="_11">اشتقاق معادلهٔ نرنست</h3>
+<p>دو نیرو بر یک یون در عرض غشا وارد می‌شوند: نیروی انتشار، که یون را از غلظت زیاد به سمت غلظت کم می‌راند، و نیروی الکتریکی، که ناشی از میدان الکتریکیِ حاصل از اختلاف پتانسیل غشاست. شار مولیِ یون <span class="arithmatex">\(X\)</span> از مجموع این دو سهم به‌دست می‌آید؛ این همان معادلهٔ نرنست–پلانک است:</p>
+<div class="arithmatex">\[
+J = -D\left(\frac{dc}{dx} + \frac{zF}{RT}\,c\,\frac{d\phi}{dx}\right)
+\]</div>
+<p>که در آن <span class="arithmatex">\(c\)</span> غلظت یون، <span class="arithmatex">\(D\)</span> ضریب انتشار، <span class="arithmatex">\(\phi\)</span> پتانسیل الکتریکی و <span class="arithmatex">\(x\)</span> مختصات عرض غشاست. جملهٔ نخست، انتشار (قانون فیک) و جملهٔ دوم، رانش الکتریکی است که در آن از رابطهٔ اینشتین میان تحرک‌پذیری و ضریب انتشار استفاده شده است.</p>
+<p>در حالت تعادل، شار خالص یون صفر است، یعنی <span class="arithmatex">\(J = 0\)</span>. پس:</p>
+<div class="arithmatex">\[
+\frac{dc}{dx} = -\frac{zF}{RT}\,c\,\frac{d\phi}{dx}
+\]</div>
+<p>با تقسیم دو طرف بر <span class="arithmatex">\(c\)</span> و جداسازی متغیرها:</p>
+<div class="arithmatex">\[
+\frac{1}{c}\,dc = -\frac{zF}{RT}\,d\phi
+\]</div>
+<p>اکنون از درون سلول تا بیرون آن انتگرال می‌گیریم:</p>
+<div class="arithmatex">\[
+\int_{\text{in}}^{\text{out}}\frac{dc}{c} = -\frac{zF}{RT}\int_{\text{in}}^{\text{out}} d\phi
+\]</div>
+<p>که نتیجه می‌دهد:</p>
+<div class="arithmatex">\[
+\ln\frac{c_{\text{out}}}{c_{\text{in}}} = -\frac{zF}{RT}\left(\phi_{\text{out}} - \phi_{\text{in}}\right) = \frac{zF}{RT}\left(\phi_{\text{in}} - \phi_{\text{out}}\right)
+\]</div>
+<p>با توجه به اینکه در تعادل <span class="arithmatex">\(\phi_{\text{in}} - \phi_{\text{out}} = E_X\)</span> است، با مرتب‌کردن رابطهٔ بالا به معادلهٔ نرنست می‌رسیم:</p>
+<div class="arithmatex">\[
+E_X = \frac{RT}{zF}\,\ln\frac{[X]_{\text{out}}}{[X]_{\text{in}}}
+\]</div>
+<p>در دمای بدن (<span class="arithmatex">\(T = 310\ \mathrm{K}\)</span>) و با تبدیل لگاریتم طبیعی به لگاریتم در پایهٔ ۱۰ (ضرب در <span class="arithmatex">\(\ln 10 \approx 2.303\)</span>)، ضریب <span class="arithmatex">\(\frac{RT}{F}\ln 10\)</span> تقریباً برابر ۶۱٫۵ میلی‌ولت می‌شود. بنابراین یک شکل کاربردی و پرکاربردِ معادله چنین است:</p>
+<div class="arithmatex">\[
+E_X \approx \frac{61.5}{z}\,\log_{10}\frac{[X]_{\text{out}}}{[X]_{\text{in}}}\quad(\text{mV})
+\]</div>
+<p>با جای‌گذاری مقادیر جدول غلظت در این رابطه، پتانسیل تعادل یون‌های اصلی به‌دست می‌آید:</p>
+<table>
+<thead>
+<tr>
+<th>یون</th>
+<th>پتانسیل تعادل <span class="arithmatex">\(E_X\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>پتاسیم <span class="arithmatex">\(\text{K}^+\)</span></td>
+<td>حدود ۹۵− میلی‌ولت</td>
+</tr>
+<tr>
+<td>سدیم <span class="arithmatex">\(\text{Na}^+\)</span></td>
+<td>حدود ۶۷+ میلی‌ولت</td>
+</tr>
+<tr>
+<td>کلر <span class="arithmatex">\(\text{Cl}^-\)</span></td>
+<td>حدود ۹۱− میلی‌ولت</td>
+</tr>
+<tr>
+<td>کلسیم <span class="arithmatex">\(\text{Ca}^{2+}\)</span></td>
+<td>حدود ۱۳۱+ میلی‌ولت</td>
+</tr>
+</tbody>
+</table>
+<p>دیده می‌شود که پتانسیل استراحت نوعی (حدود ۷۰− میلی‌ولت) بسیار به پتانسیل تعادل پتاسیم نزدیک است؛ و این دقیقاً همان چیزی است که از غلبهٔ نفوذپذیری پتاسیم در حالت استراحت انتظار داریم.</p>
+<h2 id="_12">معادلهٔ گلدمن</h2>
+<p>معادلهٔ نرنست تنها برای یک یون منفرد و در حالت تعادل آن یون معتبر است. اما غشای واقعی هم‌زمان نسبت به چند یون نفوذپذیر است و پتانسیل استراحت، حاصل سهم همهٔ آن‌هاست. <strong>معادلهٔ گلدمن–هاجکین–کاتز</strong> (که اغلب به‌اختصار معادلهٔ گلدمن نامیده می‌شود) پتانسیل غشا را در حالتی که شار خالصِ کلِ بارها صفر است، بر حسب غلظت و نفوذپذیری هر یون می‌دهد. برای سه یون اصلیِ سدیم، پتاسیم و کلر:</p>
+<div class="arithmatex">\[
+V_m = \frac{RT}{F}\,\ln\frac{P_{\text{K}}[\text{K}^+]_{\text{out}} + P_{\text{Na}}[\text{Na}^+]_{\text{out}} + P_{\text{Cl}}[\text{Cl}^-]_{\text{in}}}{P_{\text{K}}[\text{K}^+]_{\text{in}} + P_{\text{Na}}[\text{Na}^+]_{\text{in}} + P_{\text{Cl}}[\text{Cl}^-]_{\text{out}}}
+\]</div>
+<p>که در آن <span class="arithmatex">\(P_{\text{K}}\)</span>، <span class="arithmatex">\(P_{\text{Na}}\)</span> و <span class="arithmatex">\(P_{\text{Cl}}\)</span> نفوذپذیری نسبی غشا نسبت به هر یون هستند. توجه کنید که جای غلظت‌های درون و بیرونِ کلر نسبت به یون‌های مثبت جابه‌جا شده است؛ این جابه‌جایی به دلیل بار منفی کلر (<span class="arithmatex">\(z = -1\)</span>) است.</p>
+<p>نکات کلیدی دربارهٔ این معادله:</p>
 <ul>
-<li>Hairer, E., Nørsett, S.P., Wanner, G., 1993. Solving Ordinary Differential Equations I. Springer.</li>
-<li>Press, W.H., Teukolsky, S.A., Vetterling, W.T., Flannery, B.P., 2007. Numerical Recipes, 3rd ed. Cambridge University Press.</li>
-<li>Hairer, E., Lubich, C., Wanner, G., 2006. Geometric Numerical Integration. Springer.</li>
+<li>اگر غشا تنها نسبت به یک یون نفوذپذیر باشد (مثلاً <span class="arithmatex">\(P_{\text{Na}} = P_{\text{Cl}} = 0\)</span>)، معادلهٔ گلدمن دقیقاً به معادلهٔ نرنستِ همان یون فرومی‌کاهد. به این معنا، معادلهٔ گلدمن تعمیمِ معادلهٔ نرنست برای چند یون است.</li>
+<li>وزن هر یون در تعیین پتانسیل غشا با نفوذپذیری آن یون متناسب است. در حالت استراحت، چون <span class="arithmatex">\(P_{\text{K}}\)</span> بسیار بزرگ‌تر از <span class="arithmatex">\(P_{\text{Na}}\)</span> است (نسبت نوعیِ <span class="arithmatex">\(P_{\text{K}} : P_{\text{Na}} : P_{\text{Cl}}\)</span> در حدود <span class="arithmatex">\(1 : 0.04 : 0.45\)</span> است)، پتانسیل غشا به پتانسیل تعادل پتاسیم نزدیک می‌ماند و مقداری در حدود ۷۰− میلی‌ولت به‌دست می‌آید.</li>
+<li>بر خلاف معادلهٔ نرنست، معادلهٔ گلدمن یک پتانسیلِ تعادلِ ترمودینامیکی را توصیف نمی‌کند، بلکه یک حالت پایای دینامیکی است که در آن جمع جبری جریان‌ها صفر است؛ پمپ‌های فعال غشا انرژی لازم برای حفظ این حالت پایا را تأمین می‌کنند.</li>
 </ul>
+<p>تغییر ناگهانی نفوذپذیری‌ها — برای مثال افزایش شدید <span class="arithmatex">\(P_{\text{Na}}\)</span> هنگام باز شدن کانال‌های سدیمی وابسته به ولتاژ — باعث می‌شود وزن سدیم در معادلهٔ گلدمن غالب شود و پتانسیل غشا به سرعت به سمت <span class="arithmatex">\(E_{\text{Na}}\)</span> مثبت میل کند. همین جابه‌جایی سریع وزن یون‌ها، شالودهٔ پتانسیل عمل است که در فصل بعد و در قالب مدل هاجکین–هاکسلی به آن خواهیم پرداخت.</p>
+<hr />
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>CNS&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
 </div>
 
 
@@ -1897,15 +1867,15 @@ v_{n+1} &amp;= v_{n+1/2} + \tfrac{\Delta t}{2}\,a(x_{n+1}).
     <hr>
     <div class="page-actions" dir="rtl">
       <a class="md-button"
-         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=enhancement&title=پیشنهاد برای فصل: %D8%AD%D9%84%20%D8%B9%D8%AF%D8%AF%DB%8C%20%D9%85%D8%B9%D8%A7%D8%AF%D9%84%D8%A7%D8%AA%20%D8%AF%DB%8C%D9%81%D8%B1%D8%A7%D9%86%D8%B3%DB%8C%D9%84">
+         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=enhancement&title=پیشنهاد برای فصل: %D8%BA%D8%B4%D8%A7%DB%8C%20%D8%AA%D8%AD%D8%B1%DB%8C%DA%A9%E2%80%8C%D9%BE%D8%B0%DB%8C%D8%B1">
         پیشنهاد در گیت‌هاب
       </a>
       <a class="md-button"
-         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=bug&title=گزارش اشکال در فصل: %D8%AD%D9%84%20%D8%B9%D8%AF%D8%AF%DB%8C%20%D9%85%D8%B9%D8%A7%D8%AF%D9%84%D8%A7%D8%AA%20%D8%AF%DB%8C%D9%81%D8%B1%D8%A7%D9%86%D8%B3%DB%8C%D9%84">
+         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=bug&title=گزارش اشکال در فصل: %D8%BA%D8%B4%D8%A7%DB%8C%20%D8%AA%D8%AD%D8%B1%DB%8C%DA%A9%E2%80%8C%D9%BE%D8%B0%DB%8C%D8%B1">
         گزارش اشکال در گیت‌هاب
       </a>
       <a class="md-button"
-         href="mailto:saeed.taghavi.v@gmail.com?subject=بازخورد دربارهٔ فصل: حل عددی معادلات دیفرانسیل">
+         href="mailto:saeed.taghavi.v@gmail.com?subject=بازخورد دربارهٔ فصل: غشای تحریک‌پذیر">
         ارسال بازخورد با ایمیل
       </a>
     </div>
@@ -1929,44 +1899,6 @@ v_{n+1} &amp;= v_{n+1/2} + \tfrac{\Delta t}{2}\,a(x_{n+1}).
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="پاورقی" >
-        
-          
-          <a href="../ch10/" class="md-footer__link md-footer__link--prev" aria-label="قبلی: مدل ویلسون-کوان">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                قبلی
-              </span>
-              <div class="md-ellipsis">
-                مدل ویلسون-کوان
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../appendix-sde/" class="md-footer__link md-footer__link--next" aria-label="بعدی: روش اویلر–مارویاما (SDE)">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                بعدی
-              </span>
-              <div class="md-ellipsis">
-                روش اویلر–مارویاما (SDE)
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">
