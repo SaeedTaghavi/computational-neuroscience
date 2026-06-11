@@ -48,6 +48,10 @@ nav:
             - "راستی‌آزمایی و اعتبارسنجی": ch-modelling-05-verify-validate.md
             - "نیکویی برازش": ch-modelling-06-goodness-of-fit.md
         - "مفاهیم مدل‌سازی و خطا": ch16.md
+        - "روش‌های عددی":
+          - "مرور مفاهیم پایه": ch-num-01-revision.md
+          - "مشتق اول": ch-num-02-derivative.md      # when you write it
+          - "تفاضل محدود": ch-num-03-fdm.md           # etc.
         # - "تفاضل محدود و مشتق عددی": ch17.md
         # - "حل عددی معادلات دیفرانسیل معمولی": ch18.md
         # - "معادلات با مشتقات جزئی": ch19.md
