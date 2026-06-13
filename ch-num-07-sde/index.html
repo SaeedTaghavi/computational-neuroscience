@@ -1,0 +1,2237 @@
+
+<!doctype html>
+<html lang="fa" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="کتاب آنلاین علوم اعصاب محاسباتی به زبان فارسی — از غشای تحریک‌پذیر و سیستم‌های دینامیکی تا مدل‌های نورون، شبکه‌های اسپایکی و مدل‌سازی مغز کامل.">
+      
+      
+        <meta name="author" content="Saeed Taghavi">
+      
+      
+        <link rel="canonical" href="https://computational-neuroscience.ir/ch-num-07-sde/">
+      
+      
+        <link rel="prev" href="../ch-num-06-ode/">
+      
+      
+        <link rel="next" href="../ch01/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>حل عددی معادلات دیفرانسیل تصادفی - کتاب علوم اعصاب محاسباتی</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Naskh+Arabic:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Naskh Arabic";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="rtl" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          پرش به محتویات
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="سرتیتر">
+    <a href=".." title="کتاب علوم اعصاب محاسباتی" class="md-header__button md-logo" aria-label="کتاب علوم اعصاب محاسباتی" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            کتاب علوم اعصاب محاسباتی
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              حل عددی معادلات دیفرانسیل تصادفی
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="جستجو" placeholder="جستجو" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="جستجو">
+        
+        <button type="reset" class="md-search__icon md-icon" title="بازنشانی" aria-label="بازنشانی" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            راه‌اندازی جستجو
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="هدایت" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="کتاب علوم اعصاب محاسباتی" class="md-nav__button md-logo" aria-label="کتاب علوم اعصاب محاسباتی" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    کتاب علوم اعصاب محاسباتی
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    خانه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پیش‌نیازها
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پیش‌نیازها
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    روش‌های عددی و تحلیل داده
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    روش‌های عددی و تحلیل داده
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مفاهیم مدل‌سازی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مفاهیم مدل‌سازی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-modelling-01-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-modelling-02-classification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    رده‌بندی مدل‌ها
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-modelling-03-decisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    تصمیم‌های مدل‌سازی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-modelling-04-uncertainty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    رده‌بندی عدم‌قطعیت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-modelling-05-verify-validate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    راستی‌آزمایی و اعتبارسنجی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-modelling-06-goodness-of-fit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نیکویی برازش
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    روش‌های عددی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    روش‌های عددی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-01-revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرور مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-02-derivative/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مشتق اول
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-03-fdm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    تفاضل محدود
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-04-taylor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    بسط تیلور
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-05-numerical-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    انتگرال‌گیری عددی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-06-ode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    حل عددی معادلات دیفرانسیل معمولی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    حل عددی معادلات دیفرانسیل تصادفی
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    حل عددی معادلات دیفرانسیل تصادفی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="فهرست در این صفحه">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      فهرست در این صفحه
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        گرم‌کردن: گشتِ تصادفی
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        فرایند وینر: سنگ‌بنای نوفه
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        معادلهٔ دیفرانسیل تصادفی
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        روش اویلر–مارویاما
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        مثال: فرایند اورنشتاین–اولنبک
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        مثال: نوسانگر هماهنگ با ورودی نوفه‌ای
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        مثال: مدل فیتزهیو–ناگومو با جریان نوفه‌ای
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        همگرایی: قوی، ضعیف و بهای نوفه
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        نکته‌ها و گام‌های بعدی
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    بیوفیزیک نورون
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    بیوفیزیک نورون
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    غشای تحریک‌پذیر
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیستم‌های دینامیکی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های نورون
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مدل‌های نورون
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل هاجکین-هاکسلی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های ساده‌شده: LIF، EIF، AdEx
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    شبکه‌های نورون‌های نقطه‌ای
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    شبکه‌های نورون‌های نقطه‌ای
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    از نورون به جمعیت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    شبکه‌های تصادفی متعادل
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نوسانات در شبکه‌های تحریکی-مهاری
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پلاستیسیتی وابسته به زمان اسپایک (STDP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های جمعیتی و توده عصبی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مدل‌های جمعیتی و توده عصبی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    معادلات نرخ آتش
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل ویلسون-کوان
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پیوست‌ها
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پیوست‌ها
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    طراحی گردش‌کار و آزمایش محاسباتی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="فهرست در این صفحه">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      فهرست در این صفحه
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        گرم‌کردن: گشتِ تصادفی
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        فرایند وینر: سنگ‌بنای نوفه
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        معادلهٔ دیفرانسیل تصادفی
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        روش اویلر–مارویاما
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        مثال: فرایند اورنشتاین–اولنبک
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        مثال: نوسانگر هماهنگ با ورودی نوفه‌ای
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        مثال: مدل فیتزهیو–ناگومو با جریان نوفه‌ای
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        همگرایی: قوی، ضعیف و بهای نوفه
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        نکته‌ها و گام‌های بعدی
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+
+<h1 id="_1">حل عددی معادلات دیفرانسیل تصادفی</h1>
+<p>در فصلِ پیش، سامانه‌ها را <strong>قطعی</strong> فرض کردیم: شرطِ اولیه آینده را به‌طور یکتا تعیین می‌کرد. اما نورون‌ها در محیطی پرنوفه زندگی می‌کنند؛ بازشدنِ تصادفیِ کانال‌های یونی، بمبارانِ سیناپسیِ نامنظم و ورودی‌های پس‌زمینه همگی نوفه‌اند. برای مدل‌کردنِ این پدیده‌ها به <strong>معادلهٔ دیفرانسیلِ تصادفی</strong> (Stochastic Differential Equation، به‌اختصار SDE) و روشی برای حلِ عددیِ آن نیاز داریم. ساده‌ترین و پرکاربردترین چنین روشی، <strong>اویلر–مارویاما</strong> است که در این فصل آن را می‌سازیم و بر چند مثالِ نورونی به کار می‌بریم.</p>
+<h2 id="_2">گرم‌کردن: گشتِ تصادفی</h2>
+<p>پیش از آنکه به معادلات تصادفی بپردازیم، با ساده‌ترین فرایندِ تصادفی آغاز می‌کنیم: <strong>گشتِ تصادفی</strong> (random walk). یک ذره روی یک خط را در نظر بگیرید که از مبدأ آغاز می‌کند و در هر گام، با احتمالِ مساوی، یک واحد به راست یا چپ می‌رود. پس از <span class="arithmatex">\(N\)</span> گام، ذره کجاست؟ پاسخِ یک ذرهٔ منفرد تصادفی است، اما اگر <strong>هزاران</strong> ذره را هم‌زمان رها کنیم و <strong>توزیعِ</strong> مکانِ نهاییِ آن‌ها را رسم کنیم، یک الگوی منظم و آشنا پدید می‌آید.</p>
+<p>این تصویرِ انتزاعی، تعبیرِ فیزیکیِ روشنی دارد. یک <strong>ذرهٔ معلق در یک سیال</strong> را در نظر بگیرید (مثلاً یک دانهٔ گردهٔ گیاهی در آب): مولکول‌های سیال پیوسته و از همه سو به آن برخورد می‌کنند، و هر برخورد آن را اندکی به این‌سو یا آن‌سو می‌راند. اگر تنها مؤلفهٔ یک‌بعدیِ این جابه‌جایی‌ها را دنبال کنیم، همان گشتِ تصادفیِ بالا را داریم؛ هر «گام» نتیجهٔ یک برخوردِ تصادفی است. این پدیده به <strong>حرکتِ براونی</strong> مشهور است و انیشتین در ۱۹۰۵ نشان داد که همین گشتِ تصادفیِ مولکولی، سرچشمهٔ <strong>پخش</strong> (diffusion) است. همین تصویر در علوم اعصاب نیز بازمی‌گردد: پخشِ یون‌ها در محلول، و نوفهٔ ناشی از بازوبسته‌شدنِ تصادفیِ کانال‌ها، هر دو ریشه در همین حرکتِ تصادفی دارند.</p>
+<p>این مثال از دو جهت برای ما ارزشمند است. نخست، گشتِ تصادفی همان نسخهٔ <strong>گسستهٔ</strong> فرایندِ وینر است که در ادامه ستونِ نوفه در معادلات تصادفیِ ما خواهد بود؛ فرایندِ وینر، حدِ پیوستهٔ گشتِ تصادفی وقتی گام‌ها بی‌نهایت ریز شوند. دوم، و جالب‌تر، این مسئله یکی از معدود مثال‌هایی است که هم می‌توان آن را <strong>عددی</strong> شبیه‌سازی کرد و هم <strong>تحلیلی</strong> حل کرد، و دو نتیجه را با هم سنجید.</p>
+<p>نخست چند مسیرِ منفرد را ببینیم. هر گردشگر از صفر آغاز می‌کند و گام‌به‌گام بالا و پایین می‌رود؛ مسیرها از هم می‌گریزند و هر یک سرنوشتِ متفاوتی دارد:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">def</span> <span class="nf">walk_trajectory</span><span class="p">(</span><span class="n">n_steps</span><span class="p">,</span> <span class="n">rng</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="n">steps</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="n">n_steps</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="c1"># start at 0, then accumulate the steps into a position over time</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">steps</span><span class="p">)])</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos" data-linenos="10 "></span><span class="n">N</span> <span class="o">=</span> <span class="mi">10000</span>          <span class="c1"># steps per walker</span>
+<span class="linenos" data-linenos="11 "></span><span class="n">n_tracks</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_tracks</span><span class="p">):</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="n">trajectory</span> <span class="o">=</span> <span class="n">walk_trajectory</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">rng</span><span class="p">)</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">trajectory</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="linenos" data-linenos="16 "></span><span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="linenos" data-linenos="17 "></span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;step number&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="18 "></span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;position x&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="19 "></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<figure>
+  <img alt="Image title" src="../random_walk_tracks.png" />
+<br />
+<figcaption>پنج مسیرِ گشتِ تصادفی، هرکدام با ۱۰۰۰۰ گام. همه از صفر آغاز می‌کنند، اما به‌مرورِ زمان از هم دور می‌شوند و هر مسیر سرنوشتِ متفاوتی پیدا می‌کند. پراکندگیِ این مسیرها با ریشهٔ دومِ شمارِ گام‌ها رشد می‌کند.</figcaption>
+</figure>
+<p>هر مسیر به‌تنهایی نامنظم و غیرقابل‌پیش‌بینی است، اما وقتی هزاران مسیر را کنار هم بگذاریم، مکانِ نهاییِ آن‌ها الگوی منظمی می‌سازد. این الگو را هم تحلیلی و هم عددی به‌دست می‌آوریم.</p>
+<p><strong>حلِ تحلیلی.</strong> اگر مکانِ نهایی را <span class="arithmatex">\(X\)</span> بنامیم و شمارِ گام‌های به‌راست را <span class="arithmatex">\(k\)</span>، آنگاه <span class="arithmatex">\(X = 2k - N\)</span>. چون هر گام مستقل و با احتمالِ <span class="arithmatex">\(1/2\)</span> است، <span class="arithmatex">\(k\)</span> از توزیعِ دوجمله‌ای پیروی می‌کند و احتمالِ هر مکانِ نهایی دقیقاً چنین است:</p>
+<div class="arithmatex">\[
+P(X = x) = \binom{N}{(x+N)/2}\Big/ 2^N.
+\]</div>
+<p>از سوی دیگر، طبقِ <strong>قضیهٔ حدِ مرکزی</strong>، مجموعِ <span class="arithmatex">\(N\)</span> گامِ مستقل برای <span class="arithmatex">\(N\)</span> بزرگ به یک توزیعِ نرمال میل می‌کند؛ با میانگینِ صفر و واریانسِ <span class="arithmatex">\(N\)</span> (یعنی انحرافِ معیارِ <span class="arithmatex">\(\sqrt{N}\)</span>):</p>
+<div class="arithmatex">\[
+X \sim \mathcal{N}(0, N).
+\]</div>
+<p>توجه کنید که انحرافِ معیار با <span class="arithmatex">\(\sqrt{N}\)</span> مقیاس می‌خورد، نه با <span class="arithmatex">\(N\)</span>؛ همان ریشهٔ دومی که در سراسرِ این فصل بارها به آن بازخواهیم گشت.</p>
+<p><strong>حلِ عددی.</strong> کدِ زیر هزاران گردشگر را شبیه‌سازی می‌کند، توزیعِ مکانِ نهایی را به‌صورتِ هیستوگرام رسم می‌کند، و آن را با هر دو پاسخِ تحلیلی (دوجمله‌ای دقیق و تقریبِ گاوسی) مقایسه می‌کند:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">comb</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">pi</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">def</span> <span class="nf">simulate_walks</span><span class="p">(</span><span class="n">n_walkers</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">,</span> <span class="n">rng</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="c1"># each walker takes n_steps of +1 or -1 with equal probability</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="n">steps</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_walkers</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">))</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">steps</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># final position of each walker</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos" data-linenos="11 "></span><span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>          <span class="c1"># steps per walker</span>
+<span class="linenos" data-linenos="12 "></span><span class="n">W</span> <span class="o">=</span> <span class="mi">10000</span>        <span class="c1"># number of walkers</span>
+<span class="linenos" data-linenos="13 "></span><span class="n">final</span> <span class="o">=</span> <span class="n">simulate_walks</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">rng</span><span class="p">)</span>
+<span class="linenos" data-linenos="14 "></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;simulated mean = </span><span class="si">{</span><span class="n">final</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> (expect 0)&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="15 "></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;simulated variance = </span><span class="si">{</span><span class="n">final</span><span class="o">.</span><span class="n">var</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> (expect </span><span class="si">{</span><span class="n">N</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span><span class="c1"># histogram of the simulated final positions</span>
+<span class="linenos" data-linenos="18 "></span><span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos" data-linenos="19 "></span><span class="n">centers</span> <span class="o">=</span> <span class="p">(</span><span class="n">bins</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">bins</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="linenos" data-linenos="20 "></span><span class="n">hist</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">final</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
+<span class="linenos" data-linenos="21 "></span>
+<span class="linenos" data-linenos="22 "></span><span class="c1"># exact binomial distribution, scaled to the number of walkers</span>
+<span class="linenos" data-linenos="23 "></span><span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="linenos" data-linenos="24 "></span><span class="n">binom_counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">comb</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">N</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">])</span> <span class="o">/</span> <span class="mf">2.0</span><span class="o">**</span><span class="n">N</span> <span class="o">*</span> <span class="n">W</span>
+<span class="linenos" data-linenos="25 "></span>
+<span class="linenos" data-linenos="26 "></span><span class="c1"># Gaussian approximation from the central limit theorem</span>
+<span class="linenos" data-linenos="27 "></span><span class="n">xg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">3.5</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="mf">3.5</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="mi">400</span><span class="p">)</span>
+<span class="linenos" data-linenos="28 "></span><span class="n">gauss</span> <span class="o">=</span> <span class="n">W</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">xg</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="p">))</span> <span class="o">/</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">N</span><span class="p">)</span>
+<span class="linenos" data-linenos="29 "></span>
+<span class="linenos" data-linenos="30 "></span><span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">centers</span><span class="p">,</span> <span class="n">hist</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">1.8</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.45</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;simulated walkers&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="31 "></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">binom_counts</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mf">3.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;exact binomial&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="32 "></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xg</span><span class="p">,</span> <span class="n">gauss</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Gaussian (CLT)&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="33 "></span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;final position of the walker&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="34 "></span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;number of walkers&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="35 "></span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="linenos" data-linenos="36 "></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<figure>
+  <img alt="Image title" src="../random_walk.png" />
+<br />
+<figcaption>توزیعِ مکانِ نهاییِ ۱۰۰۰۰ گردشگرِ تصادفی، هرکدام پس از ۱۰۰ گام. هیستوگرامِ شبیه‌سازی (آبی)، توزیعِ دوجمله‌ایِ دقیق (نقاط قرمز) و تقریبِ گاوسیِ قضیهٔ حدِ مرکزی (سبز) تقریباً کاملاً بر هم منطبق‌اند. این، نمونه‌ای روشن از سازگاریِ نتیجهٔ عددی با پاسخِ تحلیلی است.</figcaption>
+</figure>
+<p>نتیجهٔ شبیه‌سازی (واریانسِ نزدیک به <span class="arithmatex">\(N\)</span> و شکلِ زنگوله‌ای) دقیقاً با پیش‌بینیِ تحلیلی می‌خواند. این توافق، هم اعتمادِ ما به شبیه‌سازی را بالا می‌برد و هم نشان می‌دهد که چرا توزیعِ نرمال در دلِ نوفهٔ تصادفی این‌قدر فراگیر است. حال که شهودِ گسسته را ساختیم، به نسخهٔ پیوستهٔ آن، یعنی فرایندِ وینر، می‌پردازیم.</p>
+<h2 id="_3">فرایند وینر: سنگ‌بنای نوفه</h2>
+<p>نوفهٔ پایه در این چارچوب، <strong>فرایند وینر</strong> (یا حرکتِ براونی) <span class="arithmatex">\(W(t)\)</span> است. تنها ویژگیِ موردِ نیازِ ما این است که افزایش‌های آن در بازه‌های جدا از هم مستقل‌اند و توزیعِ نرمال با واریانسی برابرِ طولِ بازه دارند:</p>
+<div class="arithmatex">\[
+\Delta W = W(t+\Delta t) - W(t) \sim \mathcal{N}(0, \Delta t).
+\]</div>
+<p>نکتهٔ کلیدی و سرنوشت‌ساز در همین‌جاست: انحرافِ معیارِ <span class="arithmatex">\(\Delta W\)</span> نه با <span class="arithmatex">\(\Delta t\)</span>، بلکه با <span class="arithmatex">\(\sqrt{\Delta t}\)</span> متناسب است. همین ریشهٔ دوم است که حسابِ تصادفی را از حسابِ معمولی جدا می‌کند و، چنان‌که خواهیم دید، مرتبهٔ همگراییِ روش را نصف می‌کند.</p>
+<h2 id="_4">معادلهٔ دیفرانسیل تصادفی</h2>
+<p>یک SDE دو بخش دارد: یک جملهٔ <strong>روند</strong> (drift) که مانندِ یک ODE معمولی رفتارِ متوسط را می‌راند، و یک جملهٔ <strong>پخش</strong> (diffusion) که نوفه را وارد می‌کند:</p>
+<div class="arithmatex">\[
+dX = a(X, t)\,dt + b(X, t)\,dW.
+\]</div>
+<p>جملهٔ نخست (<span class="arithmatex">\(a\,dt\)</span>) همان روند است و جملهٔ دوم (<span class="arithmatex">\(b\,dW\)</span>) پخش. در تفسیرِ ایتو (Itô)، که در اینجا به کار می‌بریم، جملهٔ پخش در آغازِ هر بازه ارزیابی می‌شود. این معادله را باید به‌صورتِ شکلِ انتگرالی فهمید، چون <span class="arithmatex">\(W\)</span> مشتق‌پذیر نیست؛ اما برای شبیه‌سازی، تنها به شکلِ گسسته‌شدهٔ آن نیاز داریم.</p>
+<h2 id="_5">روش اویلر–مارویاما</h2>
+<p>روشِ اویلر–مارویاما دقیقاً همان اویلرِ پیشروِ فصلِ پیش است، با یک افزوده: گامِ نوفه. هر بازه را گسسته می‌کنیم و افزایشِ وینر را با یک عددِ تصادفیِ نرمال می‌سازیم:</p>
+<div class="arithmatex">\[
+X_{n+1} = X_n + a(X_n, t_n)\,\Delta t + b(X_n, t_n)\,\sqrt{\Delta t}\;\xi_n,
+\qquad \xi_n \sim \mathcal{N}(0, 1).
+\]</div>
+<p>توجه کنید که جملهٔ نوفه در <span class="arithmatex">\(\sqrt{\Delta t}\)</span> ضرب می‌شود، نه در <span class="arithmatex">\(\Delta t\)</span>؛ این مستقیماً از ویژگیِ فرایندِ وینر می‌آید و قلبِ تفاوتِ این روش با اویلرِ معمولی است. پیاده‌سازیِ آن چنین است:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">def</span> <span class="nf">euler_maruyama</span><span class="p">(</span><span class="n">drift</span><span class="p">,</span> <span class="n">diffusion</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">rng</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="n">dW</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">))</span>      <span class="c1"># Wiener increment ~ N(0, dt)</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">drift</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">diffusion</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="n">dW</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="k">return</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span>
+</code></pre></div>
+<h2 id="_6">مثال: فرایند اورنشتاین–اولنبک</h2>
+<p>نمونهٔ کلاسیک، فرایندِ <strong>اورنشتاین–اولنبک</strong> (Ornstein–Uhlenbeck، به‌اختصار OU) است که یک سامانهٔ خطیِ بازگشت‌به‌میانگین را با نوفه توصیف می‌کند و در علوم اعصاب برای مدل‌کردنِ ولتاژِ زیرآستانه با ورودیِ پس‌زمینه به کار می‌رود:</p>
+<div class="arithmatex">\[
+dX = -\theta\,X\,dt + \sigma\,dW.
+\]</div>
+<p>جملهٔ روندِ <span class="arithmatex">\(-\theta X\)</span> متغیر را به‌سمتِ صفر بازمی‌کشد و جملهٔ پخشِ <span class="arithmatex">\(\sigma\,dW\)</span> آن را پراکنده می‌کند. تعادلِ این دو، یک توزیعِ ایستا با انحرافِ معیارِ <span class="arithmatex">\(\sigma/\sqrt{2\theta}\)</span> می‌سازد. اگر چند مسیرِ نمونه را شبیه‌سازی کنیم، می‌بینیم که میانگین به‌صورت نمایی به صفر می‌رسد و پراکندگیِ مسیرها در همان نوارِ ایستا تثبیت می‌شود:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">def</span> <span class="nf">euler_maruyama</span><span class="p">(</span><span class="n">drift</span><span class="p">,</span> <span class="n">diffusion</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">rng</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="n">dW</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">))</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">drift</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">diffusion</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="n">dW</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="k">return</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span><span class="c1"># Ornstein-Uhlenbeck: drift pulls toward zero, diffusion is constant</span>
+<span class="linenos" data-linenos="15 "></span><span class="n">theta</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="linenos" data-linenos="16 "></span><span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span><span class="k">def</span> <span class="nf">ou_drift</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="linenos" data-linenos="19 "></span>    <span class="k">return</span> <span class="o">-</span><span class="n">theta</span> <span class="o">*</span> <span class="n">x</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span><span class="k">def</span> <span class="nf">ou_diffusion</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="linenos" data-linenos="22 "></span>    <span class="k">return</span> <span class="n">sigma</span>
+<span class="linenos" data-linenos="23 "></span>
+<span class="linenos" data-linenos="24 "></span><span class="c1"># simulate many sample paths sharing the same parameters</span>
+<span class="linenos" data-linenos="25 "></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos" data-linenos="26 "></span><span class="n">T</span> <span class="o">=</span> <span class="mf">8.0</span>
+<span class="linenos" data-linenos="27 "></span><span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="linenos" data-linenos="28 "></span><span class="n">n_paths</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="linenos" data-linenos="29 "></span><span class="n">paths</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos" data-linenos="30 "></span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_paths</span><span class="p">):</span>
+<span class="linenos" data-linenos="31 "></span>    <span class="n">t</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">euler_maruyama</span><span class="p">(</span><span class="n">ou_drift</span><span class="p">,</span> <span class="n">ou_diffusion</span><span class="p">,</span> <span class="n">x0</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="n">dt</span><span class="p">,</span> <span class="n">rng</span><span class="o">=</span><span class="n">rng</span><span class="p">)</span>
+<span class="linenos" data-linenos="32 "></span>    <span class="n">paths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos" data-linenos="33 "></span><span class="n">paths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">paths</span><span class="p">)</span>
+<span class="linenos" data-linenos="34 "></span><span class="n">mean_path</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">paths</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos" data-linenos="35 "></span><span class="n">band</span> <span class="o">=</span> <span class="n">sigma</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">theta</span><span class="p">)</span>        <span class="c1"># stationary standard deviation</span>
+<span class="linenos" data-linenos="36 "></span>
+<span class="linenos" data-linenos="37 "></span><span class="c1"># plot the paths, their mean, and the stationary band</span>
+<span class="linenos" data-linenos="38 "></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">:</span>
+<span class="linenos" data-linenos="39 "></span>    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="linenos" data-linenos="40 "></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">mean_path</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;empirical mean&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="41 "></span><span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">band</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;±σ/√(2θ)&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="42 "></span><span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="o">-</span><span class="n">band</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="43 "></span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;time t&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="44 "></span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="45 "></span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="linenos" data-linenos="46 "></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<figure>
+  <img alt="Image title" src="../em_ou_paths.png" />
+<br />
+<figcaption>چند مسیرِ نمونهٔ فرایند اورنشتاین–اولنبک با روش اویلر–مارویاما. میانگینِ تجربی (خاکستری) به‌صورت نمایی به صفر بازمی‌گردد و پراکندگیِ مسیرها در نوارِ ایستای ±σ/√(۲θ) (خط‌چینِ قرمز) تثبیت می‌شود.</figcaption>
+</figure>
+<h2 id="_7">مثال: نوسانگر هماهنگ با ورودی نوفه‌ای</h2>
+<p>روش به همان سادگی به سامانه‌های دوبعدی تعمیم می‌یابد. نوسانگرِ هماهنگ را در نظر بگیرید که یک جریانِ نوفه‌ای روی سرعتِ آن اثر می‌گذارد؛ نمونه‌ای ساده از یک سامانهٔ نوسانی که پیوسته تحتِ تأثیرِ نوفهٔ پس‌زمینه است:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+dx &amp;= v\,dt,\\
+dv &amp;= -\omega^2 x\,dt + \sigma\,dW.
+\end{aligned}
+\]</div>
+<p>تنها معادلهٔ سرعت یک جملهٔ پخش دارد، چون نوفه روی نیرو (و نه مستقیماً روی مکان) وارد می‌شود.</p>
+<p>برای رسیدن به شکلِ گسسته، باید معادله را روی یک گامِ زمانیِ <span class="arithmatex">\(\Delta t\)</span> انتگرال بگیریم. جملهٔ روند مانندِ اویلرِ معمولی به <span class="arithmatex">\(\Delta t\)</span> ضرب می‌شود، اما جملهٔ نوفه به انتگرالِ <span class="arithmatex">\(dW\)</span> روی همان بازه نیاز دارد. طبقِ ویژگیِ فرایندِ وینر، این انتگرال خودش یک افزایشِ وینر است، یعنی یک عددِ تصادفیِ نرمال با واریانسِ <span class="arithmatex">\(\Delta t\)</span>. به‌بیانِ دیگر:</p>
+<div class="arithmatex">\[
+\int_{t_n}^{t_n + \Delta t} dW = \Delta W \sim \mathcal{N}(0, \Delta t),
+\]</div>
+<p>و چون انحرافِ معیارِ آن <span class="arithmatex">\(\sqrt{\Delta t}\)</span> است، می‌توان آن را به‌صورتِ <span class="arithmatex">\(\sqrt{\Delta t}\,\xi_n\)</span> نوشت که در آن <span class="arithmatex">\(\xi_n\)</span> یک عددِ تصادفیِ کشیده‌شده از توزیعِ نرمالِ استانداردِ <span class="arithmatex">\(\mathcal{N}(0, 1)\)</span> است. با این جای‌گذاری، گام‌های گسستهٔ نوسانگر چنین می‌شوند:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+v_{n+1} &amp;= v_n - \omega^2 x_n\,\Delta t + \sigma\,\sqrt{\Delta t}\;\xi_n,\\
+x_{n+1} &amp;= x_n + v_{n+1}\,\Delta t.
+\end{aligned}
+\]</div>
+<p>دقت کنید که جملهٔ نوفه در <span class="arithmatex">\(\sqrt{\Delta t}\)</span> ضرب می‌شود، نه در <span class="arithmatex">\(\Delta t\)</span>. همچنین نکتهٔ ظریف این است که برای پایدارماندنِ دامنهٔ نوسانِ نسخهٔ قطعی، سرعت را <strong>پیش از</strong> مکان به‌روزرسانی می‌کنیم و سپس از سرعتِ تازه (<span class="arithmatex">\(v_{n+1}\)</span>) برای مکان استفاده می‌کنیم؛ این همان ترتیبِ نیمه‌ضمنیِ (سیمپلکتیکِ) فصلِ پیش است که از انباشتِ مصنوعیِ انرژی در اویلر جلوگیری می‌کند.</p>
+<p>با <span class="arithmatex">\(\sigma=0\)</span> نوسان کاملاً منظم و دامنه‌اش ثابت است (در صفحهٔ فاز یک دایرهٔ بسته). با افزایشِ <span class="arithmatex">\(\sigma\)</span>، نوفه پیوسته نوسانگر را از مدارش بیرون می‌راند: نوسان نامنظم‌تر می‌شود و دایرهٔ صفحهٔ فاز به یک حلقهٔ پهن و پُرنوفه بدل می‌شود، اما از میان نمی‌رود.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">def</span> <span class="nf">sho_step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">rng</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="n">dW</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">))</span>           <span class="c1"># Wiener increment ~ N(0, dt)</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="n">v_new</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="n">omega</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">dW</span>  <span class="c1"># update velocity first (noise here)</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="n">x_new</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v_new</span> <span class="o">*</span> <span class="n">dt</span>                          <span class="c1"># semi-implicit: use the new velocity</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">return</span> <span class="n">x_new</span><span class="p">,</span> <span class="n">v_new</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="n">omega</span> <span class="o">=</span> <span class="mf">2.0</span>
+<span class="linenos" data-linenos="11 "></span><span class="n">T</span> <span class="o">=</span> <span class="mf">20.0</span>
+<span class="linenos" data-linenos="12 "></span><span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="linenos" data-linenos="13 "></span><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>
+<span class="linenos" data-linenos="14 "></span><span class="n">sigmas</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">]</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sigmas</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<span class="linenos" data-linenos="17 "></span><span class="k">for</span> <span class="n">row</span><span class="p">,</span> <span class="n">sigma</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sigmas</span><span class="p">):</span>
+<span class="linenos" data-linenos="18 "></span>    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="linenos" data-linenos="19 "></span>    <span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="linenos" data-linenos="20 "></span>    <span class="n">vs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="linenos" data-linenos="21 "></span>    <span class="n">xs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span>
+<span class="linenos" data-linenos="22 "></span>    <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
+<span class="linenos" data-linenos="23 "></span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+<span class="linenos" data-linenos="24 "></span>        <span class="n">xs</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">vs</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">sho_step</span><span class="p">(</span><span class="n">xs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">vs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">dt</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">rng</span><span class="p">)</span>
+<span class="linenos" data-linenos="25 "></span>    <span class="n">axes</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="linenos" data-linenos="26 "></span>    <span class="n">axes</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sigma=</span><span class="si">{</span><span class="n">sigma</span><span class="si">}</span><span class="se">\n</span><span class="s2"> x&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="27 "></span>    <span class="n">axes</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">vs</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:purple&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="linenos" data-linenos="28 "></span>    <span class="n">axes</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="29 "></span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;time series&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="30 "></span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;phase plane&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="31 "></span><span class="n">axes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;time t&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="32 "></span><span class="n">axes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="33 "></span><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="linenos" data-linenos="34 "></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<figure>
+  <img alt="Image title" src="../em_sho.png" />
+<br />
+<figcaption>نوسانگر هماهنگ با توان‌های فزایندهٔ نوفه (σ = ۰، ۰٫۱، ۰٫۳، ۰٫۶). ستون چپ سری زمانی و ستون راست صفحهٔ فاز است. با σ=۰ مدار یک دایرهٔ بسته است؛ هرچه σ بزرگ‌تر شود، مدار به حلقه‌ای پهن‌تر و نامنظم‌تر تبدیل می‌شود.</figcaption>
+</figure>
+<h2 id="_8">مثال: مدل فیتزهیو–ناگومو با جریان نوفه‌ای</h2>
+<p>نمونهٔ مهم‌تر برای علوم اعصاب، افزودنِ نوفه به جریانِ ورودیِ یک نورونِ تحریک‌پذیر است. مدلِ فیتزهیو–ناگومو (که در فصلِ پیش دیدیم) را با یک جملهٔ نوفه روی معادلهٔ ولتاژ می‌نویسیم:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+dv &amp;= \Big(v - \tfrac{v^3}{3} - w + I\Big)\,dt + \sigma\,dW,\\
+dw &amp;= \varepsilon\,(v + a - b\,w)\,dt.
+\end{aligned}
+\]</div>
+<p>جریانِ ورودیِ <span class="arithmatex">\(I\)</span> را زیرِ آستانهٔ شلیک انتخاب می‌کنیم؛ در نتیجه نسخهٔ قطعی روی نقطهٔ تعادلِ پایدار می‌ماند و کاملاً خاموش است. حال همان شبیه‌سازی را برای چند توانِ نوفه تکرار می‌کنیم. با <span class="arithmatex">\(\sigma=0\)</span> نورون ساکت است؛ اما همین‌که نوفه را بزرگ‌تر کنیم، تلنگرهای تصادفی نورون را از آستانه عبور می‌دهند و پتانسیل‌های عمل پدید می‌آیند، و هرچه توانِ نوفه بیشتر، شلیک‌ها پُرتکرارتر. این پدیده به <strong>شلیکِ القاشده با نوفه</strong> (noise-induced firing) مشهور است و نشان می‌دهد که نرخِ شلیک می‌تواند مستقیماً با شدتِ نوفه تنظیم شود.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">def</span> <span class="nf">fhn_step</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">rng</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="n">dW</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">))</span>                 <span class="c1"># Wiener increment ~ N(0, dt)</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="n">v_new</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">v</span><span class="o">**</span><span class="mi">3</span><span class="o">/</span><span class="mi">3</span> <span class="o">-</span> <span class="n">w</span> <span class="o">+</span> <span class="n">I</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">dW</span>  <span class="c1"># noisy input current</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="n">w_new</span> <span class="o">=</span> <span class="n">w</span> <span class="o">+</span> <span class="n">eps</span> <span class="o">*</span> <span class="p">(</span><span class="n">v</span> <span class="o">+</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span> <span class="o">*</span> <span class="n">w</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">return</span> <span class="n">v_new</span><span class="p">,</span> <span class="n">w_new</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="k">def</span> <span class="nf">count_spikes</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="c1"># count upward crossings of the threshold v = 1.0</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">v</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">&gt;=</span> <span class="mf">1.0</span><span class="p">)))</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="n">I</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.25</span>     <span class="c1"># I is below the firing threshold</span>
+<span class="linenos" data-linenos="15 "></span><span class="n">T</span> <span class="o">=</span> <span class="mf">400.0</span>
+<span class="linenos" data-linenos="16 "></span><span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="linenos" data-linenos="17 "></span><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>
+<span class="linenos" data-linenos="18 "></span><span class="n">sigmas</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sigmas</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos" data-linenos="21 "></span><span class="k">for</span> <span class="n">row</span><span class="p">,</span> <span class="n">sigma</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sigmas</span><span class="p">):</span>
+<span class="linenos" data-linenos="22 "></span>    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="linenos" data-linenos="23 "></span>    <span class="n">vs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="linenos" data-linenos="24 "></span>    <span class="n">ws</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="linenos" data-linenos="25 "></span>    <span class="n">vs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ws</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span>
+<span class="linenos" data-linenos="26 "></span>    <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
+<span class="linenos" data-linenos="27 "></span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+<span class="linenos" data-linenos="28 "></span>        <span class="n">vs</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">ws</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">fhn_step</span><span class="p">(</span><span class="n">vs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ws</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">dt</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">rng</span><span class="p">)</span>
+<span class="linenos" data-linenos="29 "></span>    <span class="n">n_spikes</span> <span class="o">=</span> <span class="n">count_spikes</span><span class="p">(</span><span class="n">vs</span><span class="p">)</span>
+<span class="linenos" data-linenos="30 "></span>    <span class="n">axes</span><span class="p">[</span><span class="n">row</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">vs</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="linenos" data-linenos="31 "></span>    <span class="k">if</span> <span class="n">sigma</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+<span class="linenos" data-linenos="32 "></span>        <span class="n">axes</span><span class="p">[</span><span class="n">row</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sigma = </span><span class="si">{</span><span class="n">sigma</span><span class="si">}</span><span class="s2">  (deterministic: silent)&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="33 "></span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos" data-linenos="34 "></span>        <span class="n">axes</span><span class="p">[</span><span class="n">row</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sigma = </span><span class="si">{</span><span class="n">sigma</span><span class="si">}</span><span class="s2">  -&gt;  </span><span class="si">{</span><span class="n">n_spikes</span><span class="si">}</span><span class="s2"> spikes&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="35 "></span>    <span class="n">axes</span><span class="p">[</span><span class="n">row</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;v(t)&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="36 "></span><span class="n">axes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;time t&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="37 "></span><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="linenos" data-linenos="38 "></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<figure>
+  <img alt="Image title" src="../em_fhn.png" />
+<br />
+<figcaption>مدل فیتزهیو–ناگومو با جریان زیرآستانه (I=۰٫۲۵) و توان‌های فزایندهٔ نوفه (σ = ۰، ۰٫۱۵، ۰٫۳، ۰٫۵). با σ=۰ نورون پس از یک شلیکِ آغازین خاموش می‌شود؛ با افزایش σ شمار پتانسیل‌های عملِ القاشده با نوفه به‌طور پیوسته بیشتر می‌شود (شمارِ شلیک‌ها در عنوانِ هر زیرنمودار آمده است).</figcaption>
+</figure>
+<p>این مثال‌ها نشان می‌دهند که نوفه صرفاً «اخلال» نیست؛ شدتِ آن می‌تواند رفتارِ سامانه را به‌طور پیوسته تنظیم کند و گاه رفتارِ کیفیِ تازه‌ای (مانندِ شلیکِ یک نورونِ خاموش) بیافریند.</p>
+<h2 id="_9">همگرایی: قوی، ضعیف و بهای نوفه</h2>
+<p>در سامانه‌های تصادفی دو نوع همگرایی را از هم جدا می‌کنیم. <strong>همگراییِ قوی</strong> به دقتِ خودِ مسیر (به‌ازای همان تحققِ نوفه) می‌پردازد، حال‌آنکه <strong>همگراییِ ضعیف</strong> تنها دقتِ کمیت‌های میانگین مانندِ امید یا واریانس را می‌سنجد. روشِ اویلر–مارویاما مرتبهٔ همگراییِ <strong>قویِ</strong> <span class="arithmatex">\(1/2\)</span> و مرتبهٔ همگراییِ <strong>ضعیفِ</strong> <span class="arithmatex">\(1\)</span> دارد.</p>
+<p>مرتبهٔ قویِ <span class="arithmatex">\(1/2\)</span> پیامدِ مستقیمِ همان <span class="arithmatex">\(\sqrt{\Delta t}\)</span> است و آن را می‌توان به‌روشنی دید. برای سنجشِ آن، از حرکتِ براونیِ هندسی استفاده می‌کنیم، یعنی معادلهٔ <span class="arithmatex">\(dX = \mu X\,dt + \sigma X\,dW\)</span> که جوابِ تحلیلیِ دقیقی دارد؛ پس می‌توانیم خطای مسیرِ عددی را نسبت به مسیرِ دقیق (با همان تحققِ نوفه) بسنجیم. اگر این خطا را بر حسبِ گام در مقیاسِ لگاریتمی رسم کنیم، شیبِ خط نزدیکِ <span class="arithmatex">\(1/2\)</span> است، یعنی نصفِ مرتبهٔ اویلرِ معمولی برای ODEها. به بیانِ دیگر، نوفه نیمی از مرتبهٔ دقت را می‌گیرد.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="c1"># geometric Brownian motion has a known exact solution, so we can measure the</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="c1"># strong error of Euler-Maruyama against the true path (same Brownian increments)</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="n">mu</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="n">sigma</span> <span class="o">=</span> <span class="mf">1.5</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="n">X0</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="n">T</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="k">def</span> <span class="nf">strong_error</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">n_trials</span><span class="p">,</span> <span class="n">rng</span><span class="p">):</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_trials</span><span class="p">):</span>
+<span class="linenos" data-linenos="15 "></span>        <span class="n">dW</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">),</span> <span class="n">n</span><span class="p">)</span>
+<span class="linenos" data-linenos="16 "></span>        <span class="n">W_total</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dW</span><span class="p">)</span>
+<span class="linenos" data-linenos="17 "></span>        <span class="n">x_exact</span> <span class="o">=</span> <span class="n">X0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="n">mu</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">T</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">W_total</span><span class="p">)</span>
+<span class="linenos" data-linenos="18 "></span>        <span class="n">x</span> <span class="o">=</span> <span class="n">X0</span>
+<span class="linenos" data-linenos="19 "></span>        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos" data-linenos="20 "></span>            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">dW</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>   <span class="c1"># Euler-Maruyama step</span>
+<span class="linenos" data-linenos="21 "></span>        <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_exact</span><span class="p">))</span>
+<span class="linenos" data-linenos="22 "></span>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span>
+<span class="linenos" data-linenos="23 "></span>
+<span class="linenos" data-linenos="24 "></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="linenos" data-linenos="25 "></span><span class="n">dts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.008</span><span class="p">,</span> <span class="mf">0.004</span><span class="p">,</span> <span class="mf">0.002</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">])</span>
+<span class="linenos" data-linenos="26 "></span><span class="n">errors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">strong_error</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="n">rng</span><span class="p">)</span> <span class="k">for</span> <span class="n">dt</span> <span class="ow">in</span> <span class="n">dts</span><span class="p">])</span>
+<span class="linenos" data-linenos="27 "></span><span class="n">slope</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">dts</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">errors</span><span class="p">),</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos" data-linenos="28 "></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;estimated strong order = </span><span class="si">{</span><span class="n">slope</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="29 "></span>
+<span class="linenos" data-linenos="30 "></span><span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">dts</span><span class="p">,</span> <span class="n">errors</span><span class="p">,</span> <span class="s2">&quot;o-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;strong error (slope ~ </span><span class="si">{</span><span class="n">slope</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="31 "></span><span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">dts</span><span class="p">,</span> <span class="n">errors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dts</span><span class="o">/</span><span class="n">dts</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;slope 1/2 reference&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="32 "></span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;time step dt&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="33 "></span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;strong error&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="34 "></span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="linenos" data-linenos="35 "></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<figure>
+  <img alt="Image title" src="../em_convergence.png" />
+<br />
+<figcaption>همگراییِ قویِ روش اویلر–مارویاما برای حرکتِ براونیِ هندسی. خطای قوی با شیبی نزدیک به ۱/۲ کاهش می‌یابد؛ نصفِ مرتبهٔ اویلرِ پیشرو برای معادلات قطعی. این، بهای حضورِ نوفه است.</figcaption>
+</figure>
+<h2 id="_10">نکته‌ها و گام‌های بعدی</h2>
+<p>دو نکتهٔ تکمیلی ارزشِ یادآوری دارند. نخست، <strong>تفسیرِ ایتو در برابرِ استراتونوویچ</strong>: وقتی جملهٔ پخش به حالت بستگی دارد (<span class="arithmatex">\(b\)</span> تابعی از <span class="arithmatex">\(X\)</span>)، انتخابِ نقطهٔ ارزیابیِ نوفه در نتیجه اثر می‌گذارد؛ ما تفسیرِ ایتو را به کار بردیم که با شکلِ اویلر–مارویاما سازگار است. دوم، روشِ <strong>میلستین</strong> (Milstein) با افزودنِ یک جملهٔ تصحیحی، مرتبهٔ همگراییِ قوی را به <span class="arithmatex">\(1\)</span> می‌رساند و گزینهٔ بعدی است اگر دقتِ مسیرها اهمیت داشته باشد.</p>
+<p>این ابزار در بخش‌های بعدی بارها به کار می‌آید: از مدل‌های نورونِ نوفه‌ای و نسخهٔ تصادفیِ هاجکین–هاکسلی گرفته تا ورودیِ پس‌زمینهٔ تصادفی در شبکه‌های بزرگ که در بخشِ شبکه‌ها به آن می‌پردازیم.</p>
+<hr />
+<p>برای مطالعهٔ بیشتر:</p>
+<div dir="ltr">
+<ul>
+<li>Higham, D.J., 2001. An algorithmic introduction to numerical simulation of stochastic differential equations. SIAM Review 43(3), 525–546.</li>
+<li>Kloeden, P.E., Platen, E., 1992. Numerical Solution of Stochastic Differential Equations. Springer.</li>
+<li>Gardiner, C., 2009. Stochastic Methods, 4th ed. Springer.</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+  
+    
+    
+
+    <hr>
+    <div class="page-actions" dir="rtl">
+      <a class="md-button"
+         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=enhancement&title=پیشنهاد برای فصل: %D8%AD%D9%84%20%D8%B9%D8%AF%D8%AF%DB%8C%20%D9%85%D8%B9%D8%A7%D8%AF%D9%84%D8%A7%D8%AA%20%D8%AF%DB%8C%D9%81%D8%B1%D8%A7%D9%86%D8%B3%DB%8C%D9%84%20%D8%AA%D8%B5%D8%A7%D8%AF%D9%81%DB%8C">
+        پیشنهاد در گیت‌هاب
+      </a>
+      <a class="md-button"
+         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=bug&title=گزارش اشکال در فصل: %D8%AD%D9%84%20%D8%B9%D8%AF%D8%AF%DB%8C%20%D9%85%D8%B9%D8%A7%D8%AF%D9%84%D8%A7%D8%AA%20%D8%AF%DB%8C%D9%81%D8%B1%D8%A7%D9%86%D8%B3%DB%8C%D9%84%20%D8%AA%D8%B5%D8%A7%D8%AF%D9%81%DB%8C">
+        گزارش اشکال در گیت‌هاب
+      </a>
+      <a class="md-button"
+         href="mailto:saeed.taghavi.v@gmail.com?subject=بازخورد دربارهٔ فصل: حل عددی معادلات دیفرانسیل تصادفی">
+        ارسال بازخورد با ایمیل
+      </a>
+    </div>
+  
+
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  برگشت به بالا
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="پاورقی" >
+        
+          
+          <a href="../ch-num-06-ode/" class="md-footer__link md-footer__link--prev" aria-label="قبلی: حل عددی معادلات دیفرانسیل معمولی">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                قبلی
+              </span>
+              <div class="md-ellipsis">
+                حل عددی معادلات دیفرانسیل معمولی
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ch01/" class="md-footer__link md-footer__link--next" aria-label="بعدی: غشای تحریک‌پذیر">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                بعدی
+              </span>
+              <div class="md-ellipsis">
+                غشای تحریک‌پذیر
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "navigation.footer"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u06a9\u067e\u06cc \u0634\u062f", "clipboard.copy": "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646", "search.result.more.one": "1 \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.more.other": "# \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.none": "\u0633\u0646\u062f\u06cc \u06cc\u0627\u0641\u062a \u0646\u0634\u062f", "search.result.one": "1 \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.other": "# \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.placeholder": "\u0628\u0631\u0627\u06cc \u062c\u0633\u062a\u062c\u0648 \u062a\u0627\u06cc\u067e \u06a9\u0646\u06cc\u062f", "search.result.term.missing": "\u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a", "select.version": "\u0627\u0646\u062a\u062e\u0627\u0628 \u0648\u06cc\u0631\u0627\u06cc\u0634"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/extra.js"></script>
+      
+        <script src="../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
