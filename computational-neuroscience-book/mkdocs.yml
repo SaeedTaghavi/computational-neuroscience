@@ -47,11 +47,15 @@ nav:
             - "رده‌بندی عدم‌قطعیت": ch-modelling-04-uncertainty.md
             - "راستی‌آزمایی و اعتبارسنجی": ch-modelling-05-verify-validate.md
             - "نیکویی برازش": ch-modelling-06-goodness-of-fit.md
-        - "مفاهیم مدل‌سازی و خطا": ch16.md
+        # - "مفاهیم مدل‌سازی و خطا": ch16.md
         - "روش‌های عددی":
           - "مرور مفاهیم پایه": ch-num-01-revision.md
           - "مشتق اول": ch-num-02-derivative.md      # when you write it
           - "تفاضل محدود": ch-num-03-fdm.md           # etc.
+          - "بسط تیلور": ch-num-04-taylor.md
+          - "انتگرال‌گیری عددی": ch-num-05-numerical-integration.md
+          - "حل عددی معادلات دیفرانسیل معمولی": ch-num-06-ode.md
+          - "حل عددی معادلات دیفرانسیل تصادفی": ch-num-07-sde.md
         # - "تفاضل محدود و مشتق عددی": ch17.md
         # - "حل عددی معادلات دیفرانسیل معمولی": ch18.md
         # - "معادلات با مشتقات جزئی": ch19.md
@@ -79,10 +83,11 @@ nav:
       - معادلات نرخ آتش: ch09.md
       - مدل ویلسون-کوان: ch10.md
   - "پیوست‌ها":
-      - "حل عددی معادلات دیفرانسیل": appendix-ode.md
-      - "روش اویلر–مارویاما (SDE)": appendix-sde.md
-      - "معرفی بسته شبیه‌سازی  NEST": appendix-nest.md
-      - "معرفی بسته شبیه‌سازی  neurolib": appendix-neurolib.md
+      - "طراحی گردش‌کار و آزمایش محاسباتی": appendix-workflow.md
+      # - "معرفی بسته شبیه‌سازی  NEST": appendix-nest.md
+      # - "معرفی بسته شبیه‌سازی  Brian2": appendix-brian2.md
+      # - "معرفی بسته شبیه‌سازی  NEURON": appendix-neuron.md 
+      # - "معرفی بسته شبیه‌سازی  neurolib": appendix-neurolib.md
 
 
 extra_css:
