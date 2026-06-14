@@ -56,6 +56,13 @@ nav:
           - "انتگرال‌گیری عددی": ch-num-05-numerical-integration.md
           - "حل عددی معادلات دیفرانسیل معمولی": ch-num-06-ode.md
           - "حل عددی معادلات دیفرانسیل تصادفی": ch-num-07-sde.md
+        - "پردازش سیگنال":
+          # - "تست": ch-signal-01-fourier.md
+          - "مرور مفاهیم پایه": ch-signal-01-revision.md
+          - "پردازش سیگنال در حوزه زمان": ch-signal-02-time-domain.md
+          - "پردازش سیگنال در حوزه فرکانس": ch-signal-03-frequency-domain.md
+          - "فیلترها": ch-signal-04-filters.md
+          - "تحلیل زمان–بسامد": ch-signal-05-time-frequency.md
         # - "تفاضل محدود و مشتق عددی": ch17.md
         # - "حل عددی معادلات دیفرانسیل معمولی": ch18.md
         # - "معادلات با مشتقات جزئی": ch19.md
