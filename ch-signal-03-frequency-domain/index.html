@@ -1,0 +1,2607 @@
+
+<!doctype html>
+<html lang="fa" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="کتاب آنلاین علوم اعصاب محاسباتی به زبان فارسی — از غشای تحریک‌پذیر و سیستم‌های دینامیکی تا مدل‌های نورون، شبکه‌های اسپایکی و مدل‌سازی مغز کامل.">
+      
+      
+        <meta name="author" content="Saeed Taghavi">
+      
+      
+        <link rel="canonical" href="https://computational-neuroscience.ir/ch-signal-03-frequency-domain/">
+      
+      
+        <link rel="prev" href="../ch-signal-02-time-domain/">
+      
+      
+        <link rel="next" href="../ch-signal-04-filters/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>پردازش سیگنال در حوزه فرکانس - کتاب علوم اعصاب محاسباتی</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Naskh+Arabic:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Naskh Arabic";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="rtl" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          پرش به محتویات
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="سرتیتر">
+    <a href=".." title="کتاب علوم اعصاب محاسباتی" class="md-header__button md-logo" aria-label="کتاب علوم اعصاب محاسباتی" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            کتاب علوم اعصاب محاسباتی
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              پردازش سیگنال در حوزه فرکانس
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="جستجو" placeholder="جستجو" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="جستجو">
+        
+        <button type="reset" class="md-search__icon md-icon" title="بازنشانی" aria-label="بازنشانی" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            راه‌اندازی جستجو
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="هدایت" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="کتاب علوم اعصاب محاسباتی" class="md-nav__button md-logo" aria-label="کتاب علوم اعصاب محاسباتی" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    کتاب علوم اعصاب محاسباتی
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    خانه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پیش‌نیازها
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پیش‌نیازها
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    روش‌های عددی و تحلیل داده
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    روش‌های عددی و تحلیل داده
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مفاهیم مدل‌سازی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مفاهیم مدل‌سازی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-modelling-01-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-modelling-02-classification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    رده‌بندی مدل‌ها
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-modelling-03-decisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    تصمیم‌های مدل‌سازی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-modelling-04-uncertainty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    رده‌بندی عدم‌قطعیت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-modelling-05-verify-validate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    راستی‌آزمایی و اعتبارسنجی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-modelling-06-goodness-of-fit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نیکویی برازش
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    روش‌های عددی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    روش‌های عددی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-01-revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرور مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-02-derivative/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مشتق اول
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-03-fdm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    تفاضل محدود
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-04-taylor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    بسط تیلور
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-05-numerical-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    انتگرال‌گیری عددی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-06-ode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    حل عددی معادلات دیفرانسیل معمولی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-07-sde/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    حل عددی معادلات دیفرانسیل تصادفی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_3" id="__nav_2_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پردازش سیگنال
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پردازش سیگنال
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-signal-01-revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرور مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-signal-02-time-domain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پردازش سیگنال در حوزه زمان
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پردازش سیگنال در حوزه فرکانس
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پردازش سیگنال در حوزه فرکانس
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="فهرست در این صفحه">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      فهرست در این صفحه
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        سری فوریه
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="سری فوریه">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        مثال: ساختِ موجِ مربعی
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تمرین‌ها
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        سری فوریه مختلط
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تبدیل فوریه
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        نمونه‌برداری و قضیهٔ نایکوئیست
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تبدیل فوریه گسسته (DFT)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="تبدیل فوریه گسسته (DFT)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        فیلتر کردن در حوزهٔ بسامد
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تخمین طیف توان
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="تخمین طیف توان">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        پارامترهای کلیدیِ روشِ ولچ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        جمع‌بندی
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-signal-04-filters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    فیلترها
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-signal-05-time-frequency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    تحلیل زمان–بسامد
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    بیوفیزیک نورون
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    بیوفیزیک نورون
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    غشای تحریک‌پذیر
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیستم‌های دینامیکی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های نورون
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مدل‌های نورون
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل هاجکین-هاکسلی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های ساده‌شده: LIF، EIF، AdEx
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    شبکه‌های نورون‌های نقطه‌ای
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    شبکه‌های نورون‌های نقطه‌ای
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    از نورون به جمعیت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    شبکه‌های تصادفی متعادل
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نوسانات در شبکه‌های تحریکی-مهاری
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پلاستیسیتی وابسته به زمان اسپایک (STDP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های جمعیتی و توده عصبی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مدل‌های جمعیتی و توده عصبی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    معادلات نرخ آتش
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل ویلسون-کوان
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پیوست‌ها
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پیوست‌ها
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    طراحی گردش‌کار و آزمایش محاسباتی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="فهرست در این صفحه">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      فهرست در این صفحه
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        سری فوریه
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="سری فوریه">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        مثال: ساختِ موجِ مربعی
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تمرین‌ها
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        سری فوریه مختلط
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تبدیل فوریه
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        نمونه‌برداری و قضیهٔ نایکوئیست
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تبدیل فوریه گسسته (DFT)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="تبدیل فوریه گسسته (DFT)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        فیلتر کردن در حوزهٔ بسامد
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تخمین طیف توان
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="تخمین طیف توان">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        پارامترهای کلیدیِ روشِ ولچ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        جمع‌بندی
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+
+<h1 id="_1">پردازش سیگنال در حوزهٔ بسامد</h1>
+<p>در فصلِ مرورِ مفاهیم دیدیم که سیگنال‌ها را در حوزهٔ زمان ثبت می‌کنیم. اما بسیاری از پدیده‌های جالب در مغز <strong>ریتمیک‌اند</strong>: نوسان‌های آلفا، بتا، گاما و امواجِ آهسته، هر کدام در یک بازهٔ بسامدیِ مشخص رخ می‌دهند. برای دیدنِ این ریتم‌ها باید سیگنال را به <strong>حوزهٔ بسامد</strong> ببریم؛ یعنی بپرسیم «چه بسامدهایی و با چه شدتی در این سیگنال حضور دارند؟». این کار، موضوعِ <strong>تحلیلِ طیفی</strong> (spectral analysis) است.</p>
+<p>این فصل ابزارهای این کار را از پایه می‌سازد: از سری فوریه و تبدیل فوریه (دیدگاهِ نظری و پیوسته)، تا تبدیلِ فوریهٔ گسسته (آنچه در عمل با داده‌های ثبت‌شده به کار می‌بریم)، و سرانجام تخمینِ طیفِ توان که برای سیگنال‌های نوفه‌ایِ واقعی ضروری است.</p>
+<h2 id="_2">سری فوریه</h2>
+<p>پرسشِ بنیادینِ فوریه این بود: آیا می‌توان <strong>هر</strong> سیگنالِ متناوب را به‌صورتِ مجموعی از کسینوس‌ها و سینوس‌های با بسامدهای مختلف نوشت؟ پاسخ مثبت است. هر سیگنالِ متناوبِ <span class="arithmatex">\(x(t)\)</span> با دورهٔ <span class="arithmatex">\(T_0\)</span> را می‌توان چنین بسط داد:</p>
+<div class="arithmatex">\[
+x(t) = a_0 + \sum_{k=1}^{\infty} a_k \cos(k\omega_0 t) + \sum_{k=1}^{\infty} b_k \sin(k\omega_0 t),
+\qquad \omega_0 = \frac{2\pi}{T_0}.
+\]</div>
+<p>این بسط، <strong>سری فوریه</strong> نام دارد. جمله‌های آن، سینوس‌ها و کسینوس‌هایی با بسامدهای <span class="arithmatex">\(\omega_0, 2\omega_0, 3\omega_0, \dots\)</span> هستند که به آن‌ها <strong>هم‌نوا</strong> (harmonics) می‌گویند: بسامدِ بنیادی و مضرب‌های صحیحِ آن.</p>
+<div class="admonition note">
+<p class="admonition-title">گوشه‌ای از تاریخ: ژوزف فوریه</p>
+<p>ژان-باتیست ژوزف فوریه (۱۷۶۸–۱۸۳۰)، ریاضی‌دان و فیزیک‌دانِ فرانسوی، در لشکرکشیِ ناپلئون به مصر همراه بود و پس از بازگشت، فرماندارِ ناحیهٔ ایزر شد. او در همان سال‌ها، در کنارِ کارهای اداری، بر توصیفِ ریاضیِ <strong>انتقالِ گرما</strong> کار می‌کرد. در سالِ ۱۸۲۲، در اثرِ مهمش دربارهٔ جریانِ گرما، این ادعای جسورانه را مطرح کرد که <strong>هر</strong> تابع، پیوسته یا ناپیوسته، را می‌توان به‌صورتِ مجموعی از سینوس‌های مضربِ یک متغیر بسط داد. این ادعا به‌طورِ کامل درست نبود، اما این بینش که برخی توابعِ ناپیوسته حاصلِ جمعِ یک سری بی‌نهایت‌اند، یک جهش بود. سری و تبدیلِ فوریه به افتخارِ او نام گرفته‌اند.</p>
+</div>
+<p>ضرایبِ این سری را می‌توان با استفاده از خاصیتِ <strong>تعامد</strong> (orthogonality) سینوس‌ها و کسینوس‌ها به‌دست آورد (انتگرالِ حاصل‌ضربِ دو هم‌نوای متفاوت روی یک دوره صفر است). نتیجه چنین است:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+a_0 &amp;= \frac{1}{T_0}\int_{T_0} x(t)\,dt,\\
+a_k &amp;= \frac{2}{T_0}\int_{T_0} x(t)\cos(k\omega_0 t)\,dt,\\
+b_k &amp;= \frac{2}{T_0}\int_{T_0} x(t)\sin(k\omega_0 t)\,dt.
+\end{aligned}
+\]</div>
+<p>ضریبِ <span class="arithmatex">\(a_0\)</span> همان <strong>مقدارِ میانگینِ</strong> سیگنال است (می‌توان آن را کسینوس با بسامدِ صفر دانست). ضرایبِ <span class="arithmatex">\(a_k\)</span> و <span class="arithmatex">\(b_k\)</span> سهمِ هر هم‌نوا را تعیین می‌کنند.</p>
+<p>این روابطِ تعامد را می‌توان صریح‌تر نوشت؛ همین‌ها سنگِ‌بنای استخراجِ ضرایب‌اند (انتگرال‌ها بر یک دوره گرفته می‌شوند):</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\int_{T_0}\cos(k\omega_0 t)\cos(m\omega_0 t)\,dt
+&amp;= \begin{cases}0, &amp; k\neq m,\\ T_0/2, &amp; k=m\neq 0,\end{cases}\\[4pt]
+\int_{T_0}\sin(k\omega_0 t)\sin(m\omega_0 t)\,dt
+&amp;= \begin{cases}0, &amp; k\neq m,\\ T_0/2, &amp; k=m\neq 0,\end{cases}\\[4pt]
+\int_{T_0}\sin(k\omega_0 t)\cos(m\omega_0 t)\,dt &amp;= 0, \qquad \text{for all } k,m.
+\end{aligned}
+\]</div>
+<details class="note">
+<summary>اثباتِ ضرایب (اختیاری)</summary>
+<p><strong>ضریبِ <span class="arithmatex">\(a_0\)</span>.</strong> هر دو طرفِ سری را بر یک دوره انتگرال می‌گیریم. انتگرالِ هر سینوس یا کسینوسِ هم‌نوا بر یک دوره صفر است (مساحتِ بالا و پایینِ محورِ زمان برابر است)، پس تنها جملهٔ <span class="arithmatex">\(a_0\)</span> می‌ماند:</p>
+<div class="arithmatex">\[
+\int_{T_0} x(t)\,dt = a_0 T_0
+\quad\Longrightarrow\quad
+a_0 = \frac{1}{T_0}\int_{T_0} x(t)\,dt.
+\]</div>
+<p>پس <span class="arithmatex">\(a_0\)</span> همان <strong>میانگینِ</strong> سیگنال است (کسینوس با بسامدِ صفر).</p>
+<p><strong>ضرایبِ <span class="arithmatex">\(a_k\)</span>.</strong> هر دو طرف را در <span class="arithmatex">\(\cos(m\omega_0 t)\)</span> ضرب و بر یک دوره انتگرال می‌گیریم. به‌کمکِ روابطِ تعامد، همهٔ جمله‌های سینوسی صفر می‌شوند و از جمله‌های کسینوسی تنها جملهٔ <span class="arithmatex">\(k=m\)</span> باقی می‌ماند:</p>
+<div class="arithmatex">\[
+\int_{T_0} x(t)\cos(m\omega_0 t)\,dt = \frac{a_m T_0}{2}
+\quad\Longrightarrow\quad
+a_k = \frac{2}{T_0}\int_{T_0} x(t)\cos(k\omega_0 t)\,dt.
+\]</div>
+<p><strong>ضرایبِ <span class="arithmatex">\(b_k\)</span>.</strong> به‌همین‌سان، با ضرب در <span class="arithmatex">\(\sin(m\omega_0 t)\)</span> و انتگرال‌گیری:</p>
+<div class="arithmatex">\[
+b_k = \frac{2}{T_0}\int_{T_0} x(t)\sin(k\omega_0 t)\,dt.
+\]</div>
+<p>این اثبات تنها برای بینشِ بیشتر آمده و حفظِ آن لازم نیست؛ آنچه می‌ماند، خودِ سه فرمولِ ضرایب است.</p>
+</details>
+<h3 id="_3">مثال: ساختِ موجِ مربعی</h3>
+<p>موجِ مربعیِ ۱ هرتزی را در نظر بگیرید که در نیمهٔ نخستِ هر دوره برابرِ <span class="arithmatex">\(+1\)</span> و در نیمهٔ دوم برابرِ <span class="arithmatex">\(-1\)</span> است. این تابع فرد است، پس همهٔ ضرایبِ کسینوسی صفرند (<span class="arithmatex">\(a_0 = 0\)</span> و <span class="arithmatex">\(a_k = 0\)</span>) و تنها ضرایبِ سینوسی می‌مانند:</p>
+<div class="arithmatex">\[
+b_k = \begin{cases} \dfrac{4}{k\pi}, &amp; k \text{ odd},\\[4pt] 0, &amp; k \text{ even}. \end{cases}
+\]</div>
+<p>پس موجِ مربعی تنها از هم‌نواهای فرد ساخته می‌شود، و سری فوریهٔ آن چنین است (با <span class="arithmatex">\(\omega_0 = 2\pi\)</span> برای بسامدِ ۱ هرتز):</p>
+<div class="arithmatex">\[
+x(t) = \frac{4}{\pi}\!\left[\sin(\omega_0 t) + \frac{\sin(3\omega_0 t)}{3} + \frac{\sin(5\omega_0 t)}{5} + \cdots + \frac{\sin(N\omega_0 t)}{N}\right],
+\qquad N \text{ odd}.
+\]</div>
+<p>اکنون می‌خواهیم به‌صورتِ عددی ببینیم که این مجموع چگونه با افزودنِ هم‌نواها به موجِ مربعی نزدیک می‌شود. نخست هم‌نواها را یکی‌یکی می‌افزاییم تا شکل‌گیریِ تدریجیِ موج را ببینیم.</p>
+<p><strong>گامِ نخست: هم‌نوای بنیادی.</strong> نخست تنها هم‌نوای بنیادی (<span class="arithmatex">\(k=1\)</span>)، یعنی یک سینوسِ تنها، را رسم می‌کنیم و با موجِ مربعی می‌سنجیم.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">square</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="n">T0</span> <span class="o">=</span> <span class="mf">1.0</span>                                   <span class="c1"># period 1 s  →  1 Hz square wave</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="n">omega0</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">T0</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">T0</span><span class="p">,</span> <span class="n">T0</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="n">true_sq</span> <span class="o">=</span> <span class="n">square</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>                <span class="c1"># the true (amplitude-1) square wave</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="n">x1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omega0</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>          <span class="c1"># fundamental: k = 1</span>
+<span class="linenos" data-linenos="11 "></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">true_sq</span><span class="p">,</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;square&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="12 "></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="s2">&quot;b-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;sum (k=1)&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="13 "></span><span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="linenos" data-linenos="14 "></span><span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="linenos" data-linenos="15 "></span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;time t (s)&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="16 "></span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="linenos" data-linenos="17 "></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<figure>
+  <img alt="Image title" src="../fourier_square_k1.png" />
+<br />
+<figcaption>تنها هم‌نوای بنیادی (k=۱): یک سینوسِ ساده که هنوز فاصلهٔ زیادی با موجِ مربعیِ واقعی (خط‌چینِ خاکستری) دارد.</figcaption>
+</figure>
+<p><strong>گامِ دوم: افزودنِ هم‌نوای سوم.</strong> اکنون هم‌نوای سوم (<span class="arithmatex">\(k=3\)</span>) را می‌افزاییم.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">x3</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="o">/</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">omega0</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>    <span class="c1"># third harmonic</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">true_sq</span><span class="p">,</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;square&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x3</span><span class="p">,</span> <span class="s2">&quot;b-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;sum (k=1,3)&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span><span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="linenos" data-linenos="5 "></span><span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="linenos" data-linenos="6 "></span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;time t (s)&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="7 "></span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="linenos" data-linenos="8 "></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<figure>
+  <img alt="Image title" src="../fourier_square_k13.png" />
+<br />
+<figcaption>افزودنِ هم‌نوای سوم (k=۱،۳): مجموع شروع به مسطح‌شدن در میانهٔ هر نیم‌دوره می‌کند و به شکلِ مربعی نزدیک‌تر می‌شود.</figcaption>
+</figure>
+<p><strong>گامِ سوم: افزودنِ هم‌نوای پنجم.</strong> سرانجام هم‌نوای پنجم (<span class="arithmatex">\(k=5\)</span>) را نیز می‌افزاییم؛ شکلِ مربعی روشن‌تر پدیدار می‌شود.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">x5</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="o">/</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">omega0</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>    <span class="c1"># fifth harmonic</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">true_sq</span><span class="p">,</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;square&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">x3</span> <span class="o">+</span> <span class="n">x5</span><span class="p">,</span> <span class="s2">&quot;b-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;sum (k=1,3,5)&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span><span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="linenos" data-linenos="5 "></span><span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="linenos" data-linenos="6 "></span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;time t (s)&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="7 "></span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="linenos" data-linenos="8 "></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<figure>
+  <img alt="Image title" src="../fourier_square_k135.png" />
+<br />
+<figcaption>افزودنِ هم‌نوای پنجم (k=۱،۳،۵): با هر هم‌نوای فردِ تازه، مجموع (آبی) به موجِ مربعیِ واقعی (خط‌چینِ خاکستری) شبیه‌تر می‌شود.</figcaption>
+</figure>
+<p><strong>گامِ چهارم: تابعی برای جمعِ N جمله.</strong> برای دیدنِ اثرِ شمارِ بیشترِ جمله‌ها، تابعی می‌نویسیم که N هم‌نوای فردِ نخست را جمع می‌زند، و آن را برای <span class="arithmatex">\(N = 1, 5, 9, 25\)</span> رسم می‌کنیم.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">def</span> <span class="nf">square_series</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">n_terms</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;sum of the first n_terms odd harmonics (k = 1, 3, 5, ...)&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">n_terms</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="n">x</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">4</span><span class="o">/</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">omega0</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">return</span> <span class="n">x</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">true_sq</span><span class="p">,</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;square&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="k">for</span> <span class="n">n_terms</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">25</span><span class="p">):</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">square_series</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">n_terms</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;N = </span><span class="si">{</span><span class="n">n_terms</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="11 "></span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;time t (s)&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="12 "></span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;x(t)&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="13 "></span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="linenos" data-linenos="14 "></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<figure>
+  <img alt="Image title" src="../fourier_square.png" />
+<br />
+<figcaption>هم‌گراییِ سری فوریهٔ موجِ مربعی. هرچه شمارِ جمله‌ها (N) بیشتر شود، مجموع به موجِ مربعیِ واقعی (خط‌چینِ خاکستری) نزدیک‌تر می‌شود؛ اما نوسان‌های کوچکِ پایدار نزدیکِ لبه‌ها هرگز ناپدید نمی‌شوند—این، پدیدهٔ گیبس است.</figcaption>
+</figure>
+<p><strong>گامِ پنجم: محاسبهٔ نمادین با SymPy.</strong> ضرایبِ سری فوریه را لازم نیست همیشه با دست به‌دست آوریم؛ کتابخانهٔ نمادینِ <code>sympy</code> تابعِ <code>fourier_series</code> را دارد که همین کار را به‌صورتِ تحلیلی انجام می‌دهد. اگر موجِ مربعی را با توابعِ پله‌ای (هِویساید) بسازیم و سری فوریه‌اش را بخواهیم، خودِ همان ضرایبِ <span class="arithmatex">\(4/(k\pi)\)</span> پدیدار می‌شوند:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sym</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="n">x</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="c1"># a 1 Hz square wave on [-1, 1] built from Heaviside steps (+1 then −1 each half period)</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="n">f</span> <span class="o">=</span> <span class="p">(</span><span class="n">sym</span><span class="o">.</span><span class="n">Heaviside</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">sym</span><span class="o">.</span><span class="n">Heaviside</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">sym</span><span class="o">.</span><span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="linenos" data-linenos=" 6 "></span>     <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">sym</span><span class="o">.</span><span class="n">Heaviside</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">sym</span><span class="o">.</span><span class="n">Heaviside</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">sym</span><span class="o">.</span><span class="n">Rational</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="n">s</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">fourier_series</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>       <span class="c1"># Fourier series over one period</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>                        <span class="c1"># first 5 non-zero terms</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="n">p</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">s</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">s</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span> <span class="n">s</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span>
+<span class="linenos" data-linenos="12 "></span>             <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;time (s)&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;x(t)&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="13 "></span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">line_color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span>
+<span class="linenos" data-linenos="14 "></span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;square&quot;</span>
+<span class="linenos" data-linenos="15 "></span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;N = 1&quot;</span>
+<span class="linenos" data-linenos="16 "></span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;N = 5&quot;</span>
+<span class="linenos" data-linenos="17 "></span><span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;N = 9&quot;</span>
+<span class="linenos" data-linenos="18 "></span><span class="n">p</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;N = 25&quot;</span>
+<span class="linenos" data-linenos="19 "></span><span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p>خروجیِ <code>print</code> دقیقاً همان سری است که با دست به‌دست آوردیم:</p>
+<div class="arithmatex">\[
+\frac{4\sin(2\pi x)}{\pi} + \frac{4\sin(6\pi x)}{3\pi} + \frac{4\sin(10\pi x)}{5\pi} + \frac{4\sin(14\pi x)}{7\pi} + \frac{4\sin(18\pi x)}{9\pi} + \cdots
+\]</div>
+<figure>
+  <img alt="Image title" src="../fourier_square_sympy.png" />
+<br />
+<figcaption>همان ساخت، این‌بار با محاسبهٔ نمادینِ SymPy. تابعِ fourier_series ضرایب را به‌صورتِ تحلیلی می‌یابد و تقریب‌های N=۱، ۵، ۹ و ۲۵ را نشان می‌دهد که به موجِ مربعی (قرمز) هم‌گرا می‌شوند.</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">پدیدهٔ گیبس</p>
+<p>در نمودارهای بالا، نزدیکِ لبه‌های تیزِ موجِ مربعی یک «پرش» یا فراجهشِ کوچک دیده می‌شود که با افزودنِ جمله‌های بیشتر باریک‌تر می‌شود اما <strong>ارتفاعش کاهش نمی‌یابد</strong> (حدودِ ۹٪ بالاتر از پرش باقی می‌ماند). این، <strong>پدیدهٔ گیبس</strong> (Gibbs phenomenon) است و ویژگیِ ذاتیِ تقریبِ یک ناپیوستگی با سری فوریه است: سری در نقطهٔ ناپیوستگی به میانگینِ دو مقدار هم‌گرا می‌شود، نه به خودِ پرش.</p>
+</div>
+<p><strong>نتیجه.</strong> هرچه شمارِ هم‌نواها بیشتر شود، مجموع بیشتر شبیهِ موجِ مربعی می‌شود. پس یک موجِ مربعی—با همهٔ لبه‌های تیزش—را می‌توان از جمعِ هم‌نواهای سینوسیِ هموار ساخت. همین ایده است که در ادامه، با تبدیلِ فوریه، به سیگنال‌های نامتناوب نیز تعمیم می‌یابد.</p>
+<h2 id="_4">تمرین‌ها</h2>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۱ — سری فوریهٔ موجِ مربعی</p>
+<p>موجِ مربعیِ متناوب با دورهٔ <span class="arithmatex">\(T_0\)</span> را در نظر بگیرید:</p>
+<div class="arithmatex">\[
+x(t) =
+\begin{cases}
++1, &amp; 0 \le t &lt; \tfrac{T_0}{2},\\[2pt]
+-1, &amp; \tfrac{T_0}{2} \le t &lt; T_0.
+\end{cases}
+\]</div>
+<p>عبارت‌های ضرایبِ <span class="arithmatex">\(a_0\)</span>، <span class="arithmatex">\(a_k\)</span> و <span class="arithmatex">\(b_k\)</span> (با <span class="arithmatex">\(k\in\mathbb{N}^+\)</span>) از سری فوریهٔ حقیقیِ این سیگنال را به‌دست آورید و سپس عبارتِ کاملِ سری را بنویسید.</p>
+<p><em>راهنما: نخست یک طرحِ سرانگشتی از <span class="arithmatex">\(x(t)\)</span> بکشید. تقارنِ تابع را بررسی کنید (زوج است یا فرد؟). در جایی از محاسبه، رابطهٔ <span class="arithmatex">\(\omega_0 = 2\pi/T_0\)</span> به کارتان می‌آید.</em></p>
+<details class="success">
+<summary>راهِ‌حل</summary>
+<p><strong>میانگین.</strong> سطحِ مثبت و منفیِ موج برابرند، پس میانگین صفر است: <span class="arithmatex">\(a_0 = 0\)</span>.</p>
+<p><strong>ضرایبِ کسینوسی.</strong> موجِ مربعی (با این تعریف) تابعی <strong>فرد</strong> است (<span class="arithmatex">\(x(-t) = -x(t)\)</span>). از آنجا که کسینوس تابعی زوج است، انتگرالِ <span class="arithmatex">\(x(t)\cos(k\omega_0 t)\)</span> بر یک دورهٔ متقارن صفر می‌شود: <span class="arithmatex">\(a_k = 0\)</span> برای همهٔ <span class="arithmatex">\(k\)</span>.</p>
+<p><strong>ضرایبِ سینوسی.</strong> تنها سینوس‌ها می‌مانند. با محاسبهٔ انتگرال روی دو نیمهٔ دوره:</p>
+<div class="arithmatex">\[
+b_k = \frac{2}{T_0}\!\left[\int_0^{T_0/2}\!\sin(k\omega_0 t)\,dt - \int_{T_0/2}^{T_0}\!\sin(k\omega_0 t)\,dt\right]
+= -\frac{2}{k\pi}\big[(-1)^k - 1\big].
+\]</div>
+<p>برای <span class="arithmatex">\(k\)</span> زوج عبارتِ <span class="arithmatex">\((-1)^k-1\)</span> صفر است، و برای <span class="arithmatex">\(k\)</span> فرد برابرِ <span class="arithmatex">\(-2\)</span>:</p>
+<div class="arithmatex">\[
+b_k =
+\begin{cases}
+\dfrac{4}{k\pi}, &amp; k \text{ odd},\\[6pt]
+0, &amp; k \text{ even}.
+\end{cases}
+\]</div>
+<p><strong>سری کامل.</strong> پس موجِ مربعی تنها از هم‌نواهای فرد ساخته می‌شود:</p>
+<div class="arithmatex">\[
+x(t) = \frac{4}{\pi}\sum_{\substack{k=1\\k\ \text{odd}}}^{\infty}\frac{1}{k}\sin(k\omega_0 t)
+= \frac{4}{\pi}\!\left[\sin(\omega_0 t) + \tfrac{1}{3}\sin(3\omega_0 t) + \tfrac{1}{5}\sin(5\omega_0 t) + \cdots\right].
+\]</div>
+<p>(بالاتر در همین بخش، ساختِ عددیِ همین سری و هم‌گراییِ آن به موجِ مربعی—همراه با پدیدهٔ گیبس—را با کد دیدیم.)</p>
+</details>
+</div>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۲ — تقارن و حذفِ ضرایب</p>
+<p>بدونِ محاسبهٔ هیچ انتگرالی، توضیح دهید که برای هر یک از حالت‌های زیر کدام دسته از ضرایب لزوماً صفرند:</p>
+<ol>
+<li>سیگنالِ <span class="arithmatex">\(x(t)\)</span> تابعی <strong>زوج</strong> باشد (<span class="arithmatex">\(x(-t) = x(t)\)</span>).</li>
+<li>سیگنالِ <span class="arithmatex">\(x(t)\)</span> تابعی <strong>فرد</strong> باشد (<span class="arithmatex">\(x(-t) = -x(t)\)</span>).</li>
+</ol>
+<details class="success">
+<summary>راهِ‌حل</summary>
+<p><strong>حالتِ زوج.</strong> کسینوس زوج و سینوس فرد است؛ حاصل‌ضربِ تابعِ زوجِ <span class="arithmatex">\(x(t)\)</span> در سینوسِ فرد، تابعی فرد است و انتگرالش بر بازهٔ متقارن صفر می‌شود. پس همهٔ <span class="arithmatex">\(b_k = 0\)</span> و سیگنال تنها از <strong>کسینوس‌ها</strong> (و <span class="arithmatex">\(a_0\)</span>) ساخته می‌شود.</p>
+<p><strong>حالتِ فرد.</strong> برعکس: حاصل‌ضربِ <span class="arithmatex">\(x(t)\)</span> فرد در کسینوسِ زوج، فرد است؛ پس <span class="arithmatex">\(a_0 = 0\)</span> و همهٔ <span class="arithmatex">\(a_k = 0\)</span>، و سیگنال تنها از <strong>سینوس‌ها</strong> ساخته می‌شود. موجِ مربعیِ تمرینِ ۱ نمونه‌ای از همین حالت است.</p>
+<p>این تقارن، یک میان‌بُرِ نیرومند است: پیش از هر محاسبه‌ای، نیمی از ضرایب را می‌توان با یک نگاه به تقارنِ سیگنال صفر گذاشت.</p>
+</details>
+</div>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۳ — فاز و تأخیرِ زمانی</p>
+<p>سیگنالِ <span class="arithmatex">\(x(t) = A\cos(2\pi f_0 t + \theta)\)</span> را با <span class="arithmatex">\(f_0 = 10\)</span> هرتز و <span class="arithmatex">\(\theta = \pi/2\)</span> در نظر بگیرید. تأخیرِ زمانیِ <span class="arithmatex">\(\theta_t\)</span> ناشی از این فاز را بیابید. اگر بسامد به <span class="arithmatex">\(f_0 = 40\)</span> هرتز افزایش یابد (و فاز ثابت بماند)، تأخیرِ زمانی چه می‌شود؟</p>
+<details class="success">
+<summary>راهِ‌حل</summary>
+<p>از رابطهٔ <span class="arithmatex">\(\theta_t = \theta/(2\pi f_0)\)</span>:</p>
+<div class="arithmatex">\[
+\theta_t = \frac{\pi/2}{2\pi \cdot 10} = \frac{1}{40} = 0{.}025\ \text{s} = 25\ \text{ms}.
+\]</div>
+<p>برای <span class="arithmatex">\(f_0 = 40\)</span> هرتز:</p>
+<div class="arithmatex">\[
+\theta_t = \frac{\pi/2}{2\pi \cdot 40} = \frac{1}{160} = 0{.}00625\ \text{s} = 6{.}25\ \text{ms}.
+\]</div>
+<p>پس فازِ یکسان در بسامدِ بالاتر، تأخیرِ زمانیِ کوچک‌تری می‌سازد—نکته‌ای که هنگامِ مقایسهٔ تأخیرِ میانِ باندهای بسامدیِ مختلفِ مغزی باید به آن توجه کرد.</p>
+</details>
+</div>
+<h2 id="_5">سری فوریه مختلط</h2>
+<p>با کمکِ فرمولِ اویلر، <span class="arithmatex">\(e^{j\omega t} = \cos(\omega t) + j\sin(\omega t)\)</span>، می‌توان سری فوریه را به شکلِ فشرده‌ترِ <strong>مختلط</strong> نوشت. سینوس و کسینوس را می‌توان به‌صورتِ ترکیبی از <span class="arithmatex">\(e^{j k\omega_0 t}\)</span> و <span class="arithmatex">\(e^{-j k\omega_0 t}\)</span> بیان کرد، و سری به این شکل درمی‌آید:</p>
+<div class="arithmatex">\[
+x(t) = \sum_{k=-\infty}^{\infty} X_k\, e^{j k \omega_0 t},
+\qquad
+X_k = \frac{1}{T_0}\int_{T_0} x(t)\, e^{-j k\omega_0 t}\,dt.
+\]</div>
+<p>اینجا اندیسِ <span class="arithmatex">\(k\)</span> از منفی‌بی‌نهایت تا مثبت‌بی‌نهایت می‌رود و ضرایبِ <span class="arithmatex">\(X_k\)</span> مختلط‌اند: قدرِ مطلقِ آن‌ها دامنه و فازشان فازِ هر هم‌نوا را می‌دهد. این صورت، هم زیباتر است و هم پایهٔ تبدیلِ فوریه و تبدیلِ فوریهٔ گسسته‌ای است که در ادامه می‌سازیم.</p>
+<h2 id="_6">تبدیل فوریه</h2>
+<p>سری فوریه تنها برای سیگنال‌های <strong>متناوب</strong> کار می‌کند. اما بیشترِ سیگنال‌های واقعی متناوب نیستند. اگر دورهٔ <span class="arithmatex">\(T_0\)</span> را به‌سمتِ بی‌نهایت ببریم (یعنی سیگنال دیگر تکرار نشود)، فاصلهٔ میانِ هم‌نواها (<span class="arithmatex">\(\omega_0 = 2\pi/T_0\)</span>) به صفر میل می‌کند و مجموعِ گسسته به یک <strong>انتگرال</strong> بدل می‌شود. نتیجه، <strong>تبدیلِ فوریه</strong> است:</p>
+<div class="arithmatex">\[
+X(f) = \int_{-\infty}^{\infty} x(t)\, e^{-j 2\pi f t}\,dt,
+\qquad
+x(t) = \int_{-\infty}^{\infty} X(f)\, e^{j 2\pi f t}\,df.
+\]</div>
+<p>تابعِ <span class="arithmatex">\(X(f)\)</span>، <strong>طیفِ</strong> سیگنال نام دارد و برای هر بسامدِ پیوستهٔ <span class="arithmatex">\(f\)</span>، دامنه و فازِ آن مؤلفه را می‌دهد. تبدیلِ نخست، سیگنال را از حوزهٔ زمان به حوزهٔ بسامد می‌برد، و تبدیلِ دوم (تبدیلِ معکوس) آن را بازمی‌گرداند. این دو، دو روی یک سکه‌اند: همان اطلاعات، یک‌بار بر حسبِ زمان و یک‌بار بر حسبِ بسامد.</p>
+<h2 id="_7">نمونه‌برداری و قضیهٔ نایکوئیست</h2>
+<p>تا اینجا با سیگنال‌های <strong>پیوسته</strong> کار کردیم. اما رایانه تنها می‌تواند با <strong>نمونه‌های گسسته</strong> کار کند: مقادیرِ سیگنال در لحظه‌های مجزای <span class="arithmatex">\(t = n\Delta t\)</span>، که در آن <span class="arithmatex">\(\Delta t\)</span> <strong>گامِ نمونه‌برداری</strong> و <span class="arithmatex">\(f_s = 1/\Delta t\)</span> <strong>بسامدِ نمونه‌برداری</strong> است. سیگنالِ گسسته را با <span class="arithmatex">\(x[n]\)</span> یا <span class="arithmatex">\(x_n\)</span> نشان می‌دهیم.</p>
+<p>پرسشِ کلیدی این است: چند بار در ثانیه باید نمونه بگیریم تا سیگنال را درست بازنمایی کنیم؟ پاسخ را <strong>قضیهٔ نمونه‌برداری</strong> می‌دهد: اگر سیگنال هیچ مؤلفهٔ بسامدیِ بالاتر از <span class="arithmatex">\(f_h\)</span> نداشته باشد (یعنی <strong>باندمحدود</strong> باشد)، آنگاه نمونه‌برداری با بسامدی <strong>بیشتر از</strong> <span class="arithmatex">\(2 f_h\)</span> برای بازسازیِ کاملِ سیگنال کافی است. کمیتِ <span class="arithmatex">\(2 f_h\)</span> را <strong>نرخِ نایکوئیست</strong> و کمیتِ <span class="arithmatex">\(f_s/2\)</span> را <strong>بسامدِ نایکوئیست</strong> می‌نامند.</p>
+<p>اگر این شرط را نقض کنیم، یعنی <strong>خیلی آهسته</strong> نمونه بگیریم، پدیدهٔ <strong>هم‌نامی</strong> (aliasing) رخ می‌دهد: مؤلفه‌های بسامدِ بالا به‌صورتِ مؤلفه‌های بسامدِ پایینِ جعلی ظاهر می‌شوند و سیگنالِ بازسازی‌شده نادرست است. نمونهٔ آشنای آن، چرخشِ ظاهراً وارونهٔ چرخِ خودرو در فیلم است (که چون دوربین خیلی آهسته فریم می‌گیرد، رخ می‌دهد).</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="n">fc</span> <span class="o">=</span> <span class="mf">5.0</span>                                  <span class="c1"># signal frequency: 5 Hz</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="n">t_cont</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="n">x_cont</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">fc</span><span class="o">*</span><span class="n">t_cont</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">fs</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="p">[</span><span class="mf">14.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">]):</span>     <span class="c1"># 14 Hz is fine, 7 Hz aliases</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_cont</span><span class="p">,</span> <span class="n">x_cont</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;original 5 Hz&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="n">t_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="mf">1e-9</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="n">x_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">fc</span><span class="o">*</span><span class="n">t_s</span><span class="p">)</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_s</span><span class="p">,</span> <span class="n">x_s</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;samples&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="k">if</span> <span class="n">fs</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">*</span><span class="n">fc</span><span class="p">:</span>                          <span class="c1"># below Nyquist: show the alias</span>
+<span class="linenos" data-linenos="15 "></span>        <span class="n">f_alias</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">fc</span> <span class="o">-</span> <span class="n">fs</span><span class="p">)</span>
+<span class="linenos" data-linenos="16 "></span>        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_cont</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f_alias</span><span class="o">*</span><span class="n">t_cont</span><span class="p">),</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos="17 "></span>                <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;alias </span><span class="si">{</span><span class="n">f_alias</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> Hz&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="18 "></span>    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;time t (s)&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="19 "></span>    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;fs = </span><span class="si">{</span><span class="n">fs</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> Hz&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="20 "></span>    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="linenos" data-linenos="21 "></span><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="linenos" data-linenos="22 "></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<figure>
+  <img alt="Image title" src="../aliasing.png" />
+<br />
+<figcaption>هم‌نامی. چپ: نمونه‌برداری از یک سیگنالِ ۵ هرتزی با fₛ=۱۴ هرتز (بالاتر از نرخِ نایکوئیست) سیگنال را درست بازنمایی می‌کند. راست: با fₛ=۷ هرتز (پایین‌تر از نرخِ نایکوئیست) نمونه‌ها (نقاط قرمز) با یک سیگنالِ بسامدِ پایین‌ترِ جعلی (خط‌چینِ سبز) هم‌خوان می‌شوند؛ این همان هم‌نامی است.</figcaption>
+</figure>
+<h2 id="dft">تبدیل فوریه گسسته (DFT)</h2>
+<p>اکنون می‌خواهیم طیفِ یک سیگنالِ <strong>نمونه‌برداری‌شده و با طولِ محدود</strong> را با رایانه حساب کنیم. دو محدودیت داریم: سیگنال را تا ابد نمی‌توان اندازه گرفت (پس تنها <span class="arithmatex">\(N\)</span> نمونه داریم)، و رایانه به ورودی و خروجیِ گسسته نیاز دارد (پس طیف را هم تنها در بسامدهای گسسته حساب می‌کنیم). نتیجه، <strong>تبدیلِ فوریهٔ گسسته</strong> (Discrete Fourier Transform، به‌اختصار DFT) است:</p>
+<div class="arithmatex">\[
+X_k = \sum_{n=0}^{N-1} x_n\, e^{-j\frac{2\pi}{N} k n},
+\qquad
+x_n = \frac{1}{N}\sum_{k=0}^{N-1} X_k\, e^{j\frac{2\pi}{N} k n},
+\]</div>
+<p>که در آن هر دو اندیسِ <span class="arithmatex">\(n\)</span> و <span class="arithmatex">\(k\)</span> از <span class="arithmatex">\(0\)</span> تا <span class="arithmatex">\(N-1\)</span> می‌روند. (<span class="arithmatex">\(N\)</span> نمونهٔ زمانی به <span class="arithmatex">\(N\)</span> نمونهٔ بسامدی نگاشته می‌شود.)</p>
+<p>دو کمیتِ کلیدی، <strong>تفکیکِ بسامدی</strong> و بیشینه بسامد را تعیین می‌کنند. اگر <span class="arithmatex">\(N\)</span> نمونه با گامِ <span class="arithmatex">\(\Delta t\)</span> (یعنی مدتِ کلِ <span class="arithmatex">\(T = N\Delta t\)</span>) داشته باشیم، تفکیکِ بسامدی <span class="arithmatex">\(\Delta f\)</span> و بازهٔ بسامد چنین‌اند:</p>
+<div class="arithmatex">\[
+\Delta f = \frac{1}{T} = \frac{f_s}{N},
+\qquad
+f_s = \frac{1}{\Delta t}.
+\]</div>
+<p>کمیتِ <span class="arithmatex">\(\Delta f\)</span> تفکیکِ بسامدی است (کوچک‌ترین فاصلهٔ قابلِ‌تشخیص میانِ دو بسامد) و <span class="arithmatex">\(f_s\)</span> بیشینه بازهٔ بسامدی را معین می‌کند.</p>
+<p>پس برای تفکیکِ بسامدیِ بهتر (یعنی <span class="arithmatex">\(\Delta f\)</span> کوچک‌تر) به مدتِ ثبتِ طولانی‌ترِ <span class="arithmatex">\(T\)</span> نیاز داریم. این یک بده‌بستانِ بنیادی است.</p>
+<p>محاسبهٔ مستقیمِ DFT کند است (از مرتبهٔ <span class="arithmatex">\(N^2\)</span> عمل)، اما الگوریتمِ <strong>تبدیلِ فوریهٔ سریع</strong> (Fast Fourier Transform، به‌اختصار FFT) همان نتیجه را در مرتبهٔ <span class="arithmatex">\(N\log N\)</span> می‌دهد و در همهٔ کتابخانه‌های علمی پیاده‌سازی شده است. در پایتون از <code>numpy.fft</code> استفاده می‌کنیم. توجه کنید که <code>numpy</code> ضرایبِ <span class="arithmatex">\(\Delta t\)</span> را اعمال نمی‌کند؛ کاربر باید خودش بُعدِ زمان و بسامد را بازگرداند.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="c1"># a signal made of two tones: 10 Hz and 30 Hz</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="n">fs</span> <span class="o">=</span> <span class="mf">200.0</span>                                <span class="c1"># sampling frequency</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="n">T</span> <span class="o">=</span> <span class="mf">2.0</span>                                   <span class="c1"># total duration</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="n">x</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">10</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">30</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="c1"># FFT: use rfft for a real signal (returns only non-negative frequencies)</span>
+<span class="linenos" data-linenos="11 "></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos" data-linenos="12 "></span><span class="n">freqs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfftfreq</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">1</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>
+<span class="linenos" data-linenos="13 "></span><span class="n">amplitude</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>          <span class="c1"># restore amplitude scaling</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="linenos" data-linenos="16 "></span><span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="17 "></span><span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;time t (s)&quot;</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;x(t)&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="18 "></span><span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;time domain&quot;</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="linenos" data-linenos="19 "></span><span class="n">ax2</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">amplitude</span><span class="p">,</span> <span class="n">basefmt</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="20 "></span><span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;frequency (Hz)&quot;</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;amplitude&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="21 "></span><span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;frequency domain (FFT)&quot;</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="linenos" data-linenos="22 "></span><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="linenos" data-linenos="23 "></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<figure>
+  <img alt="Image title" src="../fft_spectrum.png" />
+<br />
+<figcaption>یک سیگنال در حوزهٔ زمان (چپ) و طیفِ آن از FFT (راست). سیگنال از دو مؤلفهٔ ۱۰ و ۳۰ هرتزی ساخته شده؛ طیف دقیقاً دو قله در همین بسامدها نشان می‌دهد، با ارتفاع‌هایی متناسب با دامنهٔ هر مؤلفه (۱٫۰ و ۰٫۵).</figcaption>
+</figure>
+<h3 id="_8">فیلتر کردن در حوزهٔ بسامد</h3>
+<p>تا اینجا از FFT برای <strong>تحلیلِ</strong> سیگنال بهره بردیم. اما همان ابزار به ما اجازه می‌دهد سیگنال را <strong>دستکاری</strong> هم بکنیم. ایده ساده است: سیگنال را به حوزهٔ بسامد می‌بریم (FFT)، ضرایبِ مربوط به بسامدهای ناخواسته را <strong>صفر</strong> می‌کنیم، و سپس با <strong>تبدیلِ فوریهٔ وارون</strong> (inverse FFT) به حوزهٔ زمان بازمی‌گردیم. این، در اصل نوعی فیلتر کردن است که مستقیماً روی طیف انجام می‌شود.</p>
+<p>تبدیلِ وارون با <code>np.fft.irfft</code> انجام می‌شود و دقیقاً عملِ معکوسِ <code>rfft</code> است. در مثالِ زیر یک ریتمِ آهستهٔ ۳ هرتزی را که زیرِ یک مؤلفهٔ ۴۰ هرتزی و نوفه پنهان شده، تنها با نگه‌داشتنِ بسامدهای پایین بازمی‌یابیم:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="n">fs</span> <span class="o">=</span> <span class="mf">500.0</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="n">slow</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">3</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="n">x</span> <span class="o">=</span> <span class="n">slow</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">40</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.4</span><span class="o">*</span><span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                     <span class="c1"># to the frequency domain</span>
+<span class="linenos" data-linenos="12 "></span><span class="n">freqs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfftfreq</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>
+<span class="linenos" data-linenos="13 "></span><span class="n">X_filtered</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="linenos" data-linenos="14 "></span><span class="n">X_filtered</span><span class="p">[</span><span class="n">freqs</span> <span class="o">&gt;</span> <span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>              <span class="c1"># zero out everything above 8 Hz</span>
+<span class="linenos" data-linenos="15 "></span><span class="n">recon</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">irfft</span><span class="p">(</span><span class="n">X_filtered</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>  <span class="c1"># inverse FFT: back to the time domain</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="linenos" data-linenos="18 "></span><span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;original&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="19 "></span><span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">recon</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;reconstructed (&lt;8 Hz)&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="20 "></span><span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">slow</span><span class="p">,</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;true 3 Hz&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="21 "></span><span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;time t (s)&quot;</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;x(t)&quot;</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="linenos" data-linenos="22 "></span><span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos" data-linenos="23 "></span><span class="n">ax2</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;kept band&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="24 "></span><span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">60</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;frequency (Hz)&quot;</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;|X(f)|&quot;</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="linenos" data-linenos="25 "></span><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="linenos" data-linenos="26 "></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<figure>
+  <img alt="Image title" src="../fft_filtering.png" />
+<br />
+<figcaption>فیلتر کردن در حوزهٔ بسامد. بالا: سیگنالِ آلوده (خاکستری)، و بازساختهٔ آن پس از نگه‌داشتنِ تنها بسامدهای زیرِ ۸ هرتز (آبی)، که تقریباً منطبق بر ریتمِ واقعیِ ۳ هرتزی (خط‌چینِ قرمز) است. پایین: طیفِ |X(f)|؛ ناحیهٔ آبی بسامدهای نگه‌داشته‌شده را نشان می‌دهد و قلهٔ ۴۰ هرتزی بیرونِ آن حذف می‌شود.</figcaption>
+</figure>
+<p>این همان نتیجهٔ صافیِ پایین‌گذر است، اما این‌بار با <strong>ویرایشِ مستقیمِ طیف</strong>. پیوندِ آن با صافی‌های حوزهٔ زمان، همان <strong>قضیهٔ کانولوشن</strong> است: صفر کردنِ ضرایبِ طیف، هم‌ارزِ ضربِ طیف در یک «ماسکِ» مستطیلی است، که در حوزهٔ زمان معادلِ کانولوشن با یک هسته است.</p>
+<div class="admonition warning">
+<p class="admonition-title">برشِ تند و پدیدهٔ گیبس</p>
+<p>صفرکردنِ ناگهانیِ ضرایب (یک برشِ مستطیلیِ تند در طیف) می‌تواند در سیگنالِ بازسازی‌شده <strong>نوسان‌های جانبی</strong> ایجاد کند—همان پدیدهٔ <strong>گیبس</strong> که در ساختِ موجِ مربعی دیدیم، این‌بار وارونه. به همین دلیل، در عمل صافی‌ها به‌جای برشِ تند، گذارِ تدریجی دارند (همان ناحیهٔ گذار در فصلِ صافی‌ها).</p>
+</div>
+<h2 id="_9">تخمین طیف توان</h2>
+<p>برای سیگنال‌های واقعی که <strong>نوفه</strong> دارند (مانندِ EEG)، طیفِ خامِ FFT بسیار پرنوسان و نامنظم است. آنچه معمولاً می‌خواهیم، <strong>چگالیِ طیفیِ توان</strong> (Power Spectral Density، به‌اختصار PSD) است: اینکه توانِ سیگنال چگونه میانِ بسامدها پخش شده است. ساده‌ترین تخمین، <strong>پریودوگرام</strong> است (مجذورِ قدرِ مطلقِ FFT). مشکلِ بنیادیِ آن این است: هر بینِ پریودوگرام تقریباً از توزیعِ <strong>خی‌دو با ۲ درجهٔ آزادی</strong> پیروی می‌کند، پس خطای نسبیِ آن حدودِ ۱۰۰٪ است—و مهم‌تر، این خطا با <strong>طولانی‌ترکردنِ سیگنال کم نمی‌شود</strong>. سیگنالِ بلندتر تنها بینِ‌های بسامدیِ بیشتری می‌دهد که هر کدام به‌همان اندازه پرنوسان‌اند؛ پس پریودوگرام یک تخمین‌گرِ <strong>ناسازگار</strong> (inconsistent) است.</p>
+<p>راهِ حلِ متداول، روشِ <strong>ولچ</strong> (Welch) است: سیگنال را به چند قطعهٔ <strong>هم‌پوشان</strong> می‌شکنیم، هر قطعه را در یک <strong>پنجره</strong> ضرب می‌کنیم (برای کاهشِ نشتِ طیفی)، پریودوگرامِ هر قطعه را حساب می‌کنیم، و سرانجام آن‌ها را <strong>میانگین</strong> می‌گیریم. میانگین‌گیری روی <span class="arithmatex">\(K\)</span> قطعه، درجاتِ آزادی را به حدودِ <span class="arithmatex">\(2K\)</span> می‌رساند و واریانسِ تخمین را تقریباً <span class="arithmatex">\(1/K\)</span> برابر می‌کند—طیفی به‌مراتب هموارتر و قابل‌اعتمادتر. بهای این کار، تفکیکِ بسامدیِ درشت‌تر است (چون هر قطعه کوتاه‌تر از کلِ سیگنال است). هر دو روش در <code>scipy.signal</code> آماده‌اند:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span> <span class="k">as</span> <span class="n">sig</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="c1"># a 50 Hz signal buried in noise</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="n">fs</span> <span class="o">=</span> <span class="mf">500.0</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">50</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="n">f_per</span><span class="p">,</span> <span class="n">P_per</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">periodogram</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>              <span class="c1"># raw periodogram</span>
+<span class="linenos" data-linenos="12 "></span><span class="n">f_wel</span><span class="p">,</span> <span class="n">P_wel</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">welch</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>       <span class="c1"># Welch&#39;s averaged method</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span><span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">f_per</span><span class="p">,</span> <span class="n">P_per</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;periodogram&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="15 "></span><span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">f_wel</span><span class="p">,</span> <span class="n">P_wel</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Welch&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="16 "></span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;frequency (Hz)&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="17 "></span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;power spectral density&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="18 "></span><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+<span class="linenos" data-linenos="19 "></span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="linenos" data-linenos="20 "></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<figure>
+  <img alt="Image title" src="../spectral_est.png" />
+<br />
+<figcaption>تخمینِ طیفِ توان برای یک سیگنالِ ۵۰ هرتزی در میانِ نوفه. پریودوگرامِ خام (آبی) بسیار پرنوسان است؛ روشِ ولچ (قرمز) با میانگین‌گیری روی چند قطعه، طیفِ هموارتری می‌دهد که قلهٔ ۵۰ هرتزی در آن به‌روشنی دیده می‌شود.</figcaption>
+</figure>
+<h3 id="_10">پارامترهای کلیدیِ روشِ ولچ</h3>
+<p>رفتارِ <code>scipy.signal.welch</code> را چند پارامتر تعیین می‌کنند، و شناختِ آن‌ها برای تخمینِ درستِ طیف ضروری است:</p>
+<ul>
+<li><strong><code>nperseg</code></strong> (طولِ هر قطعه): مهم‌ترین دکمه. هم تفکیکِ بسامدی را تعیین می‌کند (<span class="arithmatex">\(\Delta f = f_s/\texttt{nperseg}\)</span>) و هم—با ثابت‌بودنِ طولِ کلِ سیگنال—تعدادِ قطعه‌ها را. قطعهٔ بلندتر یعنی تفکیکِ بسامدیِ بهتر، اما قطعه‌های کمتر و در نتیجه میانگین‌گیریِ کمتر (واریانسِ بیشتر).</li>
+<li><strong><code>noverlap</code></strong> (هم‌پوشانی؛ پیش‌فرض <code>nperseg//2</code>، یعنی ۵۰٪): چون پنجره لبه‌های هر قطعه را تضعیف می‌کند، آن نمونه‌ها کم‌اثر می‌شوند؛ هم‌پوشانی این اطلاعات را بازمی‌گرداند و تعدادِ قطعه‌های مؤثر را بالا می‌برد. هم‌پوشانیِ ۵۰٪ با پنجرهٔ هَن (Hann) تقریباً بهینه است.</li>
+<li><strong><code>window</code></strong> (پنجره؛ پیش‌فرض <code>'hann'</code>): هر قطعه پیش از FFT در این پنجره ضرب می‌شود تا <strong>نشتِ طیفی</strong> (spectral leakage) کاهش یابد.</li>
+<li><strong><code>scaling</code></strong>: مقدارِ <code>'density'</code> چگالیِ طیفیِ توان (واحد²/هرتز) و <code>'spectrum'</code> طیفِ توان (واحد²) می‌دهد. برای مقایسهٔ توان میانِ باندها معمولاً <code>'density'</code> به کار می‌رود.</li>
+<li><strong><code>detrend</code></strong> (پیش‌فرض <code>'constant'</code>): میانگین (یا روندِ خطی) هر قطعه را پیش از محاسبه حذف می‌کند تا مؤلفهٔ DC، طیف را آلوده نکند.</li>
+<li><strong><code>average</code></strong>: مقدارِ <code>'mean'</code> (پیش‌فرض) یا <code>'median'</code>. میانگینِ <strong>میانه</strong> در برابرِ ناهنجاری‌ها و رویدادهای گذرا مقاوم است و برای داده‌های عصبیِ آلوده به آرتیفکت بسیار سودمند است.</li>
+</ul>
+<p>بده‌بستانِ بنیادیِ ولچ در همین <code>nperseg</code> نهفته است: قطعه‌های کوتاه‌تر، قطعه‌های بیشتر و در نتیجه میانگین‌گیریِ بیشتر و طیفِ هموارتری (واریانسِ کمتر) می‌دهند، اما تفکیکِ بسامدیِ درشت‌تر؛ و قطعه‌های بلندتر، عکسِ این. این، همان بده‌بستانِ تفکیک–واریانس است:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">periodogram</span><span class="p">,</span> <span class="n">welch</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span><span class="n">f0</span><span class="p">,</span> <span class="n">P0</span> <span class="o">=</span> <span class="n">periodogram</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fs</span><span class="p">)</span>                 <span class="c1"># 1 segment: very noisy</span>
+<span class="linenos" data-linenos="4 "></span><span class="n">f1</span><span class="p">,</span> <span class="n">P1</span> <span class="o">=</span> <span class="n">welch</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">4096</span><span class="p">)</span>         <span class="c1"># few long segments: sharp peak</span>
+<span class="linenos" data-linenos="5 "></span><span class="n">f2</span><span class="p">,</span> <span class="n">P2</span> <span class="o">=</span> <span class="n">welch</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>          <span class="c1"># many short segments: smooth</span>
+</code></pre></div>
+<figure>
+  <img alt="Image title" src="../welch_tradeoff.png" />
+<br />
+<figcaption>بده‌بستانِ تفکیک–واریانس در روشِ ولچ، برای یک نوسانِ ۱۰ هرتزی در نوفهٔ سفید. پریودوگرامِ خام (خاکستری) بسیار پرنوسان است. قطعه‌های بلند (`nperseg=4096`، آبی) قلهٔ ۱۰ هرتزی را تیز نگه می‌دارند اما کفِ نوفه هنوز پرنوسان است. قطعه‌های کوتاه (`nperseg=256`، قرمز) کفِ بسیار همواری می‌دهند اما قله را پهن و کوتاه می‌کنند—چون تفکیکِ بسامدی ($\Delta f \approx ۳٫۹$ هرتز) از پهنای قله درشت‌تر است.</figcaption>
+</figure>
+<p>در علوم اعصاب این موضوع کاربردِ مستقیم دارد: وقتی می‌خواهیم بدانیم توانِ یک سیگنالِ EEG در باندِ آلفا (حدودِ ۸ تا ۱۲ هرتز) یا گاما (بالای ۳۰ هرتز) چقدر است، دقیقاً همین PSD را با روشِ ولچ تخمین می‌زنیم. در عمل، <code>nperseg</code> را چنان برمی‌گزینیم که تفکیکِ بسامدی برای جداکردنِ باندهای موردِ نظر کافی باشد (همان بحثِ تفکیکِ بسامدی)، و برای داده‌های آلوده به آرتیفکت، <code>average='median'</code> را به کار می‌بریم تا چند قطعهٔ خراب کلِ تخمین را منحرف نکنند.</p>
+<h2 id="_11">جمع‌بندی</h2>
+<p>در این فصل، تحلیلِ سیگنال در حوزهٔ بسامد را ساختیم. <strong>سری فوریه</strong> نشان داد که هر سیگنالِ متناوب مجموعی از هم‌نواهای سینوسی است، و <strong>سری فوریهٔ مختلط</strong> آن را به شکلِ فشرده‌تری نوشت. <strong>تبدیلِ فوریه</strong> این ایده را به سیگنال‌های نامتناوب تعمیم داد. <strong>تبدیلِ فوریهٔ گسسته</strong> (و پیاده‌سازیِ سریعِ آن، FFT) همان تحلیل را روی داده‌های واقعیِ نمونه‌برداری‌شده ممکن کرد. و سرانجام، <strong>تخمینِ طیفِ توان</strong> با روشِ ولچ به ما اجازه داد طیفِ سیگنال‌های نوفه‌ای مانندِ EEG را به‌صورتِ قابل‌اعتماد به‌دست آوریم.</p>
+<p>این ابزارها یک فرضِ مهم دارند: محتوای بسامدیِ سیگنال در طولِ زمان ثابت است. در فصلِ تحلیلِ زمان–بسامد خواهیم دید که برای سیگنال‌های ناایستا (که محتوای بسامدیشان در زمان تغییر می‌کند) به ابزارهای دیگری مانندِ طیف‌نگار و تبدیلِ موجک نیاز داریم.</p>
+<hr />
+<p>برای مطالعهٔ بیشتر:</p>
+<div dir="ltr">
+<ul>
+<li>Oppenheim, A.V., Schafer, R.W., 2009. Discrete-Time Signal Processing, 3rd ed. Pearson.</li>
+<li>Cohen, M.X., 2014. Analyzing Neural Time Series Data: Theory and Practice. MIT Press.</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+  
+    
+    
+
+    <hr>
+    <div class="page-actions" dir="rtl">
+      <a class="md-button"
+         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=enhancement&title=پیشنهاد برای فصل: %D9%BE%D8%B1%D8%AF%D8%A7%D8%B2%D8%B4%20%D8%B3%DB%8C%DA%AF%D9%86%D8%A7%D9%84%20%D8%AF%D8%B1%20%D8%AD%D9%88%D8%B2%D9%87%20%D9%81%D8%B1%DA%A9%D8%A7%D9%86%D8%B3">
+        پیشنهاد در گیت‌هاب
+      </a>
+      <a class="md-button"
+         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=bug&title=گزارش اشکال در فصل: %D9%BE%D8%B1%D8%AF%D8%A7%D8%B2%D8%B4%20%D8%B3%DB%8C%DA%AF%D9%86%D8%A7%D9%84%20%D8%AF%D8%B1%20%D8%AD%D9%88%D8%B2%D9%87%20%D9%81%D8%B1%DA%A9%D8%A7%D9%86%D8%B3">
+        گزارش اشکال در گیت‌هاب
+      </a>
+      <a class="md-button"
+         href="mailto:saeed.taghavi.v@gmail.com?subject=بازخورد دربارهٔ فصل: پردازش سیگنال در حوزه فرکانس">
+        ارسال بازخورد با ایمیل
+      </a>
+    </div>
+  
+
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  برگشت به بالا
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="پاورقی" >
+        
+          
+          <a href="../ch-signal-02-time-domain/" class="md-footer__link md-footer__link--prev" aria-label="قبلی: پردازش سیگنال در حوزه زمان">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                قبلی
+              </span>
+              <div class="md-ellipsis">
+                پردازش سیگنال در حوزه زمان
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ch-signal-04-filters/" class="md-footer__link md-footer__link--next" aria-label="بعدی: فیلترها">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                بعدی
+              </span>
+              <div class="md-ellipsis">
+                فیلترها
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "navigation.footer"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u06a9\u067e\u06cc \u0634\u062f", "clipboard.copy": "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646", "search.result.more.one": "1 \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.more.other": "# \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.none": "\u0633\u0646\u062f\u06cc \u06cc\u0627\u0641\u062a \u0646\u0634\u062f", "search.result.one": "1 \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.other": "# \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.placeholder": "\u0628\u0631\u0627\u06cc \u062c\u0633\u062a\u062c\u0648 \u062a\u0627\u06cc\u067e \u06a9\u0646\u06cc\u062f", "search.result.term.missing": "\u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a", "select.version": "\u0627\u0646\u062a\u062e\u0627\u0628 \u0648\u06cc\u0631\u0627\u06cc\u0634"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/extra.js"></script>
+      
+        <script src="../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

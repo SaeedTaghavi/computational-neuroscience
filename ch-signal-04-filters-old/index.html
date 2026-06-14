@@ -1,0 +1,2205 @@
+
+<!doctype html>
+<html lang="fa" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="کتاب آنلاین علوم اعصاب محاسباتی به زبان فارسی — از غشای تحریک‌پذیر و سیستم‌های دینامیکی تا مدل‌های نورون، شبکه‌های اسپایکی و مدل‌سازی مغز کامل.">
+      
+      
+        <meta name="author" content="Saeed Taghavi">
+      
+      
+        <link rel="canonical" href="https://computational-neuroscience.ir/ch-signal-04-filters-old/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>صافی‌ها - کتاب علوم اعصاب محاسباتی</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Naskh+Arabic:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Naskh Arabic";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="rtl" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          پرش به محتویات
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="سرتیتر">
+    <a href=".." title="کتاب علوم اعصاب محاسباتی" class="md-header__button md-logo" aria-label="کتاب علوم اعصاب محاسباتی" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            کتاب علوم اعصاب محاسباتی
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              صافی‌ها
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="جستجو" placeholder="جستجو" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="جستجو">
+        
+        <button type="reset" class="md-search__icon md-icon" title="بازنشانی" aria-label="بازنشانی" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            راه‌اندازی جستجو
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="هدایت" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="کتاب علوم اعصاب محاسباتی" class="md-nav__button md-logo" aria-label="کتاب علوم اعصاب محاسباتی" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    کتاب علوم اعصاب محاسباتی
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    خانه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پیش‌نیازها
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پیش‌نیازها
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    روش‌های عددی و تحلیل داده
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    روش‌های عددی و تحلیل داده
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مفاهیم مدل‌سازی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مفاهیم مدل‌سازی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-modelling-01-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-modelling-02-classification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    رده‌بندی مدل‌ها
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-modelling-03-decisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    تصمیم‌های مدل‌سازی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-modelling-04-uncertainty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    رده‌بندی عدم‌قطعیت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-modelling-05-verify-validate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    راستی‌آزمایی و اعتبارسنجی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-modelling-06-goodness-of-fit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نیکویی برازش
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    روش‌های عددی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    روش‌های عددی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-01-revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرور مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-02-derivative/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مشتق اول
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-03-fdm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    تفاضل محدود
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-04-taylor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    بسط تیلور
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-05-numerical-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    انتگرال‌گیری عددی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-06-ode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    حل عددی معادلات دیفرانسیل معمولی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-07-sde/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    حل عددی معادلات دیفرانسیل تصادفی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_3" id="__nav_2_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پردازش سیگنال
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پردازش سیگنال
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-signal-01-revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرور مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-signal-02-time-domain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پردازش سیگنال در حوزه زمان
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-signal-03-frequency-domain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پردازش سیگنال در حوزه فرکانس
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-signal-04-filters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    فیلترها
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-signal-05-time-frequency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    تحلیل زمان–بسامد
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    بیوفیزیک نورون
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    بیوفیزیک نورون
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    غشای تحریک‌پذیر
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیستم‌های دینامیکی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های نورون
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مدل‌های نورون
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل هاجکین-هاکسلی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های ساده‌شده: LIF، EIF، AdEx
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    شبکه‌های نورون‌های نقطه‌ای
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    شبکه‌های نورون‌های نقطه‌ای
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    از نورون به جمعیت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    شبکه‌های تصادفی متعادل
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نوسانات در شبکه‌های تحریکی-مهاری
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پلاستیسیتی وابسته به زمان اسپایک (STDP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های جمعیتی و توده عصبی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مدل‌های جمعیتی و توده عصبی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    معادلات نرخ آتش
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل ویلسون-کوان
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پیوست‌ها
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پیوست‌ها
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    طراحی گردش‌کار و آزمایش محاسباتی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="فهرست در این صفحه">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      فهرست در این صفحه
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        انواع صافی
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        پاسخ بسامدی
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fir-iir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        صافی‌های FIR و IIR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        کانولوشن و صافی: دو روی یک سکه
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scipy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        صافی‌های باترورث در scipy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        کاربردهای عملی
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="کاربردهای عملی">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        صافیِ پایین‌گذر برای حذفِ نوفه
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        صافیِ بالاگذر برای یافتنِ اسپایک‌ها
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        صافیِ میان‌نگذر برای حذفِ نوفهٔ خطِ برق
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        جمع‌بندی
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+
+<h1 id="_1">صافی‌ها</h1>
+<p>در فصلِ حوزهٔ زمان دیدیم که کانولوشن می‌تواند سیگنال را هموار کند. این، نمونه‌ای ساده از یک <strong>صافی</strong> (filter) بود. به‌طورِ کلی، صافی ابزاری است که برخی بسامدها را از سیگنال عبور می‌دهد و برخی دیگر را تضعیف یا حذف می‌کند. صافی‌ها در علوم اعصاب نقشِ مرکزی دارند: برای حذفِ نوفهٔ خطِ برق (۵۰ یا ۶۰ هرتز)، برای جداکردنِ باندهای مغزی (آلفا، بتا، گاما)، و برای حذفِ روندِ آهستهٔ پس‌زمینه از ثبت‌ها.</p>
+<h2 id="_2">انواع صافی</h2>
+<p>بر پایهٔ اینکه کدام بسامدها را عبور می‌دهند، صافی‌ها را به چند دسته تقسیم می‌کنیم:</p>
+<ul>
+<li><strong>صافیِ پایین‌گذر</strong> (low-pass): بسامدهای پایین‌تر از یک بسامدِ مرزی (cutoff) را عبور می‌دهد و بسامدهای بالا را تضعیف می‌کند. برای هموارسازی و حذفِ نوفهٔ پربسامد به کار می‌رود.</li>
+<li><strong>صافیِ بالاگذر</strong> (high-pass): برعکس، بسامدهای بالا را عبور می‌دهد و بسامدهای پایین (مثلاً روندِ آهسته) را حذف می‌کند.</li>
+<li><strong>صافیِ میان‌گذر</strong> (band-pass): تنها بسامدهای میانِ دو مرز را عبور می‌دهد. برای جداکردنِ یک باندِ بسامدیِ خاص (مثلاً باندِ آلفا) آرمانی است.</li>
+<li><strong>صافیِ میان‌نگذر</strong> (band-stop یا notch): برعکسِ میان‌گذر، تنها یک باندِ باریک را حذف می‌کند. کاربردِ کلاسیکِ آن، حذفِ نوفهٔ ۵۰ هرتزیِ خطِ برق است.</li>
+</ul>
+<h2 id="_3">پاسخ بسامدی</h2>
+<p>رفتارِ یک صافی را با <strong>پاسخِ بسامدیِ</strong> آن توصیف می‌کنیم: نموداری که نشان می‌دهد صافی به هر بسامد چه <strong>بهره‌ای</strong> (gain) می‌دهد. بهرهٔ نزدیک به ۱ یعنی آن بسامد تقریباً دست‌نخورده عبور می‌کند، و بهرهٔ نزدیک به ۰ یعنی آن بسامد حذف می‌شود. ناحیه‌ای که صافی عبور می‌دهد <strong>باندِ عبور</strong> (passband) و ناحیه‌ای که حذف می‌کند <strong>باندِ توقف</strong> (stopband) نام دارد.</p>
+<p>در عمل، گذار از باندِ عبور به باندِ توقف هرگز کاملاً تند نیست؛ همیشه یک ناحیهٔ گذارِ تدریجی وجود دارد. <strong>مرتبهٔ</strong> صافی تعیین می‌کند که این گذار چقدر تند است: مرتبهٔ بالاتر، گذارِ تندتر، اما به بهای پیچیدگیِ بیشتر و احتمالِ ناپایداری.</p>
+<h2 id="fir-iir">صافی‌های FIR و IIR</h2>
+<p>پیش از آنکه به ساختِ صافی‌ها بپردازیم، باید بدانیم هر صافیِ خطی به یکی از دو خانوادهٔ بنیادی تعلق دارد. کلیدِ تمایز، <strong>پاسخِ ضربه‌ای</strong> (impulse response) است: خروجیِ صافی وقتی ورودی یک ضربهٔ تنها <span class="arithmatex">\((1, 0, 0, \dots)\)</span> باشد. پاسخِ ضربه‌ای، اثرِ انگشتِ صافی است؛ هر صافیِ خطی با کانوالوکردنِ ورودی با پاسخِ ضربه‌ایِ خود کار می‌کند.</p>
+<p><strong>صافیِ FIR</strong> (پاسخِ ضربه‌ایِ متناهی، Finite Impulse Response): پاسخِ ضربه‌ای طولِ متناهی دارد. خروجی تنها ترکیبی خطی از مقادیرِ گذشته و حالِ <strong>ورودی</strong> است:</p>
+<div class="arithmatex">\[
+y_n = \sum_{k=0}^{N} b_k\, x_{n-k}.
+\]</div>
+<p>این دقیقاً همان <strong>کانولوشن</strong>ی است که در فصلِ حوزهٔ زمان دیدیم: ضرایبِ <span class="arithmatex">\(b_k\)</span> همان هستهٔ کانولوشن (پاسخِ ضربه‌ای) هستند. <strong>میانگینِ متحرک</strong>ی که در آن فصل ساختیم، ساده‌ترین صافیِ FIR است (هسته‌ای جعبه‌ای).</p>
+<p><strong>صافیِ IIR</strong> (پاسخِ ضربه‌ایِ نامتناهی، Infinite Impulse Response): پاسخِ ضربه‌ای طولِ نامتناهی دارد و با یک <strong>معادلهٔ تفاضلی</strong> توصیف می‌شود که علاوه بر ورودی، به مقادیرِ گذشتهٔ <strong>خروجی</strong> نیز وابسته است (جملهٔ <strong>بازخورد</strong>):</p>
+<div class="arithmatex">\[
+y_n = \frac{1}{a_0}\left( \sum_{k=0}^{N} b_k\, x_{n-k} - \sum_{l=1}^{M} a_l\, y_{n-l} \right).
+\]</div>
+<p>همین بازخورد است که IIR را نیرومند (با ضرایبِ کم، گذارِ تند) اما در عوض پیچیده‌تر و مستعدِ ناپایداری می‌کند. وقتی در ادامه <code>scipy.signal.butter</code> را فرامی‌خوانیم، همین دو دستهٔ ضرایب—<span class="arithmatex">\(b\)</span> (پیش‌خور) و <span class="arithmatex">\(a\)</span> (بازخورد)—را برمی‌گرداند، و <code>filtfilt</code> آن‌ها را با همین معادلهٔ تفاضلی اعمال می‌کند.</p>
+<p>برای دیدنِ تفاوت، یک صافیِ پایین‌گذرِ FIR (با تابعِ <code>firwin</code>) و یک صافیِ پایین‌گذرِ IIR باترورث را با مرزِ یکسانِ ۳۰ هرتز می‌سازیم و مقایسه می‌کنیم:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span> <span class="k">as</span> <span class="n">sig</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="n">fs</span> <span class="o">=</span> <span class="mf">500.0</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="n">fc</span> <span class="o">=</span> <span class="mf">30.0</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="n">b_fir</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">firwin</span><span class="p">(</span><span class="mi">61</span><span class="p">,</span> <span class="n">fc</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>            <span class="c1"># FIR: 61 taps = the impulse response</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="n">b_iir</span><span class="p">,</span> <span class="n">a_iir</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">fc</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>      <span class="c1"># IIR: Butterworth, order 4</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="n">w1</span><span class="p">,</span> <span class="n">h1</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">freqz</span><span class="p">(</span><span class="n">b_fir</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">,</span> <span class="n">worN</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
+<span class="linenos" data-linenos="11 "></span><span class="n">w2</span><span class="p">,</span> <span class="n">h2</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">freqz</span><span class="p">(</span><span class="n">b_iir</span><span class="p">,</span> <span class="n">a_iir</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">,</span> <span class="n">worN</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">3.6</span><span class="p">))</span>
+<span class="linenos" data-linenos="14 "></span><span class="n">ax1</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b_fir</span><span class="p">)),</span> <span class="n">b_fir</span><span class="p">,</span> <span class="n">linefmt</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">markerfmt</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">basefmt</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="15 "></span><span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;FIR impulse response (61 taps)&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="16 "></span><span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;tap k&quot;</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;b[k]&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="17 "></span><span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">h1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;FIR (61 taps)&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="18 "></span><span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">h2</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;IIR Butterworth (order 4)&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="19 "></span><span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">fc</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos" data-linenos="20 "></span><span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;frequency (Hz)&quot;</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;gain&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="21 "></span><span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;frequency response&quot;</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="linenos" data-linenos="22 "></span><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="linenos" data-linenos="23 "></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<figure>
+  <img alt="Image title" src="../fir_vs_iir.png" />
+<br />
+<figcaption>چپ: پاسخِ ضربه‌ایِ یک صافیِ FIR با ۶۱ ضریب—این همان هستهٔ کانولوشن است. راست: پاسخِ بسامدیِ صافیِ FIR (آبی) و صافیِ IIR باترورث (قرمز)، هر دو پایین‌گذر با مرزِ ۳۰ هرتز. صافیِ IIR با تنها ۵ ضریبِ $b$ و ۵ ضریبِ $a$ به پاسخی مشابهِ صافیِ FIR با ۶۱ ضریب می‌رسد—این، کاراییِ IIR است؛ اما به بهای جملهٔ بازخورد.</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">کدام را برگزینیم؟</p>
+<p>صافیِ <strong>FIR</strong> همیشه پایدار است و می‌تواند فازِ خطی داشته باشد (تأخیرِ یکسان برای همهٔ بسامدها)، اما برای گذارِ تند به ضرایبِ بسیار زیاد نیاز دارد. صافیِ <strong>IIR</strong> با ضرایبِ بسیار کمتر به گذارِ تند می‌رسد، اما فازش خطی نیست و می‌تواند ناپایدار شود. در علوم اعصاب، وقتی زمان‌بندیِ دقیق مهم است، فازِ خطیِ FIR ارزشمند است؛ وقتی کارایی مهم است، IIR (مانندِ باترورث) رایج‌تر است.</p>
+</div>
+<h2 id="_4">کانولوشن و صافی: دو روی یک سکه</h2>
+<p>در فصلِ حوزهٔ زمان، <strong>کانولوشن</strong> و <strong>میانگینِ متحرک</strong> را ساختیم؛ در این فصل از <strong>صافی‌های پایین‌گذر، بالاگذر و میان‌گذر</strong> سخن می‌گوییم. آیا این‌ها دو چیزِ متفاوت‌اند؟ پاسخ، که در بخشِ پیش هم به آن اشاره شد، این است: <strong>نه</strong>—این‌ها دو نگاه به یک عملِ واحدند.</p>
+<p><strong>شباهت.</strong> هر صافیِ خطی، در دلِ خود یک <strong>کانولوشن</strong> با پاسخِ ضربه‌ای (هسته) است، و برعکس، هر کانولوشن با یک هستهٔ ثابت، یک صافیِ خطی است. پس «میانگینِ متحرک» و «صافیِ پایین‌گذر» می‌توانند یک چیز باشند.</p>
+<p><strong>تفاوت—در واژگان، نه در ماهیت.</strong> آنچه فرق می‌کند، زاویهٔ نگاه است:</p>
+<ul>
+<li>وقتی صافی را با <strong>هسته‌اش</strong> نام می‌بریم—«صافیِ میانگینِ متحرک»، «صافیِ گاوسی»—داریم آن را از منظرِ <strong>حوزهٔ زمان</strong> توصیف می‌کنیم: با چه چیزی کانوالو می‌کنیم.</li>
+<li>وقتی آن را «<strong>پایین‌گذر</strong>»، «<strong>بالاگذر</strong>» یا «<strong>میان‌گذر</strong>» می‌نامیم، داریم آن را از منظرِ <strong>حوزهٔ بسامد</strong> توصیف می‌کنیم: کدام بسامدها را عبور می‌دهد.</li>
+</ul>
+<p>پلِ میانِ این دو نگاه، <strong>قضیهٔ کانولوشن</strong> است: تبدیلِ فوریهٔ هسته، همان <strong>پاسخِ بسامدیِ</strong> صافی است. پس <strong>شکلِ هسته</strong> در حوزهٔ زمان، <strong>نوعِ صافی</strong> را در حوزهٔ بسامد تعیین می‌کند. بیایید چند هسته را کنارِ پاسخِ بسامدیِ آن‌ها ببینیم:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="n">fs</span> <span class="o">=</span> <span class="mf">1000.0</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">def</span> <span class="nf">freq_response</span><span class="p">(</span><span class="n">kernel</span><span class="p">,</span> <span class="n">nfft</span><span class="o">=</span><span class="mi">4096</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">kernel</span><span class="p">,</span> <span class="n">nfft</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfftfreq</span><span class="p">(</span><span class="n">nfft</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="n">mag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">return</span> <span class="n">f</span><span class="p">,</span> <span class="n">mag</span><span class="o">/</span><span class="n">mag</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="n">box</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="o">/</span><span class="mi">11</span>                                  <span class="c1"># moving average</span>
+<span class="linenos" data-linenos="12 "></span><span class="n">xg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">21</span><span class="p">);</span> <span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">xg</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span> <span class="n">gauss</span> <span class="o">=</span> <span class="n">g</span><span class="o">/</span><span class="n">g</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>   <span class="c1"># Gaussian</span>
+<span class="linenos" data-linenos="13 "></span><span class="n">diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">])</span>                          <span class="c1"># first difference</span>
+<span class="linenos" data-linenos="14 "></span><span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">41</span><span class="p">)</span>
+<span class="linenos" data-linenos="15 "></span><span class="n">gn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">xx</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mf">0.5</span><span class="o">**</span><span class="mi">2</span><span class="p">));</span> <span class="n">gn</span> <span class="o">/=</span> <span class="n">gn</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="linenos" data-linenos="16 "></span><span class="n">gw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">xx</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mf">1.5</span><span class="o">**</span><span class="mi">2</span><span class="p">));</span> <span class="n">gw</span> <span class="o">/=</span> <span class="n">gw</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="linenos" data-linenos="17 "></span><span class="n">dog</span> <span class="o">=</span> <span class="n">gn</span> <span class="o">-</span> <span class="n">gw</span>                                         <span class="c1"># difference of Gaussians</span>
+<span class="linenos" data-linenos="18 "></span>
+<span class="linenos" data-linenos="19 "></span><span class="n">rows</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;moving average (box)&quot;</span><span class="p">,</span> <span class="s2">&quot;low-pass&quot;</span><span class="p">,</span> <span class="n">box</span><span class="p">),</span>
+<span class="linenos" data-linenos="20 "></span>        <span class="p">(</span><span class="s2">&quot;Gaussian&quot;</span><span class="p">,</span> <span class="s2">&quot;low-pass (smooth)&quot;</span><span class="p">,</span> <span class="n">gauss</span><span class="p">),</span>
+<span class="linenos" data-linenos="21 "></span>        <span class="p">(</span><span class="s2">&quot;first difference&quot;</span><span class="p">,</span> <span class="s2">&quot;high-pass&quot;</span><span class="p">,</span> <span class="n">diff</span><span class="p">),</span>
+<span class="linenos" data-linenos="22 "></span>        <span class="p">(</span><span class="s2">&quot;difference of Gaussians&quot;</span><span class="p">,</span> <span class="s2">&quot;band-pass&quot;</span><span class="p">,</span> <span class="n">dog</span><span class="p">)]</span>
+<span class="linenos" data-linenos="23 "></span>
+<span class="linenos" data-linenos="24 "></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="linenos" data-linenos="25 "></span><span class="k">for</span> <span class="n">r</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">ftype</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">rows</span><span class="p">):</span>
+<span class="linenos" data-linenos="26 "></span>    <span class="n">axes</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">k</span><span class="p">))</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">linefmt</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos="27 "></span>                    <span class="n">markerfmt</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">basefmt</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="28 "></span>    <span class="n">axes</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;kernel: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;h[k]&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="29 "></span>    <span class="n">f</span><span class="p">,</span> <span class="n">H</span> <span class="o">=</span> <span class="n">freq_response</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<span class="linenos" data-linenos="30 "></span>    <span class="n">axes</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">fs</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos" data-linenos="31 "></span>    <span class="n">axes</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;frequency response -&gt; </span><span class="si">{</span><span class="n">ftype</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos" data-linenos="32 "></span>    <span class="n">axes</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;gain&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="33 "></span><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="linenos" data-linenos="34 "></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<figure>
+  <img alt="Image title" src="../kernels_as_filters.png" />
+<br />
+<figcaption>هر هسته (چپ) یک صافی است، و پاسخِ بسامدیِ آن (راست) نوعش را آشکار می‌کند. هستهٔ جعبه‌ای (میانگینِ متحرک) و گاوسی پایین‌گذرند؛ توجه کنید که جعبه‌ای موج‌های جانبی دارد اما گاوسی هموار است. هستهٔ تفاضلِ نخست بالاگذر است (بهره با بسامد بالا می‌رود)، و تفاضلِ دو گاوسی (DoG) میان‌گذر است (بهره در DC و در بسامدِ بالا صفر و در میانه بیشینه است).</figcaption>
+</figure>
+<p>این تصویر همهٔ مفاهیم را به هم گره می‌زند: هستهٔ <strong>جعبه‌ای</strong> که در فصلِ پیش برای هموارسازی به کار بردیم، یک صافیِ <strong>پایین‌گذر</strong> بوده است—و موج‌های جانبیِ آن (همان سینوسی‌شکلِ ناشی از لبه‌های تیزِ جعبه) دلیلِ آن است که هستهٔ <strong>گاوسی</strong> برای هموارسازی بهتر است. هستهٔ <strong>تفاضلی</strong> (که تغییراتِ تند را برجسته می‌کند) یک صافیِ <strong>بالاگذر</strong> است، و <strong>تفاضلِ دو گاوسی</strong> یک صافیِ <strong>میان‌گذر</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">کجا این هم‌ارزی می‌شکند؟</p>
+<p>گزارهٔ «صافی = کانولوشن با یک هستهٔ متناهی» دقیقاً برای صافی‌های <strong>FIR</strong> برقرار است. برای صافی‌های <strong>IIR</strong> (مانندِ باترورث در بخشِ بعد)، پاسخِ ضربه‌ای <strong>نامتناهی</strong> است؛ نمی‌توان با یک هستهٔ متناهی کانوالو کرد، و به‌جای آن از معادلهٔ تفاضلیِ بازگشتی استفاده می‌کنیم. پس دقیق‌ترین بیان این است: <strong>هر صافیِ خطی کانولوشن با پاسخِ ضربه‌ایِ خود است</strong>—که برای FIR متناهی و مستقیماً قابل‌استفاده، و برای IIR نامتناهی است.</p>
+</div>
+<h2 id="scipy">صافی‌های باترورث در scipy</h2>
+<p>یکی از پرکاربردترین خانواده‌های صافی، <strong>باترورث</strong> (Butterworth) است که در باندِ عبور پاسخی بسیار هموار (بدونِ موج) دارد. کتابخانهٔ <code>scipy.signal</code> ساختنِ این صافی‌ها را ساده می‌کند. تابعِ <code>butter</code> ضرایبِ صافی را می‌سازد و <code>filtfilt</code> آن را بر سیگنال اعمال می‌کند (دوبار، یک‌بار رو به جلو و یک‌بار رو به عقب، تا فاز جابه‌جا نشود).</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span> <span class="k">as</span> <span class="n">sig</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">def</span> <span class="nf">butter_filter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">,</span> <span class="n">btype</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="c1"># design a Butterworth filter and apply it with zero phase shift</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">,</span> <span class="n">btype</span><span class="o">=</span><span class="n">btype</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">return</span> <span class="n">sig</span><span class="o">.</span><span class="n">filtfilt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="c1"># a signal with three components: 2 Hz, 15 Hz and 50 Hz</span>
+<span class="linenos" data-linenos="11 "></span><span class="n">fs</span> <span class="o">=</span> <span class="mf">500.0</span>
+<span class="linenos" data-linenos="12 "></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>
+<span class="linenos" data-linenos="13 "></span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="linenos" data-linenos="14 "></span>     <span class="o">+</span> <span class="mf">0.7</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">15</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="linenos" data-linenos="15 "></span>     <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">50</span><span class="o">*</span><span class="n">t</span><span class="p">))</span>
+<span class="linenos" data-linenos="16 "></span>
+<span class="linenos" data-linenos="17 "></span><span class="n">low</span> <span class="o">=</span> <span class="n">butter_filter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;low&quot;</span><span class="p">)</span>            <span class="c1"># keeps the 2 Hz component</span>
+<span class="linenos" data-linenos="18 "></span><span class="n">band</span> <span class="o">=</span> <span class="n">butter_filter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span> <span class="s2">&quot;band&quot;</span><span class="p">)</span>    <span class="c1"># keeps the 15 Hz component</span>
+<span class="linenos" data-linenos="19 "></span><span class="n">high</span> <span class="o">=</span> <span class="n">butter_filter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;high&quot;</span><span class="p">)</span>         <span class="c1"># keeps the 50 Hz component</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">8.5</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos" data-linenos="22 "></span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;original: 2 + 15 + 50 Hz&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="23 "></span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;low-pass: keeps 2 Hz&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="24 "></span><span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">band</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:green&quot;</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;band-pass: keeps 15 Hz&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="25 "></span><span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;high-pass: keeps 50 Hz&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="26 "></span><span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;time t (s)&quot;</span><span class="p">);</span> <span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos" data-linenos="27 "></span><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="linenos" data-linenos="28 "></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<figure>
+  <img alt="Image title" src="../filters_time.png" />
+<br />
+<figcaption>اعمالِ سه صافی بر سیگنالی که از سه مؤلفهٔ ۲، ۱۵ و ۵۰ هرتزی ساخته شده. صافیِ پایین‌گذر تنها مؤلفهٔ آهستهٔ ۲ هرتزی، صافیِ میان‌گذر تنها مؤلفهٔ ۱۵ هرتزی، و صافیِ بالاگذر تنها مؤلفهٔ تندِ ۵۰ هرتزی را نگه می‌دارد.</figcaption>
+</figure>
+<p>می‌توان پاسخِ بسامدیِ این صافی‌ها را نیز مستقیماً رسم کرد تا ببینیم هر کدام چه بسامدهایی را عبور می‌دهند. تابعِ <code>freqz</code> پاسخِ بسامدی را می‌دهد:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span> <span class="k">as</span> <span class="n">sig</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="n">fs</span> <span class="o">=</span> <span class="mf">500.0</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="n">designs</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;low&quot;</span><span class="p">,</span> <span class="s2">&quot;low-pass (5 Hz)&quot;</span><span class="p">),</span>
+<span class="linenos" data-linenos=" 7 "></span>           <span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span> <span class="s2">&quot;band&quot;</span><span class="p">,</span> <span class="s2">&quot;band-pass (8-25 Hz)&quot;</span><span class="p">),</span>
+<span class="linenos" data-linenos=" 8 "></span>           <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;high&quot;</span><span class="p">,</span> <span class="s2">&quot;high-pass (30 Hz)&quot;</span><span class="p">)]</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="k">for</span> <span class="n">cutoff</span><span class="p">,</span> <span class="n">btype</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">designs</span><span class="p">:</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">,</span> <span class="n">btype</span><span class="o">=</span><span class="n">btype</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">freqz</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">,</span> <span class="n">worN</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">h</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
+<span class="linenos" data-linenos="16 "></span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;frequency (Hz)&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="17 "></span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;gain&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="18 "></span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="linenos" data-linenos="19 "></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<figure>
+  <img alt="Image title" src="../filters_response.png" />
+<br />
+<figcaption>پاسخِ بسامدیِ سه صافیِ باترورثِ مرتبهٔ چهار. صافیِ پایین‌گذر (آبی) به بسامدهای پایین بهرهٔ نزدیک به ۱ و به بسامدهای بالا بهرهٔ نزدیک به ۰ می‌دهد؛ میان‌گذر (سبز) تنها باندِ میانی و بالاگذر (قرمز) تنها بسامدهای بالا را عبور می‌دهد. توجه کنید که گذار از باندِ عبور به توقف تدریجی است، نه ناگهانی.</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">صافی‌کردن، یک کانولوشن است</p>
+<p>هر صافیِ خطی، در دلِ خود یک <strong>کانولوشن</strong> است (فصلِ حوزهٔ زمان): سیگنال را با پاسخِ ضربه‌ایِ صافی کانوالو می‌کنیم. به‌طورِ هم‌ارز، در حوزهٔ بسامد، صافی‌کردن یعنی <strong>ضربِ</strong> طیفِ سیگنال در پاسخِ بسامدیِ صافی. این، نمونهٔ دیگری از قضیهٔ کانولوشن است: کانولوشن در حوزهٔ زمان، با ضرب در حوزهٔ بسامد هم‌ارز است.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">هشدار: فاز و پیچش</p>
+<p>اعمالِ صافی می‌تواند <strong>فازِ</strong> سیگنال را جابه‌جا کند، یعنی رویدادها را در زمان حرکت دهد. برای تحلیل‌هایی که زمان‌بندیِ دقیق مهم است (مانندِ پتانسیل‌های وابسته به رویداد در EEG)، از صافیِ <strong>بدونِ‌فاز</strong> مانندِ <code>filtfilt</code> استفاده می‌کنیم که سیگنال را دوبار (جلو و عقب) صافی می‌کند تا جابه‌جاییِ فاز خنثی شود. همچنین، صافیِ با مرتبهٔ بسیار بالا ممکن است ناپایدار شود یا در لبه‌های سیگنال پیچش (artifact) ایجاد کند.</p>
+</div>
+<h2 id="_5">کاربردهای عملی</h2>
+<p>تا اینجا صافی‌ها را روی سیگنال‌های مصنوعی آزمودیم. حال سه کاربردِ واقعی در پردازشِ داده‌های مغزی را می‌بینیم که هر روز در آزمایشگاه به کار می‌روند. در هر سه از همان تابعِ <code>butter_filter</code> که بالاتر تعریف کردیم استفاده می‌کنیم.</p>
+<h3 id="_6">صافیِ پایین‌گذر برای حذفِ نوفه</h3>
+<p>پرکاربردترین کاربردِ صافیِ پایین‌گذر، <strong>حذفِ نوفه</strong> است. فرض کنید یک ریتمِ آهستهٔ مغزی (مثلاً ریتمِ تتای ۶ هرتزی) را ثبت کرده‌ایم، اما ثبت با نوفهٔ پربسامدِ فراوانی آلوده است. چون سیگنالِ موردِ علاقهٔ ما آهسته و نوفه تند است، یک صافیِ پایین‌گذر می‌تواند نوفه را بزداید و ریتم را آشکار کند:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="n">fs</span> <span class="o">=</span> <span class="mf">1000.0</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="n">clean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">6</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>                      <span class="c1"># a 6 Hz rhythm (theta-like)</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="n">noisy</span> <span class="o">=</span> <span class="n">clean</span> <span class="o">+</span> <span class="mf">0.8</span><span class="o">*</span><span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>  <span class="c1"># heavy broadband noise</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="n">denoised</span> <span class="o">=</span> <span class="n">butter_filter</span><span class="p">(</span><span class="n">noisy</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;low&quot;</span><span class="p">)</span>   <span class="c1"># low-pass at 15 Hz</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">noisy</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;noisy&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="13 "></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">denoised</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;low-pass (15 Hz)&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="14 "></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">clean</span><span class="p">,</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;true 6 Hz&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="15 "></span><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;time t (s)&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;x(t)&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="16 "></span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="linenos" data-linenos="17 "></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<figure>
+  <img alt="Image title" src="../filter_lowpass_denoise.png" />
+<br />
+<figcaption>حذفِ نوفه با صافیِ پایین‌گذر. سیگنالِ نوفه‌ای (خاکستری) چنان آلوده است که ریتمِ زیرین به‌سختی دیده می‌شود؛ صافیِ پایین‌گذرِ ۱۵ هرتزی (آبی) نوفهٔ پربسامد را حذف می‌کند و خروجی تقریباً منطبق بر ریتمِ واقعیِ ۶ هرتزی (خط‌چینِ قرمز) است.</figcaption>
+</figure>
+<p>نکتهٔ کلیدی، انتخابِ بسامدِ مرزی است: باید به‌قدری بالا باشد که سیگنالِ موردِ نظر (۶ هرتز) را دست‌نخورده عبور دهد، و به‌قدری پایین که نوفهٔ پربسامد را حذف کند. مرزِ ۱۵ هرتز این بده‌بستان را خوب برآورده می‌کند.</p>
+<h3 id="_7">صافیِ بالاگذر برای یافتنِ اسپایک‌ها</h3>
+<p>یکی از زیباترین کاربردهای صافیِ بالاگذر، <strong>جداکردنِ اسپایک‌ها</strong> (پتانسیل‌های عمل) در ثبت‌های خارج‌سلولی است. یک الکترودِ خارج‌سلولی هم‌زمان دو چیز را ثبت می‌کند: <strong>پتانسیلِ میدانیِ محلی</strong> (LFP) که آهسته و بزرگ‌دامنه است، و <strong>اسپایک‌ها</strong> که تند (پهنای حدودِ ۱ میلی‌ثانیه) و کوچک‌دامنه‌اند. در سیگنالِ خام، خطِ پایه با نوسانِ آهستهٔ LFP بالا و پایین می‌رود، و به همین دلیل نمی‌توان با یک آستانهٔ ثابت اسپایک‌ها را یافت. اگر سیگنال را از یک صافیِ بالاگذر (معمولاً با مرزِ ۳۰۰ هرتز) بگذرانیم، LFP حذف می‌شود، خطِ پایه صاف می‌شود، و اسپایک‌ها به‌روشنی بیرون می‌زنند؛ آنگاه یک آستانهٔ ساده آن‌ها را آشکار می‌کند:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="n">fs</span> <span class="o">=</span> <span class="mf">30000.0</span>                                     <span class="c1"># 30 kHz, typical extracellular rate</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="c1"># slow LFP (large, low-frequency) + brief spikes + noise</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="n">lfp</span> <span class="o">=</span> <span class="mf">1.8</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">9</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="linenos" data-linenos="10 "></span><span class="n">w</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.0015</span><span class="o">*</span><span class="n">fs</span><span class="p">);</span> <span class="n">tt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+<span class="linenos" data-linenos="11 "></span><span class="n">wav</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">tt</span><span class="o">*</span><span class="mf">2.2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">tt</span><span class="o">*</span><span class="mf">3.0</span><span class="p">;</span> <span class="n">wav</span> <span class="o">=</span> <span class="n">wav</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">wav</span><span class="p">))</span>   <span class="c1"># ~1.5 ms spike shape</span>
+<span class="linenos" data-linenos="12 "></span><span class="n">spikes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="linenos" data-linenos="13 "></span><span class="n">spk_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="n">w</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="linenos" data-linenos="14 "></span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">spk_idx</span><span class="p">:</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="n">spikes</span><span class="p">[</span><span class="n">s</span><span class="p">:</span><span class="n">s</span><span class="o">+</span><span class="n">w</span><span class="p">]</span> <span class="o">+=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">wav</span>
+<span class="linenos" data-linenos="16 "></span><span class="n">raw</span> <span class="o">=</span> <span class="n">lfp</span> <span class="o">+</span> <span class="n">spikes</span> <span class="o">+</span> <span class="mf">0.04</span><span class="o">*</span><span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="linenos" data-linenos="17 "></span>
+<span class="linenos" data-linenos="18 "></span><span class="n">hp</span> <span class="o">=</span> <span class="n">butter_filter</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="s2">&quot;high&quot;</span><span class="p">)</span>         <span class="c1"># high-pass isolates the spikes</span>
+<span class="linenos" data-linenos="19 "></span>
+<span class="linenos" data-linenos="20 "></span><span class="c1"># robust threshold (median absolute deviation) and refractory detection</span>
+<span class="linenos" data-linenos="21 "></span><span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">hp</span><span class="p">))</span> <span class="o">/</span> <span class="mf">0.6745</span>
+<span class="linenos" data-linenos="22 "></span><span class="n">thr</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">sigma</span>
+<span class="linenos" data-linenos="23 "></span><span class="n">refractory</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.002</span><span class="o">*</span><span class="n">fs</span><span class="p">)</span>                        <span class="c1"># 2 ms dead time</span>
+<span class="linenos" data-linenos="24 "></span><span class="n">below</span> <span class="o">=</span> <span class="n">hp</span> <span class="o">&lt;</span> <span class="n">thr</span>
+<span class="linenos" data-linenos="25 "></span><span class="n">candidates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="o">~</span><span class="n">below</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">below</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos" data-linenos="26 "></span><span class="n">detected</span> <span class="o">=</span> <span class="p">[];</span> <span class="n">last</span> <span class="o">=</span> <span class="o">-</span><span class="n">refractory</span>
+<span class="linenos" data-linenos="27 "></span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">candidates</span><span class="p">:</span>
+<span class="linenos" data-linenos="28 "></span>    <span class="k">if</span> <span class="n">c</span> <span class="o">-</span> <span class="n">last</span> <span class="o">&gt;</span> <span class="n">refractory</span><span class="p">:</span>
+<span class="linenos" data-linenos="29 "></span>        <span class="n">w1</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">c</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.001</span><span class="o">*</span><span class="n">fs</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">hp</span><span class="p">))</span>
+<span class="linenos" data-linenos="30 "></span>        <span class="n">detected</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">hp</span><span class="p">[</span><span class="n">c</span><span class="p">:</span><span class="n">w1</span><span class="p">])))</span>   <span class="c1"># locate the spike peak</span>
+<span class="linenos" data-linenos="31 "></span>        <span class="n">last</span> <span class="o">=</span> <span class="n">c</span>
+<span class="linenos" data-linenos="32 "></span><span class="n">detected</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">detected</span><span class="p">)</span>
+<span class="linenos" data-linenos="33 "></span>
+<span class="linenos" data-linenos="34 "></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mf">4.6</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos" data-linenos="35 "></span><span class="n">a1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="n">raw</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">);</span> <span class="n">a1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;raw&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="36 "></span><span class="n">a1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;raw: a fixed threshold fails — the LFP baseline wanders&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="37 "></span><span class="n">a2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="n">hp</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="linenos" data-linenos="38 "></span><span class="n">a2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">thr</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;threshold&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="39 "></span><span class="n">a2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">detected</span><span class="o">/</span><span class="n">fs</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="n">hp</span><span class="p">[</span><span class="n">detected</span><span class="p">],</span> <span class="s2">&quot;v&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:red&quot;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;detected&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="40 "></span><span class="n">a2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;high-pass&quot;</span><span class="p">);</span> <span class="n">a2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;time (ms)&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="41 "></span><span class="n">a2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;high-pass (300 Hz): flat baseline, spikes detected&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="42 "></span><span class="n">a2</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">a2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="linenos" data-linenos="43 "></span><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="linenos" data-linenos="44 "></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<figure>
+  <img alt="Image title" src="../filter_highpass_spikes.png" />
+<br />
+<figcaption>یافتنِ اسپایک با صافیِ بالاگذر. بالا: سیگنالِ خام، که نوسانِ آهستهٔ LFP خطِ پایه را جابه‌جا می‌کند و اسپایک‌ها در آن گم‌اند—یک آستانهٔ ثابت اینجا کار نمی‌کند. پایین: پس از صافیِ بالاگذرِ ۳۰۰ هرتزی، LFP حذف شده، خطِ پایه صاف است و اسپایک‌ها (فروافت‌های تند) با یک آستانهٔ ساده (خط‌چینِ قرمز) آشکار می‌شوند. مثلث‌های قرمز اسپایک‌های یافته‌شده‌اند.</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">آستانهٔ مقاوم</p>
+<p>برای تعیینِ آستانه، به‌جای انحرافِ معیار از یک برآوردِ <strong>مقاوم</strong> بهره می‌بریم: <span class="arithmatex">\(\sigma \approx \text{median}(|x|)/0.6745\)</span>. این برآورد، برخلافِ انحرافِ معیار، تحتِ تأثیرِ خودِ اسپایک‌ها (که مقادیرِ پرت‌اند) قرار نمی‌گیرد و در عملِ مرتب‌سازیِ اسپایک (spike sorting) استانداردی رایج است. «زمانِ مرده» (refractory) نیز تضمین می‌کند هر اسپایک تنها یک‌بار شمرده شود.</p>
+</div>
+<h3 id="_8">صافیِ میان‌نگذر برای حذفِ نوفهٔ خطِ برق</h3>
+<p>نوفهٔ ۵۰ هرتزیِ خطِ برق (۶۰ هرتز در برخی کشورها) آفتِ همیشگیِ ثبت‌های الکتروفیزیولوژیک است. چون این نوفه در یک بسامدِ باریکِ مشخص است، یک صافیِ <strong>میان‌نگذر</strong> (notch) آرمانی‌ترین ابزار برای حذفِ آن است: تنها همان باندِ باریک را حذف می‌کند و بقیهٔ سیگنال را دست‌نخورده می‌گذارد. تابعِ <code>scipy.signal.iirnotch</code> این صافی را می‌سازد:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span> <span class="k">as</span> <span class="n">sig</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="n">fs</span> <span class="o">=</span> <span class="mf">1000.0</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="n">brain</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">10</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.6</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">22</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>   <span class="c1"># 10 + 22 Hz rhythms</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="n">line</span> <span class="o">=</span> <span class="mf">1.2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">50</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>                            <span class="c1"># 50 Hz mains noise</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="n">contaminated</span> <span class="o">=</span> <span class="n">brain</span> <span class="o">+</span> <span class="n">line</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">iirnotch</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>             <span class="c1"># notch at 50 Hz</span>
+<span class="linenos" data-linenos="12 "></span><span class="n">cleaned</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">filtfilt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">contaminated</span><span class="p">)</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span><span class="n">f1</span><span class="p">,</span> <span class="n">P1</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">welch</span><span class="p">(</span><span class="n">contaminated</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span>
+<span class="linenos" data-linenos="15 "></span><span class="n">f2</span><span class="p">,</span> <span class="n">P2</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">welch</span><span class="p">(</span><span class="n">cleaned</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span>
+<span class="linenos" data-linenos="16 "></span><span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">P1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;contaminated&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="17 "></span><span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span> <span class="n">P2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:green&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;notch @ 50 Hz&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="18 "></span><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;frequency (Hz)&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;power&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="19 "></span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="linenos" data-linenos="20 "></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<figure>
+  <img alt="Image title" src="../filter_notch_linenoise.png" />
+<br />
+<figcaption>حذفِ نوفهٔ خطِ برق با صافیِ میان‌نگذر. طیفِ توانِ سیگنالِ آلوده (خاکستری) یک قلهٔ بلند در ۵۰ هرتز دارد. صافیِ میان‌نگذر (سبز) این قله را چند مرتبه‌ٔ بزرگی پایین می‌آورد، در حالی‌که قله‌های ریتم‌های مغزی در ۱۰ و ۲۲ هرتز تقریباً دست‌نخورده می‌مانند.</figcaption>
+</figure>
+<h2 id="_9">جمع‌بندی</h2>
+<p>در این فصل، صافی‌ها را ساختیم: ابزارهایی که بسامدهای خاصی را عبور می‌دهند و بقیه را حذف می‌کنند. صافی‌های <strong>پایین‌گذر، بالاگذر، میان‌گذر و میان‌نگذر</strong> هر کدام کاربردِ خاصِ خود را دارند، از حذفِ نوفهٔ خطِ برق تا جداکردنِ باندهای مغزی. دیدیم که هر صافی با <strong>پاسخِ بسامدیِ</strong> خود توصیف می‌شود، و چگونه با <code>scipy.signal</code> صافی‌های باترورث را طراحی و اعمال کنیم. و سرانجام دیدیم که صافی‌کردن در اصل همان کانولوشنِ فصلِ پیش است، که در حوزهٔ بسامد به ضربِ ساده بدل می‌شود. در فصلِ بعد، به تحلیلِ زمان–بسامد می‌پردازیم، جایی که هم زمان و هم بسامد را هم‌زمان دنبال می‌کنیم.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+  
+    
+    
+
+    <hr>
+    <div class="page-actions" dir="rtl">
+      <a class="md-button"
+         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=enhancement&title=پیشنهاد برای فصل: %D8%B5%D8%A7%D9%81%DB%8C%E2%80%8C%D9%87%D8%A7">
+        پیشنهاد در گیت‌هاب
+      </a>
+      <a class="md-button"
+         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=bug&title=گزارش اشکال در فصل: %D8%B5%D8%A7%D9%81%DB%8C%E2%80%8C%D9%87%D8%A7">
+        گزارش اشکال در گیت‌هاب
+      </a>
+      <a class="md-button"
+         href="mailto:saeed.taghavi.v@gmail.com?subject=بازخورد دربارهٔ فصل: صافی‌ها">
+        ارسال بازخورد با ایمیل
+      </a>
+    </div>
+  
+
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  برگشت به بالا
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "navigation.footer"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u06a9\u067e\u06cc \u0634\u062f", "clipboard.copy": "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646", "search.result.more.one": "1 \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.more.other": "# \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.none": "\u0633\u0646\u062f\u06cc \u06cc\u0627\u0641\u062a \u0646\u0634\u062f", "search.result.one": "1 \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.other": "# \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.placeholder": "\u0628\u0631\u0627\u06cc \u062c\u0633\u062a\u062c\u0648 \u062a\u0627\u06cc\u067e \u06a9\u0646\u06cc\u062f", "search.result.term.missing": "\u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a", "select.version": "\u0627\u0646\u062a\u062e\u0627\u0628 \u0648\u06cc\u0631\u0627\u06cc\u0634"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/extra.js"></script>
+      
+        <script src="../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
