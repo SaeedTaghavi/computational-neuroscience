@@ -1,0 +1,2470 @@
+
+<!doctype html>
+<html lang="fa" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="کتاب آنلاین علوم اعصاب محاسباتی به زبان فارسی — از غشای تحریک‌پذیر و سیستم‌های دینامیکی تا مدل‌های نورون، شبکه‌های اسپایکی و مدل‌سازی مغز کامل.">
+      
+      
+        <meta name="author" content="Saeed Taghavi">
+      
+      
+        <link rel="canonical" href="https://computational-neuroscience.ir/ch-dynamical-systems/ch-dynamics-05-chaos-theory/">
+      
+      
+        <link rel="prev" href="../ch-dynamics-04-oscillators/">
+      
+      
+        <link rel="next" href="../ch-dynamics-06-neuro-bistability/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>نظریه آشوب - کتاب علوم اعصاب محاسباتی</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Naskh+Arabic:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Naskh Arabic";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="rtl" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          پرش به محتویات
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="سرتیتر">
+    <a href="../.." title="کتاب علوم اعصاب محاسباتی" class="md-header__button md-logo" aria-label="کتاب علوم اعصاب محاسباتی" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            کتاب علوم اعصاب محاسباتی
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              نظریه آشوب
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="جستجو" placeholder="جستجو" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="جستجو">
+        
+        <button type="reset" class="md-search__icon md-icon" title="بازنشانی" aria-label="بازنشانی" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            راه‌اندازی جستجو
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="هدایت" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="کتاب علوم اعصاب محاسباتی" class="md-nav__button md-logo" aria-label="کتاب علوم اعصاب محاسباتی" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    کتاب علوم اعصاب محاسباتی
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    صفحه اول
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پیش‌نیازها
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پیش‌نیازها
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    روش‌های عددی و تحلیل داده
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    روش‌های عددی و تحلیل داده
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مفاهیم مدل‌سازی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مفاهیم مدل‌سازی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-modelling-01-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-modelling-02-classification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    رده‌بندی مدل‌ها
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-modelling-03-decisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    تصمیم‌های مدل‌سازی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-modelling-04-uncertainty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    رده‌بندی عدم‌قطعیت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-modelling-05-verify-validate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    راستی‌آزمایی و اعتبارسنجی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-modelling-06-goodness-of-fit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نیکویی برازش
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    روش‌های عددی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    روش‌های عددی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-num-01-revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرور مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-num-02-derivative/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مشتق اول
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-num-03-fdm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    تفاضل محدود
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-num-04-taylor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    بسط تیلور
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-num-05-numerical-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    انتگرال‌گیری عددی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-num-06-ode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    حل عددی معادلات دیفرانسیل معمولی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-num-07-sde/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    حل عددی معادلات دیفرانسیل تصادفی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_3" id="__nav_2_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پردازش سیگنال
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پردازش سیگنال
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-signal-01-revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرور مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-signal-02-time-domain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پردازش سیگنال در حوزه زمان
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-signal-03-frequency-domain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پردازش سیگنال در حوزه فرکانس
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-signal-04-filters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    فیلترها
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-signal-05-time-frequency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    تحلیل زمان–بسامد
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_4" id="__nav_2_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیستم‌های دینامیکی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    سیستم‌های دینامیکی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-dynamics-01-revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرور مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-dynamics-02-linear-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیستم‌های خطی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-dynamics-03-nonlinear-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیستم‌های غیرخطی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-dynamics-04-oscillators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نوسانگرها
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نظریه آشوب
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نظریه آشوب
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="فهرست در این صفحه">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      فهرست در این صفحه
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        وابستگیِ حساس: اثرِ پروانه‌ای
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        آشوب به سه بُعد نیاز دارد (اما نه در نگاشت‌ها)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        نگاشتِ لجستیک: راهِ دوبرابرشدنِ دوره
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        دستگاهِ لورنتس: نخستین جاذبِ غریب
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        نمای لیاپانوف: سنجشِ کمّیِ آشوب
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-dynamics-06-neuro-bistability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    کاربرد: دوپایداری و کلید ژنتیکی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-dynamics-07-neuro-excitability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    کاربرد: تحریک‌پذیری و فیتزهیو–ناگومو
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    بیوفیزیک نورون
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    بیوفیزیک نورون
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-neuron-biophysics/ch-biophysics-01-cell-membrane-channels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سلول، غشا و کانال‌های یونی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-neuron-biophysics/ch-biophysics-02-resting-potential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پتانسیل استراحت: نرنست و گلدمن
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-neuron-biophysics/ch-biophysics-03-passive-rc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    غشای غیرفعال: مدار RC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-neuron-biophysics/ch-biophysics-04-cable-compartments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    کابل و مدل‌های تقسیمی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-neuron-biophysics/ch-biophysics-05-synapses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیناپس‌ها و ورودی سیناپسی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-neuron-biophysics/ch-biophysics-06-action-potential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پتانسیل عمل و انتشار
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های نورون
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مدل‌های نورون
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل هاجکین-هاکسلی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های ساده‌شده: LIF، EIF، AdEx
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    شبکه‌های نورون‌های نقطه‌ای
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    شبکه‌های نورون‌های نقطه‌ای
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    از نورون به جمعیت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    شبکه‌های تصادفی متعادل
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نوسانات در شبکه‌های تحریکی-مهاری
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پلاستیسیتی وابسته به زمان اسپایک (STDP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های جمعیتی و توده عصبی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مدل‌های جمعیتی و توده عصبی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    معادلات نرخ آتش
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل ویلسون-کوان
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پیوست‌ها
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پیوست‌ها
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    طراحی گردش‌کار و آزمایش محاسباتی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="فهرست در این صفحه">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      فهرست در این صفحه
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        وابستگیِ حساس: اثرِ پروانه‌ای
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        آشوب به سه بُعد نیاز دارد (اما نه در نگاشت‌ها)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        نگاشتِ لجستیک: راهِ دوبرابرشدنِ دوره
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        دستگاهِ لورنتس: نخستین جاذبِ غریب
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        نمای لیاپانوف: سنجشِ کمّیِ آشوب
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+
+<h1 id="_1">نظریهٔ آشوب</h1>
+<p>تا اینجا دینامیک‌هایی دیدیم که سرانجام آرام می‌گیرند: روی یک نقطهٔ ثابت می‌نشینند یا روی یک چرخهٔ حدی می‌چرخند. اما دستگاه‌های <strong>قطعی</strong> (deterministic) — دستگاه‌هایی که هیچ تصادفی در معادلاتشان نیست — می‌توانند رفتاری پدید آورند که به‌ظاهر تصادفی و پیش‌بینی‌ناپذیر است. این پدیده را <strong>آشوب</strong> (chaos) می‌نامند. آشوب جادو نیست؛ پیامدِ ناگزیرِ غیرخطی‌بودن در سه بُعد یا بیشتر است. این فصل، نشانهٔ شاخصِ آن (وابستگیِ حساس به شرایطِ اولیه)، دو مثالِ کلاسیک (نگاشتِ لجستیک و دستگاهِ لورنتس) و راهِ سنجشِ کمّیِ آن (نمای لیاپانوف) را معرفی می‌کند.</p>
+<details class="tip" open="open">
+<summary>در پایانِ این فصل خواهید توانست</summary>
+<ul>
+<li><strong>وابستگیِ حساس به شرایطِ اولیه</strong> («اثرِ پروانه‌ای») را توضیح دهید.</li>
+<li>بفهمید چرا آشوب در جریان‌های پیوسته به دستِ‌کم <strong>سه بُعد</strong> نیاز دارد.</li>
+<li><strong>آبشارِ دوبرابرشدنِ دوره</strong> را در نگاشتِ لجستیک بازشناسید.</li>
+<li><strong>جاذبِ غریبِ لورنتس</strong> و معنای آن را شرح دهید.</li>
+<li>مفهومِ <strong>نمای لیاپانوف</strong> را به‌عنوانِ سنجهٔ آشوب به کار ببرید.</li>
+</ul>
+</details>
+<hr />
+<h2 id="_2">وابستگیِ حساس: اثرِ پروانه‌ای</h2>
+<p>ویژگیِ تعریف‌کنندهٔ آشوب، <strong>وابستگیِ حساس به شرایطِ اولیه</strong> است: دو مسیر که از نقاطی بسیار نزدیک به هم آغاز می‌شوند، با گذرِ زمان به‌صورتِ <strong>نمایی</strong> از هم دور می‌شوند، تا جایی که سرنوشتشان کاملاً نامرتبط می‌شود. این همان «اثرِ پروانه‌ای» است: بال‌زدنِ یک پروانه می‌تواند، در اصول، مسیرِ یک طوفان را در آن‌سوی جهان تغییر دهد.</p>
+<p>پیامدِ عملیِ این ویژگی ژرف است: حتی اگر معادلات را دقیقاً بدانیم، پیش‌بینیِ درازمدت ناممکن می‌شود، زیرا هر خطای کوچک در دانستنِ حالتِ آغازین — و اندازه‌گیری همیشه خطا دارد — به‌سرعت تقویت می‌شود. <strong>قطعی‌بودن، پیش‌بینی‌پذیری را تضمین نمی‌کند.</strong></p>
+<p>توجه کنید که این با <strong>نوفه</strong> فرق دارد. یک دستگاهِ آشوبناک کاملاً قطعی است؛ بی‌نظمیِ آن از خودِ دینامیک می‌آید، نه از یک منبعِ تصادفیِ بیرونی. تمیزدادنِ آشوب از نوفه در داده‌های واقعی (مثلاً در فعالیتِ نامنظمِ نورون‌ها) یکی از پرسش‌های دشوار و جالبِ علوم اعصاب است.</p>
+<hr />
+<h2 id="_3">آشوب به سه بُعد نیاز دارد (اما نه در نگاشت‌ها)</h2>
+<p>در فصلِ <a href="../ch-dynamics-04-oscillators/">نوسانگرها</a> قضیهٔ پوانکاره–بندیکسون را دیدیم: در یک جریانِ پیوستهٔ <strong>دوبُعدی</strong>، تنها رفتارهای ممکن نقطهٔ ثابت و چرخهٔ حدی‌اند. مسیرها در صفحه نمی‌توانند یکدیگر را قطع کنند، پس فضای کافی برای «درهم‌پیچیدنِ» آشوبناک وجود ندارد.</p>
+<p>پس برای آشوب در یک <strong>جریانِ پیوسته</strong> به دستِ‌کم <strong>سه بُعد</strong> نیاز است؛ در بُعدِ سوم، مسیرها می‌توانند بی‌آنکه هم را قطع کنند، بی‌پایان روی هم تا بخورند و کش بیایند.</p>
+<p>اما یک استثناءِ مهم هست: <strong>نگاشت‌های گسسته</strong> (که زمان را گام‌به‌گام پیش می‌برند، نه پیوسته) می‌توانند حتی در <strong>یک بُعد</strong> آشوبناک باشند. ساده‌ترین و مشهورترین نمونه، نگاشتِ لجستیک است.</p>
+<hr />
+<h2 id="_4">نگاشتِ لجستیک: راهِ دوبرابرشدنِ دوره</h2>
+<p>نگاشتِ <strong>لجستیک</strong> (logistic map) مدلی فریبنده‌ساده برای جمعیتی است که سال‌به‌سال تغییر می‌کند:</p>
+<div class="arithmatex">\[
+x_{n+1} = r\,x_n\,(1 - x_n),
+\]</div>
+<p>که در آن <span class="arithmatex">\(x_n \in [0,1]\)</span> جمعیتِ بهنجارشده در نسلِ <span class="arithmatex">\(n\)</span> و <span class="arithmatex">\(r\)</span> آهنگِ رشد است. جملهٔ <span class="arithmatex">\((1-x_n)\)</span> رقابت بر سرِ منابع را مدل می‌کند: وقتی جمعیت بزرگ است، رشد کند می‌شود.</p>
+<p>با افزایشِ <span class="arithmatex">\(r\)</span>، رفتارِ درازمدت یک دنبالهٔ شگفت‌انگیز را طی می‌کند:</p>
+<ul>
+<li>برای <span class="arithmatex">\(r&lt;3\)</span>: جمعیت به یک مقدارِ ثابت می‌رسد (یک نقطهٔ ثابتِ پایدار).</li>
+<li>در <span class="arithmatex">\(r=3\)</span>: نقطهٔ ثابت ناپایدار می‌شود و جمعیت میانِ <strong>دو</strong> مقدار نوسان می‌کند (دورهٔ ۲).</li>
+<li>با افزایشِ بیشترِ <span class="arithmatex">\(r\)</span>: دوره به ۴، سپس ۸، ۱۶ و … <strong>دوبرابر</strong> می‌شود، و این دوبرابرشدن‌ها سریع‌تر و سریع‌تر رخ می‌دهند.</li>
+<li>در <span class="arithmatex">\(r\approx 3.57\)</span>: دوره به بی‌نهایت می‌رسد و <strong>آشوب</strong> آغاز می‌شود.</li>
+</ul>
+<p>این <strong>آبشارِ دوبرابرشدنِ دوره</strong> (period-doubling cascade) یکی از راه‌های جهان‌شمولِ رسیدن به آشوب است؛ نسبتِ همگراییِ آن (عددِ فایگنباوم، <span class="arithmatex">\(\delta\approx 4.669\)</span>) در دستگاه‌های بسیار متفاوت یکسان است.</p>
+<p><img alt="Image title" src="../logistic_map.png" /></p>
+<p><em>نگاشتِ لجستیک. </em><em>چپ — نمودارِ انشعاب:</em><em> برای هر <span class="arithmatex">\(r\)</span> حالت‌های درازمدت رسم شده‌اند. یک شاخهٔ واحد تا <span class="arithmatex">\(r=3\)</span>، سپس دوشاخه‌شدن‌های پیاپی (دوره‌های ۲، ۴، ۸، …) و سرانجام ناحیه‌های آشوبناکِ پُرنقطه — که با «پنجره‌های» نظمِ ناگهانی (مثلاً پنجرهٔ دورهٔ ۳) قطع می‌شوند. </em><em>راست — نمودارِ تار‌عنکبوتی</em><em> در <span class="arithmatex">\(r=3.7\)</span>: دنبالهٔ <span class="arithmatex">\(x_n\)</span> بی‌آنکه به مقداری بنشیند، آشوبناک در بازه سرگردان می‌ماند.</em></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="n">r_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mi">1600</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">r_values</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">400</span><span class="p">):</span>                  <span class="c1"># discard the transient</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="n">x</span> <span class="o">=</span> <span class="n">r_values</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">200</span><span class="p">):</span>                  <span class="c1"># plot the long-term attractor</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="n">x</span> <span class="o">=</span> <span class="n">r_values</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r_values</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot;,k&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="linenos" data-linenos="11 "></span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;growth rate r&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;long-term state x&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="12 "></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p>نکتهٔ خیره‌کننده این است که یک معادلهٔ به این سادگی، با تنها یک پارامتر، می‌تواند نظم، نوسان و آشوب را در خود داشته باشد.</p>
+<hr />
+<h2 id="_5">دستگاهِ لورنتس: نخستین جاذبِ غریب</h2>
+<p>نخستین نمونهٔ تاریخیِ آشوب در یک جریانِ پیوسته، دستگاهِ سه‌معادله‌ای است که ادوارد لورنتس در ۱۹۶۳ هنگامِ مدل‌سازیِ سادهٔ همرفتِ جوّی یافت:</p>
+<div class="arithmatex">\[
+\dot x = \sigma(y - x), \qquad
+\dot y = x(\rho - z) - y, \qquad
+\dot z = xy - \beta z,
+\]</div>
+<p>با مقادیرِ کلاسیکِ <span class="arithmatex">\(\sigma=10\)</span>، <span class="arithmatex">\(\rho=28\)</span> و <span class="arithmatex">\(\beta=8/3\)</span>. این دستگاه هیچ جوابِ پایا یا دوره‌ای ندارد؛ به‌جای آن، مسیر برای همیشه روی یک شیءِ هندسیِ شگفت‌انگیز به نامِ <strong>جاذبِ غریب</strong> (strange attractor) سرگردان می‌ماند — ساختاری با شکلِ پروانه که مسیرها به‌سویش جذب می‌شوند اما هرگز روی آن تکرار نمی‌شوند.</p>
+<p><img alt="Image title" src="../lorenz.png" /></p>
+<p><em>دستگاهِ لورنتس. </em><em>چپ:</em><em> تصویرِ مسیر در صفحهٔ <span class="arithmatex">\(x\)</span>–<span class="arithmatex">\(z\)</span>؛ شکلِ پروانه‌ایِ مشهورِ جاذبِ غریب. مسیر بی‌پایان میانِ دو «بال» می‌چرخد بی‌آنکه هرگز خود را تکرار کند. </em><em>راست — وابستگیِ حساس:</em><em> دو مسیر که شرطِ اولیه‌شان تنها <span class="arithmatex">\(10^{-8}\)</span> تفاوت دارد، تا حدودِ <span class="arithmatex">\(t\approx 25\)</span> بر هم منطبق‌اند، اما سپس کاملاً واگرا می‌شوند. پیش‌بینیِ بلندمدت ناممکن است.</em></p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">scipy.integrate</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">def</span> <span class="nf">lorenz</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">10.</span><span class="p">,</span> <span class="n">rho</span><span class="o">=</span><span class="mf">28.</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">8</span><span class="o">/</span><span class="mi">3</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">state</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">return</span> <span class="p">[</span><span class="n">sigma</span><span class="o">*</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">rho</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">-</span> <span class="n">beta</span><span class="o">*</span><span class="n">z</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">12000</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="c1"># two nearly-identical starting points diverge completely</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="n">a</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">odeint</span><span class="p">(</span><span class="n">lorenz</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span>         <span class="n">t</span><span class="p">)</span>
+<span class="linenos" data-linenos="10 "></span><span class="n">b</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">odeint</span><span class="p">(</span><span class="n">lorenz</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.</span> <span class="o">+</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span>  <span class="n">t</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="_6">نمای لیاپانوف: سنجشِ کمّیِ آشوب</h2>
+<p>«وابستگیِ حساس» را می‌توان با یک عدد سنجید: <strong>نمای لیاپانوف</strong> (Lyapunov exponent). اگر فاصلهٔ میانِ دو مسیرِ نزدیک در آغاز <span class="arithmatex">\(\delta_0\)</span> باشد، در دستگاهی آشوبناک این فاصله به‌طورِ میانگین نمایی رشد می‌کند:</p>
+<div class="arithmatex">\[
+\delta(t) \approx \delta_0\, e^{\lambda t} .
+\]</div>
+<p>نرخِ <span class="arithmatex">\(\lambda\)</span> همان بزرگ‌ترین نمای لیاپانوف است. علامتِ آن همه‌چیز را می‌گوید:</p>
+<ul>
+<li><span class="arithmatex">\(\lambda &gt; 0\)</span>: مسیرها واگرا می‌شوند ← <strong>آشوب</strong>.</li>
+<li><span class="arithmatex">\(\lambda &lt; 0\)</span>: مسیرها همگرا می‌شوند ← یک نقطهٔ ثابتِ پایدار.</li>
+<li><span class="arithmatex">\(\lambda = 0\)</span>: فاصله ثابت می‌ماند ← یک چرخهٔ حدی (نوسانِ پایا).</li>
+</ul>
+<p>پس یک نمای لیاپانوفِ مثبت، تعریفِ عملیِ آشوب است. مقیاسِ زمانیِ <span class="arithmatex">\(1/\lambda\)</span> نیز «افقِ پیش‌بینی» را می‌دهد: زمانی که پس از آن، پیش‌بینی بی‌فایده می‌شود.</p>
+<div class="admonition note">
+<p class="admonition-title">آشوب در علوم اعصاب</p>
+<p>آیا مغز آشوبناک است؟ فعالیتِ بسیاری از نورون‌ها و شبکه‌ها <strong>نامنظم</strong> به‌نظر می‌رسد، و مدل‌هایی مانندِ شبکه‌های تصادفیِ متعادل (که در فصل‌های بعدی می‌آیند) می‌توانند دینامیکِ آشوبناک تولید کنند. اما تمیزدادنِ آشوبِ قطعی از نوفهٔ تصادفی در داده‌های عصبیِ واقعی دشوار است و موضوعِ پژوهش‌های فعال. این نکته یادآور می‌شود که «نامنظم» همیشه به معنای «تصادفی» نیست — گاه یک دینامیکِ قطعیِ ساده در پسِ آن نهفته است.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">تمرین‌ها</p>
+<ol>
+<li>
+<p>نمودارِ انشعابِ نگاشتِ لجستیک را بازتولید کنید و نخستین چند نقطهٔ دوبرابرشدنِ دوره را مکان‌یابی کنید. آیا نسبتِ فاصله‌های پیاپیِ آن‌ها به عددِ فایگنباوف (<span class="arithmatex">\(\approx 4.669\)</span>) نزدیک می‌شود؟</p>
+</li>
+<li>
+<p>دستگاهِ لورنتس را برای دو شرطِ اولیه با تفاوتِ <span class="arithmatex">\(10^{-8}\)</span> شبیه‌سازی کنید و فاصلهٔ آن‌ها را بر حسبِ زمان در مقیاسِ لگاریتمی رسم کنید. شیبِ بخشِ خطی، نمای لیاپانوف را تخمین می‌زند.</p>
+</li>
+<li>
+<p>دستگاهِ لورنتس را برای <span class="arithmatex">\(\rho\)</span>های کوچک‌تر (مثلاً <span class="arithmatex">\(\rho=10\)</span>) شبیه‌سازی کنید. آیا هنوز آشوبناک است؟ <span class="arithmatex">\(\rho\)</span> را افزایش دهید تا گذار به آشوب را بیابید.</p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+  
+    
+    
+
+    <hr>
+    <div class="page-actions" dir="rtl">
+      <a class="md-button"
+         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=enhancement&title=پیشنهاد برای فصل: %D9%86%D8%B8%D8%B1%DB%8C%D9%87%20%D8%A2%D8%B4%D9%88%D8%A8">
+        پیشنهاد در گیت‌هاب
+      </a>
+      <a class="md-button"
+         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=bug&title=گزارش اشکال در فصل: %D9%86%D8%B8%D8%B1%DB%8C%D9%87%20%D8%A2%D8%B4%D9%88%D8%A8">
+        گزارش اشکال در گیت‌هاب
+      </a>
+      <a class="md-button"
+         href="mailto:saeed.taghavi.v@gmail.com?subject=بازخورد دربارهٔ فصل: نظریه آشوب">
+        ارسال بازخورد با ایمیل
+      </a>
+    </div>
+  
+
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  برگشت به بالا
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="پاورقی" >
+        
+          
+          <a href="../ch-dynamics-04-oscillators/" class="md-footer__link md-footer__link--prev" aria-label="قبلی: نوسانگرها">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                قبلی
+              </span>
+              <div class="md-ellipsis">
+                نوسانگرها
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ch-dynamics-06-neuro-bistability/" class="md-footer__link md-footer__link--next" aria-label="بعدی: کاربرد: دوپایداری و کلید ژنتیکی">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                بعدی
+              </span>
+              <div class="md-ellipsis">
+                کاربرد: دوپایداری و کلید ژنتیکی
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u06a9\u067e\u06cc \u0634\u062f", "clipboard.copy": "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646", "search.result.more.one": "1 \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.more.other": "# \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.none": "\u0633\u0646\u062f\u06cc \u06cc\u0627\u0641\u062a \u0646\u0634\u062f", "search.result.one": "1 \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.other": "# \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.placeholder": "\u0628\u0631\u0627\u06cc \u062c\u0633\u062a\u062c\u0648 \u062a\u0627\u06cc\u067e \u06a9\u0646\u06cc\u062f", "search.result.term.missing": "\u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a", "select.version": "\u0627\u0646\u062a\u062e\u0627\u0628 \u0648\u06cc\u0631\u0627\u06cc\u0634"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+        <script src="../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

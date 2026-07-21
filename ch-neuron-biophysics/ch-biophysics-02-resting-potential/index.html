@@ -1,0 +1,2700 @@
+
+<!doctype html>
+<html lang="fa" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="پتانسیل استراحت نورون — معادلهٔ نرنست و معادلهٔ گلدمن، کلسیم و حل عددی معادلهٔ جریان GHK، و باغ‌وحش کانال‌های یونی.">
+      
+      
+        <meta name="author" content="Saeed Taghavi">
+      
+      
+        <link rel="canonical" href="https://computational-neuroscience.ir/ch-neuron-biophysics/ch-biophysics-02-resting-potential/">
+      
+      
+        <link rel="prev" href="../ch-biophysics-01-cell-membrane-channels/">
+      
+      
+        <link rel="next" href="../ch-biophysics-03-passive-rc/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>پتانسیل استراحت: نرنست و گلدمن - کتاب علوم اعصاب محاسباتی</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Naskh+Arabic:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Naskh Arabic";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="rtl" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          پرش به محتویات
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="سرتیتر">
+    <a href="../.." title="کتاب علوم اعصاب محاسباتی" class="md-header__button md-logo" aria-label="کتاب علوم اعصاب محاسباتی" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            کتاب علوم اعصاب محاسباتی
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              پتانسیل استراحت: نرنست و گلدمن
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="جستجو" placeholder="جستجو" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="جستجو">
+        
+        <button type="reset" class="md-search__icon md-icon" title="بازنشانی" aria-label="بازنشانی" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            راه‌اندازی جستجو
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="هدایت" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="کتاب علوم اعصاب محاسباتی" class="md-nav__button md-logo" aria-label="کتاب علوم اعصاب محاسباتی" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    کتاب علوم اعصاب محاسباتی
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    صفحه اول
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پیش‌نیازها
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پیش‌نیازها
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    روش‌های عددی و تحلیل داده
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    روش‌های عددی و تحلیل داده
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مفاهیم مدل‌سازی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مفاهیم مدل‌سازی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-modelling-01-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-modelling-02-classification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    رده‌بندی مدل‌ها
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-modelling-03-decisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    تصمیم‌های مدل‌سازی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-modelling-04-uncertainty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    رده‌بندی عدم‌قطعیت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-modelling-05-verify-validate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    راستی‌آزمایی و اعتبارسنجی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-modelling-06-goodness-of-fit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نیکویی برازش
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    روش‌های عددی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    روش‌های عددی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-num-01-revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرور مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-num-02-derivative/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مشتق اول
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-num-03-fdm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    تفاضل محدود
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-num-04-taylor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    بسط تیلور
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-num-05-numerical-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    انتگرال‌گیری عددی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-num-06-ode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    حل عددی معادلات دیفرانسیل معمولی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-num-07-sde/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    حل عددی معادلات دیفرانسیل تصادفی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_3" id="__nav_2_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پردازش سیگنال
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پردازش سیگنال
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-signal-01-revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرور مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-signal-02-time-domain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پردازش سیگنال در حوزه زمان
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-signal-03-frequency-domain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پردازش سیگنال در حوزه فرکانس
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-signal-04-filters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    فیلترها
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-signal-05-time-frequency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    تحلیل زمان–بسامد
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_4" id="__nav_2_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیستم‌های دینامیکی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    سیستم‌های دینامیکی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-dynamical-systems/ch-dynamics-01-revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرور مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-dynamical-systems/ch-dynamics-02-linear-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیستم‌های خطی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-dynamical-systems/ch-dynamics-03-nonlinear-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیستم‌های غیرخطی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-dynamical-systems/ch-dynamics-04-oscillators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نوسانگرها
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-dynamical-systems/ch-dynamics-05-chaos-theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نظریه آشوب
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-dynamical-systems/ch-dynamics-06-neuro-bistability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    کاربرد: دوپایداری و کلید ژنتیکی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-dynamical-systems/ch-dynamics-07-neuro-excitability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    کاربرد: تحریک‌پذیری و فیتزهیو–ناگومو
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    بیوفیزیک نورون
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    بیوفیزیک نورون
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-biophysics-01-cell-membrane-channels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سلول، غشا و کانال‌های یونی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پتانسیل استراحت: نرنست و گلدمن
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پتانسیل استراحت: نرنست و گلدمن
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="فهرست در این صفحه">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      فهرست در این صفحه
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ترکیبِ یونیِ دو سوی غشا
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        معادلهٔ نرنست
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="معادلهٔ نرنست">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        اشتقاق
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        شکلِ کاربردی و محاسبهٔ عددی
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        معادلهٔ گلدمن
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="معادلهٔ گلدمن">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        چرا این معادله بذرِ پتانسیلِ عمل است
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        کلسیم و مرزهای معادلهٔ گلدمن
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        باغ‌وحشِ کانال‌های یونی
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        پمپِ سدیم–پتاسیم
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-biophysics-03-passive-rc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    غشای غیرفعال: مدار RC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-biophysics-04-cable-compartments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    کابل و مدل‌های تقسیمی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-biophysics-05-synapses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیناپس‌ها و ورودی سیناپسی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-biophysics-06-action-potential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پتانسیل عمل و انتشار
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های نورون
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مدل‌های نورون
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل هاجکین-هاکسلی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های ساده‌شده: LIF، EIF، AdEx
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    شبکه‌های نورون‌های نقطه‌ای
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    شبکه‌های نورون‌های نقطه‌ای
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    از نورون به جمعیت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    شبکه‌های تصادفی متعادل
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نوسانات در شبکه‌های تحریکی-مهاری
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پلاستیسیتی وابسته به زمان اسپایک (STDP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های جمعیتی و توده عصبی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مدل‌های جمعیتی و توده عصبی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    معادلات نرخ آتش
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل ویلسون-کوان
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پیوست‌ها
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پیوست‌ها
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    طراحی گردش‌کار و آزمایش محاسباتی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="فهرست در این صفحه">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      فهرست در این صفحه
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ترکیبِ یونیِ دو سوی غشا
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        معادلهٔ نرنست
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="معادلهٔ نرنست">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        اشتقاق
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        شکلِ کاربردی و محاسبهٔ عددی
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        معادلهٔ گلدمن
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="معادلهٔ گلدمن">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        چرا این معادله بذرِ پتانسیلِ عمل است
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        کلسیم و مرزهای معادلهٔ گلدمن
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        باغ‌وحشِ کانال‌های یونی
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        پمپِ سدیم–پتاسیم
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+
+<h1 id="_1">پتانسیل استراحت: نرنست و گلدمن</h1>
+<p>در فصلِ پیش دیدیم که غشا یک عایق است و کانال‌ها مسیرهای گزینشیِ عبورِ یون‌اند. اکنون نخستین پرسشِ کمّیِ بیوفیزیکِ نورون را می‌پرسیم: اگر غلظتِ یون‌ها در دو سوی غشا متفاوت باشد و غشا تنها نسبت به برخی از آن‌ها نفوذپذیر باشد، <strong>چه اختلافِ پتانسیلی</strong> پدید می‌آید؟ پاسخ، <strong>پتانسیلِ استراحت</strong> است، و دو ابزارِ محاسبهٔ آن <strong>معادلهٔ نرنست</strong> و <strong>معادلهٔ گلدمن</strong> هستند.</p>
+<details class="tip" open="open">
+<summary>در پایانِ این فصل خواهید توانست</summary>
+<ul>
+<li><strong>پتانسیلِ تعادلِ</strong> یک یون را با <strong>معادلهٔ نرنست</strong> (Nernst) محاسبه کنید و اشتقاقِ آن را دنبال کنید.</li>
+<li><strong>پتانسیلِ استراحتِ</strong> غشا را با <strong>معادلهٔ گلدمن</strong> (Goldman) از روی غلظت‌ها و نفوذپذیری‌ها به‌دست آورید.</li>
+<li>با کد، ببینید چگونه پتانسیل با تغییرِ غلظت یا نفوذپذیری جابه‌جا می‌شود — و چرا همین جابه‌جایی، بذرِ پتانسیلِ عمل است.</li>
+<li>دریابید چرا <strong>کلسیم</strong> در معادلهٔ بستهٔ گلدمن نمی‌گنجد و پتانسیلِ استراحت را با <strong>حلِ عددیِ</strong> معادلهٔ جریانِ GHK به‌دست آورید.</li>
+<li>با <strong>باغ‌وحشِ کانال‌های یونی</strong> آشنا شوید و ببینید چگونه ترکیبِ کانال‌ها دینامیکِ نورون را کوک می‌کند.</li>
+</ul>
+</details>
+<hr />
+<h2 id="_2">ترکیبِ یونیِ دو سوی غشا</h2>
+<p>نیروی محرکهٔ همهٔ پدیده‌های الکتریکیِ نورون، <strong>تفاوتِ غلظتِ یون‌ها</strong> در دو سوی غشاست. به‌طورِ کلی پتاسیم در درونِ سلول بسیار پرغلظت‌تر از بیرون است، و سدیم، کلر و کلسیم در بیرون پرغلظت‌ترند. این عدمِ تعادل را <strong>پمپِ سدیم–پتاسیم</strong> با مصرفِ ATP پیوسته برقرار نگه می‌دارد (پایانِ همین فصل). جدولِ زیر مقادیرِ نمونه‌وار را برای یک نورونِ پستانداران (بر حسبِ میلی‌مولار) می‌دهد:</p>
+<table>
+<thead>
+<tr>
+<th>یون</th>
+<th>بیرون (mM)</th>
+<th>درون (mM)</th>
+<th>ظرفیت <span class="arithmatex">\(z\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>پتاسیم <span class="arithmatex">\(\text{K}^+\)</span></td>
+<td>۴</td>
+<td>۱۴۰</td>
+<td>‎+۱</td>
+</tr>
+<tr>
+<td>سدیم <span class="arithmatex">\(\text{Na}^+\)</span></td>
+<td>۱۴۵</td>
+<td>۱۲</td>
+<td>‎+۱</td>
+</tr>
+<tr>
+<td>کلر <span class="arithmatex">\(\text{Cl}^-\)</span></td>
+<td>۱۲۰</td>
+<td>۴</td>
+<td>‎−۱</td>
+</tr>
+<tr>
+<td>کلسیم <span class="arithmatex">\(\text{Ca}^{2+}\)</span></td>
+<td>۱٫۸</td>
+<td>۱۰⁻⁴</td>
+<td>‎+۲</td>
+</tr>
+</tbody>
+</table>
+<p>قرارداد این است که پتانسیلِ غشا را <strong>درون منهای بیرون</strong> تعریف کنیم: <span class="arithmatex">\(V_m = \phi_{\text{in}} - \phi_{\text{out}}\)</span>. با این قرارداد، پتانسیلِ استراحتِ نوعیِ یک نورون حدودِ ۷۰− میلی‌ولت است (درون نسبت به بیرون منفی).</p>
+<hr />
+<h2 id="_3">معادلهٔ نرنست</h2>
+<p><strong>معادلهٔ نرنست</strong> پتانسیلِ <strong>تعادلِ</strong> یک یونِ منفرد را می‌دهد: همان پتانسیلِ غشایی که در آن شارِ خالصِ آن یون صفر می‌شود. برای یونِ <span class="arithmatex">\(X\)</span> با ظرفیتِ <span class="arithmatex">\(z\)</span>:</p>
+<div class="arithmatex">\[
+E_X = \frac{RT}{zF}\,\ln\frac{[X]_{\text{out}}}{[X]_{\text{in}}}
+\]</div>
+<p>که در آن <span class="arithmatex">\(R\)</span> ثابتِ جهانیِ گازها، <span class="arithmatex">\(T\)</span> دمای مطلق (کلوین)، <span class="arithmatex">\(F\)</span> ثابتِ فارادی، و <span class="arithmatex">\(z\)</span> ظرفیتِ یون است.</p>
+<h3 id="_4">اشتقاق</h3>
+<p>دو نیرو بر یونِ درونِ غشا وارد می‌شود: <strong>انتشار</strong> که یون را از غلظتِ زیاد به کم می‌راند، و <strong>رانشِ الکتریکی</strong> ناشی از میدانِ اختلافِ پتانسیل. شارِ مولیِ یون، مجموعِ این دو است — همان معادلهٔ <strong>نرنست–پلانک</strong>:</p>
+<div class="arithmatex">\[
+J = -D\left(\frac{dc}{dx} + \frac{zF}{RT}\,c\,\frac{d\phi}{dx}\right).
+\]</div>
+<p>در <strong>تعادل</strong> شارِ خالص صفر است (<span class="arithmatex">\(J=0\)</span>)، پس <span class="arithmatex">\( \frac{dc}{dx} = -\frac{zF}{RT}\,c\,\frac{d\phi}{dx}\)</span>. با جداسازیِ متغیرها و انتگرال‌گیری از درون تا بیرون:</p>
+<div class="arithmatex">\[
+\int_{\text{in}}^{\text{out}}\frac{dc}{c} = -\frac{zF}{RT}\int_{\text{in}}^{\text{out}} d\phi
+\;\Longrightarrow\;
+\ln\frac{c_{\text{out}}}{c_{\text{in}}} = \frac{zF}{RT}\,(\phi_{\text{in}}-\phi_{\text{out}}),
+\]</div>
+<p>و چون در تعادل <span class="arithmatex">\(\phi_{\text{in}}-\phi_{\text{out}} = E_X\)</span>، با مرتب‌کردن به معادلهٔ نرنست می‌رسیم.</p>
+<h3 id="_5">شکلِ کاربردی و محاسبهٔ عددی</h3>
+<p>در دمای بدن (<span class="arithmatex">\(T=310\,\mathrm{K}\)</span>) و با تبدیلِ لگاریتمِ طبیعی به پایهٔ ۱۰، ضریبِ <span class="arithmatex">\(\frac{RT}{F}\ln 10\)</span> تقریباً <strong>۶۱٫۵ میلی‌ولت</strong> می‌شود:</p>
+<div class="arithmatex">\[
+E_X \approx \frac{61.5}{z}\,\log_{10}\frac{[X]_{\text{out}}}{[X]_{\text{in}}}\quad(\text{mV}).
+\]</div>
+<p>چند خط کد، پتانسیلِ تعادلِ همهٔ یون‌ها را یک‌جا می‌دهد:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="n">R</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="mf">8.314</span><span class="p">,</span> <span class="mf">96485.0</span><span class="p">,</span> <span class="mf">310.0</span>          <span class="c1"># J/mol/K , C/mol , K (body temperature)</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="n">RT_F</span> <span class="o">=</span> <span class="n">R</span> <span class="o">*</span> <span class="n">T</span> <span class="o">/</span> <span class="n">F</span> <span class="o">*</span> <span class="mf">1e3</span>                    <span class="c1"># mV   (≈ 26.7)</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="c1"># ion : (outside, inside, valence z)   concentrations in mM</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="n">ions</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;K&quot;</span><span class="p">:</span>  <span class="p">(</span><span class="mi">4</span><span class="p">,</span>   <span class="mi">140</span><span class="p">,</span>  <span class="o">+</span><span class="mi">1</span><span class="p">),</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="s2">&quot;Na&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">145</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span>   <span class="o">+</span><span class="mi">1</span><span class="p">),</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="s2">&quot;Cl&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">120</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span>    <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="s2">&quot;Ca&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mf">1.8</span><span class="p">,</span> <span class="mf">1e-4</span><span class="p">,</span> <span class="o">+</span><span class="mi">2</span><span class="p">)}</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="k">def</span> <span class="nf">nernst</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">inn</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+<span class="linenos" data-linenos="13 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Equilibrium (Nernst) potential in mV.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="k">return</span> <span class="p">(</span><span class="n">RT_F</span> <span class="o">/</span> <span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">out</span> <span class="o">/</span> <span class="n">inn</span><span class="p">)</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span><span class="k">for</span> <span class="n">ion</span><span class="p">,</span> <span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="ow">in</span> <span class="n">ions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;E_</span><span class="si">{</span><span class="n">ion</span><span class="si">:</span><span class="s2">2s</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">nernst</span><span class="p">(</span><span class="n">o</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">)</span><span class="si">:</span><span class="s2">+6.1f</span><span class="si">}</span><span class="s2"> mV&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="18 "></span><span class="c1"># E_K  = -95.0 mV   E_Na = +66.6 mV   E_Cl = -90.9 mV   E_Ca = +130.9 mV</span>
+</code></pre></div>
+<p>شکلِ زیر همین را تصویر می‌کند: سمتِ چپ، رابطهٔ خطیِ <span class="arithmatex">\(E_X\)</span> با لگاریتمِ نسبتِ غلظت (شیبِ ۶۱٫۵ میلی‌ولت به‌ازای هر دهه)، و سمتِ راست، «چشم‌اندازِ» پتانسیل‌های تعادل در کنارِ پتانسیلِ استراحت.</p>
+<p><img alt="Image title" src="../bio_nernst_equilibria.png" /></p>
+<p><em>چپ: پتانسیلِ نرنست بر حسبِ نسبتِ غلظتِ <span class="arithmatex">\([X]_{\text{out}}/[X]_{\text{in}}\)</span> برای <span class="arithmatex">\(z=+1\)</span>؛ نقطهٔ آبی پتاسیم و نقطهٔ قرمز سدیم است. راست: پتانسیل‌های تعادلِ چهار یونِ اصلی و پتانسیلِ استراحت (خط‌چین). توجه کنید که <span class="arithmatex">\(V_{\text{rest}}\approx-71\)</span> بسیار به <span class="arithmatex">\(E_{\text{K}}\)</span> نزدیک است — چون غشا در استراحت عمدتاً به پتاسیم نفوذپذیر است.</em></p>
+<p>نکتهٔ کلیدی همین نزدیکیِ <span class="arithmatex">\(V_{\text{rest}}\)</span> به <span class="arithmatex">\(E_{\text{K}}\)</span> است. اگر غشا <strong>فقط</strong> به پتاسیم نفوذپذیر بود، پتانسیلِ استراحت دقیقاً <span class="arithmatex">\(E_{\text{K}}=-95\)</span> می‌شد. اینکه مقدارِ واقعی کمی مثبت‌تر (حدودِ ۷۰−) است، نشان می‌دهد که یون‌های دیگر — به‌ویژه سدیم — هم سهمی دارند. برای در نظر گرفتنِ همهٔ آن‌ها به معادلهٔ گلدمن نیاز داریم.</p>
+<hr />
+<h2 id="_6">معادلهٔ گلدمن</h2>
+<p>معادلهٔ نرنست تنها برای <strong>یک یون در تعادلِ خودش</strong> معتبر است. اما غشای واقعی هم‌زمان به چند یون نفوذپذیر است و پتانسیلِ استراحت حاصلِ سهمِ همهٔ آن‌هاست. <strong>معادلهٔ گلدمن–هاجکین–کاتز</strong> (Goldman–Hodgkin–Katz) پتانسیلی را می‌دهد که در آن شارِ خالصِ <strong>کلِ بار</strong> صفر است:</p>
+<div class="arithmatex">\[
+V_m = \frac{RT}{F}\,\ln\frac{P_{\text{K}}[\text{K}^+]_{\text{out}} + P_{\text{Na}}[\text{Na}^+]_{\text{out}} + P_{\text{Cl}}[\text{Cl}^-]_{\text{in}}}{P_{\text{K}}[\text{K}^+]_{\text{in}} + P_{\text{Na}}[\text{Na}^+]_{\text{in}} + P_{\text{Cl}}[\text{Cl}^-]_{\text{out}}},
+\]</div>
+<p>که در آن <span class="arithmatex">\(P_X\)</span> نفوذپذیریِ نسبیِ غشا نسبت به یونِ <span class="arithmatex">\(X\)</span> است. توجه کنید که برای کلر، جای غلظتِ درون و بیرون جابه‌جا شده — این به‌سببِ بارِ منفیِ کلر (<span class="arithmatex">\(z=-1\)</span>) است.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">def</span> <span class="nf">goldman</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">ions</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;GHK membrane potential in mV. P = dict of relative permeabilities.</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="sd">    Cations use out/in; the anion Cl uses in/out (its sign flips the ratio).&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="n">Ko</span><span class="p">,</span> <span class="n">Ki</span> <span class="o">=</span> <span class="n">ions</span><span class="p">[</span><span class="s2">&quot;K&quot;</span><span class="p">][:</span><span class="mi">2</span><span class="p">];</span>  <span class="n">Nao</span><span class="p">,</span> <span class="n">Nai</span> <span class="o">=</span> <span class="n">ions</span><span class="p">[</span><span class="s2">&quot;Na&quot;</span><span class="p">][:</span><span class="mi">2</span><span class="p">];</span>  <span class="n">Clo</span><span class="p">,</span> <span class="n">Cli</span> <span class="o">=</span> <span class="n">ions</span><span class="p">[</span><span class="s2">&quot;Cl&quot;</span><span class="p">][:</span><span class="mi">2</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="n">num</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="s2">&quot;K&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">Ko</span> <span class="o">+</span> <span class="n">P</span><span class="p">[</span><span class="s2">&quot;Na&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">Nao</span> <span class="o">+</span> <span class="n">P</span><span class="p">[</span><span class="s2">&quot;Cl&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">Cli</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="n">den</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="s2">&quot;K&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">Ki</span> <span class="o">+</span> <span class="n">P</span><span class="p">[</span><span class="s2">&quot;Na&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">Nai</span> <span class="o">+</span> <span class="n">P</span><span class="p">[</span><span class="s2">&quot;Cl&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">Clo</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">return</span> <span class="n">RT_F</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">num</span> <span class="o">/</span> <span class="n">den</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="n">P_rest</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;K&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;Na&quot;</span><span class="p">:</span> <span class="mf">0.04</span><span class="p">,</span> <span class="s2">&quot;Cl&quot;</span><span class="p">:</span> <span class="mf">0.45</span><span class="p">}</span>     <span class="c1"># resting permeabilities</span>
+<span class="linenos" data-linenos="10 "></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;V_rest = </span><span class="si">{</span><span class="n">goldman</span><span class="p">(</span><span class="n">P_rest</span><span class="p">,</span><span class="w"> </span><span class="n">ions</span><span class="p">)</span><span class="si">:</span><span class="s2">+.1f</span><span class="si">}</span><span class="s2"> mV&quot;</span><span class="p">)</span>     <span class="c1"># ≈ -75 mV</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="n">P_spike</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;K&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;Na&quot;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span> <span class="s2">&quot;Cl&quot;</span><span class="p">:</span> <span class="mf">0.45</span><span class="p">}</span>    <span class="c1"># Na channels wide open</span>
+<span class="linenos" data-linenos="13 "></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;V_peak = </span><span class="si">{</span><span class="n">goldman</span><span class="p">(</span><span class="n">P_spike</span><span class="p">,</span><span class="w"> </span><span class="n">ions</span><span class="p">)</span><span class="si">:</span><span class="s2">+.1f</span><span class="si">}</span><span class="s2"> mV&quot;</span><span class="p">)</span>    <span class="c1"># ≈ +51 mV  (toward E_Na)</span>
+</code></pre></div>
+<p>سه نکتهٔ کلیدی:</p>
+<ul>
+<li>اگر غشا تنها به یک یون نفوذپذیر باشد (بقیهٔ <span class="arithmatex">\(P\)</span>ها صفر)، معادلهٔ گلدمن دقیقاً به <strong>معادلهٔ نرنستِ</strong> همان یون فرومی‌کاهد. پس گلدمن، تعمیمِ نرنست برای چند یون است.</li>
+<li>وزنِ هر یون با نفوذپذیریِ آن متناسب است. در استراحت <span class="arithmatex">\(P_{\text{K}} \gg P_{\text{Na}}\)</span> (نسبتِ نوعیِ <span class="arithmatex">\(P_{\text{K}} : P_{\text{Na}} : P_{\text{Cl}} \approx 1 : 0.04 : 0.45\)</span>)، پس <span class="arithmatex">\(V_m\)</span> نزدیکِ <span class="arithmatex">\(E_{\text{K}}\)</span> می‌ماند.</li>
+<li>برخلافِ نرنست، گلدمن یک <strong>حالتِ پایای دینامیکی</strong> را توصیف می‌کند (نه یک تعادلِ ترمودینامیکی)؛ پمپ‌های فعال، انرژیِ لازم برای نگه‌داشتنِ آن را تأمین می‌کنند.</li>
+</ul>
+<h3 id="_7">چرا این معادله بذرِ پتانسیلِ عمل است</h3>
+<p>قدرتِ واقعیِ معادلهٔ گلدمن وقتی آشکار می‌شود که نفوذپذیری‌ها را <strong>متغیر</strong> بگیریم. شکلِ زیر <span class="arithmatex">\(V_m\)</span> را بر حسبِ نسبتِ <span class="arithmatex">\(P_{\text{Na}}/P_{\text{K}}\)</span> رسم می‌کند (با <span class="arithmatex">\(P_{\text{Cl}}=0\)</span> تا برهم‌کنشِ سدیم–پتاسیم خالص دیده شود):</p>
+<p><img alt="Image title" src="../bio_goldman_permeability.png" /></p>
+<p><em>پتانسیلِ غشا از معادلهٔ گلدمن بر حسبِ نسبتِ نفوذپذیریِ <span class="arithmatex">\(P_{\text{Na}}/P_{\text{K}}\)</span>. وقتی این نسبت کوچک است (استراحت، نقطهٔ سیاه)، <span class="arithmatex">\(V_m\)</span> نزدیکِ <span class="arithmatex">\(E_{\text{K}}\)</span> است. اگر کانال‌های سدیمی باز شوند و نسبت بزرگ شود، <span class="arithmatex">\(V_m\)</span> به‌سرعت به‌سویِ <span class="arithmatex">\(E_{\text{Na}}\)</span> بالا می‌رود — درست همان چیزی که در قلهٔ پتانسیلِ عمل رخ می‌دهد.</em></p>
+<p>پس کلِ داستانِ پتانسیلِ عمل را می‌توان چنین خلاصه کرد: نورون در استراحت روی شاخهٔ پایینِ این منحنی (نزدیکِ <span class="arithmatex">\(E_{\text{K}}\)</span>) می‌نشیند؛ باز شدنِ ناگهانیِ کانال‌های سدیمیِ وابسته به ولتاژ نسبتِ <span class="arithmatex">\(P_{\text{Na}}/P_{\text{K}}\)</span> را بالا می‌برد و دستگاه را به شاخهٔ بالا (نزدیکِ <span class="arithmatex">\(E_{\text{Na}}\)</span>) پرتاب می‌کند. این را در فصلِ <a href="../ch-biophysics-06-action-potential/">پتانسیل عمل</a> به‌صورتِ کیفی و در مدلِ <a href="https://computational-neuroscience.ir/ch03/">هاجکین–هاکسلی</a> به‌صورتِ کمّی خواهیم دید.</p>
+<hr />
+<h2 id="_8">کلسیم و مرزهای معادلهٔ گلدمن</h2>
+<p>در جدولِ آغازِ فصل، <strong>کلسیم</strong> <span class="arithmatex">\(\text{Ca}^{2+}\)</span> را هم آوردیم، اما در معادلهٔ گلدمن آن را کنار گذاشتیم. چرا؟ پاسخ، هم زیستی و هم <strong>ریاضی</strong> است.</p>
+<p>نکتهٔ ریاضی ظریف و آموزنده است: شکلِ زیبای لگاریتمیِ معادلهٔ گلدمن تنها وقتی به‌دست می‌آید که همهٔ یون‌های نفوذپذیر <strong>یک‌ظرفیتی</strong> باشند (<span class="arithmatex">\(|z|=1\)</span>). اشتقاقِ گلدمن بر پایهٔ <strong>فرضِ میدانِ ثابت</strong> است: شارِ هر یون از غشا با <strong>معادلهٔ جریانِ گلدمن–هاجکین–کاتز</strong> توصیف می‌شود،</p>
+<div class="arithmatex">\[
+I_S \;=\; P_S\,z_S^{2}\,\frac{F^2 V_m}{RT}\,
+\frac{[S]_{\text{in}} - [S]_{\text{out}}\,e^{-z_S F V_m/RT}}{1 - e^{-z_S F V_m/RT}} .
+\]</div>
+<p>وقتی همهٔ یون‌ها یک‌ظرفیتی‌اند، در شرطِ صفرشدنِ جریانِ کل (<span class="arithmatex">\(\sum_S I_S = 0\)</span>) نماها همگی به‌صورتِ <span class="arithmatex">\(e^{-FV/RT}\)</span> ظاهر می‌شوند، تجزیه می‌شوند و می‌توان <span class="arithmatex">\(V_m\)</span> را به‌صورتِ <strong>بسته</strong> بیرون کشید — همان لگاریتمِ گلدمن. اما کلسیم با <span class="arithmatex">\(z=2\)</span> واردِ معادله می‌شود و نمای <span class="arithmatex">\(e^{-2FV/RT}\)</span> می‌آورد. اکنون شرطِ صفرشدنِ جریان، دو نمای متفاوت (<span class="arithmatex">\(e^{-FV/RT}\)</span> و <span class="arithmatex">\(e^{-2FV/RT}\)</span>) را با هم دارد و دیگر <strong>جوابِ بستهٔ لگاریتمی ندارد</strong>. چاره، برگشت به تعریفِ بنیادی است: پتانسیلِ استراحت، <strong>ریشهٔ</strong> معادلهٔ <span class="arithmatex">\(\sum_S I_S(V)=0\)</span> است و آن را <strong>عددی</strong> پیدا می‌کنیم — دقیقاً همان‌جا که یک ابزارِ ساده مانندِ <strong>دوبخشی</strong> (bisection) از فصلِ ریشه‌یابی به کار می‌آید.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># GHK *current* for one ion (constant-field flux; the common factor F is dropped).</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="c1"># For monovalent ions the zero-current condition has the closed-form Goldman</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="c1"># solution; a divalent ion (Ca, z = 2) breaks that closed form -&gt; solve numerically.</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">def</span> <span class="nf">ghk_current</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="n">u</span> <span class="o">=</span> <span class="n">z</span> <span class="o">*</span> <span class="n">V</span> <span class="o">/</span> <span class="n">RT_F</span>                        <span class="c1"># dimensionless   z F V / RT</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-9</span><span class="p">:</span>                        <span class="c1"># u -&gt; 0 limit</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="k">return</span> <span class="n">P</span> <span class="o">*</span> <span class="n">z</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">o</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">return</span> <span class="n">P</span> <span class="o">*</span> <span class="n">z</span> <span class="o">*</span> <span class="n">u</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">o</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">u</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">u</span><span class="p">))</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="k">def</span> <span class="nf">v_rest_numeric</span><span class="p">(</span><span class="n">P</span><span class="p">):</span>
+<span class="linenos" data-linenos="11 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Resting potential as the root of the total GHK current, by bisection.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="n">total</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">V</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">ghk_current</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">P</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">ions</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span> <span class="n">ions</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">ions</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+<span class="linenos" data-linenos="13 "></span>                          <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">P</span><span class="p">)</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span> <span class="o">=</span> <span class="o">-</span><span class="mf">150.0</span><span class="p">,</span> <span class="mf">100.0</span>                   <span class="c1"># V_rest is bracketed in this range</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">60</span><span class="p">):</span>
+<span class="linenos" data-linenos="16 "></span>        <span class="n">mid</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">lo</span> <span class="o">+</span> <span class="n">hi</span><span class="p">)</span>
+<span class="linenos" data-linenos="17 "></span>        <span class="k">if</span> <span class="n">total</span><span class="p">(</span><span class="n">lo</span><span class="p">)</span> <span class="o">*</span> <span class="n">total</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span> <span class="n">hi</span> <span class="o">=</span> <span class="n">mid</span>
+<span class="linenos" data-linenos="18 "></span>        <span class="k">else</span><span class="p">:</span>                           <span class="n">lo</span> <span class="o">=</span> <span class="n">mid</span>
+<span class="linenos" data-linenos="19 "></span>    <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">lo</span> <span class="o">+</span> <span class="n">hi</span><span class="p">)</span>
+<span class="linenos" data-linenos="20 "></span>
+<span class="linenos" data-linenos="21 "></span><span class="n">P_noca</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;K&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;Na&quot;</span><span class="p">:</span> <span class="mf">0.04</span><span class="p">,</span> <span class="s2">&quot;Cl&quot;</span><span class="p">:</span> <span class="mf">0.45</span><span class="p">}</span>
+<span class="linenos" data-linenos="22 "></span><span class="n">P_ca</span>   <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">P_noca</span><span class="p">,</span> <span class="s2">&quot;Ca&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">}</span>              <span class="c1"># add a small calcium permeability</span>
+<span class="linenos" data-linenos="23 "></span>
+<span class="linenos" data-linenos="24 "></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;V_rest (no Ca) = </span><span class="si">{</span><span class="n">v_rest_numeric</span><span class="p">(</span><span class="n">P_noca</span><span class="p">)</span><span class="si">:</span><span class="s2">+.1f</span><span class="si">}</span><span class="s2"> mV&quot;</span><span class="p">)</span>   <span class="c1"># -75.3 : matches Goldman</span>
+<span class="linenos" data-linenos="25 "></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;V_rest (+Ca)   = </span><span class="si">{</span><span class="n">v_rest_numeric</span><span class="p">(</span><span class="n">P_ca</span><span class="p">)</span><span class="si">:</span><span class="s2">+.1f</span><span class="si">}</span><span class="s2"> mV&quot;</span><span class="p">)</span>     <span class="c1"># -75.2 : barely moves</span>
+<span class="linenos" data-linenos="26 "></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;E_Ca           = </span><span class="si">{</span><span class="n">nernst</span><span class="p">(</span><span class="o">*</span><span class="n">ions</span><span class="p">[</span><span class="s1">&#39;Ca&#39;</span><span class="p">])</span><span class="si">:</span><span class="s2">+.1f</span><span class="si">}</span><span class="s2"> mV&quot;</span><span class="p">)</span>      <span class="c1"># +130.9</span>
+</code></pre></div>
+<p>دو درسِ مهم در این خروجی نهفته است:</p>
+<ul>
+<li><strong>اعتبارسنجی:</strong> وقتی کلسیم را خاموش می‌کنیم (<span class="arithmatex">\(P_{\text{Ca}}=0\)</span>)، ریشه‌یابِ عددی <strong>دقیقاً</strong> همان مقداری را می‌دهد که معادلهٔ بستهٔ گلدمنِ بخشِ پیش داد (‎۷۵٫۳−). این یعنی کدِ عددیِ ما درست است و گلدمن، حالتِ خاصِ یک‌ظرفیتیِ همین معادلهٔ کلی‌تر است.</li>
+<li><strong>کلسیم پتانسیلِ استراحت را تعیین نمی‌کند:</strong> چون نفوذپذیریِ کلسیم در استراحت بسیار کوچک است، افزودنِ آن <span class="arithmatex">\(V_m\)</span> را تنها کسری از میلی‌ولت جابه‌جا می‌کند — حتی اگر آن را صد برابر کنیم.</li>
+</ul>
+<p><img alt="Image title" src="../bio_calcium_ghk.png" /></p>
+<p><em>چپ: پتانسیلِ استراحت بر حسبِ نفوذپذیریِ نسبیِ کلسیم <span class="arithmatex">\(P_{\text{Ca}}/P_{\text{K}}\)</span>؛ در سه دهه تغییرِ نفوذپذیری، <span class="arithmatex">\(V_m\)</span> عملاً ثابت و نزدیکِ ‎۷۵− می‌ماند و بسیار پایین‌تر از <span class="arithmatex">\(E_{\text{Ca}}=+131\)</span> است. راست: </em><em>نیروی رانشِ</em><em> <span class="arithmatex">\((V_{\text{rest}}-E_{\text{ion}})\)</span> برای هر یون در استراحت؛ کلسیم با اختلافِ زیاد بزرگ‌ترین نیروی رانش (حدودِ ‎۲۰۶− میلی‌ولت) را دارد.</em></p>
+<p>اینجا پارادوکسِ ظاهری حل می‌شود: کلسیم در استراحت تقریباً هیچ سهمی در <strong>تعیینِ ولتاژ</strong> ندارد، اما <strong>نیروی رانشِ</strong> آن از هر یونِ دیگری بزرگ‌تر است (نمودارِ راست). به این دلیل که <span class="arithmatex">\(E_{\text{Ca}}\)</span> بسیار مثبت است و غلظتِ درونیِ کلسیم بسیار ناچیز (حدودِ <span class="arithmatex">\(10^{-4}\)</span> میلی‌مولار، یعنی شیبی ده‌هزاربرابری). پس هر بار که کانالی کلسیمی باز شود، سیلی از کلسیم به درون می‌ریزد و غلظتِ درونیِ آن را <strong>به‌نسبت</strong> بسیار تغییر می‌دهد. به همین سبب، نقشِ اصلیِ کلسیم نه <strong>الکتریکی</strong> (تنظیمِ ولتاژ) بلکه <strong>پیام‌رسانی</strong> است: کلسیمِ ورودی به‌مثابهٔ یک <strong>پیام‌رسانِ ثانویه</strong> آبشاری از رخدادهای درون‌سلولی — از رهاسازیِ ناقلِ عصبی تا انعطاف‌پذیریِ سیناپسی — را به راه می‌اندازد. این درست همان چیزی است که ما را از دنیای سادهٔ سه‌یونیِ گلدمن به دنیای بسیار غنی‌ترِ کانال‌های یونی می‌برد.</p>
+<hr />
+<h2 id="_9">باغ‌وحشِ کانال‌های یونی</h2>
+<p>تا اینجا با چهار یون (K، Na، Cl، Ca) و یکی‌دو نوع کانال (نشتی و وابسته به ولتاژ) کار کردیم. اما نورونِ واقعی بسیار پیچیده‌تر است: <strong>حدودِ ۲۰۰ نوع کانالِ یونی</strong> شناخته شده و بسیاری از آن‌ها به‌صورتِ ژنتیکی شناسایی شده‌اند. گرستنر و همکاران این تنوعِ چشمگیر را به‌شوخی <strong>«باغ‌وحشِ کانال‌های یونی»</strong> (the zoo of ion channels) می‌نامند. کانال‌ها را می‌توان از چند زاویه دسته‌بندی کرد: بر پایهٔ <strong>هویتِ ژنتیکی</strong> (مثلاً <span class="arithmatex">\(\text{Na}_v1.1\)</span>، <span class="arithmatex">\(\text{K}_v\)</span>)، <strong>گزینشِ یونی</strong> (سدیم، پتاسیم، کلسیم)، <strong>وابستگی به ولتاژ</strong>، <strong>حساسیت به پیام‌رسانِ ثانویه</strong> (مثلاً کلسیم)، و <strong>نقشِ عملکردی</strong>.</p>
+<p>چند نمونه که هرکدام رفتاری کیفیتاً متفاوت به نورون می‌دهند:</p>
+<ul>
+<li><strong>جریانِ <span class="arithmatex">\(I_M\)</span> (پتاسیمیِ کند):</strong> با غیرفعال‌شدنِ آهسته در ده‌ها میلی‌ثانیه، <strong>تطبیقِ بسامدِ شلیک</strong> (spike-frequency adaptation) می‌سازد — نورون در پاسخ به محرکِ ثابت، رفته‌رفته کندتر شلیک می‌کند.</li>
+<li><strong>جریانِ <span class="arithmatex">\(I_A\)</span> (پتاسیمیِ گذرا):</strong> یک بی‌پاسخیِ کوتاهِ نیرومند ایجاد می‌کند و فاصلهٔ میانِ اسپایک‌ها را تنظیم می‌کند.</li>
+<li><strong>کانالِ پتاسیمیِ وابسته به کلسیم <span class="arithmatex">\(I_{K(\text{Ca})}\)</span>:</strong> پلی است میانِ دو جهان — کلسیمی که در هر اسپایک وارد می‌شود این کانال را می‌گشاید و به‌طورِ <strong>غیرمستقیم</strong> تطبیق می‌سازد. اینجا دقیقاً همان نقشِ <strong>پیام‌رسانیِ</strong> کلسیم است که در بخشِ پیش دیدیم.</li>
+<li><strong>کانالِ کلسیمیِ آستانه‌پایین <span class="arithmatex">\(I_T\)</span>:</strong> در استراحت غیرفعال است و تنها پس از یک <strong>فروقطبش</strong> آزاد می‌شود؛ همین، پدیدهٔ <strong>بازگشتِ پس‌ازمهاری</strong> (postinhibitory rebound) و شلیکِ انفجاری را ممکن می‌کند.</li>
+<li><strong>جریانِ <span class="arithmatex">\(I_h\)</span> (فعال‌شونده با فروقطبش):</strong> به نوسان‌ها و ریتم‌سازیِ نورون کمک می‌کند.</li>
+</ul>
+<p>نکتهٔ ژرف این است که <strong>ترکیبِ کانال‌ها، دینامیکِ نورون را کوک می‌کند</strong>. تغییری کوچک در سینتیکِ یک کانال می‌تواند رفتارِ نورون را کیفیتاً دگرگون کند؛ برای نمونه، جابه‌جاییِ منحنیِ غیرفعال‌شدنِ کانالِ سدیمی به‌اندازهٔ ۲۰ میلی‌ولت، یک نورون را از <strong>تحریک‌پذیریِ نوعِ ۲</strong> به <strong>نوعِ ۱</strong> می‌برد — همان تمایزی که در فصلِ <a href="https://computational-neuroscience.ir/ch-dynamical-systems/ch-dynamics-07-neuro-excitability/">تحریک‌پذیری</a> با زبانِ سیستم‌های دینامیکی دیدیم. نورون حتی می‌تواند با تغییرِ <strong>بیانِ ژنی</strong>، ترکیبِ کانال‌هایش و در نتیجه رفتارِ الکتریکی‌اش را در طولِ رشد و در پاسخ به تجربه بازتنظیم کند.</p>
+<p>برای ما این «باغ‌وحش» دو پیام دارد. نخست، مدلی که در فصل‌های بعد می‌سازیم — <a href="https://computational-neuroscience.ir/ch03/">هاجکین–هاکسلی</a> با تنها دو کانالِ فعال (سدیم و پتاسیم) — کمینه‌ترین مدلِ ممکن است؛ کارِ آن، <strong>گرفتنِ جوهرِ</strong> پتانسیلِ عمل است، نه بازتولیدِ همهٔ تنوعِ زیستی. دوم، همان <strong>معماریِ محاسباتی</strong> — معادلهٔ موازنهٔ جریان به‌علاوهٔ یک جریان به‌ازای هر کانال — به ما اجازه می‌دهد هر عضوِ این باغ‌وحش را که خواستیم به مدل بیفزاییم. زبانِ ریاضیِ همه‌شان یکی است؛ تنها توصیفِ رسانایی عوض می‌شود.</p>
+<div class="admonition quote">
+<p class="admonition-title">برای مطالعهٔ بیشتر</p>
+<p>بحثِ کامل‌ترِ «باغ‌وحشِ کانال‌های یونی» را در کتابِ <em>Neuronal Dynamics</em> گرستنر و همکاران می‌توانید ببینید: <a href="https://neuronaldynamics.epfl.ch/online/Ch2.S3.html">بخشِ ۲٫۳</a>.</p>
+</div>
+<hr />
+<h2 id="_10">پمپِ سدیم–پتاسیم</h2>
+<p>نشتِ پیوستهٔ پتاسیم به بیرون و سدیم به درون، در درازمدت شیب‌های غلظتی را از میان می‌برد. <strong>پمپِ سدیم–پتاسیم</strong> با مصرفِ ATP و جابه‌جاییِ <strong>سه</strong> یونِ سدیم به بیرون در ازای <strong>دو</strong> یونِ پتاسیم به درون، این شیب‌ها را پیوسته بازسازی می‌کند. چون در هر چرخه یک بارِ مثبتِ خالص به بیرون می‌برد، خود پمپ نیز اندکی به منفی‌ماندنِ درونِ سلول کمک می‌کند (پمپِ <strong>الکتروژنیک</strong>). بدونِ این پمپ، پتانسیلِ استراحت در عرضِ دقایقی فرومی‌پاشید.</p>
+<hr />
+<div class="admonition example">
+<p class="admonition-title">تمرین‌ها</p>
+<ol>
+<li>
+<p><strong>دمای اتاق.</strong> ضریبِ <span class="arithmatex">\(\frac{RT}{F}\ln 10\)</span> را برای دمای اتاق (<span class="arithmatex">\(T=293\,\mathrm{K}\)</span>) دوباره حساب کنید. پتانسیل‌های تعادل چقدر تغییر می‌کنند؟</p>
+</li>
+<li>
+<p><strong>پتاسیمِ خارجی.</strong> فرض کنید غلظتِ پتاسیمِ بیرونی از ۴ به ۸ میلی‌مولار برسد (مثلاً در آسیبِ بافتی). <span class="arithmatex">\(E_{\text{K}}\)</span> و — با کدِ گلدمن — <span class="arithmatex">\(V_{\text{rest}}\)</span> را دوباره حساب کنید. چرا افزایشِ پتاسیمِ خارجی، غشا را <strong>دپلاریزه</strong> می‌کند؟</p>
+</li>
+<li>
+<p><strong>حدِ گلدمن.</strong> به‌صورتِ عددی نشان دهید که وقتی <span class="arithmatex">\(P_{\text{Na}}=P_{\text{Cl}}=0\)</span>، خروجیِ <code>goldman</code> دقیقاً برابرِ <code>nernst</code> برای پتاسیم می‌شود.</p>
+</li>
+<li>
+<p><strong>منحنیِ گلدمن.</strong> شکلِ <span class="arithmatex">\(V_m\)</span> بر حسبِ <span class="arithmatex">\(P_{\text{Na}}/P_{\text{K}}\)</span> را بازتولید کنید. نسبتی را بیابید که در آن <span class="arithmatex">\(V_m=0\)</span> می‌شود. این نسبت چه معنای زیستی‌ای دارد؟</p>
+</li>
+<li>
+<p><strong>کلسیم و گلدمن.</strong> با تابعِ <code>v_rest_numeric</code>، نشان دهید که با <span class="arithmatex">\(P_{\text{Ca}}=0\)</span> خروجی دقیقاً با معادلهٔ بستهٔ <code>goldman</code> یکی می‌شود. سپس <span class="arithmatex">\(P_{\text{Ca}}\)</span> را از صفر تا <span class="arithmatex">\(0.1\)</span> جارو کنید و منحنیِ <span class="arithmatex">\(V_{\text{rest}}\)</span> بر حسبِ <span class="arithmatex">\(P_{\text{Ca}}\)</span> را رسم کنید (نمودارِ چپِ شکلِ کلسیم را بازتولید کنید). چرا این منحنی این‌قدر مسطح است؟</p>
+</li>
+<li>
+<p><strong>نیروی رانشِ کلسیم.</strong> نیروی رانشِ <span class="arithmatex">\((V_{\text{rest}}-E_{\text{ion}})\)</span> را برای هر چهار یون در استراحت حساب کنید و توضیح دهید چرا با وجودِ کوچک‌بودنِ سهمِ کلسیم در پتانسیلِ استراحت، ورودِ کلسیم می‌تواند یک <strong>پیامِ</strong> نیرومند باشد. (راهنما: به شیبِ غلظتیِ ده‌هزاربرابریِ کلسیم فکر کنید.)</p>
+</li>
+<li>
+<p><strong>(پروژه)</strong> پتانسیلِ استراحت را بر حسبِ <strong>دو</strong> پارامترِ <span class="arithmatex">\(P_{\text{Na}}/P_{\text{K}}\)</span> و <span class="arithmatex">\([\text{K}^+]_{\text{out}}\)</span> به‌صورتِ یک نقشهٔ رنگی رسم کنید و نواحیِ «قطبیده» و «دپلاریزه» را مشخص کنید.</p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+
+  
+    
+    
+
+    <hr>
+    <div class="page-actions" dir="rtl">
+      <a class="md-button"
+         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=enhancement&title=پیشنهاد برای فصل: %D9%BE%D8%AA%D8%A7%D9%86%D8%B3%DB%8C%D9%84%20%D8%A7%D8%B3%D8%AA%D8%B1%D8%A7%D8%AD%D8%AA%3A%20%D9%86%D8%B1%D9%86%D8%B3%D8%AA%20%D9%88%20%DA%AF%D9%84%D8%AF%D9%85%D9%86">
+        پیشنهاد در گیت‌هاب
+      </a>
+      <a class="md-button"
+         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=bug&title=گزارش اشکال در فصل: %D9%BE%D8%AA%D8%A7%D9%86%D8%B3%DB%8C%D9%84%20%D8%A7%D8%B3%D8%AA%D8%B1%D8%A7%D8%AD%D8%AA%3A%20%D9%86%D8%B1%D9%86%D8%B3%D8%AA%20%D9%88%20%DA%AF%D9%84%D8%AF%D9%85%D9%86">
+        گزارش اشکال در گیت‌هاب
+      </a>
+      <a class="md-button"
+         href="mailto:saeed.taghavi.v@gmail.com?subject=بازخورد دربارهٔ فصل: پتانسیل استراحت: نرنست و گلدمن">
+        ارسال بازخورد با ایمیل
+      </a>
+    </div>
+  
+
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  برگشت به بالا
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="پاورقی" >
+        
+          
+          <a href="../ch-biophysics-01-cell-membrane-channels/" class="md-footer__link md-footer__link--prev" aria-label="قبلی: سلول، غشا و کانال‌های یونی">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                قبلی
+              </span>
+              <div class="md-ellipsis">
+                سلول، غشا و کانال‌های یونی
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ch-biophysics-03-passive-rc/" class="md-footer__link md-footer__link--next" aria-label="بعدی: غشای غیرفعال: مدار RC">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                بعدی
+              </span>
+              <div class="md-ellipsis">
+                غشای غیرفعال: مدار RC
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u06a9\u067e\u06cc \u0634\u062f", "clipboard.copy": "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646", "search.result.more.one": "1 \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.more.other": "# \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.none": "\u0633\u0646\u062f\u06cc \u06cc\u0627\u0641\u062a \u0646\u0634\u062f", "search.result.one": "1 \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.other": "# \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.placeholder": "\u0628\u0631\u0627\u06cc \u062c\u0633\u062a\u062c\u0648 \u062a\u0627\u06cc\u067e \u06a9\u0646\u06cc\u062f", "search.result.term.missing": "\u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a", "select.version": "\u0627\u0646\u062a\u062e\u0627\u0628 \u0648\u06cc\u0631\u0627\u06cc\u0634"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+        <script src="../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

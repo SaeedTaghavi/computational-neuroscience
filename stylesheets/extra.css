@@ -12,6 +12,17 @@
   margin-right: auto;
 }
 
+/* figure captions: the italic line right below an image.
+   overrides the global "justify body text" rule for these paragraphs only. */
+.md-typeset p:has(> img) + p:has(> em) {
+  text-align: center !important;
+  text-justify: auto;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--md-default-fg-color--light);
+  margin-top: -0.4rem;
+}
+
 /* center tables */
 .md-typeset__table {
   display: block;

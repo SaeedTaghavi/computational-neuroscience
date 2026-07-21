@@ -1,0 +1,3012 @@
+
+<!doctype html>
+<html lang="fa" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="کتاب آنلاین علوم اعصاب محاسباتی به زبان فارسی — از غشای تحریک‌پذیر و سیستم‌های دینامیکی تا مدل‌های نورون، شبکه‌های اسپایکی و مدل‌سازی مغز کامل.">
+      
+      
+        <meta name="author" content="Saeed Taghavi">
+      
+      
+        <link rel="canonical" href="https://computational-neuroscience.ir/ch-dynamical-systems/ch-dynamics-07-neuro-excitability/">
+      
+      
+        <link rel="prev" href="../ch-dynamics-06-neuro-bistability/">
+      
+      
+        <link rel="next" href="../../ch-neuron-biophysics/ch-biophysics-01-cell-membrane-channels/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>کاربرد: تحریک‌پذیری و فیتزهیو–ناگومو - کتاب علوم اعصاب محاسباتی</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Naskh+Arabic:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Naskh Arabic";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="rtl" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          پرش به محتویات
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="سرتیتر">
+    <a href="../.." title="کتاب علوم اعصاب محاسباتی" class="md-header__button md-logo" aria-label="کتاب علوم اعصاب محاسباتی" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            کتاب علوم اعصاب محاسباتی
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              کاربرد: تحریک‌پذیری و فیتزهیو–ناگومو
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="جستجو" placeholder="جستجو" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="جستجو">
+        
+        <button type="reset" class="md-search__icon md-icon" title="بازنشانی" aria-label="بازنشانی" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            راه‌اندازی جستجو
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="هدایت" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="کتاب علوم اعصاب محاسباتی" class="md-nav__button md-logo" aria-label="کتاب علوم اعصاب محاسباتی" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    کتاب علوم اعصاب محاسباتی
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    صفحه اول
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پیش‌نیازها
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پیش‌نیازها
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    روش‌های عددی و تحلیل داده
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    روش‌های عددی و تحلیل داده
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مفاهیم مدل‌سازی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مفاهیم مدل‌سازی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-modelling-01-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-modelling-02-classification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    رده‌بندی مدل‌ها
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-modelling-03-decisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    تصمیم‌های مدل‌سازی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-modelling-04-uncertainty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    رده‌بندی عدم‌قطعیت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-modelling-05-verify-validate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    راستی‌آزمایی و اعتبارسنجی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-modelling-06-goodness-of-fit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نیکویی برازش
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    روش‌های عددی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    روش‌های عددی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-num-01-revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرور مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-num-02-derivative/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مشتق اول
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-num-03-fdm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    تفاضل محدود
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-num-04-taylor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    بسط تیلور
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-num-05-numerical-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    انتگرال‌گیری عددی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-num-06-ode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    حل عددی معادلات دیفرانسیل معمولی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-num-07-sde/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    حل عددی معادلات دیفرانسیل تصادفی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_3" id="__nav_2_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پردازش سیگنال
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پردازش سیگنال
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-signal-01-revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرور مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-signal-02-time-domain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پردازش سیگنال در حوزه زمان
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-signal-03-frequency-domain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پردازش سیگنال در حوزه فرکانس
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-signal-04-filters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    فیلترها
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-signal-05-time-frequency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    تحلیل زمان–بسامد
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_4" id="__nav_2_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیستم‌های دینامیکی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    سیستم‌های دینامیکی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-dynamics-01-revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرور مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-dynamics-02-linear-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیستم‌های خطی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-dynamics-03-nonlinear-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیستم‌های غیرخطی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-dynamics-04-oscillators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نوسانگرها
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-dynamics-05-chaos-theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نظریه آشوب
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-dynamics-06-neuro-bistability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    کاربرد: دوپایداری و کلید ژنتیکی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    کاربرد: تحریک‌پذیری و فیتزهیو–ناگومو
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    کاربرد: تحریک‌پذیری و فیتزهیو–ناگومو
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="فهرست در این صفحه">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      فهرست در این صفحه
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        از هاجکین–هاکسلی تا فیتزهیو–ناگومو
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ۱. مدل
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ۲. مسیرها: آستانه را ببینیم
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nullclines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ۳. نولکلین‌ها (nullclines)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ۴. یافتنِ تعادل‌ها — با ریشه‌های چندجمله‌ای
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ۵. سرشتِ تعادل‌ها: ژاکوبین
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ۶. نمودارِ کاملِ فاز: استراحت در برابرِ شلیک
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ۷. نمودارِ انشعاب در \(I\): دو هاپف و انسدادِ تحریک
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ۸. دو ردهٔ تحریک‌پذیری: منحنیِ بسامد–جریان (f–I)، نوعِ ۱ و نوعِ ۲
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="۸. دو ردهٔ تحریک‌پذیری: منحنیِ بسامد–جریان (f–I)، نوعِ ۱ و نوعِ ۲">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fi_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        منحنیِ بسامد–جریان (f–I)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        نوعِ ۲: روشن‌شدنِ ناپیوسته از راهِ هاپف
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        نوعِ ۱: روشن‌شدنِ پیوسته از راهِ SNIC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        کمینه‌مدلِ ردهٔ ۱: نورونِ QIF و نورونِ تتا
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        انتگرال‌گر در برابر تشدیدگر
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ۹. راهِ پژوهش (الف): نقشهٔ رفتار در صفحهٔ \((I, b)\)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ۱۰. راهِ پژوهش (ب): ورودیِ وابسته به زمان
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ۱۱. راهِ پژوهش (ج): نوفه و شلیکِ القاشده با نوفه
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        پیوندها و پروژه‌ها
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    بیوفیزیک نورون
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    بیوفیزیک نورون
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-neuron-biophysics/ch-biophysics-01-cell-membrane-channels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سلول، غشا و کانال‌های یونی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-neuron-biophysics/ch-biophysics-02-resting-potential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پتانسیل استراحت: نرنست و گلدمن
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-neuron-biophysics/ch-biophysics-03-passive-rc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    غشای غیرفعال: مدار RC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-neuron-biophysics/ch-biophysics-04-cable-compartments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    کابل و مدل‌های تقسیمی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-neuron-biophysics/ch-biophysics-05-synapses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیناپس‌ها و ورودی سیناپسی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch-neuron-biophysics/ch-biophysics-06-action-potential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پتانسیل عمل و انتشار
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های نورون
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مدل‌های نورون
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل هاجکین-هاکسلی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های ساده‌شده: LIF، EIF، AdEx
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    شبکه‌های نورون‌های نقطه‌ای
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    شبکه‌های نورون‌های نقطه‌ای
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    از نورون به جمعیت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    شبکه‌های تصادفی متعادل
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نوسانات در شبکه‌های تحریکی-مهاری
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پلاستیسیتی وابسته به زمان اسپایک (STDP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های جمعیتی و توده عصبی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مدل‌های جمعیتی و توده عصبی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    معادلات نرخ آتش
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل ویلسون-کوان
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پیوست‌ها
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پیوست‌ها
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    طراحی گردش‌کار و آزمایش محاسباتی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="فهرست در این صفحه">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      فهرست در این صفحه
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        از هاجکین–هاکسلی تا فیتزهیو–ناگومو
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ۱. مدل
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ۲. مسیرها: آستانه را ببینیم
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nullclines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ۳. نولکلین‌ها (nullclines)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ۴. یافتنِ تعادل‌ها — با ریشه‌های چندجمله‌ای
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ۵. سرشتِ تعادل‌ها: ژاکوبین
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ۶. نمودارِ کاملِ فاز: استراحت در برابرِ شلیک
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ۷. نمودارِ انشعاب در \(I\): دو هاپف و انسدادِ تحریک
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ۸. دو ردهٔ تحریک‌پذیری: منحنیِ بسامد–جریان (f–I)، نوعِ ۱ و نوعِ ۲
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="۸. دو ردهٔ تحریک‌پذیری: منحنیِ بسامد–جریان (f–I)، نوعِ ۱ و نوعِ ۲">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fi_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        منحنیِ بسامد–جریان (f–I)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        نوعِ ۲: روشن‌شدنِ ناپیوسته از راهِ هاپف
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        نوعِ ۱: روشن‌شدنِ پیوسته از راهِ SNIC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        کمینه‌مدلِ ردهٔ ۱: نورونِ QIF و نورونِ تتا
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        انتگرال‌گر در برابر تشدیدگر
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ۹. راهِ پژوهش (الف): نقشهٔ رفتار در صفحهٔ \((I, b)\)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ۱۰. راهِ پژوهش (ب): ورودیِ وابسته به زمان
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ۱۱. راهِ پژوهش (ج): نوفه و شلیکِ القاشده با نوفه
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        پیوندها و پروژه‌ها
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+
+<h1 id="_1">کاربرد ۲ — تحریک‌پذیری: نورونِ فیتزهیو–ناگومو</h1>
+<p>در فصلِ پیش دیدیم چگونه دو حالتِ پایدار، <strong>حافظه</strong> می‌سازند. اکنون به پدیدهٔ بنیادینِ دیگرِ علوم اعصاب می‌پردازیم: <strong>اسپایک</strong>. چگونه یک نورون آرام استراحت می‌کند، اما با یک محرکِ کافی یک پتانسیلِ عمل بزرگ شلیک می‌کند و سپس به استراحت بازمی‌گردد؟ این رفتار را <strong>تحریک‌پذیری</strong> (excitability) می‌نامند، و ساده‌ترین مدلی که آن را بازتولید می‌کند، نورونِ <strong>فیتزهیو–ناگومو</strong> است.</p>
+<p>این فصل، مانندِ فصلِ پیش، یک درس‌نامهٔ گام‌به‌گام است که از صفر تا پژوهشِ واقعی پیش می‌رود. مدل و کدها از نوت‌بوکِ <code>excitable_systems.ipynb</code> می‌آیند.</p>
+<details class="tip" open="open">
+<summary>تحریک‌پذیری یعنی چه؟</summary>
+<p>سه واقعیتِ تجربی، رفتارِ یک نورونِ تحریک‌پذیر را تعریف می‌کنند:</p>
+<ul>
+<li><strong>استراحت:</strong> بدونِ ورودی، سلول در یک ولتاژِ پایای آرام می‌نشیند.</li>
+<li><strong>آستانه:</strong> یک محرکِ <em>کوچک</em> میرا می‌شود و سلول به استراحت بازمی‌گردد؛ اما محرکی فراتر از یک <strong>آستانه</strong>، یک گردشِ بزرگ — یک <strong>اسپایک</strong> — را پیش از بازگشت رها می‌کند.</li>
+<li><strong>شلیکِ تکراری:</strong> اگر ورودی به‌اندازهٔ کافی بزرگ و پایا باشد، سلول به‌صورتِ ریتمیک و پیوسته اسپایک می‌زند.</li>
+</ul>
+<p>نکتهٔ کلیدی این است که سلول به محرک‌ها <strong>«همه یا هیچ»</strong> پاسخ می‌دهد: کیک‌های کوچک را نادیده می‌گیرد و بزرگ‌ها را به یک اسپایکِ کامل تقویت می‌کند.</p>
+</details>
+<hr />
+<h2 id="_2">از هاجکین–هاکسلی تا فیتزهیو–ناگومو</h2>
+<p>مدلِ کاملِ <a href="https://computational-neuroscience.ir/ch03/">هاجکین–هاکسلی</a> پتانسیلِ عمل را با <strong>چهار</strong> متغیر توصیف می‌کند (ولتاژ به‌علاوهٔ سه دروازهٔ یونی). این مدل دقیق است اما تحلیلِ هندسیِ آن دشوار. فیتزهیو دریافت که می‌توان آن را به یک کاریکاتورِ <strong>دومتغیره</strong> فروکاست که جوهرِ رفتار را نگه می‌دارد:</p>
+<ul>
+<li>یک متغیرِ <strong>سریعِ فعال‌ساز</strong> <span class="arithmatex">\(v\)</span> (شبیهٔ ولتاژ غشا) که بازخوردِ مثبت دارد و بالاروِ تندِ اسپایک را می‌سازد.</li>
+<li>یک متغیرِ <strong>کندِ بازیابی</strong> <span class="arithmatex">\(w\)</span> که با تأخیر سلول را به استراحت بازمی‌کشد (نقشِ غیرفعال‌شدنِ سدیم و فعال‌شدنِ پتاسیم را یک‌جا بازی می‌کند).</li>
+</ul>
+<p>این جداییِ مقیاسِ زمانیِ سریع–کند، همان سازوکارِ نوسانِ واهلشیِ فان‌در‌پل (فصلِ <a href="../ch-dynamics-04-oscillators/">نوسانگرها</a>) است. کاهش به دو بُعد یک پاداشِ بزرگ دارد: می‌توانیم کلِ رفتار را در <strong>صفحهٔ فاز</strong> ببینیم.</p>
+<hr />
+<h2 id="_3">۱. مدل</h2>
+<div class="arithmatex">\[
+\frac{dv}{dt} = v - v^3 - w + I_\text{ext}, \qquad
+\tau\,\frac{dw}{dt} = v - a - b\,w .
+\]</div>
+<ul>
+<li><span class="arithmatex">\(v\)</span>: پتانسیلِ غشای (بی‌بُعد). جملهٔ <span class="arithmatex">\(v - v^3\)</span> همان بازخوردِ مثبتِ غیرخطی است که اسپایک را می‌زند.</li>
+<li><span class="arithmatex">\(w\)</span>: متغیرِ بازیابیِ کند.</li>
+<li><span class="arithmatex">\(\tau\)</span>: ثابتِ زمانیِ بزرگِ بازیابی (اینجا <span class="arithmatex">\(\tau=20\)</span>)؛ بزرگ‌بودنِ آن، «کند»بودنِ <span class="arithmatex">\(w\)</span> را تضمین می‌کند.</li>
+<li><span class="arithmatex">\(I_\text{ext}\)</span>: جریانِ تزریقی.</li>
+<li><span class="arithmatex">\(a, b\)</span>: پارامترهای شکلِ نولکلینِ بازیابی (اینجا <span class="arithmatex">\(a=-0.3\)</span>، <span class="arithmatex">\(b=1.0\)</span>).</li>
+</ul>
+<p>(فیتزهیو–ناگومو چند صورتِ هم‌ارز دارد؛ نسخه‌ای که فصلِ <a href="https://computational-neuroscience.ir/ch-num-06-ode/">حل عددی معادلات دیفرانسیل معمولی</a> به کار برد، بهنجارشِ اندکی متفاوتی دارد اما رفتارِ کیفیِ یکسانی.)</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="kn">import</span> <span class="nn">scipy.integrate</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="linenos" data-linenos=" 5 "></span>
+<span class="linenos" data-linenos=" 6 "></span><span class="k">def</span> <span class="nf">fitzhugh_nagumo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">I</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;FitzHugh-Nagumo flow. x = (v, w): voltage and recovery.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">x</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">v</span> <span class="o">-</span> <span class="n">v</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">w</span> <span class="o">+</span> <span class="n">I</span><span class="p">,</span>
+<span class="linenos" data-linenos="10 "></span>                     <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span> <span class="o">*</span> <span class="n">w</span><span class="p">)</span> <span class="o">/</span> <span class="n">tau</span><span class="p">])</span>
+</code></pre></div>
+<hr />
+<h2 id="_4">۲. مسیرها: آستانه را ببینیم</h2>
+<p>نخست دستگاه را از چند جابه‌جاییِ کوچک و بزرگ از استراحت می‌رانیم ( <span class="arithmatex">\(I=0\)</span> ) و تماشا می‌کنیم. این، نشانهٔ شاخصِ تحریک‌پذیری — وجودِ یک <strong>آستانه</strong> — را آشکار می‌کند.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">base</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;tau&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;I&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="k">for</span> <span class="n">v0</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.9</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">]:</span>        <span class="c1"># increasingly strong kicks from rest</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="n">traj</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">odeint</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">fitzhugh_nagumo</span><span class="p">,</span> <span class="o">**</span><span class="n">base</span><span class="p">),</span>
+<span class="linenos" data-linenos="6 "></span>                                  <span class="n">y0</span><span class="o">=</span><span class="p">(</span><span class="n">v0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4</span><span class="p">),</span> <span class="n">t</span><span class="o">=</span><span class="n">time</span><span class="p">)</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">traj</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;v0 = </span><span class="si">{</span><span class="n">v0</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="8 "></span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p>جابه‌جایی‌های کوچک به‌نرمی به استراحت بازمی‌گردند، اما همین‌که از یک آستانه بگذریم، مسیر یک حلقهٔ بزرگ — یک اسپایکِ کامل — می‌زند و سپس بازمی‌گردد. پاسخ «همه یا هیچ» است.</p>
+<hr />
+<h2 id="nullclines">۳. نولکلین‌ها (nullclines)</h2>
+<p>با صفر قراردادنِ هر مشتق:</p>
+<p>[
+\frac{dv}{dt}=0 \;\Leftrightarrow\; w = v - v^3 + I_\text{ext}\quad\text{(N-shaped cubic nullcline)},
+]
+[
+\frac{dw}{dt}=0 \;\Leftrightarrow\; w = \frac{v - a}{b}\quad\text{(straight line)} .
+]</p>
+<p>تعادل‌ها تقاطعِ این دو هستند. شکلِ N-مانندِ نولکلینِ <span class="arithmatex">\(v\)</span> قلبِ تحریک‌پذیری است: شاخهٔ میانیِ آن (با شیبِ مثبت) ناپایدار است و نقشِ «آستانه» را بازی می‌کند.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">def</span> <span class="nf">plot_nullclines</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">vs</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.2</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mi">400</span><span class="p">)):</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vs</span><span class="p">,</span> <span class="n">vs</span> <span class="o">-</span> <span class="n">vs</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="n">I</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\dot v=0$&quot;</span><span class="p">)</span>     <span class="c1"># cubic</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vs</span><span class="p">,</span> <span class="p">(</span><span class="n">vs</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">b</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\dot w=0$&quot;</span><span class="p">)</span>        <span class="c1"># line</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;v&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="_5">۴. یافتنِ تعادل‌ها — با ریشه‌های چندجمله‌ای</h2>
+<p>برای فیتزهیو–ناگومو، یافتنِ تعادل‌ها از مدلِ پیش هم تمیزتر است: با جای‌گذاریِ خطِ بازیابی در منحنیِ سه‌گانه، به یک <strong>معادلهٔ درجهٔ سومِ دقیق</strong> در <span class="arithmatex">\(v\)</span> می‌رسیم که <code>numpy.roots</code> آن را کامل حل می‌کند (هیچ حدسِ آغازینی لازم نیست):</p>
+<div class="arithmatex">\[
+v^3 + v\!\left(\frac{1}{b}-1\right) - \left(\frac{a}{b}+I_\text{ext}\right) = 0,
+\qquad w^* = v^* - (v^*)^3 + I_\text{ext} .
+\]</div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">def</span> <span class="nf">fhn_equilibria</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">I</span><span class="p">):</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;All real equilibria of FHN, found exactly via the cubic&#39;s roots.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="n">coeffs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">b</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span> <span class="o">+</span> <span class="n">I</span><span class="p">)]</span>       <span class="c1"># v^3 + (1/b - 1) v - (a/b + I)</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="k">return</span> <span class="p">[(</span><span class="n">r</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">real</span> <span class="o">-</span> <span class="n">r</span><span class="o">.</span><span class="n">real</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="n">I</span><span class="p">)</span>
+<span class="linenos" data-linenos="5 "></span>            <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span><span class="n">coeffs</span><span class="p">)</span> <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-9</span><span class="p">]</span>
+</code></pre></div>
+<p>بسته به پارامترها، این می‌تواند یک یا سه ریشهٔ حقیقی بدهد — یعنی یک یا سه تعادل.</p>
+<hr />
+<h2 id="_6">۵. سرشتِ تعادل‌ها: ژاکوبین</h2>
+<p>ژاکوبین را با دست می‌گیریم:</p>
+<div class="arithmatex">\[
+J\big\rvert_{(v,w)} =
+\begin{bmatrix}
+1 - 3v^2 &amp; -1 \\[1ex]
+\dfrac{1}{\tau} &amp; -\dfrac{b}{\tau}
+\end{bmatrix},
+\]</div>
+<p>و با یک تابعِ <code>stability</code> (نسخهٔ فشرده‌ترِ همان تابعِ فصلِ <a href="../ch-dynamics-06-neuro-bistability/">دوپایداری</a>) رده‌بندی می‌کنیم.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">def</span> <span class="nf">fhn_jacobian</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">I</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">v</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">],</span>
+<span class="linenos" data-linenos=" 3 "></span>                     <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="n">tau</span><span class="p">,</span>      <span class="o">-</span><span class="n">b</span><span class="o">/</span><span class="n">tau</span><span class="p">]])</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">def</span> <span class="nf">stability</span><span class="p">(</span><span class="n">J</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Classify a 2x2 Jacobian via trace and determinant.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="n">det</span><span class="p">,</span> <span class="n">trace</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">J</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">J</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">if</span> <span class="n">det</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="k">return</span> <span class="s2">&quot;Saddle&quot;</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="n">nature</span> <span class="o">=</span> <span class="s2">&quot;Stable&quot;</span> <span class="k">if</span> <span class="n">trace</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;Unstable&quot;</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="n">nature</span> <span class="o">+=</span> <span class="s2">&quot; focus&quot;</span> <span class="k">if</span> <span class="p">(</span><span class="n">trace</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">det</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot; node&quot;</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="k">return</span> <span class="n">nature</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span><span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">fhn_equilibria</span><span class="p">(</span><span class="o">**</span><span class="n">base</span><span class="p">):</span>
+<span class="linenos" data-linenos="15 "></span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">stability</span><span class="p">(</span><span class="n">fhn_jacobian</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="o">**</span><span class="n">base</span><span class="p">))</span><span class="si">:</span><span class="s2">14s</span><span class="si">}</span><span class="s2"> at v* = </span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">+.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">همان الگو با <code>sympy</code></p>
+<p>اگر ترجیح می‌دهید مشتق‌ها را با دست نگیرید، <code>sympy</code> (مانندِ فصلِ پیش) ژاکوبین را خودکار می‌سازد. الگوی کار دقیقاً یکسان است: یک ماتریسِ نمادینِ جریان تعریف کنید، <code>.jacobian</code> بگیرید، و با <code>lambdify</code> به تابعِ عددی بدل کنید.</p>
+</div>
+<hr />
+<h2 id="_7">۶. نمودارِ کاملِ فاز: استراحت در برابرِ شلیک</h2>
+<p>اکنون همه‌چیز را در صفحهٔ فاز گرد می‌آوریم، برای دو رژیمِ کلیدی.</p>
+<p><img alt="Image title" src="../dynsys_fhn_phase.png" /></p>
+<p><em>صفحهٔ فازِ فیتزهیو–ناگومو ( <span class="arithmatex">\(a=-0.3,\,b=1.0,\,\tau=20\)</span> ). منحنیِ سه‌گانهٔ فیروزه‌ای نولکلینِ <span class="arithmatex">\(\dot v=0\)</span> و خطِ نارنجی نولکلینِ <span class="arithmatex">\(\dot w=0\)</span> است؛ تقاطعشان نقطهٔ ثابت است. </em><em>چپ ( <span class="arithmatex">\(I=0\)</span> ):</em><em> یک نقطهٔ ثابتِ </em>پایدارِ<em> واحد (آبی) — حالتِ استراحت؛ مسیرهای کیک‌های کوچک (خاکستری) بازمی‌گردند، اما کیکی فراتر از شاخهٔ میانیِ منحنی یک حلقهٔ بلند (اسپایک) می‌زند. </em><em>راست ( <span class="arithmatex">\(I=0.4\)</span> ):</em><em> نقطهٔ ثابت اکنون </em>ناپایدار<em> (قرمز) است و یک </em><em>چرخهٔ حدیِ پایدار</em><em> (حلقهٔ قرمز) آن را در بر گرفته — نورون به‌صورتِ دوره‌ای اسپایک می‌زند.</em></p>
+<p>همین دو رژیم را به‌صورتِ ردِ ولتاژ نیز می‌توان دید:</p>
+<p><img alt="Image title" src="../dynsys_fhn_timeseries.png" /></p>
+<p><em>پتانسیلِ غشای <span class="arithmatex">\(v(t)\)</span> برای همان دو حالت. </em><em>چپ ( <span class="arithmatex">\(I=0\)</span> ):</em><em> کیک‌های کوچک میرا می‌شوند؛ یک کیکِ بزرگ‌تر یک اسپایک تولید می‌کند و سپس خاموشی (تحریک‌پذیر اما بدونِ نوسانِ پایا). </em><em>راست ( <span class="arithmatex">\(I=0.4\)</span> ):</em><em> شلیکِ پایدار و دوره‌ای — چهرهٔ زمانیِ چرخهٔ حدی.</em></p>
+<p>به‌یاد بیاورید (فصلِ <a href="../ch-dynamics-04-oscillators/">نوسانگرها</a>) که گذار از «نقطهٔ ثابتِ پایدار» به «چرخهٔ حدی» نشانهٔ یک <strong>انشعابِ هاپف</strong> است. بیایید این را دقیق‌تر بررسی کنیم.</p>
+<hr />
+<h2 id="i">۷. نمودارِ انشعاب در <span class="arithmatex">\(I\)</span>: دو هاپف و انسدادِ تحریک</h2>
+<p>اکنون پرسشِ پژوهشی: <strong>با افزایشِ تدریجیِ جریانِ <span class="arithmatex">\(I_\text{ext}\)</span>، رفتارِ نورون چگونه تغییر می‌کند؟</strong> جریان را جارو می‌کنیم و تعادل را در هر مقدار رده‌بندی می‌کنیم.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">I_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">for</span> <span class="n">I</span> <span class="ow">in</span> <span class="n">I_values</span><span class="p">:</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="n">p</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;tau&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;I&quot;</span><span class="p">:</span> <span class="n">I</span><span class="p">}</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">fhn_equilibria</span><span class="p">(</span><span class="o">**</span><span class="n">p</span><span class="p">):</span>
+<span class="linenos" data-linenos="5 "></span>        <span class="n">nature</span> <span class="o">=</span> <span class="n">stability</span><span class="p">(</span><span class="n">fhn_jacobian</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="o">**</span><span class="n">p</span><span class="p">))</span>
+<span class="linenos" data-linenos="6 "></span>        <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;C0&quot;</span> <span class="k">if</span> <span class="n">nature</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Stable&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;C3&quot;</span>
+<span class="linenos" data-linenos="7 "></span>        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="linenos" data-linenos="8 "></span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$I_{\rm ext}$&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$v^*$&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="Image title" src="../dynsys_fhn_bifurcation.png" /></p>
+<p><em>نمودارِ انشعابِ فیتزهیو–ناگومو: پتانسیلِ پایای <span class="arithmatex">\(v^*\)</span> بر حسبِ جریانِ تزریقیِ <span class="arithmatex">\(I_\text{ext}\)</span> ( <span class="arithmatex">\(b=1.0\)</span> ). آبی نقطهٔ ثابتِ پایدار و قرمز نقطهٔ ناپایدار است. نقطهٔ ثابت در جریان‌های کم و زیاد پایدار و </em><em>در نوارِ سایه‌خوردهٔ میانی</em><em> ناپایدار است، که با دو </em><em>انشعابِ هاپف</em><em> کران‌دار شده. درونِ این نوار، حالتِ استراحتِ پایدار جای خود را به یک چرخهٔ حدی می‌دهد — این همان گسترهٔ شلیکِ نورون است.</em></p>
+<p>دو نکتهٔ مهم در این نمودار:</p>
+<ol>
+<li>
+<p><strong>آغازِ شلیک (هاپفِ پایینی):</strong> با افزایشِ <span class="arithmatex">\(I\)</span> از صفر، در یک مقدارِ بحرانی، <span class="arithmatex">\(\operatorname{Tr}(J)\)</span> از صفر می‌گذرد، تعادل ناپایدار می‌شود، و چرخهٔ حدی زاده می‌شود. اینجا نورون «روشن» می‌شود.</p>
+</li>
+<li>
+<p><strong>انسدادِ تحریک (هاپفِ بالایی):</strong> در یک جریانِ <em>بزرگ‌ترِ</em> دوم، تعادل پایداری‌اش را <strong>بازمی‌یابد</strong> و شلیک متوقف می‌شود. این پدیدهٔ شگفت — <strong>انسدادِ تحریک</strong> (excitation block، یا <em>انسدادِ دپلاریزاسیون</em>) — برخلافِ شهود است: جریانِ بیش‌ازحد، نورون را <em>خاموش</em> می‌کند و در یک حالتِ پایای بالا و دپلاریزه‌شده میخکوب می‌کند. شلیک تنها در <strong>نوارِ میانِ دو هاپف</strong> زندگی می‌کند.</p>
+</li>
+</ol>
+<hr />
+<h2 id="fi">۸. دو ردهٔ تحریک‌پذیری: منحنیِ بسامد–جریان (f–I)، نوعِ ۱ و نوعِ ۲</h2>
+<p>در بخشِ پیش دیدیم که فیتزهیو–ناگومو با عبور از یک <strong>انشعابِ هاپف</strong> روشن می‌شود. اما این تنها راهِ روشن‌شدنِ یک نورون نیست. پرسشِ کلیدی این است: با افزایشِ تدریجیِ جریان، <strong>بسامدِ شلیک چگونه از صفر آغاز می‌شود؟</strong> پاسخ، نورون‌ها را به دو ردهٔ بنیادی تقسیم می‌کند که آلن هاجکین نخستین‌بار در ۱۹۴۸ بر پایهٔ آزمایش شناختشان، و هر رده با نوعِ متفاوتی از انشعاب همراه است.</p>
+<h3 id="fi_1">منحنیِ بسامد–جریان (f–I)</h3>
+<p><strong>منحنیِ بسامد–جریان</strong> (frequency–current curve، کوتاه‌شده f–I) نمودارِ بسامدِ شلیکِ پایای <span class="arithmatex">\(f\)</span> بر حسبِ جریانِ ثابتِ تزریقیِ <span class="arithmatex">\(I\)</span> است. ساختنش ساده است: به ازای هر <span class="arithmatex">\(I\)</span>، مدل را به‌قدرِ کافی طولانی می‌رانیم تا گذارها فروکش کند؛ سپس یا دستگاه به یک نقطهٔ ثابت می‌نشیند (<span class="arithmatex">\(f=0\)</span>، بدونِ شلیک) یا روی یک چرخهٔ حدی می‌افتد که در آن صورت <span class="arithmatex">\(f\)</span> را از <strong>دورهٔ</strong> آن (فاصلهٔ زمانیِ میانِ دو اسپایک) می‌خوانیم. آنچه بیش از همه اهمیت دارد، <strong>شکلِ این منحنی درست در آستانهٔ شلیک</strong> است.</p>
+<h3 id="_8">نوعِ ۲: روشن‌شدنِ ناپیوسته از راهِ هاپف</h3>
+<p>فیتزهیو–ناگومو نمونهٔ رده‌ای است که هاجکین آن را <strong>ردهٔ ۲</strong> (Class 2) نامید. چون شلیک از راهِ یک انشعابِ هاپف زاده می‌شود، چرخهٔ حدی از همان آغاز با یک <strong>بسامدِ ناصفر</strong> ظاهر می‌شود — به یاد آورید که بخشِ موهومیِ مقادیرِ ویژه در نقطهٔ هاپف، آهنگِ چرخش را تعیین می‌کند و در آستانه صفر نیست. پس همین‌که <span class="arithmatex">\(I\)</span> از مقدارِ بحرانی بگذرد، بسامد از صفر به یک مقدارِ متناهی <strong>می‌پرد</strong>: منحنیِ f–I در آستانه <strong>ناپیوسته</strong> است و نورون یک <strong>کمینه‌بسامدِ شلیکِ ناصفر</strong> دارد.</p>
+<h3 id="snic">نوعِ ۱: روشن‌شدنِ پیوسته از راهِ SNIC</h3>
+<p>راهِ دوم ظریف‌تر و در قشرِ مغز رایج‌تر است. فرض کنید در صفحهٔ فاز یک <strong>دایرهٔ ناوردا</strong> (invariant circle) هست: حلقه‌ای بسته که مسیرها نمی‌توانند از آن بیرون بروند. زیرِ آستانه، دو نقطهٔ ثابت روی این دایره نشسته‌اند: یک <strong>گرهِ پایدار</strong> (استراحت) و یک <strong>زین</strong> (آستانه). با افزایشِ <span class="arithmatex">\(I\)</span> این دو به هم نزدیک می‌شوند، برخورد می‌کنند و در یک <strong>انشعابِ زین–گره</strong> (فصلِ <a href="../ch-dynamics-01-revision/">مرور مفاهیم پایه</a>) یکدیگر را نابود می‌کنند — اما این‌بار برخورد <strong>روی همان دایرهٔ ناوردا</strong> رخ می‌دهد. لحظه‌ای که نقاطِ ثابت ناپدید می‌شوند، دایره چاره‌ای جز تبدیل‌شدن به یک <strong>چرخهٔ حدی</strong> ندارد و شلیکِ دوره‌ای آغاز می‌شود. این سازوکار را <strong>انشعابِ زین–گره روی دایرهٔ ناوردا</strong> (saddle-node on an invariant circle، کوتاه‌شده <strong>SNIC</strong>) می‌نامند.</p>
+<p><img alt="Image title" src="../dynsys_snic_circle.png" /></p>
+<p><em>سازوکارِ SNIC روی نورونِ تتا. دایرهٔ فیروزه‌ای همان دایرهٔ ناوردا و پیکان‌های خاکستری جریانِ روی آن‌اند؛ نقطهٔ شلیک در <span class="arithmatex">\(\theta=\pi\)</span> (سمتِ چپ) است. </em><em>چپ ( <span class="arithmatex">\(I&lt;I_c\)</span> ):</em><em> دو نقطهٔ ثابت روی دایره‌اند — یک گرهِ پایدار (استراحت، آبی) و یک نقطهٔ ناپایدار که در یک مدلِ دوبُعدی یک زین است (آستانه، قرمز)؛ همهٔ مسیرها سرانجام به استراحت می‌رسند. </em><em>راست ( <span class="arithmatex">\(I&gt;I_c\)</span> ):</em><em> نقاطِ ثابت نابود شده‌اند و دایره یک چرخهٔ حدیِ کامل است؛ جریان بی‌وقفه می‌چرخد و نورون به‌صورتِ دوره‌ای شلیک می‌کند.</em></p>
+<p>نکتهٔ سرنوشت‌ساز در <strong>بسامدِ</strong> شلیکِ تازه‌زاده است. درست پس از آنکه زین و گره ناپدید می‌شوند، یک <strong>شبح</strong> (ghost) از آن‌ها بر جای می‌ماند: ناحیه‌ای که جریان در آن بسیار کند است، چون تازه از صفر فاصله گرفته. مسیر، بیشترِ دورهٔ خود را صرفِ خزیدن از میانِ این گلوگاهِ کند می‌کند. می‌توان نشان داد (تمرینِ ۲) که زمانِ عبور از شبحِ یک زین–گره مانندِ <span class="arithmatex">\(1/\sqrt{I-I_c}\)</span> واگرا می‌شود؛ پس دوره به بی‌نهایت می‌رود و بسامد <strong>به‌صورتِ پیوسته از صفر</strong> آغاز می‌شود، با قانونِ مشخصِ</p>
+<div class="arithmatex">\[
+f \;\propto\; \sqrt{I - I_c}\,.
+\]</div>
+<p>این همان <strong>ردهٔ ۱</strong> (Class 1) هاجکین است: منحنیِ f–I پیوسته است و نورون می‌تواند با بسامدِ <strong>دلخواه‌کوچک</strong> شلیک کند.</p>
+<p><img alt="Image title" src="../dynsys_fi_curves.png" /></p>
+<p><em>دو ردهٔ تحریک‌پذیری از روی منحنیِ f–I. </em><em>چپ (نوعِ ۱ / SNIC):</em><em> بسامد به‌صورتِ پیوسته و با شیبِ عمودیِ <span class="arithmatex">\(\sqrt{I-I_c}\)</span> از صفر بالا می‌آید؛ هیچ کمینه‌بسامدی وجود ندارد. </em><em>راست (نوعِ ۲ / هاپف، محاسبه‌شده برای فیتزهیو–ناگومو):</em><em> بسامد در آستانه </em><em>می‌پرد</em><em> و نورون کمینه‌بسامدِ ناصفر دارد؛ در جریانِ زیاد نیز شلیک ناگهان قطع می‌شود (انسدادِ تحریکِ بخشِ ۷). توجه کنید که محورهای عمودی هم‌مقیاس نیستند — آنچه اهمیت دارد شکلِ منحنی در آستانه است.</em></p>
+<h3 id="qif">کمینه‌مدلِ ردهٔ ۱: نورونِ QIF و نورونِ تتا</h3>
+<p>همان‌طور که <span class="arithmatex">\(\dot x = x^2 + a\)</span> کمینه‌مثالِ یک انشعابِ زین–گره بود، یک کمینه‌مدلِ نورونی هم برای ردهٔ ۱ هست: نورونِ <strong>درجه‌دومِ یکپارچه‌و‌شلیک</strong> (quadratic integrate-and-fire، QIF):</p>
+<div class="arithmatex">\[
+\frac{dv}{dt} = v^2 + I,
+\]</div>
+<p>با این قاعده که هرگاه <span class="arithmatex">\(v\)</span> به <span class="arithmatex">\(+\infty\)</span> بگریزد، یک اسپایک ثبت و <span class="arithmatex">\(v\)</span> به مقداری منفی و بزرگ بازنشانی می‌شود.</p>
+<ul>
+<li><strong>برای <span class="arithmatex">\(I&lt;0\)</span>:</strong> دو نقطهٔ ثابت در <span class="arithmatex">\(v^*=\pm\sqrt{-I}\)</span> هست؛ <span class="arithmatex">\(-\sqrt{-I}\)</span> پایدار (استراحت) و <span class="arithmatex">\(+\sqrt{-I}\)</span> ناپایدار (آستانه) — همان دو نقطهٔ روی دایرهٔ ناوردا.</li>
+<li><strong>برای <span class="arithmatex">\(I&gt;0\)</span>:</strong> هیچ نقطهٔ ثابتی نمی‌ماند؛ <span class="arithmatex">\(v\)</span> در زمانِ متناهی می‌گریزد، بازنشانی می‌شود و باز می‌گریزد. با انتگرال‌گیری از <span class="arithmatex">\(dv/(v^2+I)\)</span> دوره برابرِ <span class="arithmatex">\(T=\pi/\sqrt{I}\)</span> و بنابراین <span class="arithmatex">\(f = \sqrt{I}/\pi\)</span> — دقیقاً همان قانونِ پیوستهٔ <span class="arithmatex">\(\sqrt{I-I_c}\)</span> با <span class="arithmatex">\(I_c=0\)</span>.</li>
+</ul>
+<p>اگر همین معادله را با تغییرِ متغیرِ <span class="arithmatex">\(v=\tan(\theta/2)\)</span> روی یک دایره بپیچیم، به <strong>نورونِ تتا</strong> (theta neuron) می‌رسیم — که همان دایرهٔ ناوردای شکلِ بالاست. QIF و نورونِ تتا دو نمایِ یک چیزند و <strong>صورتِ نرمالِ</strong> جهانیِ هر نورونِ ردهٔ ۱ به‌شمار می‌آیند. (این مدل‌ها را دوباره و با جزئیاتِ بیشتر در فصلِ مدل‌های ساده‌شدهٔ نورون خواهیم دید.)</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">def</span> <span class="nf">qif_rate</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">v_reset</span><span class="o">=-</span><span class="mf">100.0</span><span class="p">,</span> <span class="n">v_peak</span><span class="o">=</span><span class="mf">100.0</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Firing rate of the quadratic integrate-and-fire neuron  dv/dt = v^2 + I.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">if</span> <span class="n">I</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="k">return</span> <span class="mf">0.0</span>                       <span class="c1"># rest + threshold coexist: no firing</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="c1"># period = integral of dv / (v^2 + I) from v_reset to v_peak</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="n">T</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">v_peak</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">I</span><span class="p">))</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">v_reset</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">I</span><span class="p">)))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">return</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">T</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="n">I_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="linenos" data-linenos="12 "></span><span class="n">rates</span> <span class="o">=</span> <span class="p">[</span><span class="n">qif_rate</span><span class="p">(</span><span class="n">I</span><span class="p">)</span> <span class="k">for</span> <span class="n">I</span> <span class="ow">in</span> <span class="n">I_values</span><span class="p">]</span>      <span class="c1"># continuous rise from zero at I = 0</span>
+</code></pre></div>
+<h3 id="_9">انتگرال‌گر در برابر تشدیدگر</h3>
+<p>این دو رده تنها تفاوتی صوری در منحنیِ f–I نیستند؛ دو <strong>سبکِ محاسباتیِ</strong> متفاوت‌اند.</p>
+<ul>
+<li>نورون‌های <strong>ردهٔ ۱ (SNIC)</strong> مانندِ یک <strong>انتگرال‌گر</strong> (integrator) رفتار می‌کنند: نوسانِ زیرِآستانه ندارند، به ورودی‌های هم‌زمان پاسخِ انباشتی می‌دهند، و می‌توانند با هر بسامدِ کوچکی شلیک کنند.</li>
+<li>نورون‌های <strong>ردهٔ ۲ (هاپف)</strong> مانندِ یک <strong>تشدیدگر</strong> (resonator) رفتار می‌کنند: نوسانِ زیرِآستانه دارند، به ورودی‌هایی با بسامدِ نزدیک به بسامدِ ذاتیِ خود حساس‌ترند، و کمینه‌بسامدِ ناصفر دارند.</li>
+</ul>
+<p>این تمایز — که ایژیکویچ آن را به‌تفصیل شکافته — تعیین می‌کند که یک نورون در یک شبکه چگونه اطلاعات را کدگذاری و با دیگران هماهنگ می‌کند. جدولِ زیر دو راه را کنارِ هم می‌گذارد:</p>
+<table>
+<thead>
+<tr>
+<th>ویژگی</th>
+<th>نوعِ ۱ (SNIC)</th>
+<th>نوعِ ۲ (هاپف)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>انشعابِ آغازِ شلیک</td>
+<td>زین–گره روی دایرهٔ ناوردا</td>
+<td>هاپف</td>
+</tr>
+<tr>
+<td>منحنیِ f–I در آستانه</td>
+<td>پیوسته، <span class="arithmatex">\(f\propto\sqrt{I-I_c}\)</span></td>
+<td>ناپیوسته (می‌پرد)</td>
+</tr>
+<tr>
+<td>کمینه‌بسامدِ شلیک</td>
+<td>صفر (دلخواه‌کوچک)</td>
+<td>ناصفر</td>
+</tr>
+<tr>
+<td>نوسانِ زیرِآستانه</td>
+<td>ندارد</td>
+<td>دارد</td>
+</tr>
+<tr>
+<td>سبکِ محاسباتی</td>
+<td>انتگرال‌گر</td>
+<td>تشدیدگر</td>
+</tr>
+<tr>
+<td>ردهٔ هاجکین (۱۹۴۸)</td>
+<td>ردهٔ ۱</td>
+<td>ردهٔ ۲</td>
+</tr>
+<tr>
+<td>کمینه‌مدل</td>
+<td>QIF / نورونِ تتا</td>
+<td>فیتزهیو–ناگومو</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example">
+<p class="admonition-title">تمرین‌ها (نوعِ ۱ و نوعِ ۲)</p>
+<ol>
+<li>
+<p><strong>قانونِ ریشهٔ دوم.</strong> برای QIF با <span class="arithmatex">\(I&gt;0\)</span> نشان دهید که <span class="arithmatex">\(\int_{-\infty}^{\infty} dv/(v^2+I)=\pi/\sqrt{I}\)</span> و از آنجا <span class="arithmatex">\(f=\sqrt{I}/\pi\)</span>. با کدِ <code>qif_rate</code> بررسی کنید که با بزرگ‌شدنِ دامنهٔ بازنشانی، منحنی به این حدِ پیوسته نزدیک می‌شود.</p>
+</li>
+<li>
+<p><strong>شبحِ زین–گره.</strong> برای <span class="arithmatex">\(\dot x = x^2 + a\)</span> با <span class="arithmatex">\(a&gt;0\)</span>، زمانِ عبورِ <span class="arithmatex">\(x\)</span> از <span class="arithmatex">\(-\infty\)</span> تا <span class="arithmatex">\(+\infty\)</span> را حساب کنید و تأیید کنید که مانندِ <span class="arithmatex">\(1/\sqrt{a}\)</span> رفتار می‌کند. توضیح دهید چرا همین، قانونِ <span class="arithmatex">\(f\propto\sqrt{I-I_c}\)</span> را برای نورون‌های ردهٔ ۱ توجیه می‌کند.</p>
+</li>
+</ol>
+</div>
+<hr />
+<h2 id="i-b">۹. راهِ پژوهش (الف): نقشهٔ رفتار در صفحهٔ <span class="arithmatex">\((I, b)\)</span></h2>
+<p>نمودارِ تک‌پارامتری بالا تنها برشی از تصویرِ کامل است. پرسشِ عمیق‌تر این است که رفتار چگونه به <strong>دو</strong> پارامتر هم‌زمان بستگی دارد. جریانِ <span class="arithmatex">\(I\)</span> و پارامترِ بازیابیِ <span class="arithmatex">\(b\)</span> را جارو می‌کنیم و در هر نقطهٔ <span class="arithmatex">\((I,b)\)</span> رفتار را رده‌بندی می‌کنیم: <strong>تک‌پایدار</strong> (یک تعادلِ پایدار = استراحت)، <strong>دوپایدار</strong> (دو تعادلِ پایدار)، یا <strong>شلیکِ دوره‌ای</strong> (هیچ تعادلِ پایداری نیست ← چرخهٔ حدی).</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">def</span> <span class="nf">fhn_regime</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">I</span><span class="p">):</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Label the (I, b) cell as monostable / bistable / periodic.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="n">eqs</span> <span class="o">=</span> <span class="n">fhn_equilibria</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">I</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="n">stable</span> <span class="o">=</span> <span class="p">[(</span><span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">fhn_jacobian</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">I</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span>
+<span class="linenos" data-linenos="5 "></span>               <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">fhn_jacobian</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">I</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos" data-linenos="6 "></span>              <span class="k">for</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">eqs</span><span class="p">]</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">stable</span><span class="p">):</span>
+<span class="linenos" data-linenos="8 "></span>        <span class="k">return</span> <span class="s2">&quot;periodic&quot;</span>
+<span class="linenos" data-linenos="9 "></span>    <span class="k">return</span> <span class="s2">&quot;bistable&quot;</span> <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="n">stable</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="k">else</span> <span class="s2">&quot;monostable&quot;</span>
+</code></pre></div>
+<p><img alt="Image title" src="../fhn_codim2.png" /></p>
+<p><em>نقشهٔ رفتارِ فیتزهیو–ناگومو در صفحهٔ <span class="arithmatex">\((I_\text{ext}, b)\)</span>. آبی: تک‌پایدار (استراحت). بنفش: دوپایدار. قرمز: شلیکِ دوره‌ای (چرخهٔ حدی). مرزهای میانِ این نواحی خمینه‌های انشعاب‌اند (هاپف و زین–گره) که در نقاطی </em><em>هم‌بُعدِ‌دو</em><em> به هم می‌رسند. این نوع نقشه دقیقاً همان چیزی است که در مقاله‌های واقعیِ دینامیکِ نورونی برای رده‌بندیِ «نوعِ تحریک‌پذیریِ» یک نورون به کار می‌رود.</em></p>
+<p>این نقشه ربطِ مستقیم به علوم اعصاب دارد: ردهٔ تحریک‌پذیریِ یک نورون (نوعِ ۱ در برابرِ نوعِ ۲، بخشِ ۸) با همین ساختارِ انشعاب در فضای پارامتر تعیین می‌شود — مرزهای هاپف به نوعِ ۲ و مرزهای زین–گره (SNIC) به نوعِ ۱ می‌انجامند.</p>
+<hr />
+<h2 id="_10">۱۰. راهِ پژوهش (ب): ورودیِ وابسته به زمان</h2>
+<p>تا اینجا <span class="arithmatex">\(I_\text{ext}\)</span> را ثابت نگه داشتیم تا دستگاه خودگردان بماند. اما نورون‌های واقعی ورودیِ <strong>متغیر با زمان</strong> می‌گیرند. با <span class="arithmatex">\(I_\text{ext}=I_\text{ext}(t)\)</span> دستگاه <strong>ناخودگردان</strong> می‌شود؛ دیگر نمی‌توان از «نقاطِ ثابتِ» ساده حرف زد، اما شهودِ صفحهٔ فاز همچنان راهنماست — کافی است ببینیم با بالا‌و‌پایین‌رفتنِ نولکلینِ <span class="arithmatex">\(v\)</span> همراهِ ورودی، مسیر چه می‌کند.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">def</span> <span class="nf">fhn_driven</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">I_of_t</span><span class="p">):</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">x</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">v</span> <span class="o">-</span> <span class="n">v</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">w</span> <span class="o">+</span> <span class="n">I_of_t</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="o">*</span><span class="n">w</span><span class="p">)</span><span class="o">/</span><span class="n">tau</span><span class="p">])</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="n">step</span>     <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="mi">120</span> <span class="k">else</span> <span class="mf">0.4</span>
+<span class="linenos" data-linenos="6 "></span><span class="n">periodic</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="mf">0.25</span> <span class="o">+</span> <span class="mf">0.25</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">0.10</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+</code></pre></div>
+<p><img alt="Image title" src="../fhn_nonautonomous.png" /></p>
+<p><em>پاسخِ فیتزهیو–ناگومو به ورودیِ وابسته به زمان (منحنیِ نارنجی ورودی، آبی پاسخِ <span class="arithmatex">\(v(t)\)</span>). </em><em>بالا — ورودیِ پله‌ای:</em><em> سلول تا لحظهٔ پله خاموش است، سپس وارد رژیمِ شلیک می‌شود. </em><em>پایین — ورودیِ کندِ دوره‌ای:</em><em> هرگاه ورودی از آستانهٔ شلیک بالا برود، </em><em>دسته‌ای از اسپایک‌ها</em><em> ظاهر می‌شود و هرگاه پایین بیاید، خاموشی — یک الگوی دسته‌ای (bursting) که با آهنگِ ورودی هم‌گام است.</em></p>
+<p>با گسترشِ این ایده می‌توان چهار نوعِ ورودی را در کنارِ هم بررسی کرد. شکلِ زیر (با <span class="arithmatex">\(b=1.4\)</span> و دو شرطِ اولیه) همین کار را می‌کند و یک رفتارِ تازه را نیز آشکار می‌سازد: اگر در یک <strong>پلهٔ دوم</strong> جریان را بسیار بزرگ کنیم، سلول از شلیک به یک <strong>حالتِ پایای دپلاریزه</strong> می‌پرد — همان <strong>انسدادِ تحریکِ</strong> بخشِ ۷، این‌بار در حوزهٔ زمان.</p>
+<p><img alt="Image title" src="../fhn_input_scenarios.png" /></p>
+<p><em>پاسخِ فیتزهیو–ناگومو ( <span class="arithmatex">\(b=1.4\)</span> ) به چهار نوعِ ورودی (منحنیِ سبز ورودیِ <span class="arithmatex">\(I\)</span>، آبی پاسخِ <span class="arithmatex">\(v\)</span>)؛ دو ستون، دو شرطِ اولیهٔ متفاوت. </em><em>ردیفِ ۱ — پله:</em><em> خاموشی، سپس شلیکِ منظم. </em><em>ردیفِ ۲ — پلهٔ دوگانه:</em><em> شلیک پس از پلهٔ نخست، و سپس </em><em>انسدادِ تحریک</em><em> (نشستن در یک حالتِ بالا) پس از پلهٔ بزرگ‌ترِ دوم. </em><em>ردیفِ ۳ — ورودیِ دوره‌ای:</em><em> هم‌گامیِ شلیک با آهنگِ ورودی. </em><em>ردیفِ ۴ — جریانِ ورودیِ نوفه‌ای:</em><em> پاسخِ نامنظمِ سلول به یک ورودیِ تصادفی. توجه کنید که پاسخ به شرطِ اولیه تقریباً ناوابسته است (دو ستون بسیار شبیه‌اند) — نشانهٔ آنکه دینامیکِ بلندمدت را ورودی تعیین می‌کند، نه نقطهٔ آغاز.</em></p>
+<hr />
+<h2 id="_11">۱۱. راهِ پژوهش (ج): نوفه و شلیکِ القاشده با نوفه</h2>
+<p>سرانجام، نورون‌های واقعی <strong>نوفه‌ای‌اند</strong>. معادلهٔ معمولی را با یک <strong>معادلهٔ دیفرانسیلِ تصادفی</strong> (SDE) جایگزین می‌کنیم و با طرحِ <strong>اویلر–مارویاما</strong> (فصلِ <a href="https://computational-neuroscience.ir/ch-num-07-sde/">حل عددی معادلات دیفرانسیل تصادفی</a>) حل می‌کنیم — همان اویلرِ پیشرو با یک جملهٔ نوفه که با <span class="arithmatex">\(\sqrt{dt}\)</span> مقیاس می‌خورد:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">def</span> <span class="nf">euler_maruyama</span><span class="p">(</span><span class="n">drift</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+<span class="linenos" data-linenos="2 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Integrate dY = drift(Y,t) dt + sigma dB (noise on v only).&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">y0</span><span class="p">)))</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">y0</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">dt</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="mi">1</span><span class="p">):</span>
+<span class="linenos" data-linenos="6 "></span>        <span class="n">dB</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">))</span>
+<span class="linenos" data-linenos="7 "></span>        <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">drift</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="n">n</span><span class="p">])</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">sigma</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span> <span class="o">*</span> <span class="n">dB</span>
+<span class="linenos" data-linenos="8 "></span>    <span class="k">return</span> <span class="n">y</span>
+</code></pre></div>
+<p>اگر سلول را در رژیمِ تحریک‌پذیر، کمی <strong>زیرِ</strong> آستانهٔ شلیک، نگه داریم و نوفه بیفزاییم، نشانهٔ شاخصِ تحریک‌پذیری پدیدار می‌شود: بیشترِ نوسان‌ها میرا می‌شوند، اما گردشِ بزرگِ گاه‌به‌گاه از آستانه می‌گذرد و یک اسپایکِ کامل می‌زند.</p>
+<p><img alt="Image title" src="../fhn_sde.png" /></p>
+<p><em>شلیکِ القاشده با نوفه در رژیمِ تحریک‌پذیر ( <span class="arithmatex">\(I=0.05\)</span>، اندکی زیرِ آستانه). </em><em>بالا — بدونِ نوفه:</em><em> سلول پس از یک پاسخِ گذرا، آرام زیرِ آستانه می‌نشیند. </em><em>پایین — با نوفه:</em><em> نوفهٔ تصادفی گاه‌به‌گاه سلول را از آستانه می‌گذراند و اسپایک‌هایی با فاصله‌های نامنظم تولید می‌کند. این، سازوکارِ بنیادیِ شلیکِ خودبه‌خودیِ نورون‌ها در نبودِ ورودیِ معیّن است.</em></p>
+<p>برای دیدنِ روشن‌ترِ نقشِ نوفه، سودمند است که مسیرِ <strong>تصادفی</strong> (SDE) را در کنارِ مسیرِ <strong>قطعیِ</strong> متناظر (ODE) رسم کنیم. در دو رژیم: استراحت ( <span class="arithmatex">\(I=0\)</span> ) و شلیک ( <span class="arithmatex">\(I=0.23\)</span> )، با <span class="arithmatex">\(b=1.4\)</span> — مقداری که سلول را نزدیکِ مرزِ هاپف نگه می‌دارد و اثرِ نوفه را برجسته می‌کند.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">scipy.integrate</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="n">scenarios</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;tau&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mf">1.4</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;I&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">},</span>
+<span class="linenos" data-linenos=" 4 "></span>             <span class="p">{</span><span class="s2">&quot;tau&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mf">1.4</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;I&quot;</span><span class="p">:</span> <span class="mf">0.23</span><span class="p">}]</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="n">initial_conditions</span> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.16</span><span class="p">)]</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="n">time_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">20001</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="n">trajectory</span><span class="p">,</span> <span class="n">stochastic</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">param</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">scenarios</span><span class="p">):</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="n">flow</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">fitzhugh_nagumo</span><span class="p">,</span> <span class="o">**</span><span class="n">param</span><span class="p">)</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">ic</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">initial_conditions</span><span class="p">):</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="n">trajectory</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">odeint</span><span class="p">(</span><span class="n">flow</span><span class="p">,</span> <span class="n">ic</span><span class="p">,</span> <span class="n">time_s</span><span class="p">)</span>        <span class="c1"># ODE</span>
+<span class="linenos" data-linenos="13 "></span>        <span class="n">stochastic</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">euler_maruyama</span><span class="p">(</span><span class="n">flow</span><span class="p">,</span> <span class="mf">0.16</span><span class="p">,</span> <span class="n">ic</span><span class="p">,</span> <span class="n">time_s</span><span class="p">)</span>          <span class="c1"># SDE</span>
+</code></pre></div>
+<p><img alt="Image title" src="../fhn_sde_trajectories.png" /></p>
+<p><em>مقایسهٔ مسیرِ تصادفی (خطِ توپُر، v (SDE)) با مسیرِ قطعی (خط‌چین، v (ODE)) برای دو شرطِ اولیه. </em><em>ردیفِ بالا ( <span class="arithmatex">\(I=0\)</span> ):</em><em> مسیرِ قطعی در استراحت می‌ماند (خطِ افقیِ پایین)، اما نوفه گاه‌به‌گاه اسپایک‌های منفرد می‌سازد — </em>شلیکِ القاشده با نوفه<em>. </em><em>ردیفِ پایین ( <span class="arithmatex">\(I=0.23\)</span> ):</em><em> مسیرِ قطعی روی یک چرخهٔ حدیِ منظم شلیک می‌کند، و نوفه تنها زمان‌بندیِ اسپایک‌ها را اندکی به‌هم می‌ریزد (لرزشِ فاز).</em></p>
+<p>و همین مسیرها در صفحهٔ فاز، روی میدانِ برداری و نولکلین‌ها:</p>
+<p><img alt="Image title" src="../fhn_sde_phase.png" /></p>
+<p><em>مسیرهای تصادفی در صفحهٔ فاز ( <span class="arithmatex">\(b=1.4\)</span> )؛ خطوطِ خط‌چینِ خاکستری نولکلین‌ها و پیکان‌های خاکستری میدانِ برداری‌اند. </em><em>چپ ( <span class="arithmatex">\(I=0\)</span> ):</em><em> مسیرها بیشترِ وقت نزدیکِ نقطهٔ استراحت (پایین‌–چپ) می‌لرزند، اما گاه‌به‌گاه نوفه آن‌ها را در یک گردشِ بزرگِ تحریک‌پذیر می‌اندازد. </em><em>راست ( <span class="arithmatex">\(I=0.23\)</span> ):</em><em> مسیرها چرخهٔ حدی را پُر می‌کنند و نوفه آن را به یک نوارِ پهن بدل می‌کند. این تصویر نشان می‌دهد چگونه نوفه، ساختارِ هندسیِ زیربنایی (نقطهٔ استراحت در برابرِ چرخهٔ حدی) را آشکار می‌کند، نه پنهان.</em></p>
+<div class="admonition note">
+<p class="admonition-title">نوفه روی چه چیزی؟</p>
+<p>در این مثال‌ها نوفه تنها به معادلهٔ <span class="arithmatex">\(v\)</span> افزوده شده (شبیه‌سازِ نوسانِ تصادفیِ جریانِ غشا). می‌توان نوفه را به <span class="arithmatex">\(w\)</span> یا به هر دو نیز افزود؛ انتخابِ محلِ نوفه به فرضِ زیستی دربارهٔ منشأِ آن بستگی دارد و بر نتیجه اثر می‌گذارد.</p>
+</div>
+<hr />
+<h2 id="_12">پیوندها و پروژه‌ها</h2>
+<p>فیتزهیو–ناگومو پلی است میانِ نظریهٔ سیستم‌های دینامیکی و زیستِ‌فیزیکِ نورون. همان ابزارهایی که اینجا به کار بردیم — نولکلین‌ها، ژاکوبین، انشعابِ هاپف، نقشهٔ پارامتر — مستقیماً به مدلِ کاملِ <a href="https://computational-neuroscience.ir/ch03/">هاجکین–هاکسلی</a> و به مدل‌های ساده‌شده مانندِ <a href="https://computational-neuroscience.ir/ch01/">غشای تحریک‌پذیر</a> تعمیم می‌یابند. شبکه‌ای از همین نورون‌ها نیز در فصلِ عددی (<a href="https://computational-neuroscience.ir/ch-num-06-ode/">نمونهٔ پنجاه نورونِ فیتزهیو–ناگومو</a>) شبیه‌سازی شد.</p>
+<div class="admonition example">
+<p class="admonition-title">تمرین‌ها و پروژه‌ها</p>
+<ol>
+<li>
+<p><strong>(تمرین)</strong> صفحهٔ فاز را بازتولید کنید. با آغاز از کمی پایین‌تر و کمی بالاتر از شاخهٔ میانیِ منحنیِ سه‌گانه، نشان دهید که یک شرطِ اولیه میرا می‌شود و دیگری یک اسپایکِ کامل می‌زند — نمایشِ مستقیمِ <em>آستانه</em>.</p>
+</li>
+<li>
+<p><strong>(تمرین)</strong> انشعابِ هاپفِ پایینی را در <span class="arithmatex">\(I\)</span> (برای <span class="arithmatex">\(b=1.0\)</span> ) با یافتنِ جایی که <span class="arithmatex">\(\operatorname{Tr}(J)\)</span> در تعادل علامت عوض می‌کند، دقیق مکان‌یابی کنید. تأیید کنید که شلیک از همان‌جا آغاز می‌شود.</p>
+</li>
+<li>
+<p><strong>(تمرین)</strong> <span class="arithmatex">\(I\)</span> را از هاپفِ بالایی فراتر ببرید و <strong>انسدادِ تحریک</strong> را نشان دهید: سلول دوباره خاموش می‌شود.</p>
+</li>
+<li>
+<p><strong>(پروژه)</strong> منحنیِ <strong>بسامد–جریان</strong> (f–I) را برای فیتزهیو–ناگومو به‌صورتِ عددی بسازید: بسامدِ شلیک را از فاصلهٔ زمانیِ اسپایک‌ها بر حسبِ <span class="arithmatex">\(I\)</span> رسم کنید. تأیید کنید که در آستانه <strong>می‌پرد</strong> — یعنی این نورون از <strong>نوعِ ۲</strong> است (بخشِ ۸) — و در جریانِ زیاد به‌سببِ انسدادِ تحریک قطع می‌شود.</p>
+</li>
+<li>
+<p><strong>(پروژه)</strong> مدلِ تصادفی را برای دامنه‌های مختلفِ نوفه اجرا کنید و <strong>آهنگِ اسپایک</strong> را بر حسبِ سطحِ نوفه اندازه بگیرید. سپس بررسی کنید که آیا یک سطحِ نوفهٔ <strong>بهینه</strong> وجود دارد که منظم‌ترین شلیک را می‌دهد (پدیدهٔ <em>تشدیدِ هم‌دوسی</em>، coherence resonance).</p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+  
+    
+    
+
+    <hr>
+    <div class="page-actions" dir="rtl">
+      <a class="md-button"
+         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=enhancement&title=پیشنهاد برای فصل: %DA%A9%D8%A7%D8%B1%D8%A8%D8%B1%D8%AF%3A%20%D8%AA%D8%AD%D8%B1%DB%8C%DA%A9%E2%80%8C%D9%BE%D8%B0%DB%8C%D8%B1%DB%8C%20%D9%88%20%D9%81%DB%8C%D8%AA%D8%B2%D9%87%DB%8C%D9%88%E2%80%93%D9%86%D8%A7%DA%AF%D9%88%D9%85%D9%88">
+        پیشنهاد در گیت‌هاب
+      </a>
+      <a class="md-button"
+         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=bug&title=گزارش اشکال در فصل: %DA%A9%D8%A7%D8%B1%D8%A8%D8%B1%D8%AF%3A%20%D8%AA%D8%AD%D8%B1%DB%8C%DA%A9%E2%80%8C%D9%BE%D8%B0%DB%8C%D8%B1%DB%8C%20%D9%88%20%D9%81%DB%8C%D8%AA%D8%B2%D9%87%DB%8C%D9%88%E2%80%93%D9%86%D8%A7%DA%AF%D9%88%D9%85%D9%88">
+        گزارش اشکال در گیت‌هاب
+      </a>
+      <a class="md-button"
+         href="mailto:saeed.taghavi.v@gmail.com?subject=بازخورد دربارهٔ فصل: کاربرد: تحریک‌پذیری و فیتزهیو–ناگومو">
+        ارسال بازخورد با ایمیل
+      </a>
+    </div>
+  
+
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  برگشت به بالا
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="پاورقی" >
+        
+          
+          <a href="../ch-dynamics-06-neuro-bistability/" class="md-footer__link md-footer__link--prev" aria-label="قبلی: کاربرد: دوپایداری و کلید ژنتیکی">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                قبلی
+              </span>
+              <div class="md-ellipsis">
+                کاربرد: دوپایداری و کلید ژنتیکی
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../ch-neuron-biophysics/ch-biophysics-01-cell-membrane-channels/" class="md-footer__link md-footer__link--next" aria-label="بعدی: سلول، غشا و کانال‌های یونی">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                بعدی
+              </span>
+              <div class="md-ellipsis">
+                سلول، غشا و کانال‌های یونی
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u06a9\u067e\u06cc \u0634\u062f", "clipboard.copy": "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646", "search.result.more.one": "1 \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.more.other": "# \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.none": "\u0633\u0646\u062f\u06cc \u06cc\u0627\u0641\u062a \u0646\u0634\u062f", "search.result.one": "1 \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.other": "# \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.placeholder": "\u0628\u0631\u0627\u06cc \u062c\u0633\u062a\u062c\u0648 \u062a\u0627\u06cc\u067e \u06a9\u0646\u06cc\u062f", "search.result.term.missing": "\u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a", "select.version": "\u0627\u0646\u062a\u062e\u0627\u0628 \u0648\u06cc\u0631\u0627\u06cc\u0634"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+        <script src="../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
