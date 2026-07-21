@@ -1,0 +1,2760 @@
+
+<!doctype html>
+<html lang="fa" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="کتاب آنلاین علوم اعصاب محاسباتی به زبان فارسی — از غشای تحریک‌پذیر و سیستم‌های دینامیکی تا مدل‌های نورون، شبکه‌های اسپایکی و مدل‌سازی مغز کامل.">
+      
+      
+        <meta name="author" content="Saeed Taghavi">
+      
+      
+        <link rel="canonical" href="https://computational-neuroscience.ir/computational-neuroscience-biophysics/ch-biophysics/ch-biophys-01-excitable-membrane/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>غشای تحریک‌پذیر - کتاب علوم اعصاب محاسباتی</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Naskh+Arabic:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Naskh Arabic";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="rtl" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          پرش به محتویات
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="سرتیتر">
+    <a href="../../.." title="کتاب علوم اعصاب محاسباتی" class="md-header__button md-logo" aria-label="کتاب علوم اعصاب محاسباتی" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            کتاب علوم اعصاب محاسباتی
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              غشای تحریک‌پذیر
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="جستجو" placeholder="جستجو" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="جستجو">
+        
+        <button type="reset" class="md-search__icon md-icon" title="بازنشانی" aria-label="بازنشانی" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            راه‌اندازی جستجو
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="هدایت" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="کتاب علوم اعصاب محاسباتی" class="md-nav__button md-logo" aria-label="کتاب علوم اعصاب محاسباتی" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    کتاب علوم اعصاب محاسباتی
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    صفحه اول
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پیش‌نیازها
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پیش‌نیازها
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    روش‌های عددی و تحلیل داده
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    روش‌های عددی و تحلیل داده
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مفاهیم مدل‌سازی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مفاهیم مدل‌سازی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-modelling-01-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-modelling-02-classification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    رده‌بندی مدل‌ها
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-modelling-03-decisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    تصمیم‌های مدل‌سازی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-modelling-04-uncertainty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    رده‌بندی عدم‌قطعیت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-modelling-05-verify-validate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    راستی‌آزمایی و اعتبارسنجی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-modelling-06-goodness-of-fit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نیکویی برازش
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    روش‌های عددی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    روش‌های عددی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-num-01-revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرور مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-num-02-derivative/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مشتق اول
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-num-03-fdm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    تفاضل محدود
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-num-04-taylor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    بسط تیلور
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-num-05-numerical-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    انتگرال‌گیری عددی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-num-06-ode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    حل عددی معادلات دیفرانسیل معمولی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-num-07-sde/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    حل عددی معادلات دیفرانسیل تصادفی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_3" id="__nav_2_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پردازش سیگنال
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پردازش سیگنال
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-signal-01-revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرور مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-signal-02-time-domain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پردازش سیگنال در حوزه زمان
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-signal-03-frequency-domain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پردازش سیگنال در حوزه فرکانس
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-signal-04-filters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    فیلترها
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-signal-05-time-frequency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    تحلیل زمان–بسامد
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_4" id="__nav_2_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیستم‌های دینامیکی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    سیستم‌های دینامیکی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-dynamical-systems/ch-dynamics-01-revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرور مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-dynamical-systems/ch-dynamics-02-linear-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیستم‌های خطی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-dynamical-systems/ch-dynamics-03-nonlinear-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیستم‌های غیرخطی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-dynamical-systems/ch-dynamics-04-oscillators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نوسانگرها
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-dynamical-systems/ch-dynamics-05-chaos-theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نظریه آشوب
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-dynamical-systems/ch-dynamics-06-neuro-bistability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    کاربرد: دوپایداری و کلید ژنتیکی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-dynamical-systems/ch-dynamics-07-neuro-excitability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    کاربرد: تحریک‌پذیری و فیتزهیو–ناگومو
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    بیوفیزیک نورون
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    بیوفیزیک نورون
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-neuron-biophysics/ch-biophysics-01-cell-membrane-channels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سلول، غشا و کانال‌های یونی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-neuron-biophysics/ch-biophysics-02-resting-potential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پتانسیل استراحت: نرنست و گلدمن
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-neuron-biophysics/ch-biophysics-03-passive-rc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    غشای غیرفعال: مدار RC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-neuron-biophysics/ch-biophysics-04-cable-compartments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    کابل و مدل‌های تقسیمی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-neuron-biophysics/ch-biophysics-05-synapses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیناپس‌ها و ورودی سیناپسی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch-neuron-biophysics/ch-biophysics-06-action-potential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پتانسیل عمل و انتشار
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های نورون
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مدل‌های نورون
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل هاجکین-هاکسلی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های ساده‌شده: LIF، EIF، AdEx
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    شبکه‌های نورون‌های نقطه‌ای
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    شبکه‌های نورون‌های نقطه‌ای
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    از نورون به جمعیت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    شبکه‌های تصادفی متعادل
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نوسانات در شبکه‌های تحریکی-مهاری
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پلاستیسیتی وابسته به زمان اسپایک (STDP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های جمعیتی و توده عصبی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مدل‌های جمعیتی و توده عصبی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    معادلات نرخ آتش
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل ویلسون-کوان
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پیوست‌ها
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پیوست‌ها
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../appendix-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    طراحی گردش‌کار و آزمایش محاسباتی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="فهرست در این صفحه">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      فهرست در این صفحه
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ساختار سلول
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        سلول‌های عصبی
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ساختار فسفولیپیدی
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        کانال‌های یونی
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="کانال‌های یونی">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        باز و بسته شدن کانال‌های یونی
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        گزینش یون‌ها
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ترکیب یونی داخل و خارج سلول
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        پتانسیل استراحت
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        معادلهٔ نرنست
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="معادلهٔ نرنست">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        اشتقاق معادلهٔ نرنست
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        معادلهٔ گلدمن
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        غشا به‌مثابهٔ یک مدار الکتریکی
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        پتانسیل عمل
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="پتانسیل عمل">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        آستانه و پاسخ همه‌یاهیچ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        سازوکار یونی: یک چرخهٔ بازخورد مثبت
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        دورهٔ بی‌پاسخی (نسوز)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        انتشار پتانسیل عمل
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="انتشار پتانسیل عمل">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        میلین و هدایت جهشی
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        چگونه این پدیده‌ها را اندازه می‌گیریم؟
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        جمع‌بندی
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تمرین‌ها
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+
+<h1 id="_1">غشای تحریک‌پذیر</h1>
+<p>این فصل برای معرفی رسمی و کتابی نظریهٔ عمومی علوم اعصاب نیست، بلکه
+یک مقدمهٔ کوتاه دربارهٔ نورون‌هاست که متناسب با فصل‌های بعدی نوشته شده است. فصل‌های بعدی با
+مدل‌های مختلف ریاضی که برای توصیف فعالیت‌های عصبی به‌کار برده می‌شوند سر و کار دارند. از آنجا که نورون‌ها
+سلول هستند، با معرفی مختصری از سلول‌ها شروع می‌کنیم و پس از آن مدل‌های ریاضی استاندارد انتقال
+سیگنال توسط نورون‌ها را معرفی خواهیم کرد.</p>
+<p>این فصل، نخستین فصل از بخشِ <strong>بیوفیزیک نورون</strong> است و نقشِ سنگِ‌بنای مفهومی را دارد: در اینجا پدیده‌ها را
+بیشتر به‌صورتِ کیفی و شهودی معرفی می‌کنیم، و در فصل‌های بعدیِ همین بخش، هر یک از آن‌ها را به‌صورتِ
+<strong>کمّی و محاسباتی</strong> — با معادله و کدِ پایتون — بازخواهیم ساخت.</p>
+<div class="admonition note">
+<p class="admonition-title">در این فصل چه می‌آموزید</p>
+<ul>
+<li>ساختارِ سلول و نورون، غشای فسفولیپیدی و کانال‌های یونی را می‌شناسید.</li>
+<li>می‌فهمید پتانسیل استراحت از کجا می‌آید و چگونه <strong>معادلهٔ نرنست</strong> پتانسیل تعادلِ یک یون و <strong>معادلهٔ گلدمن</strong> پتانسیل غشا را با حضورِ چند یون تعیین می‌کند.</li>
+<li>غشا را به‌صورتِ یک <strong>مدار الکتریکیِ ساده</strong> (خازن به‌موازاتِ مقاومت و باتری) می‌بینید — تصویری که استخوان‌بندیِ همهٔ مدل‌های بعدی است.</li>
+<li>سازوکارِ کیفیِ <strong>پتانسیل عمل</strong>، انتشار آن، هدایتِ جهشی و روش‌های تجربیِ اندازه‌گیری را درک می‌کنید.</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">نقشهٔ راهِ بخشِ بیوفیزیک نورون</p>
+<p>آنچه در این فصل به‌صورتِ کیفی می‌بینید، در فصل‌های بعدیِ همین بخش کمّی می‌شود:</p>
+<ul>
+<li>پتانسیل استراحت، نرنست و گلدمن و مدارِ RC غشا <span class="arithmatex">\(\rightarrow\)</span> <a href="../ch-biophys-02-membrane-potential/">پتانسیل غشا: نگاهی محاسباتی</a></li>
+<li>کانال‌های یونی و باز و بسته‌شدنِ آن‌ها <span class="arithmatex">\(\rightarrow\)</span> <a href="../ch-biophys-03-channels-gating/">کانال‌های یونی و دریچه‌گذاری</a></li>
+<li>گسترشِ فضاییِ سیگنال در دندریت و آکسون <span class="arithmatex">\(\rightarrow\)</span> <a href="../ch-biophys-04-cable-dendrites/">نظریهٔ کابل و دندریت‌ها</a></li>
+<li>ارتباطِ میان نورون‌ها <span class="arithmatex">\(\rightarrow\)</span> <a href="../ch-biophys-05-synapses/">سیناپس‌ها و انتقال سیناپسی</a></li>
+</ul>
+<p>و در ادامهٔ کتاب، پتانسیل عمل به‌صورتِ کامل و کمّی در فصلِ <a href="../ch03.md">مدل هاجکین–هاکسلی</a> بازساخته می‌شود.</p>
+</div>
+<h2 id="_2">ساختار سلول</h2>
+<p>سلول‌ها واحدهای بنیادین حیات هستند. یک سلول از محلول آبی غلیظی از مواد شیمیایی تشکیل شده است و قادر است خود را با رشد و تقسیم تکثیر کند.
+ساده‌ترین شکل حیات تک‌سلولی است، مانند مخمر، آمیب یا یک باکتری. سلول‌هایی که هسته دارند یوکاریوت و سلول‌هایی که هسته ندارند پروکاریوت نامیده می‌شوند. باکتری‌ها پروکاریوت هستند، در حالی که مخمر و آمیب یوکاریوت‌اند. حیوانات موجوداتی چندسلولی با سلول‌های یوکاریوتی هستند. قطر یک سلول نوعی در حدود ۵ تا ۲۰ میکرومتر است (یک میکرومتر برابر است با یک‌میلیونیم متر)، اما یک تخمک ممکن است به اندازهٔ یک میلی‌متر قطر داشته باشد. تخمین زده می‌شود که بدن انسان حدود ۳۰ تریلیون سلول داشته باشد. در یک دسته‌بندی، سلول‌ها بر اساس وظایفی که در بدن دارند مشخص می‌شوند که بسیار متنوع‌اند. با این حال، همهٔ سلول‌های یوکاریوت ساختار اساسی شبیه به هم دارند. همهٔ آن‌ها از یک هسته، اندامک‌ها و مولکول‌های متنوع و یک غشای پلاسمایی تشکیل شده‌اند (گلبول قرمز یک استثناست، زیرا هسته ندارد).</p>
+<figure>
+  <img alt="Image title" src="../03-cell.png" />
+<br />
+<figcaption>یک سلول با هسته و تعدادی اندامک</figcaption>
+</figure>
+<p>DNA،
+کد ژنتیکی سلول، از دو رشتهٔ زنجیرهٔ پلیمری با پیکربندی مارپیچ دوگانه، با واحدهای نوکلئوتیدی مکرر
+A، C، G و T
+تشکیل شده است. هر
+A
+در یک رشته توسط یک پیوند هیدروژنی به
+T
+در رشتهٔ
+دیگر متصل می‌شود و به‌طور مشابه هر
+C
+به
+G
+پیوند
+هیدروژنی دارد.
+DNA
+در کروموزوم‌های هسته بسته‌بندی شده است.
+غشای پلاسمایی سلول از یک دولایهٔ لیپیدی تشکیل شده است که در جاهای مختلف آن پروتئین‌هایی قرار گرفته‌اند.</p>
+<figure>
+  <img alt="Image title" src="../04-membrane.png" />
+<br />
+<figcaption>دو لایهٔ لیپیدی تشکیل‌دهندهٔ غشای سلول</figcaption>
+</figure>
+<p>سیتوپلاسم بخشی از سلول است که در خارج از هسته و در داخل غشای سلول قرار دارد. هر اندامک یک ساختار مجزا در سیتوپلاسم است که برای انجام یک عملکرد خاص تخصص یافته است. میتوکندری اندامکی غشادار است که از اکسیژن برای تولید انرژی استفاده می‌کند؛ انرژی‌ای که سلول برای انجام وظایف مختلف خود به آن نیاز دارد. شبکهٔ آندوپلاسمی
+(ER)
+یکی دیگر از اندامک‌های محدود به غشاست که در آن لیپیدها ساخته می‌شوند و پروتئین‌های متصل به غشا تولید می‌شوند. سیتوپلاسم حاوی تعدادی اندامک میتوکندری و
+ER
+و همچنین اندامک‌های دیگری مانند لیزوزوم است که هضم درون‌سلولی در آن‌ها رخ می‌دهد. ساختارهای دیگری که از پروتئین‌ها تشکیل شده‌اند را می‌توان در سلول یافت، مانند رشته‌های مختلفی که برخی از آن‌ها وظیفهٔ تقویت مکانیکی سلول (اسکلت سلولی یا سیتواسکلتون) را بر عهده دارند. سلول همچنین حاوی مولکول‌های اسید آمینه، که واحدهای سازندهٔ پروتئین‌ها هستند، و بسیاری از مولکول‌های دیگر است.</p>
+<h2 id="_3">سلول‌های عصبی</h2>
+<p>در بدن انسان سلول‌های متنوعی وجود دارند. این سلول‌ها شامل (۱) انواع سلول‌های ماهیچه‌ای، (۲) انواع سلول‌های حسی نظیر سلول‌های میله‌ای شبکیه و سلول‌های مویی گوش داخلی، (۳) گلبول‌های قرمز و انواع گلبول‌های سفید و (۴) سلول‌های عصبی یا همان نورون‌ها هستند.
+وظیفهٔ بنیادی نورون‌ها دریافت، هدایت و انتقال سیگنال است. نورون‌ها سیگنال‌هایی را از اندام‌های حسی به سمت داخل، به سیستم عصبی مرکزی<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> که شامل مغز و نخاع است، منتقل می‌کنند. در سیستم عصبی مرکزی، سیگنال‌ها توسط مجموعه‌ای از نورون‌ها و مدارهای نورونی تجزیه، تحلیل و تفسیر می‌شوند؛ سپس سیستم نورونی پاسخی به این ورودی تولید می‌کند و پاسخ مجدداً توسط نورون‌ها به سمت بیرون، برای اقدام، به سلول‌های عضلانی و غدد ارسال می‌شود.</p>
+<p>نورون‌ها اشکال و اندازه‌های مختلفی دارند، اما همهٔ آن‌ها دارای برخی ویژگی‌های مشترک هستند. یک نورون نوعی از چهار بخش تشکیل شده است: جسم سلولی یا سوما، دندریت‌ها، اکسون، و ترمینال‌های عصبی یا پایانه‌های پیش‌سیناپسی.</p>
+<figure>
+  <img alt="Image title" src="../05-neuron.png" />
+<br />
+<figcaption>یک سلول عصبی؛ جهت فلش‌ها جهت هدایت سیگنال را نشان می‌دهد.</figcaption>
+</figure>
+<h2 id="_4">ساختار فسفولیپیدی</h2>
+<p>فسفولیپید نوعی از لیپیدهاست که از یک مولکول گلیسرول، دو مولکول اسید چرب و یک مولکول فسفات تشکیل شده است. فسفولیپیدها یک سر آب‌دوست و دو دم آب‌گریز دارند. همین خاصیت دوگانه باعث می‌شود که در محیط آبی به‌طور خودبه‌خود به شکل یک دولایه سامان یابند: سرهای آب‌دوست رو به محلول آبی درون و بیرون سلول و دم‌های آب‌گریز رو به یکدیگر در میانهٔ غشا. این دولایه برای یون‌ها و مولکول‌های آب‌دوست تقریباً نفوذناپذیر است و همین، پایهٔ جداسازی الکتریکی درون سلول از بیرون آن را فراهم می‌کند.</p>
+<figure>
+  <img alt="Image title" src="../01-phospholipid.jpg" />
+<br />
+<figcaption>دو لایهٔ فسفولیپیدی</figcaption>
+</figure>
+<figure>
+  <img alt="Image title" src="../0102_Lipid_Bilayer_With_Various_Components.jpg" />
+<br />
+<figcaption>دو لایهٔ فسفولیپیدی با مؤلفه‌های مختلف</figcaption>
+</figure>
+<h2 id="_5">کانال‌های یونی</h2>
+<p>کانال یونی گروهی از پروتئین‌های تراغشایی غشای سلول هستند که معمولاً نسبت به بعضی یون‌ها مثل سدیم، پتاسیم، کلسیم و کلر بسیار گزینشی رفتار می‌کنند. چون دولایهٔ لیپیدی به‌تنهایی نسبت به یون‌ها نفوذناپذیر است، این کانال‌ها تنها مسیرهای عبور سریع یون از عرض غشا را فراهم می‌کنند. عبور یون از یک کانال باز یک فرایند غیرفعال است: یون‌ها در جهت شیب الکتروشیمیایی خود حرکت می‌کنند و هیچ انرژی متابولیکی مستقیماً مصرف نمی‌شود.</p>
+<figure>
+  <img alt="Image title" src="../02-ion_channel.png" />
+<br />
+<figcaption>نمایی از یک کانال یونی در غشای سلول</figcaption>
+</figure>
+<h3 id="_6">باز و بسته شدن کانال‌های یونی</h3>
+<p>بسیاری از کانال‌های یونی می‌توانند میان دو حالت «باز» و «بسته» جابه‌جا شوند؛ به این فرایند دریچه‌گذاری یا گِیتینگ (gating) گفته می‌شود. در حالت بسته، بخشی از زنجیرهٔ پروتئینی مانند دروازه‌ای مسیر عبور یون را می‌بندد، و یک محرک مشخص باعث تغییر شکل (تغییر کنفورماسیون) پروتئین و باز شدن مسیر می‌شود. کانال‌ها را بر اساس نوع محرکی که آن‌ها را باز یا بسته می‌کند دسته‌بندی می‌کنند:</p>
+<ul>
+<li><strong>کانال‌های وابسته به ولتاژ:</strong> باز و بسته شدن آن‌ها به اختلاف پتانسیل دو سوی غشا بستگی دارد. این کانال‌ها در تولید و انتشار پتانسیل عمل نقش کلیدی دارند و در فصل‌های بعد، در مدل هاجکین–هاکسلی، با جزئیات بررسی خواهند شد.</li>
+<li><strong>کانال‌های وابسته به لیگاند:</strong> با اتصال یک مولکول خاص (لیگاند) مانند یک ناقل عصبی به جایگاه گیرنده روی کانال باز می‌شوند. این کانال‌ها پایهٔ انتقال سیناپسی شیمیایی هستند.</li>
+<li><strong>کانال‌های مکانیکی:</strong> با کشش یا فشار مکانیکی غشا باز می‌شوند و در حس لامسه، شنوایی و تعادل دخیل‌اند.</li>
+</ul>
+<p>علاوه بر این کانال‌های دریچه‌دار، دسته‌ای از کانال‌ها به نام <strong>کانال‌های نشتی</strong> وجود دارند که عملاً همیشه باز هستند و عبور پیوستهٔ مقدار کمی یون (به‌ویژه پتاسیم) را در حالت استراحت ممکن می‌سازند. همان‌طور که خواهیم دید، این کانال‌های نشتی نقش تعیین‌کننده‌ای در شکل‌گیری پتانسیل استراحت دارند.</p>
+<div class="admonition note">
+<p class="admonition-title">به‌زودی: دریچه‌گذاری به‌صورتِ کمّی</p>
+<p>در فصلِ <a href="../ch-biophys-03-channels-gating/">کانال‌های یونی و دریچه‌گذاری</a> همین «باز و بسته‌شدن» را با یک <strong>متغیر دروازه‌ای</strong> و معادلهٔ آهنگِ آن مدل می‌کنیم، منحنیِ فعال‌سازیِ بولتزمان را رسم می‌کنیم، و می‌بینیم چگونه رفتارِ تصادفیِ تک‌کانال‌ها در حدِ تعدادِ زیاد به یک رسانایی هموارِ قطعی می‌رسد.</p>
+</div>
+<h3 id="_7">گزینش یون‌ها</h3>
+<p>ویژگی برجستهٔ بسیاری از کانال‌های یونی، گزینش‌گری بالای آن‌هاست: یک کانال پتاسیمی می‌تواند یون پتاسیم (<span class="arithmatex">\(\text{K}^+\)</span>) را با سرعت بسیار بالا عبور دهد، اما عبور یون سدیم (<span class="arithmatex">\(\text{Na}^+\)</span>) را تا حدود هزار برابر بیشتر سد می‌کند، با آنکه سدیم کوچک‌تر است. این رفتار در نگاه اول متناقض به نظر می‌رسد و توضیح آن در ساختار بخشی از کانال به نام <strong>فیلتر گزینشگر</strong> نهفته است.</p>
+<p>هر یون در محلول آبی با پوسته‌ای از مولکول‌های آب احاطه شده است (هیدراته شده است). برای عبور از فیلتر گزینشگر، یون باید این پوستهٔ آبی را از دست بدهد، که خود مستلزم صرف انرژی است. در فیلتر کانال پتاسیمی، اتم‌های اکسیژن کربونیلِ زنجیرهٔ پروتئینی طوری آرایش یافته‌اند که فاصله‌شان دقیقاً با اندازهٔ یون پتاسیمِ بدون آب جور است؛ بنابراین این اکسیژن‌ها جای مولکول‌های آب را می‌گیرند و هزینهٔ آب‌زدایی پتاسیم را جبران می‌کنند. یون سدیم کوچک‌تر است و در همان آرایش نمی‌تواند به‌خوبی با اکسیژن‌ها تماس برقرار کند، در نتیجه هزینهٔ آب‌زدایی آن جبران نمی‌شود و عبورش پرهزینه و کند می‌ماند. به این ترتیب گزینش‌گری نه صرفاً بر پایهٔ اندازهٔ منفذ، بلکه بر پایهٔ توازن دقیق میان انرژی آب‌زدایی و برهم‌کنش یون با دیوارهٔ فیلتر استوار است.</p>
+<h2 id="_8">ترکیب یونی داخل و خارج سلول</h2>
+<p>غلظت یون‌ها در دو سوی غشای سلول یکسان نیست؛ این تفاوت غلظت، که شیب غلظتی نامیده می‌شود، نیروی محرکهٔ اصلی همهٔ پدیده‌های الکتریکی نورون است. به‌طور کلی غلظت پتاسیم در درون سلول بسیار بیشتر از بیرون، و غلظت سدیم، کلر و کلسیم در بیرون بسیار بیشتر از درون است. این عدم تعادل توسط پمپ‌های فعال غشا، به‌ویژه پمپ سدیم–پتاسیم، که با مصرف انرژی یون‌ها را خلاف شیب غلظتی‌شان جابه‌جا می‌کند، برقرار و نگه‌داشته می‌شود.</p>
+<p>جدول زیر مقادیر نمونه‌وار غلظت یون‌های اصلی را در یک نورون پستانداران (برحسب میلی‌مولار) نشان می‌دهد. این اعداد تقریبی‌اند و میان منابع و میان سلول‌های مختلف اندکی متفاوت‌اند:</p>
+<table>
+<thead>
+<tr>
+<th>یون</th>
+<th>غلظت بیرون سلول (mM)</th>
+<th>غلظت درون سلول (mM)</th>
+<th>ظرفیت (<span class="arithmatex">\(z\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>پتاسیم <span class="arithmatex">\(\text{K}^+\)</span></td>
+<td>۴</td>
+<td>۱۴۰</td>
+<td>‎+۱</td>
+</tr>
+<tr>
+<td>سدیم <span class="arithmatex">\(\text{Na}^+\)</span></td>
+<td>۱۴۵</td>
+<td>۱۲</td>
+<td>‎+۱</td>
+</tr>
+<tr>
+<td>کلر <span class="arithmatex">\(\text{Cl}^-\)</span></td>
+<td>۱۲۰</td>
+<td>۴</td>
+<td>‎−۱</td>
+</tr>
+<tr>
+<td>کلسیم <span class="arithmatex">\(\text{Ca}^{2+}\)</span></td>
+<td>۱٫۸</td>
+<td>۱۰⁻⁴</td>
+<td>‎+۲</td>
+</tr>
+</tbody>
+</table>
+<p>نکتهٔ شایان توجه دربارهٔ کلسیم آن است که غلظت آزاد آن در درون سلول بسیار ناچیز (در حدّ ۱۰⁻⁴ میلی‌مولار) است؛ همین شیب غلظتی بسیار بزرگ باعث می‌شود که ورود اندکی کلسیم به سلول بتواند به‌عنوان یک پیام درون‌سلولی عمل کند.</p>
+<h2 id="_9">پتانسیل استراحت</h2>
+<p>اگر دو الکترود را، یکی درون و دیگری بیرون یک نورون که فعالیتی ندارد قرار دهیم، اختلاف پتانسیلی پایدار در حدود ۶۵- تا ۷۰- میلی‌ولت اندازه می‌گیریم؛ یعنی درون سلول نسبت به بیرون منفی است. این اختلاف پتانسیل پایدار را <strong>پتانسیل استراحت</strong> می‌نامیم. قرارداد رایج آن است که پتانسیل غشا را به‌صورت اختلاف پتانسیل درون منهای بیرون تعریف کنیم:</p>
+<div class="arithmatex">\[
+V_m = \phi_{\text{in}} - \phi_{\text{out}}
+\]</div>
+<p>پرسش این است که چنین اختلاف پتانسیلی از کجا می‌آید. پاسخ، ترکیبی از دو عامل است: شیب غلظتی یون‌ها و نفوذپذیری گزینشی غشا نسبت به آن‌ها. در حالت استراحت، غشا عمدتاً نسبت به پتاسیم نفوذپذیر است (چون کانال‌های نشتی پتاسیمی باز هستند). پتاسیم در جهت شیب غلظتی خود از درون به بیرون نشت می‌کند و چون بار مثبت با خود می‌برد، درون سلول را اندک‌اندک منفی‌تر می‌کند. این منفی‌شدن، خود نیرویی الکتریکی پدید می‌آورد که پتاسیمِ مثبت را به درون بازمی‌گرداند. در نقطه‌ای که این دو نیرو (کشش غلظتی به بیرون و کشش الکتریکی به درون) یکدیگر را خنثی کنند، شار خالص پتاسیم صفر می‌شود و پتانسیل به تعادل می‌رسد. این پتانسیلِ تعادل برای هر یون را می‌توان به‌دقت با <strong>معادلهٔ نرنست</strong> محاسبه کرد.</p>
+<p>دو نکتهٔ تکمیلی: نخست آنکه غشا کاملاً نسبت به سدیم نفوذناپذیر نیست؛ نشت اندک سدیم به درون باعث می‌شود پتانسیل استراحت کمی مثبت‌تر از پتانسیل تعادل پتاسیم باشد. دوم آنکه نشت پیوستهٔ پتاسیم به بیرون و سدیم به درون در درازمدت شیب غلظتی را از بین می‌برد؛ پمپ سدیم–پتاسیم با مصرف ATP و جابه‌جایی سه یون سدیم به بیرون در ازای دو یون پتاسیم به درون، این شیب‌ها را پیوسته بازسازی می‌کند و پایداری پتانسیل استراحت را تضمین می‌نماید.</p>
+<h2 id="_10">معادلهٔ نرنست</h2>
+<p>معادلهٔ نرنست پتانسیلِ تعادلِ یک یون منفرد را، یعنی پتانسیل غشایی که در آن شار خالصِ آن یون صفر می‌شود، بر حسب نسبت غلظت‌های دو سوی غشا می‌دهد. برای یون <span class="arithmatex">\(X\)</span> با ظرفیت <span class="arithmatex">\(z\)</span>:</p>
+<div class="arithmatex">\[
+E_X = \frac{RT}{zF}\,\ln\frac{[X]_{\text{out}}}{[X]_{\text{in}}}
+\]</div>
+<p>در این رابطه <span class="arithmatex">\(R\)</span> ثابت جهانی گازها (<span class="arithmatex">\(8.314\ \mathrm{J\,K^{-1}\,mol^{-1}}\)</span>)، <span class="arithmatex">\(T\)</span> دمای مطلق بر حسب کلوین، <span class="arithmatex">\(F\)</span> ثابت فارادی (<span class="arithmatex">\(96485\ \mathrm{C\,mol^{-1}}\)</span>) و <span class="arithmatex">\(z\)</span> ظرفیت (بار) یون است. <span class="arithmatex">\(E_X\)</span> را پتانسیل نرنست یا پتانسیل تعادل یون <span class="arithmatex">\(X\)</span> می‌نامند.</p>
+<h3 id="_11">اشتقاق معادلهٔ نرنست</h3>
+<p>دو نیرو بر یک یون در عرض غشا وارد می‌شوند: نیروی انتشار، که یون را از غلظت زیاد به سمت غلظت کم می‌راند، و نیروی الکتریکی، که ناشی از میدان الکتریکیِ حاصل از اختلاف پتانسیل غشاست. شار مولیِ یون <span class="arithmatex">\(X\)</span> از مجموع این دو سهم به‌دست می‌آید؛ این همان معادلهٔ نرنست–پلانک است:</p>
+<div class="arithmatex">\[
+J = -D\left(\frac{dc}{dx} + \frac{zF}{RT}\,c\,\frac{d\phi}{dx}\right)
+\]</div>
+<p>که در آن <span class="arithmatex">\(c\)</span> غلظت یون، <span class="arithmatex">\(D\)</span> ضریب انتشار، <span class="arithmatex">\(\phi\)</span> پتانسیل الکتریکی و <span class="arithmatex">\(x\)</span> مختصات عرض غشاست. جملهٔ نخست، انتشار (قانون فیک) و جملهٔ دوم، رانش الکتریکی است که در آن از رابطهٔ اینشتین میان تحرک‌پذیری و ضریب انتشار استفاده شده است.</p>
+<p>در حالت تعادل، شار خالص یون صفر است، یعنی <span class="arithmatex">\(J = 0\)</span>. پس:</p>
+<div class="arithmatex">\[
+\frac{dc}{dx} = -\frac{zF}{RT}\,c\,\frac{d\phi}{dx}
+\]</div>
+<p>با تقسیم دو طرف بر <span class="arithmatex">\(c\)</span> و جداسازی متغیرها:</p>
+<div class="arithmatex">\[
+\frac{1}{c}\,dc = -\frac{zF}{RT}\,d\phi
+\]</div>
+<p>اکنون از درون سلول تا بیرون آن انتگرال می‌گیریم:</p>
+<div class="arithmatex">\[
+\int_{\text{in}}^{\text{out}}\frac{dc}{c} = -\frac{zF}{RT}\int_{\text{in}}^{\text{out}} d\phi
+\]</div>
+<p>که نتیجه می‌دهد:</p>
+<div class="arithmatex">\[
+\ln\frac{c_{\text{out}}}{c_{\text{in}}} = -\frac{zF}{RT}\left(\phi_{\text{out}} - \phi_{\text{in}}\right) = \frac{zF}{RT}\left(\phi_{\text{in}} - \phi_{\text{out}}\right)
+\]</div>
+<p>با توجه به اینکه در تعادل <span class="arithmatex">\(\phi_{\text{in}} - \phi_{\text{out}} = E_X\)</span> است، با مرتب‌کردن رابطهٔ بالا به معادلهٔ نرنست می‌رسیم:</p>
+<div class="arithmatex">\[
+E_X = \frac{RT}{zF}\,\ln\frac{[X]_{\text{out}}}{[X]_{\text{in}}}
+\]</div>
+<p>در دمای بدن (<span class="arithmatex">\(T = 310\ \mathrm{K}\)</span>) و با تبدیل لگاریتم طبیعی به لگاریتم در پایهٔ ۱۰ (ضرب در <span class="arithmatex">\(\ln 10 \approx 2.303\)</span>)، ضریب <span class="arithmatex">\(\frac{RT}{F}\ln 10\)</span> تقریباً برابر ۶۱٫۵ میلی‌ولت می‌شود. بنابراین یک شکل کاربردی و پرکاربردِ معادله چنین است:</p>
+<div class="arithmatex">\[
+E_X \approx \frac{61.5}{z}\,\log_{10}\frac{[X]_{\text{out}}}{[X]_{\text{in}}}\quad(\text{mV})
+\]</div>
+<p>با جای‌گذاری مقادیر جدول غلظت در این رابطه، پتانسیل تعادل یون‌های اصلی به‌دست می‌آید:</p>
+<table>
+<thead>
+<tr>
+<th>یون</th>
+<th>پتانسیل تعادل <span class="arithmatex">\(E_X\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>پتاسیم <span class="arithmatex">\(\text{K}^+\)</span></td>
+<td>حدود ۹۵− میلی‌ولت</td>
+</tr>
+<tr>
+<td>سدیم <span class="arithmatex">\(\text{Na}^+\)</span></td>
+<td>حدود ۶۷+ میلی‌ولت</td>
+</tr>
+<tr>
+<td>کلر <span class="arithmatex">\(\text{Cl}^-\)</span></td>
+<td>حدود ۹۱− میلی‌ولت</td>
+</tr>
+<tr>
+<td>کلسیم <span class="arithmatex">\(\text{Ca}^{2+}\)</span></td>
+<td>حدود ۱۳۱+ میلی‌ولت</td>
+</tr>
+</tbody>
+</table>
+<p>برای آنکه ببینیم این اعداد چگونه به‌دست می‌آیند، یک نمونه را گام‌به‌گام حساب می‌کنیم. برای پتاسیم، با غلظت بیرونی <span class="arithmatex">\(4\)</span> و درونی <span class="arithmatex">\(140\)</span> میلی‌مولار و ظرفیت <span class="arithmatex">\(z=+1\)</span>:</p>
+<div class="arithmatex">\[
+E_{\text{K}} = \frac{61.5}{1}\,\log_{10}\frac{4}{140}
+= 61.5 \times \log_{10}(0.0286)
+\approx 61.5 \times (-1.54)
+\approx -95\ \mathrm{mV}.
+\]</div>
+<p>به‌همین ترتیب برای سدیم با نسبت <span class="arithmatex">\(145/12\)</span> مقداری نزدیک به <span class="arithmatex">\(+67\)</span> میلی‌ولت و برای کلسیم، به‌سببِ شیب غلظتیِ بسیار بزرگ و ظرفیتِ <span class="arithmatex">\(z=+2\)</span>، مقداری در حدود <span class="arithmatex">\(+131\)</span> میلی‌ولت به‌دست می‌آید.</p>
+<p>دیده می‌شود که پتانسیل استراحت نوعی (حدود ۷۰− میلی‌ولت) بسیار به پتانسیل تعادل پتاسیم نزدیک است؛ و این دقیقاً همان چیزی است که از غلبهٔ نفوذپذیری پتاسیم در حالت استراحت انتظار داریم.</p>
+<div class="admonition note">
+<p class="admonition-title">به‌زودی: همین محاسبه با کد</p>
+<p>در فصلِ <a href="../ch-biophys-02-membrane-potential/">پتانسیل غشا: نگاهی محاسباتی</a> همین جدول را با چند خط پایتون بازتولید می‌کنیم، و با معادلهٔ گلدمن می‌بینیم که چگونه پتانسیل غشا با تغییرِ نفوذپذیری‌ها میان <span class="arithmatex">\(E_{\text{K}}\)</span> و <span class="arithmatex">\(E_{\text{Na}}\)</span> حرکت می‌کند.</p>
+</div>
+<h2 id="_12">معادلهٔ گلدمن</h2>
+<p>معادلهٔ نرنست تنها برای یک یون منفرد و در حالت تعادل آن یون معتبر است. اما غشای واقعی هم‌زمان نسبت به چند یون نفوذپذیر است و پتانسیل استراحت، حاصل سهم همهٔ آن‌هاست. <strong>معادلهٔ گلدمن–هاجکین–کاتز</strong> (که اغلب به‌اختصار معادلهٔ گلدمن نامیده می‌شود) پتانسیل غشا را در حالتی که شار خالصِ کلِ بارها صفر است، بر حسب غلظت و نفوذپذیری هر یون می‌دهد. برای سه یون اصلیِ سدیم، پتاسیم و کلر:</p>
+<div class="arithmatex">\[
+V_m = \frac{RT}{F}\,\ln\frac{P_{\text{K}}[\text{K}^+]_{\text{out}} + P_{\text{Na}}[\text{Na}^+]_{\text{out}} + P_{\text{Cl}}[\text{Cl}^-]_{\text{in}}}{P_{\text{K}}[\text{K}^+]_{\text{in}} + P_{\text{Na}}[\text{Na}^+]_{\text{in}} + P_{\text{Cl}}[\text{Cl}^-]_{\text{out}}}
+\]</div>
+<p>که در آن <span class="arithmatex">\(P_{\text{K}}\)</span>، <span class="arithmatex">\(P_{\text{Na}}\)</span> و <span class="arithmatex">\(P_{\text{Cl}}\)</span> نفوذپذیری نسبی غشا نسبت به هر یون هستند. توجه کنید که جای غلظت‌های درون و بیرونِ کلر نسبت به یون‌های مثبت جابه‌جا شده است؛ این جابه‌جایی به دلیل بار منفی کلر (<span class="arithmatex">\(z = -1\)</span>) است.</p>
+<p>نکات کلیدی دربارهٔ این معادله:</p>
+<ul>
+<li>اگر غشا تنها نسبت به یک یون نفوذپذیر باشد (مثلاً <span class="arithmatex">\(P_{\text{Na}} = P_{\text{Cl}} = 0\)</span>)، معادلهٔ گلدمن دقیقاً به معادلهٔ نرنستِ همان یون فرومی‌کاهد. به این معنا، معادلهٔ گلدمن تعمیمِ معادلهٔ نرنست برای چند یون است.</li>
+<li>وزن هر یون در تعیین پتانسیل غشا با نفوذپذیری آن یون متناسب است. در حالت استراحت، چون <span class="arithmatex">\(P_{\text{K}}\)</span> بسیار بزرگ‌تر از <span class="arithmatex">\(P_{\text{Na}}\)</span> است (نسبت نوعیِ <span class="arithmatex">\(P_{\text{K}} : P_{\text{Na}} : P_{\text{Cl}}\)</span> در حدود <span class="arithmatex">\(1 : 0.04 : 0.45\)</span> است)، پتانسیل غشا به پتانسیل تعادل پتاسیم نزدیک می‌ماند و مقداری در حدود ۷۰− میلی‌ولت به‌دست می‌آید.</li>
+<li>بر خلاف معادلهٔ نرنست، معادلهٔ گلدمن یک پتانسیلِ تعادلِ ترمودینامیکی را توصیف نمی‌کند، بلکه یک حالت پایای دینامیکی است که در آن جمع جبری جریان‌ها صفر است؛ پمپ‌های فعال غشا انرژی لازم برای حفظ این حالت پایا را تأمین می‌کنند.</li>
+</ul>
+<p>تغییر ناگهانی نفوذپذیری‌ها، برای مثال افزایش شدید <span class="arithmatex">\(P_{\text{Na}}\)</span> هنگام باز شدن کانال‌های سدیمی وابسته به ولتاژ، باعث می‌شود وزن سدیم در معادلهٔ گلدمن غالب شود و پتانسیل غشا به سرعت به سمت <span class="arithmatex">\(E_{\text{Na}}\)</span> مثبت میل کند. همین جابه‌جایی سریع وزن یون‌ها، شالودهٔ پتانسیل عمل است که در ادامهٔ همین فصل به‌صورت کیفی و در فصل بعد در قالب مدل هاجکین–هاکسلی به‌صورت کمّی به آن خواهیم پرداخت.</p>
+<h2 id="_13">غشا به‌مثابهٔ یک مدار الکتریکی</h2>
+<p>پیش از پرداختن به پتانسیل عمل، یک تصویر فیزیکیِ کلیدی را معرفی می‌کنیم که در سراسر فصل‌های بعد به کار می‌آید: غشای نورون از نظر الکتریکی مانند یک <strong>مدار ساده</strong> رفتار می‌کند.</p>
+<p>دولایهٔ لیپیدی، یک عایق نازک میان دو محیط رساناست (محلول‌های یونی درون و بیرون سلول). هر عایقی که میان دو رسانا قرار گیرد یک <strong>خازن</strong> می‌سازد؛ بنابراین غشا یک ظرفیت خازنی <span class="arithmatex">\(C_m\)</span> دارد و می‌تواند بار الکتریکی را روی دو سطح خود نگه دارد. در کنار این خازن، کانال‌های یونی مسیرهایی برای عبور بار فراهم می‌کنند و نقش <strong>مقاومت</strong> (یا رسانایی) را ایفا می‌کنند. هر دسته کانال، علاوه بر مقاومت، یک <strong>منبع ولتاژ</strong> نیز در خود دارد که همان پتانسیل نرنستِ آن یون است. به این ترتیب، غشا را می‌توان به‌صورت یک خازن موازی با چند شاخهٔ مقاومت–باتری مدل کرد.</p>
+<figure>
+  <img alt="Image title" src="../membrane_rc.png" />
+<br />
+<figcaption>مدل مداری ساده‌شدهٔ غشا: یک خازن (ظرفیت خازنی غشا، $C_m$) به‌موازات یک شاخهٔ نشتی شامل مقاومت کانال و باتریِ متناظر با پتانسیل تعادل یون.</figcaption>
+</figure>
+<p>اهمیت این تصویر در آن است که قانون پایستگی بار، رفتار ولتاژ غشا را تعیین می‌کند. جریانی که به خازن می‌رسد باید یا بار آن را تغییر دهد یا از کانال‌ها عبور کند. اگر جریان خازنی را <span class="arithmatex">\(C_m\,\frac{dV}{dt}\)</span> و مجموع جریان‌های یونی را <span class="arithmatex">\(\sum_i I_i\)</span> بنویسیم، موازنهٔ جریان چنین می‌شود:</p>
+<div class="arithmatex">\[
+C_m\,\frac{dV_m}{dt} = -\sum_i I_i + I_{\text{ext}},
+\]</div>
+<p>که در آن <span class="arithmatex">\(I_{\text{ext}}\)</span> هر جریان خارجیِ تزریق‌شده است. این معادلهٔ ساده، <strong>استخوان‌بندیِ همهٔ مدل‌های نورونی</strong> در فصل‌های بعد است: مدل هاجکین–هاکسلی، مدل‌های ساده‌شده و حتی مدل‌های جمعیتی، همگی شکل‌هایی از همین موازنهٔ جریان‌اند. تنها چیزی که از مدلی به مدل دیگر تغییر می‌کند، نحوهٔ توصیف جریان‌های یونیِ <span class="arithmatex">\(I_i\)</span> است.</p>
+<p>ثابت زمانی این مدار، <span class="arithmatex">\(\tau_m = R_m C_m\)</span>، تعیین می‌کند که ولتاژ غشا با چه سرعتی به تغییرات جریان پاسخ می‌دهد؛ مقدار نوعی آن در حدود چند تا چند ده میلی‌ثانیه است و همین، مقیاس زمانیِ پاسخ‌های زیرآستانهٔ نورون را مشخص می‌کند.</p>
+<div class="admonition note">
+<p class="admonition-title">به‌زودی: این مدار را حل می‌کنیم</p>
+<p>در فصلِ <a href="../ch-biophys-02-membrane-potential/">پتانسیل غشا: نگاهی محاسباتی</a> همین معادلهٔ موازنهٔ جریان را از صفر در پایتون انتگرال‌گیری می‌کنیم، پاسخِ پله‌ای و ثابت‌زمانیِ <span class="arithmatex">\(\tau_m\)</span> را می‌بینیم و منحنیِ <strong>شدت–مدت</strong> را می‌سازیم. گسترشِ این مدل در فضا (به‌جای یک نقطه) موضوعِ فصلِ <a href="../ch-biophys-04-cable-dendrites/">نظریهٔ کابل و دندریت‌ها</a> است.</p>
+</div>
+<h2 id="_14">پتانسیل عمل</h2>
+<p>تا اینجا غشا را در حالت استراحت بررسی کردیم. اما ویژگیِ تعیین‌کنندهٔ نورون، توانایی آن در تولید <strong>پتانسیل عمل</strong> است: یک موج گذرا و بسیار سریع از وارونگیِ پتانسیل غشا که در امتداد آکسون منتشر می‌شود و پیام عصبی را حمل می‌کند. این همان پدیده‌ای است که واژهٔ «تحریک‌پذیر» در عنوان این فصل به آن اشاره دارد.</p>
+<h3 id="_15">آستانه و پاسخ همه‌یاهیچ</h3>
+<p>اگر غشا را اندکی دپلاریزه کنیم (یعنی پتانسیل را به سمت مثبت ببریم)، تا زمانی که از یک <strong>آستانه</strong> عبور نکرده باشد، پاسخی گذرا و کوچک می‌گیریم و غشا به استراحت بازمی‌گردد. اما به‌محض آنکه دپلاریزاسیون از آستانه (نوعاً حدود ۵۵− میلی‌ولت) بگذرد، یک پتانسیل عملِ کامل برانگیخته می‌شود. نکتهٔ مهم این است که دامنهٔ پتانسیل عمل به شدتِ محرک بستگی ندارد: محرکِ زیرآستانه هیچ پتانسیل عملی تولید نمی‌کند، و هر محرکِ فراتر از آستانه پتانسیل عملی با دامنهٔ تقریباً یکسان می‌سازد. به این ویژگی، رفتار <strong>همه‌یاهیچ</strong> می‌گویند.</p>
+<figure>
+  <img alt="Image title" src="../action_potential.png" />
+<br />
+<figcaption>پتانسیل عمل و فازهای آن: دپلاریزاسیون سریع ناشی از ورود سدیم، رپلاریزاسیون ناشی از خروج پتاسیم، و فرابیش‌قطبش (پایین‌رویِ گذرا) پیش از بازگشت به استراحت. خط‌چینِ قرمز آستانه و خط‌چینِ خاکستری سطح استراحت را نشان می‌دهد.</figcaption>
+</figure>
+<h3 id="_16">سازوکار یونی: یک چرخهٔ بازخورد مثبت</h3>
+<p>پتانسیل عمل، نتیجهٔ یک رقص دقیق میان دو دسته کانال وابسته به ولتاژ است:</p>
+<p>نخست، دپلاریزاسیونِ آغازین <strong>کانال‌های سدیمیِ وابسته به ولتاژ</strong> را باز می‌کند. چون <span class="arithmatex">\(E_{\text{Na}}\)</span> بسیار مثبت است، سدیم به‌سرعت به درون سرازیر می‌شود و غشا را مثبت‌تر می‌کند. این مثبت‌ترشدن، کانال‌های سدیمیِ بیشتری را باز می‌کند، که به ورود سدیمِ بیشتر می‌انجامد، و این چرخه خود را تقویت می‌کند. این <strong>بازخورد مثبت</strong> همان چیزی است که به پتانسیل عمل سرشت انفجاری و همه‌یاهیچ می‌بخشد: همین‌که آغاز شود، تا انتها پیش می‌رود و پتانسیل غشا به‌سرعت به سمت <span class="arithmatex">\(E_{\text{Na}}\)</span> بالا می‌رود.</p>
+<p>اما این صعود متوقف می‌شود، به دو دلیل که با هم عمل می‌کنند:</p>
+<ul>
+<li><strong>غیرفعال‌شدن کانال سدیمی:</strong> کانال‌های سدیمی پس از باز شدن، با تأخیری کوتاه به‌طور خودکار <strong>غیرفعال</strong> می‌شوند؛ دریچهٔ دومی در کانال بسته می‌شود و جریان سدیم را قطع می‌کند، هرچند محرک هنوز برقرار باشد. هر کانال در طول یک پتانسیل عمل تنها یک‌بار باز می‌شود.</li>
+<li><strong>باز شدن کانال پتاسیمی:</strong> <strong>کانال‌های پتاسیمیِ وابسته به ولتاژ</strong> (که به آن‌ها یکسوسازِ تأخیری نیز می‌گویند) کندتر از کانال‌های سدیمی به دپلاریزاسیون پاسخ می‌دهند و نزدیک قلهٔ پتانسیل عمل باز می‌شوند. خروج پتاسیم به بیرون، بار مثبت را از سلول خارج می‌کند و غشا را دوباره منفی می‌کند (رپلاریزاسیون).</li>
+</ul>
+<p>از آنجا که کانال‌های پتاسیمی با تأخیر بسته می‌شوند، غشا اغلب برای مدتی کوتاه از پتانسیل استراحت هم منفی‌تر می‌شود؛ به این پدیده <strong>فرابیش‌قطبش</strong> یا پایین‌روی می‌گویند. سرانجام کانال‌ها به حالت استراحت بازمی‌گردند و پمپ سدیم–پتاسیم تعادل یونی را به‌تدریج بازسازی می‌کند.</p>
+<h3 id="_17">دورهٔ بی‌پاسخی (نسوز)</h3>
+<p>غیرفعال‌شدن کانال‌های سدیمی پیامد مهمی دارد: بلافاصله پس از یک پتانسیل عمل، تا زمانی که کانال‌های سدیمی از حالت غیرفعال خارج نشده‌اند، غشا نمی‌تواند پتانسیل عمل تازه‌ای تولید کند. به این بازهٔ زمانی <strong>دورهٔ بی‌پاسخی</strong> (نسوز، refractory period) می‌گویند. این دوره دو نقش کلیدی دارد: نخست، شلیک نورون را به یک بیشینهٔ بسامد محدود می‌کند؛ دوم، تضمین می‌کند که پتانسیل عمل تنها در یک جهت (رو به جلو) منتشر شود و به عقب بازنگردد.</p>
+<h2 id="_18">انتشار پتانسیل عمل</h2>
+<p>پتانسیل عمل در یک نقطه از غشا تولید می‌شود، اما باید بدون افت در سراسر طول آکسون (که گاه تا یک متر است) منتشر شود. سازوکار انتشار، <strong>جریان‌های مدار محلی</strong> است: ناحیه‌ای که پتانسیلش وارونه شده، با ناحیهٔ مجاورِ در حال استراحت یک اختلاف پتانسیل دارد، و این اختلاف باعث جاری‌شدن جریانی محلی می‌شود که ناحیهٔ بعدی را تا آستانه دپلاریزه می‌کند. به این ترتیب، پتانسیل عمل نقطه‌به‌نقطه خود را در امتداد آکسون بازتولید می‌کند، مانند ردیفی از تکه‌های دومینو که یکی پس از دیگری می‌افتند. چون هر نقطه پتانسیل عمل را از نو می‌سازد، دامنهٔ سیگنال در طول مسیر کم نمی‌شود.</p>
+<h3 id="_19">میلین و هدایت جهشی</h3>
+<p>در بسیاری از آکسون‌های مهره‌داران، غلافی عایق به نام <strong>میلین</strong> بخش‌هایی از آکسون را می‌پوشاند. میلین مقاومت الکتریکیِ غشا را در آن بخش‌ها بالا می‌برد و ظرفیت خازنی را کاهش می‌دهد، در نتیجه جریان‌های مدار محلی به‌جای اتلاف در طول غشا، سریع‌تر به جلو رانده می‌شوند. کانال‌های سدیمی تنها در شکاف‌های میان قطعات میلین، که <strong>گره‌های رانویه</strong> نامیده می‌شوند، متمرکزند. در نتیجه، پتانسیل عمل به‌جای آنکه پیوسته در طول آکسون بازتولید شود، از یک گره به گرهِ بعدی «می‌جهد». به این شیوهٔ هدایت، <strong>هدایت جهشی</strong> (saltatory conduction، از واژهٔ لاتین <em>saltare</em> به معنای جهیدن) می‌گویند.</p>
+<figure>
+  <img alt="Image title" src="../saltatory.png" />
+<br />
+<figcaption>هدایت جهشی: کانال‌های سدیمی در گره‌های رانویه (قرمز) متمرکزند و پتانسیل عمل از گرهی به گرهِ بعد می‌جهد، در نتیجه هدایت بسیار سریع‌تر و کم‌هزینه‌تر می‌شود.</figcaption>
+</figure>
+<p>میلین دو فایدهٔ مهم دارد: سرعت هدایت را بسیار افزایش می‌دهد (در آکسون‌های میلین‌دار تا حدود ۱۲۰ متر بر ثانیه) و مصرف انرژی را کاهش می‌دهد، زیرا فعالیتِ یونی و کارِ پمپ تنها به گره‌ها محدود می‌شود. از دست رفتن میلین در بیماری‌هایی مانند ام‌اس (مولتیپل اسکلروزیس) هدایت را مختل می‌کند و نشان می‌دهد که این غلاف چه نقش حیاتی‌ای دارد.</p>
+<h2 id="_20">چگونه این پدیده‌ها را اندازه می‌گیریم؟</h2>
+<p>دانشِ ما از کانال‌ها و جریان‌های یونی، که پایهٔ مدل هاجکین–هاکسلی در فصل بعد است، از چند تکنیک تجربیِ هوشمندانه به‌دست آمده است. در اینجا تنها به‌اختصار به آن‌ها اشاره می‌کنیم.</p>
+<p>در روش <strong>تثبیت ولتاژ</strong> (voltage clamp)، آزمایشگر پتانسیل غشا را در مقداری دلخواه ثابت نگه می‌دارد و جریانی را که برای حفظ این ولتاژ لازم است اندازه می‌گیرد. این جریان دقیقاً برابر (و در خلاف جهتِ) مجموع جریان‌های یونیِ غشاست. هاجکین و هاکسلی با همین روش بر آکسون غول‌پیکر ماهی مرکب توانستند جریان سدیم و پتاسیم را از هم جدا کنند و وابستگی آن‌ها به ولتاژ و زمان را اندازه بگیرند.</p>
+<figure>
+  <img alt="Image title" src="../voltage_clamp.png" />
+<br />
+<figcaption>جریان‌های اندازه‌گیری‌شده در یک آزمایش تثبیت ولتاژ: با یک پلهٔ دپلاریزه‌کننده، نخست جریان سدیمِ روبه‌داخل (قرمز) به‌سرعت روشن و سپس غیرفعال می‌شود، و با تأخیر جریان پتاسیمِ روبه‌بیرون (سبز) روشن می‌ماند.</figcaption>
+</figure>
+<p>در روش دقیق‌ترِ <strong>تثبیت قطعه</strong> (patch clamp)، یک قطعهٔ بسیار کوچک از غشا که تنها چند کانال دارد جدا می‌شود، تا بتوان رفتارِ تک‌تکِ کانال‌ها را مشاهده کرد. این روش نشان داد که هر کانال منفرد یا کاملاً باز است یا کاملاً بسته، و رسانایی یک کانال بازِ نوعی در حدود ۱۰ پیکوزیمنس است. حتی پیش از این روش، <strong>تحلیل نوفه</strong> (تحلیل نوسان‌های تصادفیِ جریان) به دانشمندان اجازه داده بود شمار و رسانایی کانال‌ها را به‌صورت آماری برآورد کنند: اگر جریانِ یک کانال <span class="arithmatex">\(i\)</span> و شمار میانگین کانال‌های باز <span class="arithmatex">\(n\)</span> باشد، جریان کل برابر <span class="arithmatex">\(n i\)</span> و پراکندگیِ آن (انحراف معیار) متناسب با <span class="arithmatex">\(\sqrt{n}\,i\)</span> است؛ از روی این دو می‌توان <span class="arithmatex">\(n\)</span> و <span class="arithmatex">\(i\)</span> را جدا کرد.</p>
+<p>این روش‌ها همان داده‌هایی را فراهم کردند که در فصل بعد به مدل کمّیِ هاجکین–هاکسلی شکل می‌دهند.</p>
+<h2 id="_21">جمع‌بندی</h2>
+<p>در این فصل، نورون را از بیرون به درون شناختیم: از سلول و غشای فسفولیپیدی، به کانال‌های یونی و شیب‌های غلظتی، و از آنجا به پتانسیل استراحت و معادله‌های نرنست و گلدمن. سپس غشا را به‌صورتِ یک <strong>مدارِ الکتریکیِ ساده</strong> بازنمایی کردیم و دیدیم که موازنهٔ جریان، <span class="arithmatex">\(C_m\,dV/dt = -\sum_i I_i + I_{\text{ext}}\)</span>، استخوان‌بندیِ همهٔ مدل‌های بعدیِ کتاب است. سرانجام، پتانسیل عمل و انتشار آن را به‌صورتِ کیفی مرور کردیم.</p>
+<p>نکتهٔ کلیدی این است که تقریباً هر جمله از این فصل را می‌توان به یک معادله و چند خط کد ترجمه کرد. این دقیقاً کاری است که در فصل‌های بعدیِ بخشِ بیوفیزیک نورون انجام می‌دهیم؛ و در فصلِ <a href="../ch03.md">مدل هاجکین–هاکسلی</a>، همهٔ این تکه‌ها در یک مدلِ کمّیِ واحد کنار هم می‌نشینند. ارتباطِ نورون‌ها با یکدیگر نیز موضوعِ فصلِ <a href="../ch-biophys-05-synapses/">سیناپس‌ها</a> است.</p>
+<h2 id="_22">تمرین‌ها</h2>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۱ — جهتِ پتانسیل‌های تعادل</p>
+<p>بدونِ محاسبهٔ عددی، تنها با نگاه به جدولِ غلظت‌ها، پیش‌بینی کنید که پتانسیل تعادلِ هر یون (پتاسیم، سدیم، کلر، کلسیم) مثبت است یا منفی. سپس توضیح دهید چرا علامتِ <span class="arithmatex">\(E_{\text{Cl}}\)</span> با آنکه کلر در بیرون غلیظ‌تر است، منفی درمی‌آید.</p>
+<details class="success">
+<summary>راهِ‌حل</summary>
+<p>معادلهٔ نرنست <span class="arithmatex">\(E_X = \frac{RT}{zF}\ln\frac{[X]_{\text{out}}}{[X]_{\text{in}}}\)</span> است. برای یون‌های مثبت (<span class="arithmatex">\(z&gt;0\)</span>)، اگر یون در <strong>بیرون</strong> غلیظ‌تر باشد لگاریتم مثبت و <span class="arithmatex">\(E_X\)</span> مثبت است (سدیم، کلسیم)؛ اگر در <strong>درون</strong> غلیظ‌تر باشد <span class="arithmatex">\(E_X\)</span> منفی است (پتاسیم). کلر بارِ منفی دارد (<span class="arithmatex">\(z=-1\)</span>)؛ هرچند در بیرون غلیظ‌تر است و لگاریتم مثبت می‌شود، ضربِ در <span class="arithmatex">\(1/z=-1\)</span> علامت را وارونه می‌کند و <span class="arithmatex">\(E_{\text{Cl}}\)</span> منفی می‌شود.</p>
+</details>
+</div>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۲ — چرا پتانسیل استراحت به <span class="arithmatex">\(E_{\text{K}}\)</span> نزدیک است؟</p>
+<p>با استفاده از معادلهٔ گلدمن و نسبتِ نوعیِ نفوذپذیری <span class="arithmatex">\(P_{\text{K}} : P_{\text{Na}} : P_{\text{Cl}} = 1 : 0.04 : 0.45\)</span>، به‌صورتِ کیفی توضیح دهید چرا پتانسیل استراحت به <span class="arithmatex">\(E_{\text{K}}\)</span> نزدیک‌تر است تا به <span class="arithmatex">\(E_{\text{Na}}\)</span>. اگر ناگهان <span class="arithmatex">\(P_{\text{Na}}\)</span> صد برابر شود، انتظار دارید پتانسیل غشا به کدام سو برود؟</p>
+<details class="success">
+<summary>راهِ‌حل</summary>
+<p>در معادلهٔ گلدمن، وزنِ هر یون با نفوذپذیریِ آن متناسب است. چون <span class="arithmatex">\(P_{\text{K}}\)</span> بسیار بزرگ‌تر از <span class="arithmatex">\(P_{\text{Na}}\)</span> است، جمله‌های پتاسیم در صورت و مخرج غالب‌اند و پتانسیل غشا نزدیک به <span class="arithmatex">\(E_{\text{K}}\)</span> می‌ماند. اگر <span class="arithmatex">\(P_{\text{Na}}\)</span> صد برابر شود (چنان‌که هنگام بازشدنِ کانال‌های سدیمیِ وابسته به ولتاژ رخ می‌دهد)، وزنِ سدیم غالب می‌شود و پتانسیل غشا به‌سرعت به سمتِ <span class="arithmatex">\(E_{\text{Na}}\)</span> (مثبت) می‌رود — همان آغازِ پتانسیل عمل. این را در فصلِ <a href="../ch-biophys-02-membrane-potential/">پتانسیل غشا: نگاهی محاسباتی</a> به‌صورتِ عددی می‌بینیم.</p>
+</details>
+</div>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۳ — ثابت‌زمانیِ غشا</p>
+<p>غشایی با ظرفیت خازنیِ ویژهٔ <span class="arithmatex">\(C_m = 1\ \mu\mathrm{F/cm^2}\)</span> و مقاومتِ ویژهٔ <span class="arithmatex">\(R_m = 10\ \mathrm{k\Omega\,cm^2}\)</span> را در نظر بگیرید. ثابت‌زمانیِ غشا <span class="arithmatex">\(\tau_m = R_m C_m\)</span> را حساب کنید. اگر یک پلهٔ جریان تزریق شود، پس از چه مدت ولتاژ به حدودِ ۶۳٪ مقدارِ نهایی‌اش می‌رسد؟</p>
+<details class="success">
+<summary>راهِ‌حل</summary>
+<p><span class="arithmatex">\(\tau_m = R_m C_m = (10^4\ \Omega\,\mathrm{cm^2})(10^{-6}\ \mathrm{F/cm^2}) = 10^{-2}\ \mathrm{s} = 10\ \mathrm{ms}\)</span>. پاسخِ پله‌ایِ یک مدارِ RC به‌صورتِ <span class="arithmatex">\(V(t)=V_\infty(1-e^{-t/\tau_m})\)</span> است؛ در <span class="arithmatex">\(t=\tau_m\)</span> داریم <span class="arithmatex">\(1-e^{-1}\approx 0.63\)</span>، یعنی پس از حدودِ ۱۰ میلی‌ثانیه ولتاژ به ۶۳٪ مقدارِ نهایی می‌رسد. این محاسبه را در فصلِ بعد شبیه‌سازی می‌کنیم.</p>
+</details>
+</div>
+<hr />
+<p>برای مطالعهٔ بیشتر:</p>
+<div dir="ltr">
+<ul>
+<li>Kandel, E.R., Schwartz, J.H., Jessell, T.M., Siegelbaum, S., Hudspeth, A.J., 2013. Principles of Neural Science, 5th ed. McGraw-Hill.</li>
+<li>Hille, B., 2001. Ion Channels of Excitable Membranes, 3rd ed. Sinauer.</li>
+<li>Purves, D. et al., 2018. Neuroscience, 6th ed. Oxford University Press.</li>
+<li>Sterratt, D., Graham, B., Gillies, A., Willshaw, D., 2011. Principles of Computational Modelling in Neuroscience. Cambridge University Press.</li>
+</ul>
+</div>
+<hr />
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>CNS&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+  
+    
+    
+
+    <hr>
+    <div class="page-actions" dir="rtl">
+      <a class="md-button"
+         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=enhancement&title=پیشنهاد برای فصل: %D8%BA%D8%B4%D8%A7%DB%8C%20%D8%AA%D8%AD%D8%B1%DB%8C%DA%A9%E2%80%8C%D9%BE%D8%B0%DB%8C%D8%B1">
+        پیشنهاد در گیت‌هاب
+      </a>
+      <a class="md-button"
+         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=bug&title=گزارش اشکال در فصل: %D8%BA%D8%B4%D8%A7%DB%8C%20%D8%AA%D8%AD%D8%B1%DB%8C%DA%A9%E2%80%8C%D9%BE%D8%B0%DB%8C%D8%B1">
+        گزارش اشکال در گیت‌هاب
+      </a>
+      <a class="md-button"
+         href="mailto:saeed.taghavi.v@gmail.com?subject=بازخورد دربارهٔ فصل: غشای تحریک‌پذیر">
+        ارسال بازخورد با ایمیل
+      </a>
+    </div>
+  
+
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  برگشت به بالا
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections", "navigation.top", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u06a9\u067e\u06cc \u0634\u062f", "clipboard.copy": "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646", "search.result.more.one": "1 \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.more.other": "# \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.none": "\u0633\u0646\u062f\u06cc \u06cc\u0627\u0641\u062a \u0646\u0634\u062f", "search.result.one": "1 \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.other": "# \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.placeholder": "\u0628\u0631\u0627\u06cc \u062c\u0633\u062a\u062c\u0648 \u062a\u0627\u06cc\u067e \u06a9\u0646\u06cc\u062f", "search.result.term.missing": "\u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a", "select.version": "\u0627\u0646\u062a\u062e\u0627\u0628 \u0648\u06cc\u0631\u0627\u06cc\u0634"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/extra.js"></script>
+      
+        <script src="../../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
