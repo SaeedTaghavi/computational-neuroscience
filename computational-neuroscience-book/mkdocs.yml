@@ -37,7 +37,7 @@ plugins:
         - en
         - ar 
 nav:
-  - خانه: index.md
+  - صفحه اول: index.md
   - "پیش‌نیازها":
     - "روش‌های عددی و تحلیل داده":
         - "مفاهیم مدل‌سازی":
@@ -63,6 +63,14 @@ nav:
           - "پردازش سیگنال در حوزه فرکانس": ch-signal-03-frequency-domain.md
           - "فیلترها": ch-signal-04-filters.md
           - "تحلیل زمان–بسامد": ch-signal-05-time-frequency.md
+        - "سیستم‌های دینامیکی":
+          - "مرور مفاهیم پایه": ch-dynamical-systems/ch-dynamics-01-revision.md
+          - "سیستم‌های خطی": ch-dynamical-systems/ch-dynamics-02-linear-systems.md
+          - "سیستم‌های غیرخطی": ch-dynamical-systems/ch-dynamics-03-nonlinear-systems.md
+          - "نوسانگرها": ch-dynamical-systems/ch-dynamics-04-oscillators.md
+          - "نظریه آشوب": ch-dynamical-systems/ch-dynamics-05-chaos-theory.md
+          - "کاربرد: دوپایداری و کلید ژنتیکی": ch-dynamical-systems/ch-dynamics-06-neuro-bistability.md
+          - "کاربرد: تحریک‌پذیری و فیتزهیو–ناگومو": ch-dynamical-systems/ch-dynamics-07-neuro-excitability.md
         # - "تفاضل محدود و مشتق عددی": ch17.md
         # - "حل عددی معادلات دیفرانسیل معمولی": ch18.md
         # - "معادلات با مشتقات جزئی": ch19.md
@@ -75,9 +83,14 @@ nav:
         # - "روش اجزای محدود (FEM)": ch26.md
         # - "تحلیل مقادیر فرین": ch27.md
         # - "ریسک و قابلیت اطمینان": ch28.md
+
     - "بیوفیزیک نورون":
-      - غشای تحریک‌پذیر: ch01.md
-    - سیستم‌های دینامیکی: ch02.md
+      - "سلول، غشا و کانال‌های یونی": ch-neuron-biophysics/ch-biophysics-01-cell-membrane-channels.md
+      - "پتانسیل استراحت: نرنست و گلدمن": ch-neuron-biophysics/ch-biophysics-02-resting-potential.md
+      - "غشای غیرفعال: مدار RC": ch-neuron-biophysics/ch-biophysics-03-passive-rc.md
+      - "کابل و مدل‌های تقسیمی": ch-neuron-biophysics/ch-biophysics-04-cable-compartments.md
+      - "سیناپس‌ها و ورودی سیناپسی": ch-neuron-biophysics/ch-biophysics-05-synapses.md
+      - "پتانسیل عمل و انتشار": ch-neuron-biophysics/ch-biophysics-06-action-potential.md
   - "مدل‌های نورون":
       - مدل هاجکین-هاکسلی: ch03.md
       - "مدل‌های ساده‌شده: LIF، EIF، AdEx": ch04.md
