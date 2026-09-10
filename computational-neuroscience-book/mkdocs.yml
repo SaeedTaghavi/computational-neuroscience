@@ -104,6 +104,7 @@ nav:
       - مدل ویلسون-کوان: ch10.md
   - "پیوست‌ها":
       - "طراحی گردش‌کار و آزمایش محاسباتی": appendix-workflow.md
+      - "پایگاه‌های دادهٔ باز در علوم اعصاب": appendix-open-datasets.md
       # - "معرفی بسته شبیه‌سازی  NEST": appendix-nest.md
       # - "معرفی بسته شبیه‌سازی  Brian2": appendix-brian2.md
       # - "معرفی بسته شبیه‌سازی  NEURON": appendix-neuron.md 
