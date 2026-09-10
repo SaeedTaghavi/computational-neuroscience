@@ -1,0 +1,2911 @@
+
+<!doctype html>
+<html lang="fa" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="کتاب آنلاین علوم اعصاب محاسباتی به زبان فارسی — از غشای تحریک‌پذیر و سیستم‌های دینامیکی تا مدل‌های نورون، شبکه‌های اسپایکی و مدل‌سازی مغز کامل.">
+      
+      
+        <meta name="author" content="Saeed Taghavi">
+      
+      
+        <link rel="canonical" href="https://computational-neuroscience.ir/appendix-open-datasets/">
+      
+      
+        <link rel="prev" href="../appendix-workflow/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>پایگاه‌های دادهٔ باز در علوم اعصاب - کتاب علوم اعصاب محاسباتی</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Naskh+Arabic:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Naskh Arabic";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="rtl" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          پرش به محتویات
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="سرتیتر">
+    <a href=".." title="کتاب علوم اعصاب محاسباتی" class="md-header__button md-logo" aria-label="کتاب علوم اعصاب محاسباتی" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            کتاب علوم اعصاب محاسباتی
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              پایگاه‌های دادهٔ باز در علوم اعصاب
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="جستجو" placeholder="جستجو" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="جستجو">
+        
+        <button type="reset" class="md-search__icon md-icon" title="بازنشانی" aria-label="بازنشانی" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            راه‌اندازی جستجو
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="هدایت" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="کتاب علوم اعصاب محاسباتی" class="md-nav__button md-logo" aria-label="کتاب علوم اعصاب محاسباتی" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    کتاب علوم اعصاب محاسباتی
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    صفحه اول
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پیش‌نیازها
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پیش‌نیازها
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    روش‌های عددی و تحلیل داده
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    روش‌های عددی و تحلیل داده
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مفاهیم مدل‌سازی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مفاهیم مدل‌سازی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-modelling-01-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-modelling-02-classification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    رده‌بندی مدل‌ها
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-modelling-03-decisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    تصمیم‌های مدل‌سازی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-modelling-04-uncertainty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    رده‌بندی عدم‌قطعیت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-modelling-05-verify-validate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    راستی‌آزمایی و اعتبارسنجی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-modelling-06-goodness-of-fit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نیکویی برازش
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    روش‌های عددی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    روش‌های عددی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-01-revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرور مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-02-derivative/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مشتق اول
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-03-fdm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    تفاضل محدود
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-04-taylor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    بسط تیلور
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-05-numerical-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    انتگرال‌گیری عددی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-06-ode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    حل عددی معادلات دیفرانسیل معمولی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-num-07-sde/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    حل عددی معادلات دیفرانسیل تصادفی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_3" id="__nav_2_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پردازش سیگنال
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پردازش سیگنال
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-signal-01-revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرور مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-signal-02-time-domain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پردازش سیگنال در حوزه زمان
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-signal-03-frequency-domain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پردازش سیگنال در حوزه فرکانس
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-signal-04-filters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    فیلترها
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-signal-05-time-frequency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    تحلیل زمان–بسامد
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1_4" id="__nav_2_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیستم‌های دینامیکی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    سیستم‌های دینامیکی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-dynamical-systems/ch-dynamics-01-revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مرور مفاهیم پایه
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-dynamical-systems/ch-dynamics-02-linear-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیستم‌های خطی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-dynamical-systems/ch-dynamics-03-nonlinear-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیستم‌های غیرخطی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-dynamical-systems/ch-dynamics-04-oscillators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نوسانگرها
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-dynamical-systems/ch-dynamics-05-chaos-theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نظریه آشوب
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-dynamical-systems/ch-dynamics-06-neuro-bistability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    کاربرد: دوپایداری و کلید ژنتیکی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-dynamical-systems/ch-dynamics-07-neuro-excitability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    کاربرد: تحریک‌پذیری و فیتزهیو–ناگومو
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    بیوفیزیک نورون
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    بیوفیزیک نورون
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-neuron-biophysics/ch-biophysics-01-cell-membrane-channels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سلول، غشا و کانال‌های یونی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-neuron-biophysics/ch-biophysics-02-resting-potential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پتانسیل استراحت: نرنست و گلدمن
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-neuron-biophysics/ch-biophysics-03-passive-rc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    غشای غیرفعال: مدار RC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-neuron-biophysics/ch-biophysics-04-cable-compartments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    کابل و مدل‌های تقسیمی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-neuron-biophysics/ch-biophysics-05-synapses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    سیناپس‌ها و ورودی سیناپسی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch-neuron-biophysics/ch-biophysics-06-action-potential/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پتانسیل عمل و انتشار
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های نورون
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مدل‌های نورون
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل هاجکین-هاکسلی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های ساده‌شده: LIF، EIF، AdEx
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    شبکه‌های نورون‌های نقطه‌ای
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    شبکه‌های نورون‌های نقطه‌ای
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    از نورون به جمعیت
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    شبکه‌های تصادفی متعادل
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    نوسانات در شبکه‌های تحریکی-مهاری
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پلاستیسیتی وابسته به زمان اسپایک (STDP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل‌های جمعیتی و توده عصبی
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    مدل‌های جمعیتی و توده عصبی
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    معادلات نرخ آتش
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    مدل ویلسون-کوان
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پیوست‌ها
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    پیوست‌ها
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    طراحی گردش‌کار و آزمایش محاسباتی
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پایگاه‌های دادهٔ باز در علوم اعصاب
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پایگاه‌های دادهٔ باز در علوم اعصاب
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="فهرست در این صفحه">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      فهرست در این صفحه
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        پیش از انتخابِ داده: شش پرسش
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        داده‌های الکتروفیزیولوژی حیوانی
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="داده‌های الکتروفیزیولوژی حیوانی">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#international-brain-laboratory-ibl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        International Brain Laboratory (IBL)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allen-brain-observatory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Allen Brain Observatory
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eeg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        داده‌های EEG انسانی
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="داده‌های EEG انسانی">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chb-mit-scalp-eeg-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CHB-MIT Scalp EEG Database
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bonn-eeg-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonn EEG Dataset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lemon-mpi-leipzig-mind-brain-body" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LEMON (MPI Leipzig Mind-Brain-Body)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        داده‌های تصویربرداریِ بالینیِ طولی
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="داده‌های تصویربرداریِ بالینیِ طولی">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adni-alzheimers-disease-neuroimaging-initiative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ADNI (Alzheimer's Disease Neuroimaging Initiative)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        درگاه‌ها: جایی که دادهٔ بعدی را پیدا می‌کنید
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        اخلاق، مجوز و بازتولیدپذیری
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        جمع‌بندی در یک جدول
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تمرین‌ها
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        منابع
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="فهرست در این صفحه">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      فهرست در این صفحه
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        پیش از انتخابِ داده: شش پرسش
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        داده‌های الکتروفیزیولوژی حیوانی
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="داده‌های الکتروفیزیولوژی حیوانی">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#international-brain-laboratory-ibl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        International Brain Laboratory (IBL)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allen-brain-observatory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Allen Brain Observatory
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eeg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        داده‌های EEG انسانی
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="داده‌های EEG انسانی">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chb-mit-scalp-eeg-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CHB-MIT Scalp EEG Database
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bonn-eeg-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonn EEG Dataset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lemon-mpi-leipzig-mind-brain-body" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LEMON (MPI Leipzig Mind-Brain-Body)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        داده‌های تصویربرداریِ بالینیِ طولی
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="داده‌های تصویربرداریِ بالینیِ طولی">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adni-alzheimers-disease-neuroimaging-initiative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ADNI (Alzheimer's Disease Neuroimaging Initiative)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        درگاه‌ها: جایی که دادهٔ بعدی را پیدا می‌کنید
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        اخلاق، مجوز و بازتولیدپذیری
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        جمع‌بندی در یک جدول
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تمرین‌ها
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        منابع
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+
+<h1 id="_1">پیوست: پایگاه‌های دادهٔ باز در علوم اعصاب</h1>
+<p>تا اینجای کتاب، تقریباً همهٔ داده‌هایی که با آن‌ها کار کردیم را خودمان ساخته بودیم: از یک نوسانگر انتگرال گرفتیم، یک نورون هاجکین–هاکسلی را شبیه‌سازی کردیم، یا نوفه‌ای مصنوعی به سیگنال افزودیم. این کار برای یادگیریِ روش‌ها ایده‌آل است، چون پاسخِ درست را از پیش می‌دانیم. اما پژوهشِ واقعی جای دیگری است: در آنجا داده از مغزِ یک موش یا یک انسان می‌آید، پاسخِ درست را کسی نمی‌داند، و بخشِ بزرگی از کار صرفِ فهمیدنِ این می‌شود که داده اصلاً چیست و چگونه ثبت شده است.</p>
+<p>خبرِ خوب این است که برای شروع لازم نیست آزمایشگاه داشته باشید. در دو دههٔ گذشته، جامعهٔ علوم اعصاب مقدارِ چشمگیری داده را آزادانه منتشر کرده است: از اسپایکِ صدها هزار نورونِ ثبت‌شده با نوروپیکسل تا EEGِ بیمارانِ صرعی و تصویربرداریِ طولیِ هزاران فرد. این پیوست فهرستی است از پایگاه‌هایی که برای شروعِ یک پروژهٔ محاسباتی مناسب‌اند، همراه با اینکه هر کدام دقیقاً چه چیزی دارند و به دردِ چه پرسشی می‌خورند.</p>
+<div class="admonition note">
+<p class="admonition-title">این پیوست کد ندارد</p>
+<p>اینجا فقط معرفی و نقشهٔ راه است. نحوهٔ بارگذاری و پیش‌پردازشِ عملیِ هر یک از این داده‌ها موضوعِ پیوست‌های جداگانه‌ای است که به‌تدریج افزوده می‌شوند. آنچه در این صفحه می‌خوانید، برای این است که پیش از نوشتنِ نخستین خطِ کد بدانید سراغِ کدام داده بروید و چرا.</p>
+</div>
+<h2 id="_2">پیش از انتخابِ داده: شش پرسش</h2>
+<p>پیش از آنکه گیگابایت‌ها داده دانلود کنید، خوب است این شش پرسش را دربارهٔ هر پایگاه از خودتان بپرسید. پاسخ به این‌ها معمولاً چند ساعت وقت می‌گیرد و چند هفته وقت نجات می‌دهد.</p>
+<ol>
+<li>
+<p><strong>مقیاسِ ثبت چیست؟</strong> داده در چه سطحی از سازمان‌یافتگیِ مغز ثبت شده است؟ اسپایکِ تک‌نورون، پتانسیلِ میدانیِ موضعی (LFP)، EEGِ سطحِ پوستِ سر، یا سیگنالِ همودینامیکِ fMRI؟ این انتخاب تعیین می‌کند که چه پرسشی اصلاً قابلِ‌طرح است. با EEGِ ۲۳ کاناله نمی‌توان دربارهٔ کدگذاریِ تک‌نورون حرف زد، و با ثبتِ نوروپیکسل در قشرِ بینایی موش نمی‌توان دربارهٔ شبکه‌های کلانِ مغزِ انسان.</p>
+</li>
+<li>
+<p><strong>بسامدِ نمونه‌برداری و پهنای باند چقدر است؟</strong> این را در فصلِ <a href="../ch-signal-03-frequency-domain/">پردازش سیگنال در حوزهٔ فرکانس</a> دیدیم: بسامدِ نایکوئیست سقفِ آنچه را که می‌توانید ببینید تعیین می‌کند. دادهٔ ۱۷۳ هرتزی هرگز به شما دربارهٔ نوساناتِ گاما بالای ۸۰ هرتز چیزِ قابلِ‌اعتمادی نمی‌گوید.</p>
+</li>
+<li>
+<p><strong>برچسب‌گذاری چگونه است؟</strong> آیا رویدادها (تشنج، محرک، پاسخِ رفتاری) با دقتِ زمانی مشخص‌اند؟ چه کسی و با چه معیاری برچسب زده است؟ در دادهٔ بالینی، برچسب‌ها معمولاً حاصلِ قضاوتِ چند متخصص‌اند و خودشان عدمِ‌قطعیت دارند.</p>
+</li>
+<li>
+<p><strong>حجم و ساختارِ فایل‌ها چیست؟</strong> یک مجموعهٔ ۲ مگابایتیِ متنی را روی لپ‌تاپ باز می‌کنید؛ یک مجموعهٔ ۴۰ گیگابایتی نیازمندِ برنامه‌ریزی برای فضای دیسک و زمانِ دانلود است؛ و مجموعه‌های چند ترابایتی را اصلاً دانلود نمی‌کنند، بلکه با دسترسیِ ابری و الگوریتم‌های بارگذاریِ تنبل (lazy loading) می‌خوانند.</p>
+</li>
+<li>
+<p><strong>مجوز و شرایطِ دسترسی چیست؟</strong> برخی داده‌ها کاملاً باز و بدونِ ثبت‌نام‌اند؛ برخی نیازمندِ ساختِ حساب‌اند؛ و برخی نیازمندِ درخواستِ رسمی، تأییدِ کمیته و امضای توافق‌نامهٔ استفاده از داده‌اند. این تفاوت می‌تواند چند هفته به زمان‌بندیِ پروژه اضافه کند.</p>
+</li>
+<li>
+<p><strong>چگونه باید ارجاع داده شود؟</strong> تقریباً همهٔ این پایگاه‌ها مقالهٔ مرجعی دارند که استفاده از داده مستلزمِ ارجاع به آن است. این یک تشریفات نیست: کارِ کسانی که سال‌ها صرفِ ثبت و انتشارِ داده کرده‌اند تنها از همین راه دیده می‌شود.</p>
+</li>
+</ol>
+<hr />
+<h2 id="_3">داده‌های الکتروفیزیولوژی حیوانی</h2>
+<h3 id="international-brain-laboratory-ibl">International Brain Laboratory (IBL)</h3>
+<p><strong>چیست.</strong> یک همکاریِ بین‌المللیِ بزرگ که در آن ده‌ها آزمایشگاه، <strong>یک تکلیفِ رفتاریِ یکسان</strong> را روی موش اجرا کرده‌اند و در حینِ آن با کاوشگرهای <strong>نوروپیکسل</strong> (Neuropixels) از سراسرِ مغز ثبت گرفته‌اند. تکلیف، یک تصمیم‌گیریِ بینایی است: در هر آزمایش یک <strong>گِرِیتینگ</strong> (grating؛ الگویی از نوارهای روشن و تاریکِ متناوب، که محرکِ استانداردِ پژوهش‌های بینایی است) در سمتِ چپ یا راستِ صفحه ظاهر می‌شود و موش باید چرخی را بچرخاند تا آن را به مرکزِ صفحه بیاورد. <strong>کنتراستِ</strong> گِرِیتینگ، یعنی اختلافِ روشناییِ نوارهای روشن و تاریکِ آن، از آزمایشی به آزمایشِ دیگر تغییر می‌کند: در کنتراستِ بالا تشخیص آسان است و در کنتراستِ نزدیک به صفر، حیوان عملاً حدس می‌زند. همین تغییرِ کنتراست است که تکلیف را به آزمونی برای <strong>تصمیم‌گیری در شرایطِ عدمِ‌قطعیت</strong> بدل می‌کند، نه صرفاً یک پاسخِ حسیِ ساده.</p>
+<p>نکتهٔ کلیدیِ IBL این است که استانداردسازیِ پروتکل، مقایسهٔ میان آزمایشگاه‌ها را ممکن می‌کند؛ چیزی که در علوم اعصاب کمیاب است.</p>
+<p><strong>چه داده‌ای دارد.</strong> انتشارِ «نقشهٔ سراسریِ مغز» (Brain Wide Map) شاملِ ۴۵۹ <strong>نشستِ ثبت</strong> (session؛ یک جلسهٔ ثبت از یک حیوان در یک روز، از آغاز تا پایانِ کارِ آن روز) با ۶۹۹ <strong>فروبردنِ کاوشگر</strong> (insertion؛ هر بار که یک کاوشگر در مغز فرو می‌رود، چون در یک نشست ممکن است چند کاوشگر هم‌زمان کار بگذارند) در ۱۳۹ موش از ۱۲ آزمایشگاه و پوششِ ۲۴۱ ناحیهٔ مغزی است. در مجموع ۶۲۱٬۷۳۳ <strong>واحد</strong> شناسایی شده که از این میان ۷۵٬۷۰۸ واحد معیارهای کنترلِ کیفیت را می‌گذرانند.</p>
+<div class="admonition note">
+<p class="admonition-title">چرا «واحد» و نه «نورون»؟</p>
+<p>الکترود ولتاژ را ثبت می‌کند، نه هویتِ سلول‌ها را. هر الکترود اسپایکِ چند نورونِ همسایه را با هم می‌بیند، و الگوریتمِ <strong>اسپایک‌سورتینگ</strong> باید این اسپایک‌ها را بر پایهٔ شکلِ موجشان به خوشه‌هایی تفکیک کند. به هر خوشه یک <strong>واحد</strong> (unit) می‌گویند: مجموعه‌ای از اسپایک‌ها که <em>احتمالاً</em> از یک نورونِ واحد آمده‌اند. این «احتمالاً» مهم است. یک واحد ممکن است در واقع اسپایکِ دو نورون باشد که به هم چسبیده‌اند، یا برعکس، اسپایک‌های یک نورون میانِ دو واحد تقسیم شده باشد. به همین دلیل واحدها را با معیارهای <strong>کنترلِ کیفیت</strong> غربال می‌کنند، و در IBL از ۶۲۱٬۷۳۳ واحدِ خام تنها ۷۵٬۷۰۸ واحد از این غربال می‌گذرند. در تحلیل‌های خود همیشه مشخص کنید که با کدام مجموعه کار می‌کنید.</p>
+</div>
+<p>هر نشست چند لایهٔ داده دارد:</p>
+<ul>
+<li><strong>زمانِ اسپایک‌ها</strong> پس از اسپایک‌سورتینگ، به‌همراه شناسهٔ واحد، ناحیهٔ آناتومیکِ نسبت‌داده‌شده و معیارهای کیفیت</li>
+<li><strong>شکلِ موجِ اسپایک‌ها</strong> برای هر واحد</li>
+<li><strong>سیگنالِ خام</strong> در دو باند: باندِ AP (پتانسیلِ عمل) و باندِ <strong>LFP</strong></li>
+<li><strong>دادهٔ رفتاری</strong>: زمان‌بندیِ آزمایش‌ها، محرک، پاسخ، زمانِ واکنش و موقعیتِ لحظه‌ایِ چرخ</li>
+<li><strong>ویدئو</strong> از چهره و بدنِ حیوان به‌همراه موقعیتِ نقاطِ کلیدی از تحلیلِ DeepLabCut</li>
+</ul>
+<p><strong>دسترسی.</strong> با کتابخانهٔ پایتونیِ <strong>ONE-api</strong> (Open Neurophysiology Environment). پایگاهِ عمومی روی <a href="https://openalyx.internationalbrainlab.org"><code>openalyx.internationalbrainlab.org</code></a> قرار دارد و با نامِ کاربریِ <code>intbrainlab</code> و گذرواژهٔ <code>international</code> باز است؛ یعنی عملاً بدونِ نیاز به ثبت‌نام. داده روی AWS نیز قرار داده شده است. کارِ ONE این است که به‌جای دانلودِ کلِ مجموعه، فقط همان فایل‌هایی را که می‌خواهید (مثلاً اسپایک‌های یک کاوشگر در یک نشست) بگیرد و کَش (cache) کند.</p>
+<p><strong>به چه دردی می‌خورد.</strong> این بهترین نقطهٔ شروع برای پرسش‌هایی است که به <strong>اسپایکِ تک‌نورون در بافتارِ رفتار</strong> نیاز دارند: ساختنِ راستِرپلات و منحنیِ تنظیم، سنجشِ همبستگیِ نوفه میان جفت‌نورون‌ها، رمزگشاییِ تصمیمِ حیوان از فعالیتِ جمعیت، یا مقایسهٔ تأخیرِ پاسخ میان نواحیِ مغزی. چون باندِ LFP هم موجود است، می‌توان تحلیل‌های زمان–بسامدِ فصلِ <a href="../ch-signal-05-time-frequency/">تحلیل زمان–بسامد</a> را روی دادهٔ واقعی تمرین کرد و مثلاً جفت‌شدگیِ اسپایک به فازِ نوسانِ LFP را سنجید.</p>
+<p><strong>پیوندها.</strong> <a href="https://docs.internationalbrainlab.org/notebooks_external/one_quickstart.html">شروعِ سریع با ONE</a> · <a href="https://docs.internationalbrainlab.org/loading_examples.html">نمونه‌های بارگذاریِ داده</a> · مقالهٔ مرجع: IBL و همکاران، <em>Nature</em> (۲۰۲۵)، <a href="https://www.nature.com/articles/s41586-025-09235-0">DOI</a></p>
+<h3 id="allen-brain-observatory">Allen Brain Observatory</h3>
+<p><strong>چیست.</strong> مجموعه‌ای از دادگان‌های استانداردشده از مؤسسهٔ Allen که فعالیتِ قشرِ بینایی موش را در پاسخ به یک کتابخانهٔ ثابت از محرک‌های بینایی ثبت کرده است. دو شاخهٔ اصلی دارد که مکملِ یکدیگرند.</p>
+<div class="admonition note">
+<p class="admonition-title">«تراریخته» و «ردهٔ Cre» یعنی چه؟</p>
+<p>حیوانِ <strong>تراریخته</strong> (transgenic) حیوانی است که ژنی به‌عمد به ژنومش افزوده شده است. در علوم اعصاب، معمول‌ترین کاربردِ آن این است که بتوانیم یک <strong>ردهٔ ژنتیکیِ مشخص از سلول‌ها</strong> را نشان‌دار کنیم.</p>
+<p>ابزارِ متداولِ این کار سامانهٔ <strong>Cre-lox</strong> است. Cre آنزیمی است که DNA را در نقاطِ نشانه‌داری به نامِ loxP می‌بُرد و بازترکیب می‌کند. در یک <strong>ردهٔ Cre</strong>، ژنِ این آنزیم چنان کار گذاشته می‌شود که فقط در سلول‌هایی بیان شود که ژنِ معینی را روشن کرده‌اند؛ مثلاً <code>Pvalb-IRES-Cre</code> یعنی Cre تنها در نورون‌هایی ساخته می‌شود که پروتئینِ پارووالبومین می‌سازند، و اینها زیرگونه‌ای شناخته‌شده از نورون‌های مهاری‌اند. سپس این حیوان با یک <strong>ردهٔ گزارشگر</strong> آمیخته می‌شود که ژنِ یک پروتئینِ فلورسان یا یک حسگرِ کلسیمی مانندِ GCaMP را دارد، اما این ژن پشتِ یک قطعهٔ «توقف» میانِ دو loxP قفل شده است. هرجا Cre باشد، قفل برداشته می‌شود.</p>
+<p>نتیجه این است که فقط همان ردهٔ سلولیِ هدف حسگر را بیان می‌کند. برای همین در دادهٔ Allen می‌دانید هر ردِ فعالیت به کدام نوعِ سلولی تعلق دارد، و این چیزی است که ثبتِ الکتریکیِ معمولی به شما نمی‌دهد. در ثبت‌های الکتریکی هم از همین ترفند استفاده می‌شود، با این تفاوت که ژنِ گزارشگر یک کانالِ نوری (مانندِ ردهٔ گزارشگرِ <code>Ai32</code>) است: با تاباندنِ نور می‌توان همان سلول‌ها را فعال کرد و از روی پاسخشان هویتشان را در میانِ صدها واحدِ ثبت‌شده بازشناخت.</p>
+</div>
+<p><strong>تصویربرداریِ کلسیمیِ دوفوتونی (Visual Coding 2P).</strong> بیش از ۶۳٬۰۰۰ نورون در ۱۴ ردهٔ تراریختهٔ Cre، شش ناحیهٔ بیناییِ قشری (VISp و پنج ناحیهٔ بالاتر) و چهار عمقِ قشری. محرک‌ها شاملِ گِرِیتینگ، نوفهٔ تُنُکِ موضعی، صحنه‌های طبیعی و فیلم‌های طبیعی‌اند. مزیتِ این شاخه، <strong>هویتِ سلولیِ مشخص</strong> است: می‌دانید هر ردِ فعالیت به کدام نوعِ سلولی و کدام لایه تعلق دارد. عیبش، وضوحِ زمانیِ پایین و غیرمستقیم‌بودنِ سیگنالِ کلسیم نسبت به اسپایک است.</p>
+<p><strong>ثبتِ نوروپیکسل (Visual Coding Neuropixels).</strong> نزدیک به ۱۰۰٬۰۰۰ نورون از موش‌های <strong>نوعِ وحشی</strong> (wild-type، یعنی بدونِ دست‌کاریِ ژنتیکی) و سه ردهٔ تراریخته، با ثبتِ هم‌زمان از نواحیِ بیناییِ قشری، تالاموس (LGN و LP) و هیپوکامپ. دو مجموعهٔ محرکی دارد: یکی هم‌ارزِ محرک‌های شاخهٔ دوفوتونی برای مقایسهٔ مستقیمِ دو روش، و دیگری با محرک‌های تکراری برای تحلیلِ اتصالِ کارکردیِ میان‌ناحیه‌ای.</p>
+<p><strong>پایگاهِ انواعِ سلولی و ریخت‌شناسیِ سه‌بعدی (<a href="https://celltypes.brain-map.org/">Cell Types Database</a>).</strong> این شاخه با دو شاخهٔ بالا فرق دارد: موضوعش نه پاسخِ جمعیتی به محرک، بلکه <strong>خودِ تک‌نورون</strong> است. از هر سلول در برشِ مغزی با روشِ <strong>پچ‌کلمپِ تمام‌سلولی</strong> ثبت می‌گیرند و در حینِ ثبت آن را با بیوسیتین پر می‌کنند؛ سپس سلولِ رنگ‌گرفته را لایه‌به‌لایه تصویربرداری و به‌صورتِ <strong>سه‌بعدی بازسازی</strong> می‌کنند. خروجی برای هر سلول سه چیز است که به هم گره خورده‌اند: پاسخِ الکتریکی به پروتکل‌های استاندارد (پله‌های بلند، پالس‌های کوتاه، شیب‌های آهسته و نوفهٔ طبیعی‌نما)، <strong>ریخت‌شناسیِ سه‌بعدی</strong> در قالبِ فایلِ <code>SWC</code>، و در بسیاری موارد نیمرخِ بیانِ ژن. داده هم از موش و هم از <strong>بافتِ انسانی</strong> موجود است. افزون بر داده، مدل‌های آماده هم منتشر شده‌اند: مدل‌های <strong>GLIF</strong> (انتگرال‌گیر-و-آتشِ نشت‌دارِ تعمیم‌یافته) و مدل‌های <strong>بیوفیزیکی</strong> در دو نسخهٔ پیراسومایی (دندریتِ غیرفعال، سومای فعال) و تمام-فعال، که پارامترهایشان به همان سلولِ ثبت‌شده برازش خورده است.</p>
+<p>فایلِ <code>SWC</code> چیزی جز یک جدولِ متنی نیست: هر سطر یک نقطه روی درختِ نورون است با مختصاتِ سه‌بعدی، شعاع، نوعِ بخش (سوما، دندریت، آکسون) و شناسهٔ نقطهٔ والد. همین ساختارِ ساده کافی است تا شبیه‌سازها هندسهٔ واقعیِ سلول را بازبسازند و آن را به مدلِ <strong>تقسیمی</strong> (compartmental) تبدیل کنند؛ یعنی دقیقاً همان کاری که در فصلِ <a href="../ch-neuron-biophysics/ch-biophysics-04-cable-compartments/">کابل و مدل‌های تقسیمی</a> به‌صورتِ نظری دیدیم. ابزارِ متعارفِ این کار <a href="https://www.neuronsimulator.org/"><strong>NEURON</strong></a> است، و <a href="https://www.netpyne.org/"><strong>NetPyNE</strong></a> که روی NEURON سوار می‌شود و به شما اجازه می‌دهد شبکه‌ای از همین سلول‌های تفصیلی را با یک توصیفِ اعلانی بسازید، به‌صورتِ موازی اجرا کنید و تحلیل کنید. AllenSDK نیز مدل‌های بیوفیزیکیِ آماده را با موتورِ NEURON اجرا می‌کند.</p>
+<p>اهمیتِ عملیِ این پایگاه در همین‌جاست: تا وقتی با نورونِ <strong>نقطه‌ای</strong> کار می‌کنید، هندسه اهمیتی ندارد. اما به‌محضِ آنکه بخواهید بپرسید ورودیِ سیناپسی روی دندریتِ دور چقدر تضعیف می‌شود، یا یک شاخهٔ دندریتی کِی خودش رویداد فعال تولید می‌کند، به هندسهٔ واقعی نیاز دارید و ساختنِ آن از روی حدس بی‌معناست. اگر ریخت‌شناسیِ گونه یا ناحیهٔ دیگری می‌خواهید، <a href="https://neuromorpho.org/">NeuroMorpho.Org</a> بزرگ‌ترین آرشیوِ تجمیعیِ بازسازی‌های سه‌بعدی از آزمایشگاه‌های سراسرِ دنیا است و آن هم بر همان قالبِ <code>SWC</code> استوار است.</p>
+<p><strong>دسترسی.</strong> با کتابخانهٔ <strong>AllenSDK</strong> در پایتون؛ فایل‌ها در قالبِ <strong>NWB</strong> (Neurodata Without Borders) هستند و روی AWS هم در دسترس‌اند. پایگاهِ Cell Types نیز از راهِ همین SDK و APIِ Allen در دسترس است. مؤسسهٔ Allen منابعِ دیگری هم دارد که ارزشِ شناختن دارند: اطلسِ اتصالاتِ موش و اطلس‌های مرجعِ آناتومیک.</p>
+<p><strong>به چه دردی می‌خورد.</strong> چون محرک‌ها استاندارد و کتابخانه‌ای‌اند، این داده برای پرسش‌های <strong>کدگذاریِ حسی</strong> ایده‌آل است: منحنیِ تنظیمِ جهت و بسامدِ فضایی، سلسله‌مراتبِ نواحیِ بینایی، تفاوتِ پاسخِ زیرگونه‌های مهاری، و مقایسهٔ آنچه یک مدل پیش‌بینی می‌کند با آنچه واقعاً ثبت شده است. پایگاهِ Cell Types هم پلی است میانِ بیوفیزیکِ <a href="../ch-neuron-biophysics/ch-biophysics-01-cell-membrane-channels/">فصلِ غشا</a> و پارامترهای واقعیِ نورون: با ردهای الکتریکیِ آن می‌توان مدل‌های <a href="../ch03/">هاجکین–هاکسلی</a> و <a href="../ch04/">LIF و AdEx</a> را به دادهٔ یک سلولِ مشخص برازش داد، و با فایل‌های <code>SWC</code> همان سلول را به‌صورتِ گسترده در فضا شبیه‌سازی کرد.</p>
+<p><strong>پیوندها.</strong> <a href="https://brain-map.org/">پورتالِ Allen Brain Map</a> · <a href="https://celltypes.brain-map.org/">پایگاهِ Cell Types</a> · <a href="https://allensdk.readthedocs.io/">مستنداتِ AllenSDK</a> · <a href="https://allensdk.readthedocs.io/en/latest/biophysical_models.html">مدل‌های بیوفیزیکی در AllenSDK</a></p>
+<hr />
+<h2 id="eeg">داده‌های EEG انسانی</h2>
+<h3 id="chb-mit-scalp-eeg-database">CHB-MIT Scalp EEG Database</h3>
+<p><strong>چیست.</strong> ثبتِ طولانی‌مدتِ EEGِ پوستِ سر از کودکان و نوجوانانِ مبتلا به تشنجِ مقاوم به دارو، جمع‌آوری‌شده در بیمارستانِ کودکانِ بوستون. بیماران برای ارزیابیِ جراحی، داروی ضدتشنجِ خود را قطع کرده بودند و چند روز پیوسته تحتِ پایش بودند؛ به همین دلیل این مجموعه هم دوره‌های طولانیِ بین‌تشنجی دارد و هم تشنج‌های واقعی.</p>
+<p><strong>چه داده‌ای دارد.</strong></p>
+<ul>
+<li>۲۲ فرد مورد آزمایش در قالبِ ۲۳ پرونده (۵ پسر ۳ تا ۲۲ ساله، ۱۷ دختر ۱٫۵ تا ۱۹ ساله)</li>
+<li>۶۶۴ فایلِ <code>.edf</code>، در مجموع حدودِ ۴۲٫۶ گیگابایت</li>
+<li>۱۹۸ تشنج که آغاز و پایانِ هر یک در فایل‌های حاشیه‌نویسیِ <code>.seizure</code> مشخص شده است؛ ۱۲۹ فایل دستِ‌کم یک تشنج دارند</li>
+<li>بسامدِ نمونه‌برداری ۲۵۶ هرتز، تفکیکِ ۱۶ بیت، معمولاً ۲۳ کانال (در برخی پرونده‌ها ۲۴ یا ۲۶) بر پایهٔ سیستم ۱۰–۲۰؛ برخی ثبت‌ها کانالِ ECG یا سیگنالِ تحریکِ عصبِ واگ هم دارند</li>
+<li>بیشترِ فایل‌ها یک‌ساعته‌اند؛ چند پرونده فایل‌های دو یا چهارساعته دارند</li>
+</ul>
+<p><strong>دسترسی.</strong> کاملاً باز، بدونِ ثبت‌نام، از PhysioNet؛ با مجوزِ Open Data Commons Attribution v1.0. می‌توان کلِ مجموعه را با <code>wget</code> یا با ابزارِ <code>wfdb</code> گرفت.</p>
+<p><strong>به چه دردی می‌خورد.</strong> این متداول‌ترین محکِ عمومی برای <strong>آشکارسازی و پیش‌بینیِ تشنج</strong> است، و برای همین هم نقطهٔ قوت و هم دامِ اصلیِ آن همین‌جاست. کارهای ساده و آموزنده: مقایسهٔ چگالیِ طیفیِ توان در پنجره‌های تشنجی و بین‌تشنجی، ردیابیِ گسترشِ تشنج روی کانال‌ها، و سنجشِ هم‌زمانیِ میان‌کاناله در آستانهٔ تشنج، که مستقیماً به مفاهیمِ فصل‌های <a href="../ch-signal-04-filters/">فیلترها</a> و <a href="../ch-signal-05-time-frequency/">تحلیل زمان–بسامد</a> وصل می‌شود.</p>
+<div class="admonition warning">
+<p class="admonition-title">دامِ ارزیابی</p>
+<p>اگر پنجره‌های آموزش و آزمون را به‌صورتِ تصادفی از کلِ داده انتخاب کنید، پنجره‌های مجاور از یک تشنجِ واحد در هر دو مجموعه می‌افتند و مدل عملاً همان تشنج را «به‌خاطر می‌سپارد». نتیجه دقتِ ۹۹ درصدی است که هیچ معنایی ندارد. تقسیم باید در سطحِ <strong>بیمار</strong> یا دستِ‌کم در سطحِ <strong>تشنج</strong> انجام شود. بسیاری از مقالاتِ منتشرشده روی این داده دقیقاً همین اشتباه را دارند.</p>
+</div>
+<p><strong>پیوند.</strong> <a href="https://physionet.org/content/chbmit/1.0.0/">صفحهٔ داده در PhysioNet</a> · ارجاع: Guttag, J. (2010), PhysioNet، <a href="https://doi.org/10.13026/C2K01R">DOI: 10.13026/C2K01R</a></p>
+<h3 id="bonn-eeg-dataset">Bonn EEG Dataset</h3>
+<p><strong>چیست.</strong> مجموعهٔ کلاسیکی که Andrzejak و همکارانش در دانشگاهِ بُن در سالِ ۲۰۰۱ منتشر کردند. برخلافِ مجموعه‌های امروزی، این داده کوچک، تمیز و از پیش قطعه‌بندی‌شده است و دقیقاً به همین دلیل هنوز مفید است: می‌توان آن را در چند ثانیه در حافظه بارگذاری کرد و روی آن روش‌ها را آزمود.</p>
+<p><strong>چه داده‌ای دارد.</strong> پنج مجموعه، هر یک با ۱۰۰ قطعهٔ تک‌کاناله. هر قطعه ۴۰۹۶ نمونه با بسامدِ نمونه‌برداریِ ۱۷۳٫۶۱ هرتز دارد، یعنی حدودِ ۲۳٫۶ ثانیه، و در قالبِ فایلِ متنیِ ساده ذخیره شده است. طبقِ مقالهٔ اصلی، ثبت با تفکیکِ ۱۲ بیت و فیلترِ میان‌گذرِ ۰٫۵۳ تا ۴۰ هرتز انجام شده است.</p>
+<table>
+<thead>
+<tr>
+<th>مجموعه</th>
+<th>نامِ فایل</th>
+<th>منبع</th>
+<th>وضعیت</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>Z</td>
+<td>EEGِ سطحی، ۵ داوطلبِ سالم</td>
+<td>چشم‌بازِ آرام</td>
+</tr>
+<tr>
+<td>B</td>
+<td>O</td>
+<td>EEGِ سطحی، همان داوطلبان</td>
+<td>چشم‌بسته</td>
+</tr>
+<tr>
+<td>C</td>
+<td>N</td>
+<td>ثبتِ درون‌جمجمه‌ای، بیمارانِ صرعی</td>
+<td>بین‌تشنجی، نیم‌کرهٔ مقابلِ کانون</td>
+</tr>
+<tr>
+<td>D</td>
+<td>F</td>
+<td>ثبتِ درون‌جمجمه‌ای، همان بیماران</td>
+<td>بین‌تشنجی، داخلِ ناحیهٔ صرع‌زا</td>
+</tr>
+<tr>
+<td>E</td>
+<td>S</td>
+<td>ثبتِ درون‌جمجمه‌ای، همان بیماران</td>
+<td>حینِ تشنج</td>
+</tr>
+</tbody>
+</table>
+<p><strong>دسترسی.</strong> فایل‌های zip به‌صورتِ عمومی از <a href="https://www.upf.edu/web/ntsa/downloads">صفحهٔ گروهِ تحلیلِ سری‌های زمانیِ غیرخطیِ UPF</a> قابلِ دانلودند. حجمِ کل چند مگابایت است.</p>
+<p><strong>به چه دردی می‌خورد.</strong> این بهترین دادهٔ <strong>تمرینی</strong> در این فهرست است. چون قطعه‌ها هم‌طول و برچسب‌دارند، می‌توانید بی‌درنگ سراغِ خودِ روش بروید: طیفِ توان، آنتروپیِ نمونه‌ای، بُعدِ همبستگی، بیشترین نمایِ لیاپانوف و بازسازیِ فضای فاز. توجه کنید که این داده تاریخاً محکِ اصلیِ <strong>تحلیلِ غیرخطیِ سری‌های زمانی</strong> بوده است، و مستقیماً به فصلِ <a href="../ch-dynamical-systems/ch-dynamics-03-nonlinear-systems/">سیستم‌های غیرخطی</a> و <a href="../ch-dynamical-systems/ch-dynamics-05-chaos-theory/">نظریهٔ آشوب</a> وصل می‌شود.</p>
+<div class="admonition note">
+<p class="admonition-title">کوچک‌بودن هم عیب است</p>
+<p>۵۰۰ قطعه از تعدادِ اندکی آزمودنی، برای آموزشِ مدل‌های یادگیریِ عمیق کافی نیست. دقت‌های نزدیک به ۱۰۰ درصد که در ادبیاتِ این داده فراوان‌اند، بیشتر بازتابِ آسان‌بودنِ تفکیکِ مجموعهٔ E از بقیه‌اند تا نشانهٔ کارآمدیِ روش. آن را برای فهمِ روش به کار ببرید، نه برای ادعای عملکرد.</p>
+</div>
+<p><strong>ارجاع.</strong> Andrzejak RG و همکاران (۲۰۰۱)، <em>Physical Review E</em> <strong>64</strong>, 061907.</p>
+<h3 id="lemon-mpi-leipzig-mind-brain-body">LEMON (MPI Leipzig Mind-Brain-Body)</h3>
+<p><strong>چیست.</strong> برخلافِ دو مجموعهٔ پیشین که بالینی و متمرکز بر صرع‌اند، LEMON یک مجموعهٔ <strong>جمعیتیِ سالم</strong> است: ۲۲۸ داوطلبِ سالم در دو گروهِ سنی، با ثبتِ هم‌زمانِ مغز، بدن و سنجه‌های روان‌شناختی. هدفِ آن، مطالعهٔ تفاوت‌های فردی و اثرِ سالمندی است.</p>
+<p><strong>چه داده‌ای دارد.</strong></p>
+<ul>
+<li><strong>آزمودنی‌ها</strong>: گروهِ جوان با ۱۵۴ نفر (۲۰ تا ۳۵ سال) و گروهِ سالمند با ۷۴ نفر (۵۹ تا ۷۷ سال)</li>
+<li><strong>EEGِ حالتِ استراحت</strong>: ۶۲ کانال (۶۱ الکترودِ سر به‌علاوهٔ یک کانالِ VEOG)، کلاهِ فعالِ ActiCAP و تقویت‌کنندهٔ BrainAmp MR plus، نمونه‌برداریِ <strong>۲۵۰۰ هرتز</strong> با پهنای باندِ ۰٫۰۱۵ هرتز تا ۱ کیلوهرتز، مرجعِ FCz، آرایشِ ۱۰–۱۰. پروتکل: ۱۶ بلوکِ یک‌دقیقه‌ای، هشت بلوک چشم‌بسته و هشت بلوک چشم‌باز به‌صورتِ یک‌درمیان، با شروع از چشم‌بسته؛ در مجموع ۱۶ دقیقه</li>
+<li><strong>MRIِ ۳ تسلا</strong>: fMRIِ حالتِ استراحت (TR = ۱۴۰۰ میلی‌ثانیه، ۶۵۷ حجم، حدودِ ۱۵٫۵ دقیقه)، MP2RAGE کمّی، T2، FLAIR، SWI/QSM، DWI و نقشه‌های میدان</li>
+<li><strong>فیزیولوژیِ محیطی</strong>: فشارِ خون، ضربان، نبض و تنفس به‌صورتِ پیوسته حینِ fMRI</li>
+<li><strong>رفتار و روان‌سنجی</strong>: شش آزمونِ شناختی و ۲۱ پرسش‌نامه، به‌علاوهٔ نمونهٔ خون و سنجه‌های تن‌سنجی</li>
+</ul>
+<p><strong>دسترسی.</strong> باز و بدونِ محدودیت، با مجوزِ PDDL، از طریقِ سطلِ S3ِ پروژهٔ INDI روی AWS یا صفحه‌های دانلودِ NITRC.</p>
+<p><strong>به چه دردی می‌خورد.</strong> بسامدِ نمونه‌برداریِ بالا و مدتِ نسبتاً طولانیِ ثبت، LEMON را برای تحلیل‌های <strong>نوسانی و طیفی</strong> بسیار مناسب می‌کند: سنجشِ بسامدِ اوجِ آلفا و تغییرِ آن با سن، مقایسهٔ چشم‌باز و چشم‌بسته به‌عنوانِ یک محکِ ساده و مطمئن برای صحتِ خطِ لولهٔ پردازش، تحلیلِ شیبِ مؤلفهٔ غیرتناوبیِ طیف، و اتصالِ کارکردی میانِ کانال‌ها. وجودِ هم‌زمانِ EEG و MRIِ ساختاری، آن را برای پروژه‌های <strong>بازسازیِ منبع</strong> هم گزینهٔ خوبی می‌کند.</p>
+<p><strong>پیوند.</strong> <a href="https://fcon_1000.projects.nitrc.org/indi/retro/MPI_LEMON.html">صفحهٔ MPI-LEMON</a> · ارجاع: Babayan A و همکاران (۲۰۱۹)، <em>Scientific Data</em> <strong>6</strong>, 180308.</p>
+<hr />
+<h2 id="_4">داده‌های تصویربرداریِ بالینیِ طولی</h2>
+<h3 id="adni-alzheimers-disease-neuroimaging-initiative">ADNI (Alzheimer's Disease Neuroimaging Initiative)</h3>
+<p><strong>چیست.</strong> یک مطالعهٔ طولیِ چندمرکزی در آمریکای شمالی که از سالِ ۲۰۰۴ افراد را در طولِ مسیرِ سالمندیِ طبیعی، اختلالِ شناختیِ خفیف (نخست EMCI و سپس LMCI) و در نهایت آلزایمر دنبال می‌کند. این مطالعه در چند فاز اجرا شده است (ADNI-1، ADNI-GO، ADNI-2 و فازهای بعدی)، و در هر فاز آزمودنیِ تازه هم وارد شده است.</p>
+<p><strong>چه داده‌ای دارد.</strong> تصویربرداریِ ساختاری و کارکردی (MRI و انواعِ PET)، نشانگرهای زیستیِ مایعِ مغزی–نخاعی، دادهٔ ژنومی، و مجموعهٔ گسترده‌ای از سنجه‌های بالینی و شناختی که در بازدیدهای پیاپی تکرار شده‌اند. ارزشِ اصلیِ ADNI در همین بُعدِ <strong>طولی</strong> است: همان فرد در طولِ سال‌ها.</p>
+<p><strong>دسترسی.</strong> این تنها موردِ فهرستِ ما است که <strong>باز نیست</strong>. باید در آرشیوِ LONI IDA درخواستِ دسترسی ثبت کنید، وابستگیِ دانشگاهی و طرحِ پژوهشیِ خود را شرح دهید، و توافق‌نامهٔ استفاده از داده را بپذیرید. کمیتهٔ اشتراکِ داده و انتشاراتِ ADNI معمولاً ظرفِ حدودِ دو هفته درخواست‌ها را بررسی می‌کند. شرایطِ توافق‌نامه سخت‌گیرانه است: استفادهٔ تجاری و بازتوزیعِ داده ممنوع است و حساب باید سالانه تمدید شود.</p>
+<p><strong>به چه دردی می‌خورد.</strong> برای پرسش‌هایی که به <strong>تغییر در طولِ زمان</strong> نیاز دارند: مدل‌سازیِ سیرِ آتروفی، پیش‌بینیِ گذار از MCI به آلزایمر، و پیوندِ نشانگرهای زیستی با تغییرِ ساختارِ شبکهٔ مغزی. اگر می‌خواهید کارِ مدل‌سازیِ مغزِ کامل انجام دهید و به کانکتومِ فردی نیاز دارید، ADNI یکی از گزینه‌های اصلی است. توجه کنید که سربارِ کارِ اداری و زمانِ پیش‌پردازشِ تصویربرداری در این پروژه‌ها قابلِ‌توجه است؛ آن را در برنامه‌ریزیِ خود لحاظ کنید.</p>
+<p><strong>پیوند.</strong> <a href="https://adni.loni.usc.edu/data-samples/access-data/">صفحهٔ دسترسی به دادهٔ ADNI</a></p>
+<hr />
+<h2 id="_5">درگاه‌ها: جایی که دادهٔ بعدی را پیدا می‌کنید</h2>
+<p>فهرستِ بالا شش نمونهٔ منتخب است، نه یک سیاههٔ کامل. وقتی پرسشِ پژوهشیِ مشخصی دارید، معمولاً بهتر است به‌جای جست‌وجوی مستقیم، سراغِ درگاه‌هایی بروید که مجموعه‌های بسیاری را یک‌جا میزبانی می‌کنند:</p>
+<table>
+<thead>
+<tr>
+<th>درگاه</th>
+<th>چه چیزی میزبانی می‌کند</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://physionet.org/">PhysioNet</a></td>
+<td>سیگنال‌های زیست‌پزشکی: EEG، ECG، داده‌های ICU و بالینی؛ منبعِ CHB-MIT</td>
+</tr>
+<tr>
+<td><a href="https://openneuro.org/">OpenNeuro</a></td>
+<td>تصویربرداریِ مغز در قالبِ استانداردِ BIDS: MRI، MEG، EEG، iEEG</td>
+</tr>
+<tr>
+<td><a href="https://dandiarchive.org/">DANDI</a></td>
+<td>الکتروفیزیولوژی و تصویربرداریِ سلولی در قالبِ NWB</td>
+</tr>
+<tr>
+<td><a href="https://crcns.org/">CRCNS</a></td>
+<td>دادگان‌های کلاسیکِ علوم اعصابِ محاسباتی، بسیاری با مقالهٔ تحلیلیِ همراه</td>
+</tr>
+<tr>
+<td><a href="https://www.nitrc.org/">NITRC</a></td>
+<td>ابزارها و دادگان‌های تصویربرداریِ عصبی؛ میزبانِ LEMON</td>
+</tr>
+<tr>
+<td><a href="https://registry.opendata.aws/">Registry of Open Data on AWS</a></td>
+<td>نسخهٔ ابریِ مجموعه‌های بزرگ، از جمله IBL و Allen</td>
+</tr>
+</tbody>
+</table>
+<p>دو استانداردِ قالبِ داده هم ارزشِ شناختن دارند، چون هرچه جلوتر بروید بیشتر با آن‌ها روبه‌رو می‌شوید: <strong>BIDS</strong> برای سازمان‌دهیِ پوشه‌ها و فرادادهٔ مطالعاتِ تصویربرداری، و <strong>NWB</strong> برای فایل‌های الکتروفیزیولوژی. اگر دادهٔ خودتان را روزی منتشر کنید، پیروی از این استانداردها بزرگ‌ترین لطفی است که به کاربرانِ بعدی (که یکی از آن‌ها احتمالاً خودِ شما در دو سالِ آینده است) می‌کنید.</p>
+<h2 id="_6">اخلاق، مجوز و بازتولیدپذیری</h2>
+<p>سه نکته که در کارِ با دادهٔ منتشرشده باید همیشه در نظر داشت.</p>
+<p><strong>مجوز را بخوانید و رعایت کنید.</strong> مجوزها یکسان نیستند. PDDL (مانندِ LEMON) عملاً داده را به مالکیتِ عمومی می‌سپارد؛ ODC-BY (مانندِ CHB-MIT) ارجاع را الزامی می‌کند؛ و توافق‌نامه‌های استفاده از داده (مانندِ ADNI) بازتوزیع و کاربردِ تجاری را ممنوع می‌کنند. اگر مطمئن نیستید، پیش از انتشارِ نتیجه بررسی کنید.</p>
+<p><strong>دادهٔ انسانی را بازشناسایی نکنید.</strong> حتی وقتی داده ناشناس‌سازی شده است، تلاش برای پیوندزدنِ آن به هویتِ افراد نقضِ آشکارِ شرایطِ استفاده و اخلاقِ پژوهش است. همچنین توجه کنید که تصویرِ ساختاریِ مغز به‌خودیِ‌خود می‌تواند شناسایی‌کننده باشد؛ به همین دلیل مجموعه‌هایی مانندِ LEMON نقابِ صورت‌زدایی (defacemask) دارند.</p>
+<p><strong>نسخهٔ داده را ثبت کنید.</strong> پایگاه‌ها به‌روزرسانی می‌شوند: اسپایک‌سورتینگِ IBL چند بار بازنگری شده و برچسب‌های بالینی هم گاهی اصلاح می‌شوند. اگر در گزارشِ خود ننویسید که از کدام نسخه و کدام تاریخِ دانلود استفاده کرده‌اید، نتیجهٔ شما بازتولیدپذیر نیست. این همان اصلی است که در پیوستِ <a href="../appendix-workflow/">طراحی گردش‌کار و آزمایش محاسباتی</a> دربارهٔ فراداده گفتیم؛ فقط اینجا فراداده به داده‌ای اشاره می‌کند که خودتان تولیدش نکرده‌اید.</p>
+<h2 id="_7">جمع‌بندی در یک جدول</h2>
+<table>
+<thead>
+<tr>
+<th>پایگاه</th>
+<th>مقیاس</th>
+<th>گونه</th>
+<th>دسترسی</th>
+<th>مناسب برای</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IBL</td>
+<td>اسپایک + LFP</td>
+<td>موش</td>
+<td>باز، ONE-api</td>
+<td>کدگذاریِ جمعیتی، تصمیم‌گیری، جفت‌شدگیِ اسپایک–فاز</td>
+</tr>
+<tr>
+<td>Allen Brain Observatory</td>
+<td>اسپایک + کلسیم</td>
+<td>موش</td>
+<td>باز، AllenSDK</td>
+<td>کدگذاریِ حسی، انواعِ سلولی، برازشِ مدلِ نورونی</td>
+</tr>
+<tr>
+<td>CHB-MIT</td>
+<td>EEGِ سطحی، ۲۵۶ هرتز</td>
+<td>انسان</td>
+<td>باز، PhysioNet</td>
+<td>آشکارسازی و پیش‌بینیِ تشنج</td>
+</tr>
+<tr>
+<td>Bonn</td>
+<td>EEGِ سطحی و درون‌جمجمه‌ای، ۱۷۳٫۶ هرتز</td>
+<td>انسان</td>
+<td>باز، UPF</td>
+<td>تحلیلِ غیرخطیِ سری‌های زمانی، تمرینِ روش</td>
+</tr>
+<tr>
+<td>LEMON</td>
+<td>EEGِ ۲۵۰۰ هرتزی + MRI</td>
+<td>انسان</td>
+<td>باز، PDDL</td>
+<td>نوساناتِ حالتِ استراحت، سالمندی، بازسازیِ منبع</td>
+</tr>
+<tr>
+<td>ADNI</td>
+<td>MRI، PET، CSF، ژنوم</td>
+<td>انسان</td>
+<td>با درخواست و توافق‌نامه</td>
+<td>مطالعاتِ طولی، پیش‌بینیِ سیرِ بیماری</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_8">تمرین‌ها</h2>
+<p><strong>تمرینِ ۱.</strong> فرض کنید می‌خواهید بررسی کنید که آیا توانِ باندِ گاما (۳۰ تا ۸۰ هرتز) پیش از شروعِ تشنج تغییر می‌کند. از میانِ CHB-MIT و Bonn کدام‌یک برای این پرسش مناسب است و چرا؟</p>
+<details class="success">
+<summary>پاسخ</summary>
+<p>از نظرِ بسامدِ نمونه‌برداری، هر دو از پسِ باندِ گاما برمی‌آیند: CHB-MIT با ۲۵۶ هرتز نایکوئیستِ ۱۲۸ هرتز دارد و Bonn با ۱۷۳٫۶۱ هرتز نایکوئیستِ حدودِ ۸۷ هرتز؛ هر دو بالای ۸۰ هرتز هستند، هرچند Bonn دقیقاً روی لبه است و به‌علاوه با فیلترِ میان‌گذرِ ۰٫۵۳ تا ۴۰ هرتز ثبت شده، پس عملاً بالای ۴۰ هرتز محتوایی ندارد.</p>
+<p>اما مسئلهٔ تعیین‌کننده بسامد نیست، بلکه <strong>ساختارِ زمانیِ داده</strong> است. پرسشِ شما دربارهٔ تغییر در آستانهٔ تشنج است، یعنی به ثبتِ پیوسته‌ای نیاز دارید که دقایق یا ساعت‌های پیش از تشنج را در بر بگیرد و لحظهٔ شروعِ تشنج در آن برچسب خورده باشد. Bonn قطعه‌های ۲۳٫۶ ثانیه‌ایِ جدا از هم و تصادفی‌شده است؛ اصلاً «پیش از تشنج» در آن تعریف نمی‌شود. CHB-MIT دقیقاً برای همین ساخته شده است: ثبتِ چندروزه با حاشیه‌نویسیِ زمانِ آغاز و پایانِ هر تشنج.</p>
+</details>
+<p><strong>تمرینِ ۲.</strong> می‌خواهید بررسی کنید که آیا نورون‌های یک ناحیه پیش از حرکتِ حیوان فعالیتشان تغییر می‌کند. کدام‌یک از پایگاه‌های این فصل داده‌ای دارد که این پرسش را ممکن کند، و دقیقاً به کدام دو لایهٔ داده نیاز دارید؟</p>
+<details class="success">
+<summary>پاسخ</summary>
+<p>IBL. به دو لایه نیاز دارید که باید بر یک محورِ زمانیِ مشترک هم‌تراز شده باشند: نخست <strong>زمانِ اسپایک‌ها</strong> به‌همراه نسبت‌دادنِ هر واحد به ناحیهٔ آناتومیک، و دوم <strong>دادهٔ رفتاری</strong>، به‌ویژه موقعیتِ لحظه‌ایِ چرخ که آغازِ حرکت را مشخص می‌کند (یا زمانِ واکنشِ ثبت‌شده در دادهٔ آزمایش‌ها).</p>
+<p>دادهٔ Allen Brain Observatory در شاخهٔ Visual Coding این پرسش را به‌شکلِ کامل پاسخ نمی‌دهد، چون آنجا حیوان تکلیفِ تصمیم‌گیری ندارد و فقط محرکِ بینایی می‌بیند؛ هرچند سرعتِ دویدن روی چرخ ثبت می‌شود و می‌توان نسخهٔ محدودتری از پرسش را طرح کرد. شاخهٔ Visual Behavior برای پرسش‌های رفتاری مناسب‌تر است.</p>
+</details>
+<p><strong>تمرینِ ۳.</strong> دو گروهِ پژوهشی روی CHB-MIT کار می‌کنند. گروهِ اول دقتِ ۹۹٫۲ درصد و گروهِ دوم دقتِ ۷۶ درصد گزارش می‌کند. چرا ممکن است عددِ کوچک‌ترِ گروهِ دوم ارزشِ علمیِ بیشتری داشته باشد؟</p>
+<details class="success">
+<summary>پاسخ</summary>
+<p>چون عدد بدونِ <strong>طرحِ ارزیابی</strong> بی‌معناست. اگر گروهِ اول پنجره‌ها را تصادفی میانِ آموزش و آزمون تقسیم کرده باشد، پنجره‌های همسایه از یک تشنجِ واحد در هر دو مجموعه حاضرند و مدل به‌جای یادگیریِ الگویِ عمومیِ تشنج، امضایِ همان تشنجِ خاص را حفظ می‌کند. این نشتِ داده است و عددِ حاصل روی بیمارِ تازه تکرار نمی‌شود.</p>
+<p>اگر گروهِ دوم ارزیابیِ «یک بیمار بیرون‌گذاشته» (leave-one-patient-out) انجام داده باشد، ۷۶ درصدِ او تخمینی صادقانه از عملکرد روی بیمارِ ندیده است. مقایسهٔ دو عدد بدونِ دانستنِ این موضوع، مقایسهٔ دو چیزِ متفاوت است. همین نکته دلیلِ آن است که در فصلِ <a href="../ch-modelling-05-verify-validate/">راستی‌آزمایی و اعتبارسنجی</a> بر تفکیکِ روشنِ داده تأکید کردیم.</p>
+</details>
+<h2 id="_9">منابع</h2>
+<ul>
+<li>IBL و همکاران (۲۰۲۵)، <em>A brain-wide map of neural activity during complex behaviour</em>, <strong>Nature</strong>. <a href="https://www.nature.com/articles/s41586-025-09235-0">https://www.nature.com/articles/s41586-025-09235-0</a></li>
+<li>Guttag J (۲۰۱۰)، <em>CHB-MIT Scalp EEG Database</em>, PhysioNet. <a href="https://doi.org/10.13026/C2K01R">https://doi.org/10.13026/C2K01R</a></li>
+<li>Andrzejak RG، Lehnertz K، Rieke C، Mormann F، David P، Elger CE (۲۰۰۱)، <em>Indications of nonlinear deterministic and finite dimensional structures in time series of brain electrical activity</em>, <strong>Phys. Rev. E</strong> 64, 061907.</li>
+<li>Babayan A و همکاران (۲۰۱۹)، <em>A mind-brain-body dataset of MRI, EEG, cognition, emotion, and peripheral physiology in young and old adults</em>, <strong>Scientific Data</strong> 6, 180308.</li>
+<li>Allen Institute for Brain Science، <em>Allen Brain Map</em>. <a href="https://brain-map.org/">https://brain-map.org/</a></li>
+<li>Alzheimer's Disease Neuroimaging Initiative. <a href="https://adni.loni.usc.edu/">https://adni.loni.usc.edu/</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+  
+    
+    
+
+    <hr>
+    <div class="page-actions" dir="rtl">
+      <a class="md-button"
+         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=enhancement&title=پیشنهاد برای فصل: %D9%BE%D8%A7%DB%8C%DA%AF%D8%A7%D9%87%E2%80%8C%D9%87%D8%A7%DB%8C%20%D8%AF%D8%A7%D8%AF%D9%87%D9%94%20%D8%A8%D8%A7%D8%B2%20%D8%AF%D8%B1%20%D8%B9%D9%84%D9%88%D9%85%20%D8%A7%D8%B9%D8%B5%D8%A7%D8%A8">
+        پیشنهاد در گیت‌هاب
+      </a>
+      <a class="md-button"
+         href="https://github.com/SaeedTaghavi/computational-neuroscience/issues/new?labels=bug&title=گزارش اشکال در فصل: %D9%BE%D8%A7%DB%8C%DA%AF%D8%A7%D9%87%E2%80%8C%D9%87%D8%A7%DB%8C%20%D8%AF%D8%A7%D8%AF%D9%87%D9%94%20%D8%A8%D8%A7%D8%B2%20%D8%AF%D8%B1%20%D8%B9%D9%84%D9%88%D9%85%20%D8%A7%D8%B9%D8%B5%D8%A7%D8%A8">
+        گزارش اشکال در گیت‌هاب
+      </a>
+      <a class="md-button"
+         href="mailto:saeed.taghavi.v@gmail.com?subject=بازخورد دربارهٔ فصل: پایگاه‌های دادهٔ باز در علوم اعصاب">
+        ارسال بازخورد با ایمیل
+      </a>
+    </div>
+  
+
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  برگشت به بالا
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="پاورقی" >
+        
+          
+          <a href="../appendix-workflow/" class="md-footer__link md-footer__link--prev" aria-label="قبلی: طراحی گردش‌کار و آزمایش محاسباتی">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                قبلی
+              </span>
+              <div class="md-ellipsis">
+                طراحی گردش‌کار و آزمایش محاسباتی
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "navigation.footer"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u06a9\u067e\u06cc \u0634\u062f", "clipboard.copy": "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646", "search.result.more.one": "1 \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.more.other": "# \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.none": "\u0633\u0646\u062f\u06cc \u06cc\u0627\u0641\u062a \u0646\u0634\u062f", "search.result.one": "1 \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.other": "# \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.placeholder": "\u0628\u0631\u0627\u06cc \u062c\u0633\u062a\u062c\u0648 \u062a\u0627\u06cc\u067e \u06a9\u0646\u06cc\u062f", "search.result.term.missing": "\u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a", "select.version": "\u0627\u0646\u062a\u062e\u0627\u0628 \u0648\u06cc\u0631\u0627\u06cc\u0634"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/extra.js"></script>
+      
+        <script src="../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

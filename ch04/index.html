@@ -1722,6 +1722,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="نتایج و منحنی F–I">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lif_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LIF از کدام ردهٔ تحریک‌پذیری است؟
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -2205,6 +2222,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-open-datasets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پایگاه‌های دادهٔ باز در علوم اعصاب
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2282,6 +2327,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="نتایج و منحنی F–I">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lif_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LIF از کدام ردهٔ تحریک‌پذیری است؟
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2448,8 +2510,30 @@ f(I) = \left[\, t_{ref} + \tau_m\,\ln\frac{E_L + R\,I - V_{reset}}{E_L + R\,I - 
 <figure>
   <img alt="Image title" src="../lif_trace_fi.png" />
 <br />
-<figcaption>چپ: ولتاژ مدل LIF تحت جریان ثابت؛ انباشتِ خطی تا آستانه و سپس بازنشانی. راست: منحنی F–I؛ نقاطِ شبیه‌سازی دقیقاً روی منحنیِ تحلیلی می‌نشینند. شروعِ شلیک در رئوبیس ناگهانی است.</figcaption>
+<figcaption>چپ: ولتاژ مدل LIF تحت جریان ثابت؛ انباشتِ خطی تا آستانه و سپس بازنشانی. راست: منحنی F–I؛ نقاطِ شبیه‌سازی دقیقاً روی منحنیِ تحلیلی می‌نشینند. شروعِ شلیک در رئوبیس بسیار تند است، اما — چنان‌که در ادامه می‌بینیم — پیوسته.</figcaption>
 </figure>
+<h4 id="lif_1">LIF از کدام ردهٔ تحریک‌پذیری است؟</h4>
+<p>منحنیِ بالا در نگاهِ اول شبیهِ یک <strong>جهش</strong> است و به‌آسانی آن را نشانهٔ تحریک‌پذیریِ نوع دو می‌گیرند. اما فرمولِ بسته را نگاه کنید. اگر <span class="arithmatex">\(\Delta = E_L + R\,I - V_{th}\)</span> فاصلهٔ کوچکِ بالای رئوبیس باشد، لگاریتم مانندِ <span class="arithmatex">\(\ln(1/\Delta)\)</span> <strong>واگرا</strong> می‌شود و در نتیجه</p>
+<div class="arithmatex">\[
+f \;\simeq\; \frac{1}{\tau_m\,\ln\!\big(A/\Delta\big)} \;\xrightarrow[\ \Delta\to 0^+\ ]{}\; 0 .
+\]</div>
+<p>یعنی نرخِ شلیک <strong>از صفر و به‌صورتِ پیوسته</strong> بالا می‌آید: LIF به‌معنای دقیقِ کلمه از <strong>نوع یک</strong> است، نه نوع دو. آنچه در نمودار شبیهِ جهش دیده می‌شود، بی‌نهایت‌بودنِ <strong>شیب</strong> در رئوبیس است، نه ناپیوستگیِ خودِ منحنی. لگاریتم چنان کند به صفر می‌رود که عملاً هرگز مقادیرِ خیلی کوچک را نمی‌بینید:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># same parameters as above: tau_m, EL, Vth, Vreset, tref, R</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="n">Irh</span> <span class="o">=</span> <span class="p">(</span><span class="n">Vth</span> <span class="o">-</span> <span class="n">EL</span><span class="p">)</span> <span class="o">/</span> <span class="n">R</span>                       <span class="c1"># rheobase current (nA)</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">def</span> <span class="nf">f_lif</span><span class="p">(</span><span class="n">I</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="n">d</span> <span class="o">=</span> <span class="n">EL</span> <span class="o">+</span> <span class="n">R</span><span class="o">*</span><span class="n">I</span> <span class="o">-</span> <span class="n">Vth</span>                     <span class="c1"># distance above rheobase, in mV</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">return</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="n">d</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">1000.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">tref</span> <span class="o">+</span> <span class="n">tau_m</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="n">EL</span> <span class="o">+</span> <span class="n">R</span><span class="o">*</span><span class="n">I</span> <span class="o">-</span> <span class="n">Vreset</span><span class="p">)</span><span class="o">/</span><span class="n">d</span><span class="p">))</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">for</span> <span class="n">eps</span> <span class="ow">in</span> <span class="p">(</span><span class="mf">1e-2</span><span class="p">,</span> <span class="mf">1e-4</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="mf">1e-12</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;I - I_rh = </span><span class="si">{</span><span class="n">eps</span><span class="si">:</span><span class="s2">8.0e</span><span class="si">}</span><span class="s2">   f = </span><span class="si">{</span><span class="n">f_lif</span><span class="p">(</span><span class="n">Irh</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">eps</span><span class="p">)</span><span class="si">:</span><span class="s2">6.2f</span><span class="si">}</span><span class="s2"> Hz&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="10 "></span><span class="c1"># 1e-02 -&gt; 19.17 Hz   1e-04 -&gt; 10.19 Hz   1e-08 -&gt; 5.26 Hz   1e-12 -&gt; 3.54 Hz</span>
+</code></pre></div>
+<p>حتی در فاصلهٔ <span class="arithmatex">\(10^{-12}\)</span> نانوآمپر از رئوبیس، مدل هنوز با حدودِ ۳٫۵ هرتز شلیک می‌کند. برای رسیدن به ۰٫۱ هرتز باید به‌طورِ نجومی به رئوبیس نزدیک شوید. مقایسه کنید با قانونِ <span class="arithmatex">\(f\propto\sqrt{I-I_c}\)</span>ی QIF در بخشِ بعد: هر دو پیوسته‌اند، اما <strong>قانونِ شروع</strong> فرق دارد — ریشهٔ دوم در برابرِ لگاریتم. قانونِ ریشهٔ دوم صورتِ بهنجارِ واقعیِ یک انشعابِ SNIC است؛ قانونِ لگاریتمیِ LIF زادهٔ آستانهٔ سخت و بازنشانیِ دستی است، نه زادهٔ یک انشعابِ دینامیکی.</p>
+<div class="admonition warning">
+<p class="admonition-title">پیامدِ عملی در مدل‌سازیِ شبکه</p>
+<p>این نکته وقتی اهمیت پیدا می‌کند که بخواهید با LIF یک <strong>اینترنورونِ مهاریِ سریع‌شلیکِ PV+</strong> را مدل کنید. آن سلول‌ها در واقعیت <strong>نوع دو</strong>اند و زیرِ حدودِ ۱۰ تا ۳۰ هرتز شلیکِ پایدار ندارند (تاتنو، هارش و رابینسون، ۲۰۰۴)؛ اما LIF با جریانِ اندکِ فراآستانه با ۲ هرتز هم شلیک می‌کند. اگر کمینه‌بسامدِ شلیکِ جمعیتِ مهاری در پرسشِ پژوهشیِ شما نقشی دارد — مثلاً در سازوکارهای نوسانِ گاما — LIF این ویژگی را ندارد و باید سراغِ مدلی با دینامیکِ نوعِ دو بروید. در مقابل، برای <strong>سلولِ هرمیِ منظم‌شلیک</strong>، که خودش نوع یک است، LIF از این جهت انتخابِ بدی نیست. سازوکارِ این دو رده در بخشِ <a href="../ch-dynamical-systems/ch-dynamics-07-neuro-excitability/">تحریک‌پذیری: دو ردهٔ f–I</a> آمده است.</p>
+</div>
 <p>کاستیِ اصلیِ LIF آستانهٔ سختِ آن است: نورونِ واقعی آستانه‌ای دقیق و ثابت ندارد، بلکه آستانه از خودِ دینامیک بیرون می‌آید. دو مدلِ بعدی همین نکته را اصلاح می‌کنند.</p>
 <h2 id="qif">مدل QIF</h2>
 <p>مدلِ <strong>انتگرال‌گیر-و-شلیکِ درجه‌دوم</strong> (Quadratic Integrate-and-Fire) ساده‌ترین مدلی است که در آن آستانه نه دستی، بلکه <strong>پویا</strong> و برخاسته از خودِ معادله است:</p>
@@ -2632,6 +2716,14 @@ C\,\frac{dV}{dt} &amp;= -g_L\big(V - E_L\big) + g_L\,\Delta_T\,\exp\!\left(\frac
 <td>تونیک</td>
 <td>متنوع</td>
 <td>متنوع</td>
+</tr>
+<tr>
+<td>ردهٔ تحریک‌پذیری</td>
+<td>نوع I (شروعِ لگاریتمی)</td>
+<td>نوع I (شروعِ ریشهٔ دومی)</td>
+<td>نوع I</td>
+<td>با پارامتر تنظیم‌پذیر</td>
+<td>با پارامتر تنظیم‌پذیر</td>
 </tr>
 <tr>
 <td>تحلیل‌پذیری</td>

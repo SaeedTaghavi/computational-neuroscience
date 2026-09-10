@@ -1602,6 +1602,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تمرین‌ها
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2135,6 +2146,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix-open-datasets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پایگاه‌های دادهٔ باز در علوم اعصاب
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2242,6 +2281,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تمرین‌ها
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2275,6 +2325,9 @@
 </details>
 <hr />
 <h2 id="_2">سیناپسِ شیمیایی: از اسپایک تا رسانایی</h2>
+<p>پیش از مدل‌سازی، تصویرِ کلیِ آنچه در یک سیناپسِ شیمیایی رخ می‌دهد را ببینیم:</p>
+<p><img alt="Image title" src="../bio_synapse_schematic.png" /></p>
+<p><em>انتقالِ سیناپسیِ شیمیایی در چهار گام. </em><em>۱)</em><em> پتانسیلِ عمل به پایانهٔ پیش‌سیناپسی می‌رسد. </em><em>۲)</em><em> کانال‌های کلسیمیِ وابسته به ولتاژ باز می‌شوند و کلسیم به درونِ پایانه می‌ریزد. </em><em>۳)</em><em> کلسیم باعث می‌شود وزیکول‌های حاویِ ناقلِ عصبی با غشا هم‌جوش شوند و محتوایشان را به </em><em>شکافِ سیناپسی</em><em> رها کنند (اگزوسیتوز). </em><em>۴)</em><em> ناقلِ عصبی از شکاف می‌گذرد و به گیرنده‌های </em><em>وابسته به لیگانِ</em><em> غشای پس‌سیناپسی می‌چسبد و کانال‌ها را می‌گشاید.</em></p>
 <p>در یک سیناپسِ شیمیایی، اسپایکِ نورونِ پیش‌سیناپسی باعثِ رهاشدنِ <strong>ناقلِ عصبی</strong> می‌شود؛ ناقل به گیرنده‌های روی غشای پس‌سیناپسی می‌چسبد و <strong>کانال‌های وابسته به لیگاند</strong> را می‌گشاید. نتیجه، یک <strong>افزایشِ گذرای رسانایی</strong> در غشای پس‌سیناپسی است. ساده‌ترین مدلِ این رسانایی آن است که هر اسپایکِ پیش‌سیناپسی یک پرشِ <span class="arithmatex">\(\bar g\)</span> به رسانایی می‌افزاید که سپس به‌صورتِ نمایی با ثابتِ زمانیِ <span class="arithmatex">\(\tau_{\text{syn}}\)</span> فرومی‌نشیند:</p>
 <div class="arithmatex">\[
 \frac{dg_{\text{syn}}}{dt} = -\frac{g_{\text{syn}}}{\tau_{\text{syn}}},\qquad
@@ -2368,26 +2421,108 @@ I_{\text{NMDA}} = g_{\text{NMDA}}\,B(V)\,(V-E).
 </ul>
 </div>
 <hr />
-<div class="admonition example">
-<p class="admonition-title">تمرین‌ها</p>
-<ol>
-<li>
+<h2 id="_7">تمرین‌ها</h2>
+<p>با تابعِ <code>run</code> همین فصل (و کدِ قانونِ دِیل) کار کنید. نخست خودتان امتحان کنید، سپس پاسخ را باز کنید.</p>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۱</p>
 <p><strong>نیروی رانش.</strong> یک EPSP را از دو سطحِ آغازینِ متفاوت (<span class="arithmatex">\(-70\)</span> و <span class="arithmatex">\(-55\)</span> میلی‌ولت) شبیه‌سازی کنید. چرا دامنهٔ EPSP در ولتاژِ دپلاریزه‌تر کوچک‌تر است؟</p>
-</li>
-<li>
-<p><strong>مهارِ شنتی.</strong> یک سیناپسِ مهاری با <span class="arithmatex">\(E_{\text{syn}}=-70\)</span> (دقیقاً برابرِ استراحت) بسازید. این سیناپس هیچ IPSPی تولید نمی‌کند، اما نشان دهید که هنوز می‌تواند یک EPSPِ هم‌زمان را <strong>کوچک</strong> کند. این همان مهارِ شنتی است.</p>
-</li>
-<li>
-<p><strong>انباشتگی.</strong> آهنگِ قطارِ ورودیِ تحریکی را جارو کنید و کمینه‌بسامدی را بیابید که در آن انباشتگی به آستانه می‌رسد. این به <span class="arithmatex">\(\tau_m\)</span> و <span class="arithmatex">\(\tau_{\text{syn}}\)</span> چگونه بستگی دارد؟</p>
-</li>
-<li>
-<p><strong>توازنِ تحریک و مهار.</strong> یک قطارِ تحریکی که به‌تنهایی به آستانه می‌رسد را با یک قطارِ مهاریِ هم‌زمان ترکیب کنید و نشان دهید که مهار می‌تواند از شلیک جلوگیری کند. نسبتِ <span class="arithmatex">\(\bar g_{\text{inh}}/\bar g_{\text{exc}}\)</span>ی لازم برای این کار چقدر است؟</p>
-</li>
-<li>
-<p><strong>قانونِ دِیل.</strong> یک ماتریسِ وزنِ <span class="arithmatex">\(N\times N\)</span> با ۸۰٪ نورونِ تحریکی و ۲۰٪ مهاری بسازید که قانونِ دِیل را رعایت کند (هر ستون تک‌علامت). سپس یک ماتریسِ آزاد-علامت (مانندِ هاپفیلد) بسازید و به‌صورتِ عددی نشان دهید که در حالتِ اول هر ستون تنها یک علامت دارد، اما در حالتِ دوم نه. برای هر نورونِ پس‌سیناپسی، مجموعِ وزن‌های ورودی از نورون‌های تحریکی و از نورون‌های مهاری را جداگانه حساب کنید.</p>
-</li>
-</ol>
 </div>
+<details class="success">
+<summary>پاسخ</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">for</span> <span class="n">V0</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mf">70.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">55.0</span><span class="p">]:</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="n">t</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">run</span><span class="p">([</span><span class="mf">15.0</span><span class="p">],</span> <span class="n">g_bar</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">E_syn</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>     <span class="c1"># start V changed below</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="c1"># re-run with a different initial/holding potential:</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="n">Vv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">V0</span><span class="p">);</span> <span class="n">g</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span> <span class="n">sp</span><span class="o">=</span><span class="p">[</span><span class="mf">15.0</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="k">while</span> <span class="n">sp</span> <span class="ow">and</span> <span class="n">sp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">t</span><span class="p">[</span><span class="n">n</span><span class="p">]:</span> <span class="n">g</span> <span class="o">+=</span> <span class="mf">2.0</span><span class="p">;</span> <span class="n">sp</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="n">Vv</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Vv</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="n">g_L</span><span class="o">*</span><span class="p">(</span><span class="n">Vv</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">-</span><span class="n">V0</span><span class="p">)</span> <span class="o">-</span> <span class="n">g</span><span class="o">*</span><span class="p">(</span><span class="n">Vv</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">-</span><span class="mf">0.0</span><span class="p">))</span><span class="o">/</span><span class="n">C</span><span class="o">*</span><span class="mf">0.05</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="n">g</span> <span class="o">+=</span> <span class="o">-</span><span class="n">g</span><span class="o">/</span><span class="n">tau_syn</span><span class="o">*</span><span class="mf">0.05</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;start </span><span class="si">{</span><span class="n">V0</span><span class="si">}</span><span class="s2">: EPSP peak = </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">Vv</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">V0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2"> mV&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>دامنهٔ EPSP در <span class="arithmatex">\(-55\)</span> کوچک‌تر است، چون جریانِ سیناپسی برابرِ <span class="arithmatex">\(-g_{\text{syn}}(V-E_{\text{syn}})\)</span> است و <strong>نیروی رانشِ</strong> <span class="arithmatex">\((V-E_{\text{syn}})\)</span> در ولتاژِ دپلاریزه‌تر (نزدیک‌ترِ به <span class="arithmatex">\(E_{\text{syn}}=0\)</span>) کوچک‌تر است. نتیجهٔ مهم: اثرِ یک سیناپس <strong>ثابت نیست</strong> و به ولتاژِ لحظه‌ایِ سلول بستگی دارد — سیناپس یک منبعِ جریانِ ثابت نیست، یک <strong>رسانایی</strong> است.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۲</p>
+<p><strong>مهارِ شنتی.</strong> یک سیناپسِ مهاری با <span class="arithmatex">\(E_{\text{syn}}=-70\)</span> (دقیقاً برابرِ استراحت) بسازید. این سیناپس هیچ IPSPی تولید نمی‌کند، اما نشان دهید که هنوز می‌تواند یک EPSPِ هم‌زمان را <strong>کوچک</strong> کند.</p>
+</div>
+<details class="success">
+<summary>پاسخ</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">def</span> <span class="nf">run2</span><span class="p">(</span><span class="n">exc_g</span><span class="p">,</span> <span class="n">inh_g</span><span class="p">,</span> <span class="n">E_inh</span><span class="o">=-</span><span class="mf">70.0</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mi">140</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">dt</span><span class="p">);</span> <span class="n">V</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="n">E_L</span><span class="p">);</span> <span class="n">ge</span><span class="o">=</span><span class="n">gi</span><span class="o">=</span><span class="mf">0.0</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">-</span><span class="mi">15</span><span class="p">)</span><span class="o">&lt;</span><span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span> <span class="n">ge</span><span class="o">+=</span><span class="n">exc_g</span><span class="p">;</span> <span class="n">gi</span><span class="o">+=</span><span class="n">inh_g</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="n">I</span> <span class="o">=</span> <span class="o">-</span><span class="n">ge</span><span class="o">*</span><span class="p">(</span><span class="n">V</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">-</span><span class="mf">0.0</span><span class="p">)</span> <span class="o">-</span> <span class="n">gi</span><span class="o">*</span><span class="p">(</span><span class="n">V</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">-</span><span class="n">E_inh</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="n">V</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">V</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">+</span><span class="p">(</span><span class="o">-</span><span class="n">g_L</span><span class="o">*</span><span class="p">(</span><span class="n">V</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">-</span><span class="n">E_L</span><span class="p">)</span><span class="o">+</span><span class="n">I</span><span class="p">)</span><span class="o">/</span><span class="n">C</span><span class="o">*</span><span class="n">dt</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="n">ge</span><span class="o">+=-</span><span class="n">ge</span><span class="o">/</span><span class="n">tau_syn</span><span class="o">*</span><span class="n">dt</span><span class="p">;</span> <span class="n">gi</span><span class="o">+=-</span><span class="n">gi</span><span class="o">/</span><span class="n">tau_syn</span><span class="o">*</span><span class="n">dt</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">return</span> <span class="n">V</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">E_L</span>
+<span class="linenos" data-linenos="10 "></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;EPSP alone      :&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">run2</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="s2">&quot;mV&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="11 "></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;EPSP + shunt    :&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">run2</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="s2">&quot;mV&quot;</span><span class="p">)</span>   <span class="c1"># smaller!</span>
+</code></pre></div>
+<p>سیناپسِ مهاری با <span class="arithmatex">\(E_{\text{syn}}=-70\)</span> خودش هیچ انحرافِ ولتاژی نمی‌سازد (چون <span class="arithmatex">\(V\)</span> از استراحت شروع می‌شود و نیروی رانشش صفر است)، اما با <strong>بالابردنِ رساناییِ کلِ</strong> غشا، دامنهٔ EPSPِ هم‌زمان را کاهش می‌دهد — مانندِ بازکردنِ یک شیرِ نشتیِ موازی. این همان <strong>مهارِ شنتی</strong> است: مهار از راهِ رسانایی، نه از راهِ ولتاژ.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۳</p>
+<p><strong>انباشتگی.</strong> آهنگِ قطارِ ورودیِ تحریکی را جارو کنید و کمینه‌بسامدی را بیابید که در آن انباشتگی به آستانه می‌رسد. این به <span class="arithmatex">\(\tau_m\)</span> و <span class="arithmatex">\(\tau_{\text{syn}}\)</span> چگونه بستگی دارد؟</p>
+</div>
+<details class="success">
+<summary>پاسخ</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">Vth</span> <span class="o">=</span> <span class="o">-</span><span class="mf">55.0</span>
+<span class="linenos" data-linenos="3 "></span><span class="k">for</span> <span class="n">rate</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">]:</span>                  <span class="c1"># Hz</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="n">isi</span> <span class="o">=</span> <span class="mi">1000</span><span class="o">/</span><span class="n">rate</span><span class="p">;</span> <span class="n">spikes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">115</span><span class="p">,</span> <span class="n">isi</span><span class="p">))</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="n">t</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">run</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> <span class="n">g_bar</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">E_syn</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mi">160</span><span class="p">)</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rate</span><span class="si">:</span><span class="s2">4</span><span class="si">}</span><span class="s2"> Hz -&gt; peak </span><span class="si">{</span><span class="n">V</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> mV  </span><span class="si">{</span><span class="s1">&#39;FIRES&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">V</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">&gt;=</span><span class="n">Vth</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>زیرِ یک بسامدِ کمینه، هر EPSP پیش از رسیدنِ بعدی میرا می‌شود و ولتاژ هرگز به آستانه نمی‌رسد؛ بالای آن، EPSPها انباشته می‌شوند. این بسامدِ کمینه با <strong>ثابت‌های زمانی</strong> تعیین می‌شود: هرچه <span class="arithmatex">\(\tau_m\)</span> (یا <span class="arithmatex">\(\tau_{\text{syn}}\)</span>) بزرگ‌تر، پنجرهٔ انباشتگی طولانی‌تر و بسامدِ لازم کمتر است. نورون در عمل یک <strong>آشکارسازِ بسامد</strong> است که پنجرهٔ زمانی‌اش را همین ثابت‌ها تنظیم می‌کنند.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۴</p>
+<p><strong>توازنِ تحریک و مهار.</strong> یک قطارِ تحریکی که به‌تنهایی به آستانه می‌رسد را با یک قطارِ مهاریِ هم‌زمان ترکیب کنید و نشان دهید که مهار می‌تواند از شلیک جلوگیری کند. نسبتِ <span class="arithmatex">\(\bar g_{\text{inh}}/\bar g_{\text{exc}}\)</span>ی لازم برای این کار چقدر است؟</p>
+</div>
+<details class="success">
+<summary>پاسخ</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">def</span> <span class="nf">peak</span><span class="p">(</span><span class="n">g_exc</span><span class="p">,</span> <span class="n">g_inh</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="n">t</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span><span class="mf">0.05</span><span class="p">);</span> <span class="n">V</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="n">E_L</span><span class="p">);</span> <span class="n">ge</span><span class="o">=</span><span class="n">gi</span><span class="o">=</span><span class="mf">0.0</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="n">sp</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="k">while</span> <span class="n">sp</span> <span class="ow">and</span> <span class="n">sp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">t</span><span class="p">[</span><span class="n">n</span><span class="p">]:</span> <span class="n">ge</span><span class="o">+=</span><span class="n">g_exc</span><span class="p">;</span> <span class="n">gi</span><span class="o">+=</span><span class="n">g_inh</span><span class="p">;</span> <span class="n">sp</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="n">I</span><span class="o">=-</span><span class="n">ge</span><span class="o">*</span><span class="p">(</span><span class="n">V</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">-</span><span class="mf">0.0</span><span class="p">)</span><span class="o">-</span><span class="n">gi</span><span class="o">*</span><span class="p">(</span><span class="n">V</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">+</span><span class="mf">80.0</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="n">V</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">V</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">+</span><span class="p">(</span><span class="o">-</span><span class="n">g_L</span><span class="o">*</span><span class="p">(</span><span class="n">V</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">-</span><span class="n">E_L</span><span class="p">)</span><span class="o">+</span><span class="n">I</span><span class="p">)</span><span class="o">/</span><span class="n">C</span><span class="o">*</span><span class="mf">0.05</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="n">ge</span><span class="o">+=-</span><span class="n">ge</span><span class="o">/</span><span class="n">tau_syn</span><span class="o">*</span><span class="mf">0.05</span><span class="p">;</span> <span class="n">gi</span><span class="o">+=-</span><span class="n">gi</span><span class="o">/</span><span class="n">tau_syn</span><span class="o">*</span><span class="mf">0.05</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">return</span> <span class="n">V</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="linenos" data-linenos="11 "></span><span class="k">for</span> <span class="n">ratio</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">]:</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;g_inh/g_exc=</span><span class="si">{</span><span class="n">ratio</span><span class="si">}</span><span class="s2">: peak </span><span class="si">{</span><span class="n">peak</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span><span class="w"> </span><span class="mf">3.0</span><span class="o">*</span><span class="n">ratio</span><span class="p">)</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> mV&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>وقتی مهار خاموش است، قطارِ تحریکی به آستانه می‌رسد. با بالابردنِ نسبتِ <span class="arithmatex">\(\bar g_{\text{inh}}/\bar g_{\text{exc}}\)</span>، قله پایین می‌آید و از حدودی به بعد نورون دیگر شلیک نمی‌کند (نسبتِ دقیق به <span class="arithmatex">\(E_{\text{inh}}\)</span> و زمان‌بندی بستگی دارد، نوعاً حدودِ یک). این همان <strong>توازنِ تحریک–مهار</strong> است که پایهٔ کنترلِ فعالیت در شبکه‌های قشری است.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۵</p>
+<p><strong>قانونِ دِیل.</strong> یک ماتریسِ وزنِ <span class="arithmatex">\(N\times N\)</span> با ۸۰٪ نورونِ تحریکی و ۲۰٪ مهاری بسازید که قانونِ دِیل را رعایت کند (هر ستون تک‌علامت). سپس یک ماتریسِ آزاد-علامت (مانندِ هاپفیلد) بسازید و نشان دهید که در حالتِ اول هر ستون تنها یک علامت دارد. برای هر نورونِ پس‌سیناپسی، مجموعِ وزن‌های ورودیِ تحریکی و مهاری را جداگانه حساب کنید.</p>
+</div>
+<details class="success">
+<summary>پاسخ</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="n">N</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span> <span class="n">is_exc</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.8</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="n">sign</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">is_exc</span><span class="p">,</span> <span class="o">+</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">)))</span> <span class="o">*</span> <span class="n">sign</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,:]</span>     <span class="c1"># Dale: column sign</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="n">Wfree</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>                              <span class="c1"># free-sign (Hopfield)</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="n">dale_ok</span> <span class="o">=</span> <span class="nb">all</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">W</span><span class="p">[</span><span class="n">W</span><span class="p">[:,</span><span class="n">j</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">,</span> <span class="n">j</span><span class="p">])))</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+<span class="linenos" data-linenos="10 "></span><span class="n">free_ok</span> <span class="o">=</span> <span class="nb">all</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">Wfree</span><span class="p">[:,</span><span class="n">j</span><span class="p">])))</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+<span class="linenos" data-linenos="11 "></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dale matrix single-signed columns:&quot;</span><span class="p">,</span> <span class="n">dale_ok</span><span class="p">)</span>      <span class="c1"># True</span>
+<span class="linenos" data-linenos="12 "></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Free  matrix single-signed columns:&quot;</span><span class="p">,</span> <span class="n">free_ok</span><span class="p">)</span>     <span class="c1"># False</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span><span class="n">exc_in</span> <span class="o">=</span> <span class="n">W</span><span class="p">[:,</span> <span class="n">is_exc</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>      <span class="c1"># total excitatory input per neuron</span>
+<span class="linenos" data-linenos="15 "></span><span class="n">inh_in</span> <span class="o">=</span> <span class="n">W</span><span class="p">[:,</span> <span class="o">~</span><span class="n">is_exc</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>     <span class="c1"># total inhibitory input (negative)</span>
+<span class="linenos" data-linenos="16 "></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mean E input:&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">exc_in</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="mi">2</span><span class="p">),</span> <span class="s2">&quot; mean I input:&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">inh_in</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+<p>در ماتریسِ دِیل هر ستون تک‌علامت است (هر نورون یا تحریکی یا مهاری)، اما در ماتریسِ آزاد نه. جداکردنِ ورودیِ تحریکی و مهاریِ هر نورون نشان می‌دهد چرا شبکه‌های زیستی به دو <strong>جمعیتِ</strong> E و I تقسیم می‌شوند — همان نکته‌ای که در متنِ فصل دیدیم و در مدل‌های شبکه بنیادی است.</p>
+</details>
 
 
 

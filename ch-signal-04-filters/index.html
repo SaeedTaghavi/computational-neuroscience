@@ -1238,6 +1238,17 @@
   <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
       
+        تمرین‌ها
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         جمع‌بندی
       
     </span>
@@ -2264,6 +2275,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-open-datasets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پایگاه‌های دادهٔ باز در علوم اعصاب
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2489,6 +2528,17 @@
       
         <li class="md-nav__item">
   <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تمرین‌ها
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
     <span class="md-ellipsis">
       
         جمع‌بندی
@@ -2993,7 +3043,93 @@ u[n] = \sum_{m} f[m]\, G[n-m].
 R(x,t) = \frac{\partial u_\theta}{\partial t} - k\,\frac{\partial^2 u_\theta}{\partial x^2}.
 \]</div>
 <p>اگر شبکه از فیزیک پیروی کند، <span class="arithmatex">\(R\)</span> صفر است؛ وگرنه جریمه می‌شود. تابعِ زیانِ کل سه بخش دارد: <span class="arithmatex">\(\mathcal{L} = \mathcal{L}_{\text{data}} + \mathcal{L}_{\text{boundary}} + \mathcal{L}_{\text{physics}}\)</span>، که به‌ترتیب شبکه را به تطبیق با اندازه‌گیری‌ها، رعایتِ شرایطِ مرزی، و اطاعت از معادلهٔ دیفرانسیل وادار می‌کنند. مشتق‌های لازم با <strong>مشتق‌گیریِ خودکار</strong> (autodiff)—همان موتورِ پس‌انتشار—دقیق و تحلیلی محاسبه می‌شوند. با کمینه‌کردنِ این زیان، بهینه‌سازی مانندِ یک پیکرتراش، تمامِ توابعی را که فیزیک را نقض می‌کنند کنار می‌گذارد تا وزن‌های شبکه به تابعِ گرینِ پیوستهٔ سامانه نزدیک شوند.</p>
-<h2 id="_14">جمع‌بندی</h2>
+<h2 id="_14">تمرین‌ها</h2>
+<p>پیش از باز کردنِ پاسخ، خودتان دست به کار شوید: هر فیلتر را با <code>scipy.signal</code> بسازید و پاسخِ آن را وارسی کنید؛ سپس روی «پاسخ» کلیک کنید تا رویکرد و کدِ اجراشدنی را ببینید.</p>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۱</p>
+<p><strong>FIR در برابرِ IIR: طولِ پاسخِ ضربه‌ای.</strong> یک فیلترِ FIR (میانگینِ متحرکِ ۱۱تایی) و یک فیلترِ IIR (باترورثِ مرتبهٔ چهار) را با یک ورودیِ ضربه <span class="arithmatex">\((1, 0, 0, \dots)\)</span> تغذیه کنید. توضیح دهید چرا پاسخِ ضربه‌ای در یکی پس از شمارِ متناهیِ نمونه دقیقاً صفر می‌شود و در دیگری هرگز کاملاً صفر نمی‌شود، و این تفاوت از کجا می‌آید.</p>
+</div>
+<details class="success">
+<summary>پاسخ</summary>
+<p>فیلترِ FIR تنها به مقادیرِ گذشتهٔ <strong>ورودی</strong> وابسته است؛ پس وقتی ضربه از پنجرهٔ متناهیِ آن (اینجا ۱۱ نمونه) بیرون رفت، خروجی دقیقاً صفر می‌شود. فیلترِ IIR جملهٔ <strong>بازخورد</strong> دارد (وابستگی به خروجی‌های گذشته)، پس هر ضربه در حلقهٔ بازخورد بازمی‌گردد و یک دنبالهٔ میرا—اما هرگز دقیقاً صفر—می‌سازد. همین ریشهٔ نام‌های «متناهی» و «نامتناهی» است.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span> <span class="k">as</span> <span class="n">sig</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="n">impulse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">60</span><span class="p">);</span> <span class="n">impulse</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="n">h_fir</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">lfilter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="o">/</span><span class="mi">11</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">impulse</span><span class="p">)</span>    <span class="c1"># FIR: finite</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="n">h_iir</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">lfilter</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">impulse</span><span class="p">)</span>                    <span class="c1"># IIR: infinite (decaying)</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;FIR nonzero samples:&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">h_fir</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1e-12</span><span class="p">))</span>
+<span class="linenos" data-linenos="10 "></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;FIR at n=11:&quot;</span><span class="p">,</span> <span class="n">h_fir</span><span class="p">[</span><span class="mi">11</span><span class="p">])</span>
+<span class="linenos" data-linenos="11 "></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;IIR at n=40:&quot;</span><span class="p">,</span> <span class="n">h_iir</span><span class="p">[</span><span class="mi">40</span><span class="p">])</span>
+</code></pre></div>
+<p>خروجی نشان می‌دهد پاسخِ FIR دقیقاً ۱۱ نمونهٔ ناصفر دارد و از <span class="arithmatex">\(n=11\)</span> به بعد صفر است، حال آنکه پاسخِ IIR در <span class="arithmatex">\(n=40\)</span> هنوز ناصفر است (حدودِ <span class="arithmatex">\(-6.4\times 10^{-4}\)</span>) و تنها به‌تدریج میرا می‌شود.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۲</p>
+<p><strong>طراحیِ فیلترِ میان‌گذر برای باندِ آلفا.</strong> یک فیلترِ میان‌گذرِ باترورثِ مرتبهٔ چهار برای جداکردنِ باندِ آلفای مغزی (۸ تا ۱۲ هرتز) با بسامدِ نمونه‌برداریِ <span class="arithmatex">\(f_s = 500\)</span> هرتز طراحی کنید. پاسخِ بسامدیِ آن را با <code>freqz</code> به‌دست آورید و بهرهٔ فیلتر را در ۱۰ هرتز (میانهٔ باند) و در ۴ و ۲۰ هرتز (بیرونِ باند) گزارش کنید.</p>
+</div>
+<details class="success">
+<summary>پاسخ</summary>
+<p>ضرایب را با <code>butter</code> و آرگومانِ <code>btype='band'</code> و فهرستِ دو مرزی می‌سازیم، سپس پاسخِ بسامدی را نمونه‌برداری می‌کنیم و بهره را در بسامدهای دلخواه می‌خوانیم:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span> <span class="k">as</span> <span class="n">sig</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="n">fs</span> <span class="o">=</span> <span class="mf">500.0</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="n">btype</span><span class="o">=</span><span class="s2">&quot;band&quot;</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">freqz</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">,</span> <span class="n">worN</span><span class="o">=</span><span class="mi">8192</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="k">def</span> <span class="nf">gain_at</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">h</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">w</span> <span class="o">-</span> <span class="n">f</span><span class="p">))])</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">20</span><span class="p">):</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">gain_at</span><span class="p">(</span><span class="n">f</span><span class="p">)),</span> <span class="mi">4</span><span class="p">))</span>
+</code></pre></div>
+<p>بهره در ۱۰ هرتز تقریباً <span class="arithmatex">\(1.0\)</span> (عبورِ کامل)، و در ۴ و ۲۰ هرتز به‌ترتیب حدودِ <span class="arithmatex">\(0.002\)</span> و <span class="arithmatex">\(0.005\)</span> است (تضعیفِ شدید). نکتهٔ آموزنده: در خودِ مرزها (۸ و ۱۲ هرتز) بهره حدودِ <span class="arithmatex">\(0.707\)</span> است—یعنی همان نقطهٔ <span class="arithmatex">\(-3\)</span> دسی‌بل که بسامدِ مرزیِ باترورث بنا به تعریف در آنجاست. پس «باندِ عبور» تا جایی می‌رسد که توان به نیمه افت کند، نه یک لبهٔ تیز.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۳</p>
+<p><strong>حذفِ نوفهٔ خطِ برق با فیلترِ میان‌نگذر.</strong> سیگنالی بسازید که از دو ریتمِ مغزیِ ۱۰ و ۲۲ هرتزی به‌علاوهٔ یک نوفهٔ ۵۰ هرتزیِ خطِ برق تشکیل شده باشد. با <code>scipy.signal.iirnotch</code> یک فیلترِ میان‌نگذر در ۵۰ هرتز طراحی و اعمال کنید، و با روشِ ولچ نشان دهید که قلهٔ ۵۰ هرتزی چقدر پایین می‌آید در حالی‌که ریتم‌های مغزی دست‌نخورده می‌مانند.</p>
+</div>
+<details class="success">
+<summary>پاسخ</summary>
+<p>فیلترِ میان‌نگذر تنها یک باندِ باریک (با پهنای تقریبیِ <span class="arithmatex">\(f_0/Q\)</span>) را حذف می‌کند و بقیهٔ طیف را رها می‌گذارد. آن را با <code>filtfilt</code> بدونِ جابه‌جاییِ فاز اعمال می‌کنیم و توان را پیش و پس با ولچ می‌سنجیم:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span> <span class="k">as</span> <span class="n">sig</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="n">fs</span> <span class="o">=</span> <span class="mf">1000.0</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="n">brain</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">10</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.6</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">22</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="n">contaminated</span> <span class="o">=</span> <span class="n">brain</span> <span class="o">+</span> <span class="mf">1.2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">50</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>     <span class="c1"># add 50 Hz mains</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">iirnotch</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">Q</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>                 <span class="c1"># bandwidth ~ 50/30 Hz</span>
+<span class="linenos" data-linenos="10 "></span><span class="n">cleaned</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">filtfilt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">contaminated</span><span class="p">)</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="n">f</span><span class="p">,</span> <span class="n">P_c</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">welch</span><span class="p">(</span><span class="n">contaminated</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span>
+<span class="linenos" data-linenos="13 "></span><span class="n">_</span><span class="p">,</span> <span class="n">P_k</span> <span class="o">=</span> <span class="n">sig</span><span class="o">.</span><span class="n">welch</span><span class="p">(</span><span class="n">cleaned</span><span class="p">,</span>      <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span>
+<span class="linenos" data-linenos="14 "></span><span class="n">i50</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">f</span> <span class="o">-</span> <span class="mi">50</span><span class="p">))</span>
+<span class="linenos" data-linenos="15 "></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;PSD @ 50 Hz  before:&quot;</span><span class="p">,</span> <span class="n">P_c</span><span class="p">[</span><span class="n">i50</span><span class="p">],</span> <span class="s2">&quot; after:&quot;</span><span class="p">,</span> <span class="n">P_k</span><span class="p">[</span><span class="n">i50</span><span class="p">])</span>
+<span class="linenos" data-linenos="16 "></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;reduction factor:&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">P_c</span><span class="p">[</span><span class="n">i50</span><span class="p">]</span><span class="o">/</span><span class="n">P_k</span><span class="p">[</span><span class="n">i50</span><span class="p">])))</span>
+</code></pre></div>
+<p>توانِ ۵۰ هرتزی بیش از سه مرتبهٔ بزرگی (حدودِ ۱۵۰۰ برابر) کاهش می‌یابد، در حالی‌که قله‌های ۱۰ و ۲۲ هرتزی تقریباً بی‌تغییر می‌مانند—چون پهنای حذفِ فیلتر تنها حدودِ <span class="arithmatex">\(f_0/Q \approx 1.7\)</span> هرتز است و به آن بسامدها نمی‌رسد.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۴</p>
+<p><strong>پروژه: انتخابِ مرزِ فیلترِ بالاگذر برای یافتنِ اسپایک.</strong> در بخشِ «فیلترِ بالاگذر برای یافتنِ اسپایک‌ها» از مرزِ ۳۰۰ هرتز استفاده کردیم. با کدِ همان بخش آزمایش کنید: مرز را به ۱۰۰، ۳۰۰ و ۶۰۰ هرتز تغییر دهید و ببینید شمارِ اسپایک‌های یافته‌شده و شکلِ خطِ پایه چگونه عوض می‌شود. توضیح دهید چرا مرزِ خیلی پایین (نزدیک به باندِ LFP) و مرزِ خیلی بالا هر دو زیان‌بارند.</p>
+</div>
+<details class="success">
+<summary>راهنمای حل</summary>
+<p>این یک مسئلهٔ بازِ «طراحیِ تصمیم» است؛ پاسخِ یکتا ندارد، اما استدلال روشن است. تابعِ <code>butter_filter</code> و کدِ آشکارسازیِ اسپایکِ همان بخش را بردارید و تنها آرگومانِ مرز را در یک حلقه تغییر دهید:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">for</span> <span class="n">fc</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">600</span><span class="p">):</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="n">hp</span> <span class="o">=</span> <span class="n">butter_filter</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">fc</span><span class="p">,</span> <span class="s2">&quot;high&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">hp</span><span class="p">))</span> <span class="o">/</span> <span class="mf">0.6745</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="c1"># ... same threshold-and-refractory detection ...</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="nb">print</span><span class="p">(</span><span class="n">fc</span><span class="p">,</span> <span class="s2">&quot;Hz -&gt; detected&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">detected</span><span class="p">),</span> <span class="s2">&quot;spikes&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>انتظار داریم: با مرزِ <strong>خیلی پایین</strong> (مثلاً ۱۰۰ هرتز) بخشی از نوسانِ آهستهٔ LFP از فیلتر می‌گذرد، خطِ پایه هنوز موج می‌خورد و آستانهٔ ثابت اسپایک‌های کاذب یا جاافتاده می‌دهد. با مرزِ <strong>خیلی بالا</strong> (مثلاً ۶۰۰ هرتز) بخشی از انرژیِ خودِ شکل‌موجِ اسپایک (که پهنای بسامدیِ محدودی دارد) نیز حذف می‌شود، دامنهٔ اسپایک افت می‌کند و برخی اسپایک‌ها زیرِ آستانه می‌مانند. مرزِ مرسومِ حدودِ ۳۰۰ هرتز یک بده‌بستان است: به‌قدری بالا که LFP را کامل بزداید و به‌قدری پایین که تنِ اصلیِ اسپایک را نگه دارد. همین «طراحیِ آگاهانهٔ مرز بر پایهٔ محتوای بسامدیِ سیگنالِ هدف»، جانِ کلامِ کاربردِ فیلتر است.</p>
+</details>
+<h2 id="_15">جمع‌بندی</h2>
 <p>در این فصل، فیلترها را ساختیم: ابزارهایی که بسامدهای خاصی را عبور می‌دهند و بقیه را حذف می‌کنند. فیلترهای <strong>پایین‌گذر، بالاگذر، میان‌گذر و میان‌نگذر</strong> هر کدام کاربردِ خاصِ خود را دارند، از حذفِ نوفهٔ خطِ برق تا جداکردنِ باندهای مغزی. دیدیم که هر فیلتر با <strong>پاسخِ بسامدیِ</strong> خود توصیف می‌شود، و چگونه با <code>scipy.signal</code> فیلترهای باترورث را طراحی و اعمال کنیم. و سرانجام دیدیم که فیلتر کردن در اصل همان کانولوشنِ فصلِ پیش است، که در حوزهٔ بسامد به ضربِ ساده بدل می‌شود. در فصلِ بعد، به تحلیلِ زمان–بسامد می‌پردازیم، جایی که هم زمان و هم بسامد را هم‌زمان دنبال می‌کنیم.</p>
 
 

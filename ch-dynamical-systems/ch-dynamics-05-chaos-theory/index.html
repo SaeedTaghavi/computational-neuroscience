@@ -1326,6 +1326,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تمرین‌ها
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2120,6 +2131,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix-open-datasets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پایگاه‌های دادهٔ باز در علوم اعصاب
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2204,6 +2243,17 @@
     <span class="md-ellipsis">
       
         نمای لیاپانوف: سنجشِ کمّیِ آشوب
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تمرین‌ها
       
     </span>
   </a>
@@ -2320,20 +2370,99 @@ x_{n+1} = r\,x_n\,(1 - x_n),
 <p class="admonition-title">آشوب در علوم اعصاب</p>
 <p>آیا مغز آشوبناک است؟ فعالیتِ بسیاری از نورون‌ها و شبکه‌ها <strong>نامنظم</strong> به‌نظر می‌رسد، و مدل‌هایی مانندِ شبکه‌های تصادفیِ متعادل (که در فصل‌های بعدی می‌آیند) می‌توانند دینامیکِ آشوبناک تولید کنند. اما تمیزدادنِ آشوبِ قطعی از نوفهٔ تصادفی در داده‌های عصبیِ واقعی دشوار است و موضوعِ پژوهش‌های فعال. این نکته یادآور می‌شود که «نامنظم» همیشه به معنای «تصادفی» نیست — گاه یک دینامیکِ قطعیِ ساده در پسِ آن نهفته است.</p>
 </div>
-<div class="admonition example">
-<p class="admonition-title">تمرین‌ها</p>
-<ol>
-<li>
-<p>نمودارِ انشعابِ نگاشتِ لجستیک را بازتولید کنید و نخستین چند نقطهٔ دوبرابرشدنِ دوره را مکان‌یابی کنید. آیا نسبتِ فاصله‌های پیاپیِ آن‌ها به عددِ فایگنباوف (<span class="arithmatex">\(\approx 4.669\)</span>) نزدیک می‌شود؟</p>
-</li>
-<li>
-<p>دستگاهِ لورنتس را برای دو شرطِ اولیه با تفاوتِ <span class="arithmatex">\(10^{-8}\)</span> شبیه‌سازی کنید و فاصلهٔ آن‌ها را بر حسبِ زمان در مقیاسِ لگاریتمی رسم کنید. شیبِ بخشِ خطی، نمای لیاپانوف را تخمین می‌زند.</p>
-</li>
-<li>
-<p>دستگاهِ لورنتس را برای <span class="arithmatex">\(\rho\)</span>های کوچک‌تر (مثلاً <span class="arithmatex">\(\rho=10\)</span>) شبیه‌سازی کنید. آیا هنوز آشوبناک است؟ <span class="arithmatex">\(\rho\)</span> را افزایش دهید تا گذار به آشوب را بیابید.</p>
-</li>
-</ol>
+<h2 id="_7">تمرین‌ها</h2>
+<p>پیش از دیدنِ پاسخ، بکوشید هر مسئله را خودتان مدل و کدنویسی کنید؛ سپس پاسخ را بگشایید و رویکرد و نتیجهٔ عددی را با کارِ خود بسنجید.</p>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۱</p>
+<p><strong>آبشارِ دوبرابرشدن و عددِ فایگنباوم.</strong> نمودارِ انشعابِ نگاشتِ لجستیک را بازتولید کنید و نخستین چند نقطهٔ دوبرابرشدنِ دوره را مکان‌یابی کنید. آیا نسبتِ فاصله‌های پیاپیِ آن‌ها به عددِ فایگنباوف (<span class="arithmatex">\(\approx 4.669\)</span>) نزدیک می‌شود؟</p>
 </div>
+<details class="success">
+<summary>پاسخ</summary>
+<p>نمودارِ انشعاب همان کدِ بالای فصل است. برای یافتنِ نقاطِ دوبرابرشدن، به‌جای چشمی‌خواندن، <strong>دورهٔ جاذبِ درازمدت</strong> را برای هر <span class="arithmatex">\(r\)</span> می‌شماریم (تعدادِ مقدارهای متمایزی که دنباله پس از گذارِ اولیه بر آن‌ها می‌نشیند) و با یک جست‌وجوی دوبخشی، <span class="arithmatex">\(r\)</span>ای را می‌یابیم که دوره در آن از ۱ به ۲، از ۲ به ۴ و … می‌جهد. سپس نسبتِ فاصله‌های پیاپی را می‌سنجیم.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">def</span> <span class="nf">period_of</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">n_trans</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">n_keep</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="n">x</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_trans</span><span class="p">):</span>          <span class="c1"># discard the transient</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="n">x</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="n">vals</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_keep</span><span class="p">):</span>           <span class="c1"># collect the attractor</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="n">x</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
+<span class="linenos" data-linenos="10 "></span>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">u</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tol</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">vals</span><span class="p">):</span>
+<span class="linenos" data-linenos="11 "></span>            <span class="n">vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">64</span><span class="p">:</span>
+<span class="linenos" data-linenos="13 "></span>            <span class="k">return</span> <span class="mi">999</span>                <span class="c1"># effectively chaotic</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span><span class="k">def</span> <span class="nf">doubling_point</span><span class="p">(</span><span class="n">p_before</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">):</span>
+<span class="linenos" data-linenos="17 "></span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Bisect for the r where the period first exceeds p_before.&quot;&quot;&quot;</span>
+<span class="linenos" data-linenos="18 "></span>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">60</span><span class="p">):</span>
+<span class="linenos" data-linenos="19 "></span>        <span class="n">mid</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">lo</span> <span class="o">+</span> <span class="n">hi</span><span class="p">)</span>
+<span class="linenos" data-linenos="20 "></span>        <span class="k">if</span> <span class="n">period_of</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">p_before</span><span class="p">:</span>
+<span class="linenos" data-linenos="21 "></span>            <span class="n">lo</span> <span class="o">=</span> <span class="n">mid</span>
+<span class="linenos" data-linenos="22 "></span>        <span class="k">else</span><span class="p">:</span>
+<span class="linenos" data-linenos="23 "></span>            <span class="n">hi</span> <span class="o">=</span> <span class="n">mid</span>
+<span class="linenos" data-linenos="24 "></span>    <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">lo</span> <span class="o">+</span> <span class="n">hi</span><span class="p">)</span>
+<span class="linenos" data-linenos="25 "></span>
+<span class="linenos" data-linenos="26 "></span><span class="n">r2</span> <span class="o">=</span> <span class="n">doubling_point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">)</span>      <span class="c1"># period 2 -&gt; 4</span>
+<span class="linenos" data-linenos="27 "></span><span class="n">r3</span> <span class="o">=</span> <span class="n">doubling_point</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">3.54</span><span class="p">,</span> <span class="mf">3.56</span><span class="p">)</span>    <span class="c1"># period 4 -&gt; 8</span>
+<span class="linenos" data-linenos="28 "></span><span class="n">r4</span> <span class="o">=</span> <span class="n">doubling_point</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">3.564</span><span class="p">,</span> <span class="mf">3.567</span><span class="p">)</span>  <span class="c1"># period 8 -&gt; 16</span>
+<span class="linenos" data-linenos="29 "></span><span class="n">r1</span> <span class="o">=</span> <span class="mf">3.0</span>                              <span class="c1"># period 1 -&gt; 2 (exactly r = 3)</span>
+<span class="linenos" data-linenos="30 "></span><span class="nb">print</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">r3</span><span class="p">,</span> <span class="n">r4</span><span class="p">)</span>
+<span class="linenos" data-linenos="31 "></span><span class="nb">print</span><span class="p">((</span><span class="n">r2</span> <span class="o">-</span> <span class="n">r1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">r3</span> <span class="o">-</span> <span class="n">r2</span><span class="p">),</span> <span class="p">(</span><span class="n">r3</span> <span class="o">-</span> <span class="n">r2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">r4</span> <span class="o">-</span> <span class="n">r3</span><span class="p">))</span>
+</code></pre></div>
+<p>خروجی: نقاطِ دوبرابرشدن نزدیکِ <span class="arithmatex">\(r_1=3.0\)</span>، <span class="arithmatex">\(r_2\approx 3.449\)</span>، <span class="arithmatex">\(r_3\approx 3.544\)</span>، <span class="arithmatex">\(r_4\approx 3.564\)</span>؛ و نسبت‌های پیاپیِ <span class="arithmatex">\(4.73\)</span> و سپس <span class="arithmatex">\(4.62\)</span>. با رفتن به دوبرابرشدن‌های بعدی این نسبت هرچه بیشتر به عددِ فایگنباومِ <span class="arithmatex">\(\delta\approx 4.669\)</span> نزدیک می‌شود — همگراییِ جهان‌شمولی که به جزئیاتِ نگاشت وابسته نیست.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۲</p>
+<p><strong>دستگاهِ لورنتس را برای دو شرطِ اولیه با تفاوتِ <span class="arithmatex">\(10^{-8}\)</span> شبیه‌سازی کنید و فاصلهٔ آن‌ها را بر حسبِ زمان در مقیاسِ لگاریتمی رسم کنید. شیبِ بخشِ خطی، نمای لیاپانوف را تخمین می‌زند.</strong></p>
+</div>
+<details class="success">
+<summary>پاسخ</summary>
+<p>دو مسیرِ فصل را می‌گیریم، فاصلهٔ اقلیدسیِ آن‌ها را در هر گام می‌سنجیم و در مقیاسِ نیمه‌لگاریتمی رسم می‌کنیم. رشدِ نمایی <span class="arithmatex">\(\delta(t)\approx\delta_0 e^{\lambda t}\)</span> در این مقیاس یک <strong>خطِ راست</strong> می‌شود که شیبش <span class="arithmatex">\(\lambda\)</span> است؛ فقط باید بخشِ خطیِ پیش از اشباع (پیش از آنکه فاصله به اندازهٔ خودِ جاذب برسد) را برازش کنیم.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="o">,</span> <span class="nn">scipy.integrate</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">def</span> <span class="nf">lorenz</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">10.</span><span class="p">,</span> <span class="n">rho</span><span class="o">=</span><span class="mf">28.</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">8</span><span class="o">/</span><span class="mi">3</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">state</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">return</span> <span class="p">[</span><span class="n">sigma</span><span class="o">*</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">rho</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">-</span> <span class="n">beta</span><span class="o">*</span><span class="n">z</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">12000</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="n">a</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">odeint</span><span class="p">(</span><span class="n">lorenz</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span>        <span class="n">t</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="n">b</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">odeint</span><span class="p">(</span><span class="n">lorenz</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.</span> <span class="o">+</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="n">t</span><span class="p">)</span>
+<span class="linenos" data-linenos="10 "></span><span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="n">fit</span> <span class="o">=</span> <span class="p">(</span><span class="n">t</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">t</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">d</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>          <span class="c1"># the exponential-growth window</span>
+<span class="linenos" data-linenos="13 "></span><span class="n">slope</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">fit</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">fit</span><span class="p">]),</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos" data-linenos="14 "></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lyapunov exponent ~&quot;</span><span class="p">,</span> <span class="n">slope</span><span class="p">)</span>          <span class="c1"># ~ 0.90</span>
+</code></pre></div>
+<p>شیبِ تخمینی <span class="arithmatex">\(\lambda\approx 0.90\)</span> به‌دست می‌آید — مثبت و نزدیک به مقدارِ شناخته‌شدهٔ <span class="arithmatex">\(\lambda\approx 0.906\)</span> برای لورنتسِ کلاسیک. پس از حدودِ <span class="arithmatex">\(t\approx 25\)</span> فاصله اشباع می‌شود (به اندازهٔ قطرِ جاذب می‌رسد) و دیگر نباید در برازش وارد شود. علامتِ مثبتِ <span class="arithmatex">\(\lambda\)</span>، تأییدِ کمّیِ آشوب است.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۳</p>
+<p><strong>دستگاهِ لورنتس را برای <span class="arithmatex">\(\rho\)</span>های کوچک‌تر (مثلاً <span class="arithmatex">\(\rho=10\)</span>) شبیه‌سازی کنید. آیا هنوز آشوبناک است؟ <span class="arithmatex">\(\rho\)</span> را افزایش دهید تا گذار به آشوب را بیابید.</strong></p>
+</div>
+<details class="success">
+<summary>پاسخ</summary>
+<p>همان سنجهٔ مسئلهٔ ۲ (شیبِ نمایی) را به تابعی از <span class="arithmatex">\(\rho\)</span> بدل می‌کنیم و <span class="arithmatex">\(\rho\)</span> را جارو می‌کنیم؛ علامتِ <span class="arithmatex">\(\lambda\)</span> به ما می‌گوید کجا آشوب آغاز می‌شود.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="o">,</span> <span class="nn">scipy.integrate</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">def</span> <span class="nf">lorenz</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">10.</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">8</span><span class="o">/</span><span class="mi">3</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">state</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">return</span> <span class="p">[</span><span class="n">sigma</span><span class="o">*</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">rho</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">-</span> <span class="n">beta</span><span class="o">*</span><span class="n">z</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="k">def</span> <span class="nf">lyap</span><span class="p">(</span><span class="n">rho</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">15000</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="n">a</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">odeint</span><span class="p">(</span><span class="n">lorenz</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span>        <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">rho</span><span class="p">,))</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="n">b</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">odeint</span><span class="p">(</span><span class="n">lorenz</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.</span> <span class="o">+</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">rho</span><span class="p">,))</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">t</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">t</span> <span class="o">&lt;</span> <span class="mi">40</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">d</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">m</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">m</span><span class="p">]),</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos" data-linenos="14 "></span>
+<span class="linenos" data-linenos="15 "></span><span class="k">for</span> <span class="n">rho</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">28</span><span class="p">]:</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="nb">print</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">lyap</span><span class="p">(</span><span class="n">rho</span><span class="p">))</span>
+</code></pre></div>
+<p>برای <span class="arithmatex">\(\rho=10\)</span> شیب <strong>منفی</strong> است (<span class="arithmatex">\(\lambda\approx -0.30\)</span>): مسیرها به‌هم نزدیک می‌شوند و دستگاه به یکی از دو نقطهٔ ثابتِ پایدار می‌نشیند — آشوبی در کار نیست. با افزایشِ <span class="arithmatex">\(\rho\)</span> این نقاطِ ثابت سرانجام ناپایدار می‌شوند و نمای لیاپانوف مثبت می‌گردد؛ گذار به آشوبِ پایا نزدیکِ <span class="arithmatex">\(\rho\approx 24.06\)</span> رخ می‌دهد و در <span class="arithmatex">\(\rho=28\)</span> به رژیمِ آشوبناکِ کلاسیک (<span class="arithmatex">\(\lambda&gt;0\)</span>) می‌رسیم. جمع‌بندی: آشوب ویژگیِ خودِ معادلات نیست، بلکه به مقدارِ پارامتر بستگی دارد.</p>
+</details>
 
 
 

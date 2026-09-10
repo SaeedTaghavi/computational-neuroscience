@@ -18,6 +18,8 @@
         <link rel="prev" href="../ch10/">
       
       
+        <link rel="next" href="../appendix-open-datasets/">
+      
       
         
       
@@ -2175,6 +2177,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-open-datasets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پایگاه‌های دادهٔ باز در علوم اعصاب
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2828,16 +2858,76 @@
 </div>
 <p>به‌طورِ خلاصه، هرگاه با جاروبِ پارامترهای بزرگی روبه‌رو شدیم که اجراهایش مستقل‌اند (که در شبیه‌سازی‌های علمی بسیار رایج است)، موازی‌سازی با فرایندها می‌تواند زمانِ محاسبه را از ساعت‌ها به دقیقه‌ها کاهش دهد. و چون از همان آغاز شبیه‌سازی را در یک تابعِ مستقل گذاشتیم، این کار تنها به چند خطِ افزوده نیاز دارد.</p>
 <h2 id="_10">پرسش‌هایی که پیش از طراحی باید بیندیشیم</h2>
-<p>طراحیِ یک آزمایشِ محاسباتیِ خوب، پیش از نوشتنِ کد آغاز می‌شود. چند پرسشِ کلیدی که خوب است پیش از شروع به آن‌ها فکر کنیم:</p>
-<p><strong>کدام پارامترها را جاروب کنیم و در چه بازه‌ای؟</strong> هر پارامترِ افزوده، شمارِ اجراها را چندبرابر می‌کند (نفرینِ ابعاد). جاروبِ سه پارامتر با ده مقدار هرکدام، هزار اجرا می‌شود. باید آگاهانه انتخاب کنیم که کدام پارامترها مهم‌اند و چه گامی میانِ مقادیر معقول است (خطی یا لگاریتمی).</p>
-<p><strong>چه چیزی را ذخیره کنیم؟</strong> آیا به کلِ مسیر نیاز داریم یا تنها چند کمیتِ خلاصه؟ ذخیرهٔ کلِ مسیرها برای هزاران اجرا می‌تواند گیگابایت‌ها فضا بگیرد. گاه بهتر است تنها کمیت‌های خلاصه را نگه داریم، و کلِ مسیر را فقط برای چند اجرای منتخب ذخیره کنیم.</p>
-<p><strong>چگونه بازتولیدپذیری را تضمین کنیم؟</strong> مقدارِ اولیهٔ تصادفی را صریح و ثبت‌شده نگه می‌داریم. همهٔ پارامترها را در فراداده می‌نویسیم. نسخهٔ کد و کتابخانه‌ها را ثبت می‌کنیم. هدف این است که هر کسی (از جمله خودِ ما در آینده) بتواند دقیقاً همان نتیجه را بازتولید کند.</p>
-<p><strong>آیا شبیه‌سازی‌ها مستقل‌اند؟</strong> اگر اجراها به هم وابسته نباشند (که در جاروبِ پارامترها معمولاً چنین است)، می‌توان آن‌ها را <strong>موازی</strong> اجرا کرد و زمانِ محاسبه را به‌شدت کاهش داد. طراحیِ تابعِ مستقلِ یک‌شبیه‌سازی، این موازی‌سازی را بسیار آسان می‌کند.</p>
-<p><strong>همگراییِ عددی را چگونه بررسی کنیم؟</strong> پیش از اعتماد به نتایجِ یک جاروبِ بزرگ، باید مطمئن شویم که گامِ زمانیِ (<span class="arithmatex">\(\Delta t\)</span>) به‌قدرِ کافی کوچک است. خوب است آزمایشی کوچک انجام دهیم: یک اجرا را با چند گامِ زمانیِ کاهنده تکرار کنیم و ببینیم که آیا نتیجه به مقداری پایدار همگرا می‌شود یا نه (همان اصلِ اعتبارسنجیِ فصلِ معادلاتِ دیفرانسیل).</p>
-<p><strong>ساختارِ پوشه‌ها و نام‌گذاری چگونه باشد؟</strong> یک ساختارِ پوشهٔ روشن (مثلاً پوشه‌ای جداگانه برای هر آزمایش، با داده، فراداده و کدِ مولد در کنارِ هم) بازگشت به کار را در آینده بسیار آسان می‌کند.</p>
-<div class="admonition example">
-<p class="admonition-title">نمونه‌ای از یک ساختارِ پوشهٔ پاکیزه</p>
-<p>یک چیدمانِ خوب، کد، داده و فراداده را از هم جدا اما به هم پیوسته نگه می‌دارد. برای مثال:</p>
+<p>طراحیِ یک آزمایشِ محاسباتیِ خوب، پیش از نوشتنِ کد آغاز می‌شود. پرسش‌های زیر همان تصمیم‌هایی‌اند که خوب است پیش از شروع به آن‌ها فکر کنیم. برای هر پرسش نخست خودتان کمی بیندیشید و پاسخِ خود را بنویسید، سپس روی «پاسخ» کلیک کنید و آن را با آنچه در ادامه آمده بسنجید.</p>
+<div class="admonition question">
+<p class="admonition-title">پرسشِ ۱</p>
+<p><strong>انتخابِ پارامترها.</strong> کدام پارامترها را جاروب کنیم و در چه بازه‌ای؟</p>
+</div>
+<details class="success">
+<summary>پاسخ</summary>
+<p>هر پارامترِ افزوده، شمارِ اجراها را چندبرابر می‌کند (نفرینِ ابعاد). جاروبِ سه پارامتر با ده مقدار هرکدام، هزار اجرا می‌شود. باید آگاهانه انتخاب کنیم که کدام پارامترها مهم‌اند و چه گامی میانِ مقادیر معقول است (خطی یا لگاریتمی).</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">پرسشِ ۲</p>
+<p><strong>انتخابِ آنچه ذخیره می‌شود.</strong> چه چیزی را ذخیره کنیم؟</p>
+</div>
+<details class="success">
+<summary>پاسخ</summary>
+<p>آیا به کلِ مسیر نیاز داریم یا تنها چند کمیتِ خلاصه؟ ذخیرهٔ کلِ مسیرها برای هزاران اجرا می‌تواند گیگابایت‌ها فضا بگیرد. گاه بهتر است تنها کمیت‌های خلاصه را نگه داریم، و کلِ مسیر را فقط برای چند اجرای منتخب ذخیره کنیم.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">پرسشِ ۳</p>
+<p><strong>تضمینِ بازتولیدپذیری.</strong> چگونه بازتولیدپذیری را تضمین کنیم؟</p>
+</div>
+<details class="success">
+<summary>پاسخ</summary>
+<p>مقدارِ اولیهٔ تصادفی را صریح و ثبت‌شده نگه می‌داریم. همهٔ پارامترها را در فراداده می‌نویسیم. نسخهٔ کد و کتابخانه‌ها را ثبت می‌کنیم. هدف این است که هر کسی (از جمله خودِ ما در آینده) بتواند دقیقاً همان نتیجه را بازتولید کند.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">پرسشِ ۴</p>
+<p><strong>استقلالِ اجراها.</strong> آیا شبیه‌سازی‌ها مستقل‌اند؟</p>
+</div>
+<details class="success">
+<summary>پاسخ</summary>
+<p>اگر اجراها به هم وابسته نباشند (که در جاروبِ پارامترها معمولاً چنین است)، می‌توان آن‌ها را <strong>موازی</strong> اجرا کرد و زمانِ محاسبه را به‌شدت کاهش داد. طراحیِ تابعِ مستقلِ یک‌شبیه‌سازی، این موازی‌سازی را بسیار آسان می‌کند.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">پرسشِ ۵</p>
+<p><strong>بررسیِ همگرایی.</strong> همگراییِ عددی را چگونه بررسی کنیم؟</p>
+</div>
+<details class="success">
+<summary>پاسخ</summary>
+<p>پیش از اعتماد به نتایجِ یک جاروبِ بزرگ، باید مطمئن شویم که گامِ زمانیِ (<span class="arithmatex">\(\Delta t\)</span>) به‌قدرِ کافی کوچک است. خوب است آزمایشی کوچک انجام دهیم: یک اجرا را با چند گامِ زمانیِ کاهنده تکرار کنیم و ببینیم که آیا نتیجه به مقداری پایدار همگرا می‌شود یا نه (همان اصلِ اعتبارسنجیِ فصلِ معادلاتِ دیفرانسیل). برای نمونه، دامنهٔ پایدارِ همان نوسانگرِ محرک‌دار را برای چند گامِ زمانیِ کاهنده حساب می‌کنیم:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">def</span> <span class="nf">steady_amplitude</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">F</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">omega0</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">omega_d</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mf">120.0</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">dt</span><span class="p">);</span> <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">*</span><span class="n">dt</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">);</span> <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">gamma</span><span class="o">*</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">omega0</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">F</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega_d</span><span class="o">*</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="n">dt</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dt</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">//</span><span class="mi">2</span><span class="p">:])</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="k">for</span> <span class="n">dt</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">]:</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;dt=</span><span class="si">{</span><span class="n">dt</span><span class="si">:</span><span class="s2">&lt;6</span><span class="si">}</span><span class="s2"> amplitude=</span><span class="si">{</span><span class="n">steady_amplitude</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>خروجی نشان می‌دهد که پاسخ به‌سرعت پایدار می‌شود و از یک جایی به بعد کوچک‌ترکردنِ گامِ زمانی تغییرِ معناداری نمی‌دهد:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>dt=0.1    amplitude=1.7632
+<span class="linenos" data-linenos="2 "></span>dt=0.05   amplitude=1.7630
+<span class="linenos" data-linenos="3 "></span>dt=0.02   amplitude=1.7629
+<span class="linenos" data-linenos="4 "></span>dt=0.01   amplitude=1.7629
+<span class="linenos" data-linenos="5 "></span>dt=0.005  amplitude=1.7628
+</code></pre></div>
+<p>تفاوتِ میانِ گامِ ۰٫۱ و گامِ ۰٫۰۰۵ کمتر از یک‌دهمِ درصد است؛ پس گامِ ۰٫۰۱ برای این جاروب به‌قدرِ کافی کوچک است و کوچک‌ترکردنِ بیشترِ آن تنها هزینهٔ محاسبه را بالا می‌برد بی‌آنکه دقت را معنادار کند.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">پرسشِ ۶</p>
+<p><strong>ساختارِ پوشه‌ها و نام‌گذاری.</strong> ساختارِ پوشه‌ها و نام‌گذاری چگونه باشد؟</p>
+</div>
+<details class="success">
+<summary>پاسخ</summary>
+<p>یک ساختارِ پوشهٔ روشن (مثلاً پوشه‌ای جداگانه برای هر آزمایش، با داده، فراداده و کدِ مولد در کنارِ هم) بازگشت به کار را در آینده بسیار آسان می‌کند. یک چیدمانِ خوب، کد، داده و فراداده را از هم جدا اما به هم پیوسته نگه می‌دارد. برای مثال:</p>
 <div dir="ltr" markdown>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span>oscillator_experiment/
 <span class="linenos" data-linenos=" 2 "></span>├── README.md                  # what this experiment is, how to run it
@@ -2858,7 +2948,7 @@
 </code></pre></div>
 </div>
 <p>سه اصلِ کلیدی در این چیدمان دیده می‌شود: کدِ مولد (<code>simulate.py</code>، <code>run_sweep.py</code>) از داده‌های تولیدشده (<code>sweep_output/</code>) جداست؛ همهٔ خروجی‌های عددی در یک پوشهٔ واحد و در کنارِ فرادادهٔ خود جای دارند؛ و یک فایلِ <code>README</code> و فایلِ محیط (<code>environment.yml</code>) آزمایش را برای آینده خوداتکا و بازتولیدپذیر می‌کنند.</p>
-</div>
+</details>
 <h2 id="_11">جمع‌بندی</h2>
 <p>پژوهشِ محاسباتیِ خوب، چیزی فراتر از نوشتنِ کدی است که کار کند. این پژوهش نیازمندِ <strong>طراحیِ آگاهانهٔ گردش‌کار</strong> است: یک تابعِ پاکیزه برای یک شبیه‌سازی، یک سازوکارِ منظم برای جاروبِ پارامترها، ذخیرهٔ بازتولیدپذیرِ داده‌ها، و فراداده‌ای که هر نتیجه را به پارامترهایش پیوند می‌دهد. این عادت‌ها در آغاز کمی وقت می‌گیرند، اما در درازمدت ساعت‌ها سردرگمی را از میان می‌برند و، مهم‌تر، پژوهشِ ما را قابلِ‌اعتماد و قابلِ‌بازتولید می‌کنند. این، تفاوتِ میانِ «یک بار شبیه‌سازی کردم» و «یک آزمایشِ محاسباتیِ دقیق طراحی کردم» است.</p>
 
@@ -2934,6 +3024,22 @@
             </div>
           </a>
         
+        
+          
+          <a href="../appendix-open-datasets/" class="md-footer__link md-footer__link--next" aria-label="بعدی: پایگاه‌های دادهٔ باز در علوم اعصاب">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                بعدی
+              </span>
+              <div class="md-ellipsis">
+                پایگاه‌های دادهٔ باز در علوم اعصاب
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
         
       </nav>
     

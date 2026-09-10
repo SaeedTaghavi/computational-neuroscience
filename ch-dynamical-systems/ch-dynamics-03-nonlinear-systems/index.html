@@ -1259,6 +1259,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تمرین‌ها
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2109,6 +2120,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix-open-datasets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پایگاه‌های دادهٔ باز در علوم اعصاب
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2182,6 +2221,17 @@
     <span class="md-ellipsis">
       
         انشعاب در دستگاه‌ها
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تمرین‌ها
       
     </span>
   </a>
@@ -2328,20 +2378,77 @@ J =
 <p>دستگاه‌ها دو نوعِ مهمِ انشعاب دارند.</p>
 <p><strong>انشعابِ زین–گره</strong> را از یک بُعد به ارث می‌برند: با تغییرِ یک پارامتر، دو تعادل می‌توانند برخورد و ناپدید شوند. روی صفحهٔ اثر–دترمینان این همان لحظه‌ای است که <span class="arithmatex">\(\det(J)\)</span> از صفر می‌گذرد ( <span class="arithmatex">\(D=0\)</span> ) و یک گرهِ پایدار را به زین بدل می‌کند. این مکانیزم، زیربنای <strong>دوپایداری</strong> و <strong>حافظه</strong> است که در فصلِ <a href="../ch-dynamics-06-neuro-bistability/">دوپایداری</a> به‌تفصیل می‌آید.</p>
 <p><strong>انشعابِ هاپف</strong> کاری می‌کند که در یک بُعد <em>ناممکن</em> است. هنگامی که یک <strong>مارپیچ</strong> پایداری‌اش را عوض می‌کند — یعنی <span class="arithmatex">\(\operatorname{Tr}(J)\)</span> با <span class="arithmatex">\(\det(J)&gt;0\)</span> از صفر می‌گذرد، پس زوجی از مقادیرِ ویژهٔ مختلط از محورِ موهومی عبور می‌کنند — یک <strong>انشعابِ هاپف</strong> (Hopf bifurcation) داریم. وقتی یک مارپیچِ پایدار پایداری‌اش را از دست می‌دهد، معمولاً یک <strong>چرخهٔ حدی</strong> زاده می‌شود: یک نوسانِ خودپایدار. این انشعاب، قلبِ هر شلیکِ ریتمیک است و موضوعِ کاملِ فصلِ بعد، <a href="../ch-dynamics-04-oscillators/">نوسانگرها</a>، خواهد بود.</p>
-<div class="admonition example">
-<p class="admonition-title">تمرین‌ها</p>
-<ol>
-<li>
+<h2 id="_6">تمرین‌ها</h2>
+<p>نخست خودتان نقاطِ ثابت و ژاکوبین را بیرون بکشید، سپس پاسخ را برای مقایسه بگشایید.</p>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۱</p>
 <p>برای دستگاهِ غیرخطیِ <span class="arithmatex">\(\dot x = -(1-y^2)x - y,\; \dot y = x\)</span>، نقطهٔ ثابتِ یکتا را بیابید، ژاکوبین را آنجا محاسبه و آن را رده‌بندی کنید (گره، زین یا مارپیچ). با شبیه‌سازی تأیید کنید.</p>
-</li>
-<li>
-<p>مدلِ رقابت را با ضرایبِ متفاوت بازنویسی کنید تا نقطهٔ هم‌زیستیِ <span class="arithmatex">\((1,1)\)</span> به یک <strong>گرهِ پایدار</strong> بدل شود (هم‌زیستیِ پایدار). کدامین تغییر در ضرایبِ نولکلین‌ها این را ممکن می‌کند؟</p>
-</li>
-<li>
-<p>تابعِ <code>classify</code> را گسترش دهید تا حالت‌های مرزی ( <span class="arithmatex">\(\det J \approx 0\)</span> یا <span class="arithmatex">\(\operatorname{Tr} J \approx 0\)</span> ) را نیز برچسب بزند، چون این‌ها دقیقاً جایی‌اند که انشعاب‌ها رخ می‌دهند.</p>
-</li>
-</ol>
 </div>
+<details class="success">
+<summary>پاسخ</summary>
+<p>از <span class="arithmatex">\(\dot y=x=0\)</span> نتیجه می‌شود <span class="arithmatex">\(x=0\)</span>، و آن‌گاه <span class="arithmatex">\(\dot x=-y=0\)</span> یعنی <span class="arithmatex">\(y=0\)</span>؛ پس تنها نقطهٔ ثابت مبدأ <span class="arithmatex">\((0,0)\)</span> است. ژاکوبین در حالتِ کلی <span class="arithmatex">\(J=\begin{bmatrix} -(1-y^2) &amp; 2xy-1 \\ 1 &amp; 0 \end{bmatrix}\)</span> است که در مبدأ به <span class="arithmatex">\(J=\begin{bmatrix} -1 &amp; -1 \\ 1 &amp; 0 \end{bmatrix}\)</span> می‌رسد. با <span class="arithmatex">\(\operatorname{Tr}(J)=-1\)</span>، <span class="arithmatex">\(\det(J)=1\)</span> و <span class="arithmatex">\(T^2-4D=-3&lt;0\)</span>، این یک <strong>مارپیچِ پایدار</strong> است. همان تابعِ <code>classify</code> این فصل را بازبه‌کار می‌بریم.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span> <span class="nn">scipy.integrate</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">def</span> <span class="nf">flow</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">u</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">])</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span><span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">]])</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nb">print</span><span class="p">(</span><span class="n">classify</span><span class="p">(</span><span class="n">J</span><span class="p">))</span>                       <span class="c1"># (&#39;stable spiral&#39;, True)</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">4000</span><span class="p">)</span>
+<span class="linenos" data-linenos="12 "></span><span class="n">end</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">odeint</span><span class="p">(</span><span class="n">flow</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">],</span> <span class="n">t</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos" data-linenos="13 "></span><span class="nb">print</span><span class="p">(</span><span class="n">end</span><span class="p">)</span>                                <span class="c1"># ~ [0, 0]</span>
+</code></pre></div>
+<p>شبیه‌سازی از <span class="arithmatex">\((0.3,0.3)\)</span> به‌صورتِ مارپیچی به مبدأ میرا می‌شود و رده‌بندیِ «مارپیچِ پایدار» را تأیید می‌کند.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۲</p>
+<p><strong>** مدلِ رقابت را با ضرایبِ متفاوت بازنویسی کنید تا نقطهٔ هم‌زیستیِ <span class="arithmatex">\((1,1)\)</span> به یک ** گرهِ پایدار</strong> بدل شود (هم‌زیستیِ پایدار). کدامین تغییر در ضرایبِ نولکلین‌ها این را ممکن می‌کند؟</p>
+</div>
+<details class="success">
+<summary>پاسخ</summary>
+<p>در مدلِ اصلی، رقابتِ <strong>بین‌گونه‌ای</strong> (ضریبِ متقابلِ <span class="arithmatex">\(2\)</span>) از رقابتِ <strong>درون‌گونه‌ای</strong> (ضریبِ <span class="arithmatex">\(1\)</span> روی خودِ گونه) قوی‌تر بود و همین <span class="arithmatex">\((1,1)\)</span> را به زین بدل می‌کرد. اگر رابطه را وارونه کنیم — رقابتِ درون‌گونه‌ای قوی‌تر از بین‌گونه‌ای — هم‌زیستی پایدار می‌شود. مثلاً <span class="arithmatex">\(\dot x = x\,(3-2x-z),\ \dot z = z\,(3-x-2z)\)</span>: نولکلین‌های درونی <span class="arithmatex">\(2x+z=3\)</span> و <span class="arithmatex">\(x+2z=3\)</span> باز در <span class="arithmatex">\((1,1)\)</span> قطع می‌شوند، اما اکنون ژاکوبین در آنجا <span class="arithmatex">\(\begin{bmatrix} -2 &amp; -1 \\ -1 &amp; -2 \end{bmatrix}\)</span> است با <span class="arithmatex">\(\operatorname{Tr}=-4\)</span>، <span class="arithmatex">\(\det=3\)</span> و <span class="arithmatex">\(T^2-4D=4&gt;0\)</span>: یک <strong>گرهِ پایدار</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">def</span> <span class="nf">comp2</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="n">x</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">u</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="n">z</span><span class="p">),</span> <span class="n">z</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="p">)])</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">def</span> <span class="nf">jac2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="n">z</span><span class="p">,</span> <span class="o">-</span><span class="n">x</span><span class="p">],</span>
+<span class="linenos" data-linenos=" 7 "></span>                     <span class="p">[</span><span class="o">-</span><span class="n">z</span><span class="p">,</span>          <span class="mi">3</span> <span class="o">-</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">z</span><span class="p">]])</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="nb">print</span><span class="p">(</span><span class="n">classify</span><span class="p">(</span><span class="n">jac2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>              <span class="c1"># (&#39;stable node&#39;, True)</span>
+<span class="linenos" data-linenos="10 "></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">4000</span><span class="p">)</span>
+<span class="linenos" data-linenos="11 "></span><span class="k">for</span> <span class="n">u0</span> <span class="ow">in</span> <span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">]):</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="nb">print</span><span class="p">(</span><span class="n">u0</span><span class="p">,</span> <span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">odeint</span><span class="p">(</span><span class="n">comp2</span><span class="p">,</span> <span class="n">u0</span><span class="p">,</span> <span class="n">t</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>   <span class="c1"># همه به (1,1)</span>
+</code></pre></div>
+<p>اکنون از هر شرطِ اولیه‌ای مسیرها به <span class="arithmatex">\((1,1)\)</span> همگرا می‌شوند: کاهشِ ضرایبِ متقابلِ نولکلین‌ها (از <span class="arithmatex">\(2\)</span> به <span class="arithmatex">\(1\)</span>) هم‌زیستی را از ناپایدار به پایدار می‌برد.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۳</p>
+<p>تابعِ <code>classify</code> را گسترش دهید تا حالت‌های مرزی ( <span class="arithmatex">\(\det J \approx 0\)</span> یا <span class="arithmatex">\(\operatorname{Tr} J \approx 0\)</span> ) را نیز برچسب بزند، چون این‌ها دقیقاً جایی‌اند که انشعاب‌ها رخ می‌دهند.</p>
+</div>
+<details class="success">
+<summary>پاسخ</summary>
+<p>کافی است پیش از رده‌بندیِ عادی، دو مرزِ انشعاب را با یک آستانهٔ کوچک وارسی کنیم: <span class="arithmatex">\(\det J\approx 0\)</span> لبهٔ <strong>زین–گره</strong> است (یک مقدارِ ویژه به صفر می‌رسد) و <span class="arithmatex">\(\operatorname{Tr} J\approx 0\)</span> با <span class="arithmatex">\(\det J&gt;0\)</span> لبهٔ <strong>هاپف</strong> (زوجی از مقادیرِ ویژه از محورِ موهومی می‌گذرند).</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">def</span> <span class="nf">classify</span><span class="p">(</span><span class="n">J</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="n">T</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">J</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">J</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">D</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tol</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 4 "></span>        <span class="k">return</span> <span class="s2">&quot;saddle-node (D~0)&quot;</span><span class="p">,</span> <span class="kc">None</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">if</span> <span class="n">D</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tol</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="k">return</span> <span class="s2">&quot;Hopf (T~0)&quot;</span><span class="p">,</span> <span class="kc">None</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="k">if</span> <span class="n">D</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="k">return</span> <span class="s2">&quot;saddle&quot;</span><span class="p">,</span> <span class="kc">False</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="n">stable</span> <span class="o">=</span> <span class="n">T</span> <span class="o">&lt;</span> <span class="mi">0</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="n">shape</span> <span class="o">=</span> <span class="s2">&quot;spiral&quot;</span> <span class="k">if</span> <span class="n">T</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">D</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;node&quot;</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;stable&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">stable</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;unstable&#39;</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">stable</span>
+<span class="linenos" data-linenos="12 "></span>
+<span class="linenos" data-linenos="13 "></span><span class="nb">print</span><span class="p">(</span><span class="n">classify</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">]])))</span>   <span class="c1"># Hopf (T~0)</span>
+<span class="linenos" data-linenos="14 "></span><span class="nb">print</span><span class="p">(</span><span class="n">classify</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">]])))</span>   <span class="c1"># saddle-node (D~0)</span>
+</code></pre></div>
+<p>این نسخهٔ گسترش‌یافته دقیقاً همان مرزهایی را که در بخشِ «انشعاب در دستگاه‌ها» توصیف شد نشانه‌گذاری می‌کند و برای پیمایشِ پارامتری و یافتنِ نقاطِ انشعاب سودمند است.</p>
+</details>
 
 
 

@@ -1237,6 +1237,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تمرین‌ها
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2115,6 +2126,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix-open-datasets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پایگاه‌های دادهٔ باز در علوم اعصاب
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2194,6 +2233,17 @@
     <span class="md-ellipsis">
       
         رده‌بندی با اثر و دترمینان
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تمرین‌ها
       
     </span>
   </a>
@@ -2326,20 +2376,60 @@
 <p><img alt="Image title" src="../dynsys_trace_determinant.png" /></p>
 <p><em>صفحهٔ اثر–دترمینان. محورِ افقی <span class="arithmatex">\(T=\operatorname{Tr}(A)\)</span> و محورِ عمودی <span class="arithmatex">\(D=\det(A)\)</span> است. خطِ <span class="arithmatex">\(D=0\)</span>، خطِ <span class="arithmatex">\(T=0\)</span> و سهمیِ <span class="arithmatex">\(D=T^2/4\)</span> صفحه را به پنج ناحیه می‌برند، یکی برای هر پرتره. عبور از سهمی یک گره را به مارپیچ بدل می‌کند؛ عبور از <span class="arithmatex">\(T=0\)</span> با <span class="arithmatex">\(D&gt;0\)</span> یک </em><em>انشعابِ هاپف</em><em> است؛ و عبور از <span class="arithmatex">\(D=0\)</span> یک </em><em>انشعابِ زین–گره</em><em>.</em></p>
 <p>این صفحه چیزی فراتر از یک نمودارِ رده‌بندی است: همان‌طور که نشان داده شده، <strong>حرکت در آن، انشعاب‌ها را آشکار می‌کند.</strong> هر بار که یک پارامتر تغییر کند، نقطهٔ <span class="arithmatex">\((T, D)\)</span>ِ مربوط به یک تعادل در این صفحه جابه‌جا می‌شود؛ و هرگاه از یکی از مرزها بگذرد، رفتارِ کیفیِ دستگاه دگرگون می‌شود. این ایده، ستونِ فقراتِ تحلیلِ مدل‌های عصبی در فصل‌های پایانیِ این بخش است.</p>
-<div class="admonition example">
-<p class="admonition-title">تمرین‌ها</p>
-<ol>
-<li>
+<h2 id="_6">تمرین‌ها</h2>
+<p>پیش از خواندنِ پاسخ، خودتان مقادیرِ ویژه را روی کاغذ محاسبه و سپس با کد بسنجید.</p>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۱</p>
 <p>یک ماتریسِ <span class="arithmatex">\(2\times2\)</span> دلخواه بسازید، مقادیرِ ویژه‌اش را با دست محاسبه کنید، مبدأ را رده‌بندی کنید، سپس با <code>np.linalg.eig</code> و با شبیه‌سازیِ <span class="arithmatex">\(\dot{\mathbf u}=A\mathbf u\)</span> از چند شرطِ اولیه بسنجید.</p>
-</li>
-<li>
-<p>تمرینِ ۱ را تنها با <span class="arithmatex">\(\operatorname{Tr}(A)\)</span> و <span class="arithmatex">\(\det(A)\)</span> تکرار کنید — بدونِ محاسبهٔ مقادیرِ ویژه. به همان نتیجه می‌رسید؟</p>
-</li>
-<li>
-<p>برای ماتریسِ <span class="arithmatex">\(A=\begin{bmatrix} 0 &amp; 1 \\ -1 &amp; -c \end{bmatrix}\)</span>، نشان دهید با تغییرِ <span class="arithmatex">\(c\)</span> از منفی به مثبت، مبدأ از مارپیچِ ناپایدار به مارپیچِ پایدار می‌گذرد. این عبور (در <span class="arithmatex">\(c=0\)</span>) همان جایی است که در فصلِ نوسانگرها انشعابِ هاپف را خواهیم دید.</p>
-</li>
-</ol>
 </div>
+<details class="success">
+<summary>پاسخ</summary>
+<p>ماتریسِ <span class="arithmatex">\(A=\begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 2 \end{bmatrix}\)</span> را بگیرید. معادلهٔ مشخصه <span class="arithmatex">\(\det(A-\lambda I)=(1-\lambda)(2-\lambda)-6=\lambda^2-3\lambda-4=0\)</span> است، پس <span class="arithmatex">\(\lambda_{1,2}=\frac{3\pm\sqrt{9+16}}{2}=4,\,-1\)</span>. دو مقدارِ ویژهٔ حقیقی با علامتِ مخالف یعنی مبدأ یک <strong>زین</strong> (ناپایدار) است. کد این را تأیید می‌کند و شبیه‌سازی نشان می‌دهد جز مسیرهایی که دقیقاً روی راستایِ ویژهٔ پایدار (متناظرِ <span class="arithmatex">\(\lambda=-1\)</span>) آغاز شوند، بقیه واگرا می‌شوند.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">import</span> <span class="nn">scipy.integrate</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">]])</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>            <span class="c1"># [-1.  4.]  -&gt; زین</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="k">def</span> <span class="nf">lin</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">A</span><span class="p">):</span> <span class="k">return</span> <span class="n">A</span> <span class="o">@</span> <span class="n">u</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="k">for</span> <span class="n">u0</span> <span class="ow">in</span> <span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.01</span><span class="p">]):</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="n">end</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">odeint</span><span class="p">(</span><span class="n">lin</span><span class="p">,</span> <span class="n">u0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">A</span><span class="p">,))[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="nb">print</span><span class="p">(</span><span class="n">u0</span><span class="p">,</span> <span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+</code></pre></div>
+<p>مقادیرِ ویژهٔ عددی <span class="arithmatex">\(-1\)</span> و <span class="arithmatex">\(4\)</span> دقیقاً با محاسبهٔ دستی می‌خوانند و رفتارِ واگرای شبیه‌سازی، رده‌بندیِ «زین» را تأیید می‌کند.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۲</p>
+<p>تمرینِ ۱ را تنها با <span class="arithmatex">\(\operatorname{Tr}(A)\)</span> و <span class="arithmatex">\(\det(A)\)</span> تکرار کنید — بدونِ محاسبهٔ مقادیرِ ویژه. به همان نتیجه می‌رسید؟</p>
+</div>
+<details class="success">
+<summary>پاسخ</summary>
+<p>برای همان <span class="arithmatex">\(A\)</span> داریم <span class="arithmatex">\(\operatorname{Tr}(A)=1+2=3\)</span> و <span class="arithmatex">\(\det(A)=1\cdot2-2\cdot3=-4\)</span>. چون <span class="arithmatex">\(D&lt;0\)</span>، جدولِ اثر–دترمینانِ همین فصل بی‌درنگ «زین» می‌دهد — بدونِ هیچ محاسبهٔ مقدارِ ویژه‌ای. این دقیقاً همان نتیجهٔ تمرینِ ۱ است.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="n">T</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="linenos" data-linenos="2 "></span><span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">T</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">D</span><span class="p">)</span>     <span class="c1"># 3.0  -4.0  25.0</span>
+<span class="linenos" data-linenos="3 "></span><span class="c1"># D &lt; 0  -&gt;  زین  (همان پاسخِ تمرینِ ۱)</span>
+</code></pre></div>
+<p>نکته این است که علامتِ <span class="arithmatex">\(\det(A)\)</span> به‌تنهایی برای تشخیصِ زین کافی است؛ اثر و مبیّن تنها هنگامی که <span class="arithmatex">\(D&gt;0\)</span> باشد نقشِ تفکیک‌کننده می‌یابند.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۳</p>
+<p>برای ماتریسِ <span class="arithmatex">\(A=\begin{bmatrix} 0 &amp; 1 \\ -1 &amp; -c \end{bmatrix}\)</span>، نشان دهید با تغییرِ <span class="arithmatex">\(c\)</span> از منفی به مثبت، مبدأ از مارپیچِ ناپایدار به مارپیچِ پایدار می‌گذرد. این عبور (در <span class="arithmatex">\(c=0\)</span>) همان جایی است که در فصلِ نوسانگرها انشعابِ هاپف را خواهیم دید.</p>
+</div>
+<details class="success">
+<summary>پاسخ</summary>
+<p>اینجا <span class="arithmatex">\(\operatorname{Tr}(A)=-c\)</span> و <span class="arithmatex">\(\det(A)=1&gt;0\)</span>، و مقادیرِ ویژه <span class="arithmatex">\(\lambda_{1,2}=\frac{-c\pm\sqrt{c^2-4}}{2}\)</span> هستند. برای <span class="arithmatex">\(|c|&lt;2\)</span> مبیّن منفی است، پس مقادیرِ ویژه مختلط‌اند و مبدأ یک <strong>مارپیچ</strong> است؛ بخشِ حقیقیِ آن‌ها <span class="arithmatex">\(-c/2\)</span> است. پس برای <span class="arithmatex">\(c&lt;0\)</span> بخشِ حقیقی مثبت است (مارپیچِ <strong>ناپایدار</strong>) و برای <span class="arithmatex">\(c&gt;0\)</span> منفی است (مارپیچِ <strong>پایدار</strong>). درست در <span class="arithmatex">\(c=0\)</span> مقادیرِ ویژه <span class="arithmatex">\(\pm i\)</span> و مبدأ یک مرکز است — همان عبورِ بحرانیِ انشعابِ هاپف.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">):</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="n">c</span><span class="p">]])</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="n">ev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;c=</span><span class="si">{</span><span class="n">c</span><span class="si">:</span><span class="s2">+.1f</span><span class="si">}</span><span class="s2">  eig=</span><span class="si">{</span><span class="n">ev</span><span class="si">}</span><span class="s2">  Re=</span><span class="si">{</span><span class="n">ev</span><span class="o">.</span><span class="n">real</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos" data-linenos="6 "></span><span class="c1"># c=-0.5 -&gt; Re=+0.25 مارپیچِ ناپایدار</span>
+<span class="linenos" data-linenos="7 "></span><span class="c1"># c= 0.0 -&gt; Re= 0.00 مرکز</span>
+<span class="linenos" data-linenos="8 "></span><span class="c1"># c=+0.5 -&gt; Re=-0.25 مارپیچِ پایدار</span>
+</code></pre></div>
+<p>بخشِ حقیقیِ مقادیرِ ویژه با علامتِ <span class="arithmatex">\(-c/2\)</span> عوض می‌شود؛ حرکتِ نقطهٔ <span class="arithmatex">\((T,D)=(-c,1)\)</span> از راستِ محورِ <span class="arithmatex">\(T=0\)</span> به چپِ آن، همان گذرِ هاپف روی صفحهٔ اثر–دترمینان است.</p>
+</details>
 <hr />
 <p>تا اینجا تنها دستگاه‌های <strong>خطی</strong> را بررسی کردیم. در فصلِ بعد می‌بینیم که چگونه همین ابزار، با کمکِ <strong>ماتریسِ ژاکوبی</strong>، پایداریِ دستگاه‌های <strong>غیرخطی</strong> را نیز تعیین می‌کند.</p>
 

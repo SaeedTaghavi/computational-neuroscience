@@ -1546,6 +1546,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تمرین‌ها
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2107,6 +2118,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix-open-datasets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پایگاه‌های دادهٔ باز در علوم اعصاب
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2180,6 +2219,17 @@
     <span class="md-ellipsis">
       
         صافیِ دندریتی: مکانِ سیناپس مهم است
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تمرین‌ها
       
     </span>
   </a>
@@ -2277,23 +2327,68 @@ C\,\frac{dV_i}{dt} = -g_L(V_i - E_L) + g_a(V_{i-1}-V_i) + g_a(V_{i+1}-V_i) + I_i
 <p><em>انتشارِ یک EPSPِ گذرا از یک دندریتِ دور به سوما. </em><em>چپ:</em><em> در محلِ ورودی (بنفش) EPSP بزرگ و تیز است، اما تا به سوما (آبی) برسد بسیار </em><em>کوچک‌تر، کندتر و با تأخیر</em><em> شده است. </em><em>راست:</em><em> دامنهٔ قلهٔ EPSP بر حسبِ محلِ ثبت؛ سیگنال با دورشدن از محلِ ورودی به‌سرعت افت می‌کند.</em></p>
 <p>نتیجه، پدیده‌ای به نامِ <strong>صافیِ دندریتی</strong> است: یک سیناپسِ دور اثری بسیار کوچک‌تر بر شلیکِ نورون دارد تا سیناپسی نزدیکِ سوما. این یک اصلِ محاسباتیِ ژرف است — نورون می‌تواند ورودی‌ها را بر پایهٔ <strong>مکانشان</strong> روی درختِ دندریتی وزن‌دهی کند، و دندریت به‌جای یک سیمِ منفعل، خود یک واحدِ <strong>پردازشگر</strong> است. (این همان چیزی است که تمرینِ «مکانِ ورودی مهم است» به‌صورتِ عددی نشان می‌دهد.)</p>
 <hr />
-<div class="admonition example">
-<p class="admonition-title">تمرین‌ها</p>
-<ol>
-<li>
+<h2 id="_6">تمرین‌ها</h2>
+<p>با تابعِ <code>simulate_cable</code> همین فصل کار کنید. نخست خودتان امتحان کنید، سپس پاسخ را باز کنید.</p>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۱</p>
 <p><strong>وابستگیِ <span class="arithmatex">\(\lambda\)</span>.</strong> شبیه‌سازی را برای چند مقدارِ <span class="arithmatex">\(g_a\)</span> اجرا کنید و نشان دهید که <span class="arithmatex">\(\lambda\)</span>ی برازش‌شده مانندِ <span class="arithmatex">\(\sqrt{g_a/g_L}\)</span> رشد می‌کند.</p>
-</li>
-<li>
-<p><strong>مکانِ ورودی مهم است.</strong> یک ورودیِ یکسان را یک‌بار در قطعهٔ ۰ (نزدیکِ سوما) و یک‌بار در قطعهٔ ۳۰ (دور) تزریق کنید و ولتاژِ پایای قطعهٔ ۰ را در دو حالت مقایسه کنید. کدام ورودی اثرِ بیشتری بر سوما دارد؟</p>
-</li>
-<li>
-<p><strong>گذرا در برابر پایا.</strong> زمانی را که طول می‌کشد تا قطعهٔ دور (مثلاً قطعهٔ ۲۰) به نیمهٔ ولتاژِ پایای خود برسد اندازه بگیرید. این تأخیر با فاصله چگونه تغییر می‌کند؟</p>
-</li>
-<li>
-<p><strong>(پروژه)</strong> به هر قطعه به‌جای نشتِ خطی، یک جریانِ <strong>فعالِ</strong> وابسته به ولتاژ (مثلاً از نوعِ <a href="https://computational-neuroscience.ir/ch03/">هاجکین–هاکسلی</a>) بیفزایید و نشان دهید که اکنون به‌جای افتِ نمایی، یک پتانسیلِ عمل می‌تواند بدونِ افت در امتدادِ کابل <strong>منتشر</strong> شود.</p>
-</li>
-</ol>
 </div>
+<details class="success">
+<summary>پاسخ</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">for</span> <span class="n">ga_test</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">16.0</span><span class="p">,</span> <span class="mf">25.0</span><span class="p">,</span> <span class="mf">64.0</span><span class="p">]:</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="k">global</span> <span class="n">ga</span><span class="p">;</span> <span class="n">ga</span> <span class="o">=</span> <span class="n">ga_test</span>                      <span class="c1"># or pass ga as an argument</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="n">t</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">simulate_cable</span><span class="p">()</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="n">Vss</span> <span class="o">=</span> <span class="n">V</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">V</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>                        <span class="c1"># normalized steady profile</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="linenos" data-linenos="7 "></span>    <span class="n">lam_fit</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">[:</span><span class="mi">15</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">Vss</span><span class="p">[:</span><span class="mi">15</span><span class="p">]),</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>   <span class="c1"># slope of ln V</span>
+<span class="linenos" data-linenos="8 "></span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ga=</span><span class="si">{</span><span class="n">ga_test</span><span class="si">:</span><span class="s2">5</span><span class="si">}</span><span class="s2">  lambda_fit=</span><span class="si">{</span><span class="n">lam_fit</span><span class="si">:</span><span class="s2">4.1f</span><span class="si">}</span><span class="s2">  sqrt(ga/gL)=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ga_test</span><span class="o">/</span><span class="n">gL</span><span class="p">)</span><span class="si">:</span><span class="s2">4.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><span class="arithmatex">\(\lambda\)</span>ی برازش‌شده (از شیبِ <span class="arithmatex">\(\ln V\)</span> بر حسبِ فاصله) دقیقاً مانندِ <span class="arithmatex">\(\sqrt{g_a/g_L}\)</span> رشد می‌کند: چهاربرابرکردنِ <span class="arithmatex">\(g_a\)</span> طولِ ثابت را <strong>دوبرابر</strong> می‌کند. یعنی هرچه اتصالِ محوری قوی‌تر (سیتوپلاسمِ رساناتر)، سیگنال دورتر می‌رسد.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۲</p>
+<p><strong>مکانِ ورودی مهم است.</strong> یک ورودیِ یکسان را یک‌بار در قطعهٔ ۰ (نزدیکِ سوما) و یک‌بار در قطعهٔ ۳۰ (دور) تزریق کنید و ولتاژِ پایای قطعهٔ ۰ را در دو حالت مقایسه کنید. کدام ورودی اثرِ بیشتری بر سوما دارد؟</p>
+</div>
+<details class="success">
+<summary>پاسخ</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">def</span> <span class="nf">steady_soma</span><span class="p">(</span><span class="n">inj_site</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">);</span> <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)):</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="n">v</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">copy</span><span class="p">();</span> <span class="n">axial</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="n">axial</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">ga</span><span class="o">*</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">-</span><span class="n">v</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span> <span class="n">axial</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+=</span> <span class="n">ga</span><span class="o">*</span><span class="p">(</span><span class="n">v</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span class="linenos" data-linenos=" 7 "></span>        <span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">);</span> <span class="n">I</span><span class="p">[</span><span class="n">inj_site</span><span class="p">]</span> <span class="o">=</span> <span class="mf">50.0</span>
+<span class="linenos" data-linenos=" 8 "></span>        <span class="n">V</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="p">(</span><span class="o">-</span><span class="n">gL</span><span class="o">*</span><span class="n">v</span> <span class="o">+</span> <span class="n">axial</span> <span class="o">+</span> <span class="n">I</span><span class="p">)</span><span class="o">/</span><span class="n">C</span><span class="o">*</span><span class="mf">0.02</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">return</span> <span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>                                   <span class="c1"># soma voltage</span>
+<span class="linenos" data-linenos="10 "></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;input at soma (0):&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">steady_soma</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>
+<span class="linenos" data-linenos="11 "></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;input at distal (30):&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">steady_soma</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+<p>ورودیِ نزدیکِ سوما اثری <strong>بسیار بزرگ‌تر</strong> بر سوما دارد؛ ورودیِ دور به‌خاطرِ افتِ نماییِ <span class="arithmatex">\(e^{-x/\lambda}\)</span> تا رسیدن به سوما بسیار کوچک شده است. این همان <strong>صافیِ دندریتی</strong>ِ متنِ فصل است: مکانِ سیناپس روی درختِ دندریتی، وزنِ مؤثرِ آن را تعیین می‌کند.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۳</p>
+<p><strong>گذرا در برابر پایا.</strong> زمانی را که طول می‌کشد تا قطعهٔ دور (مثلاً قطعهٔ ۲۰) به نیمهٔ ولتاژِ پایای خود برسد اندازه بگیرید. این تأخیر با فاصله چگونه تغییر می‌کند؟</p>
+</div>
+<details class="success">
+<summary>پاسخ</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">t</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">simulate_cable</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="mf">400.0</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span><span class="k">for</span> <span class="n">seg</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]:</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="n">vfin</span> <span class="o">=</span> <span class="n">V</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">seg</span><span class="p">]</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">V</span><span class="p">[:,</span> <span class="n">seg</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">vfin</span><span class="p">)</span>
+<span class="linenos" data-linenos="6 "></span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;segment </span><span class="si">{</span><span class="n">seg</span><span class="si">:</span><span class="s2">2</span><span class="si">}</span><span class="s2">: t_half = </span><span class="si">{</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> ms&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>زمانِ رسیدن به نیمهٔ مقدارِ پایا با <strong>فاصله</strong> به‌شدت زیاد می‌شود — تقریباً مانندِ <span class="arithmatex">\(x^2\)</span>، همان امضای یک فرایندِ <strong>پخشی</strong> (diffusion). این چرا مهم است: سیگنال‌های دندریتیِ دور نه‌تنها کوچک‌تر، بلکه <strong>کندتر و با تأخیر</strong> به سوما می‌رسند؛ پس دندریت زمان‌بندیِ ورودی‌ها را هم تغییر می‌دهد.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۴</p>
+<p><strong>(پروژه) کابلِ فعال.</strong> به هر قطعه به‌جای نشتِ خطی، یک جریانِ <strong>فعالِ</strong> وابسته به ولتاژ (مثلاً از نوعِ <a href="https://computational-neuroscience.ir/ch03/">هاجکین–هاکسلی</a>) بیفزایید و نشان دهید که اکنون به‌جای افتِ نمایی، یک پتانسیلِ عمل می‌تواند بدونِ افت در امتدادِ کابل <strong>منتشر</strong> شود.</p>
+</div>
+<details class="success">
+<summary>راهنمای حل</summary>
+<p>ایده: در حلقهٔ زمانیِ <code>simulate_cable</code>، جملهٔ نشتیِ <span class="arithmatex">\(-g_L v\)</span> را با جریان‌های هاجکین–هاکسلیِ هر قطعه (<span class="arithmatex">\(I_{\text{Na}}+I_{\text{K}}+I_{\text{leak}}\)</span>) جایگزین کنید و برای هر قطعه متغیرهای دروازه‌ایِ <span class="arithmatex">\(m,h,n\)</span> را هم پیش ببرید. با تزریقِ یک محرکِ فراآستانه در یک سرِ کابل، خواهید دید که پتانسیلِ عمل از قطعه‌ای به قطعهٔ بعد <strong>بازتولید</strong> می‌شود و دامنه‌اش کم نمی‌شود — برخلافِ کابلِ غیرفعال که سیگنال در آن نمایی افت می‌کرد. این دقیقاً تفاوتِ <strong>انتشارِ فعال</strong> (آکسون) و <strong>پخشِ غیرفعال</strong> (دندریت) است. جزئیاتِ جریان‌های هاجکین–هاکسلی در <a href="https://computational-neuroscience.ir/ch03/">فصلِ HH</a> آمده است.</p>
+</details>
 
 
 

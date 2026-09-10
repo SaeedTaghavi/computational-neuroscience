@@ -1518,6 +1518,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تمرین‌ها
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2107,6 +2118,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix-open-datasets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پایگاه‌های دادهٔ باز در علوم اعصاب
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2180,6 +2219,17 @@
     <span class="md-ellipsis">
       
         غشا یک صافیِ پایین‌گذر است
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تمرین‌ها
       
     </span>
   </a>
@@ -2271,23 +2321,73 @@ V_m(t) = E_L + I_0 R_m\left(1 - e^{-t/\tau}\right),\qquad \tau = R_m C_m = \frac
 </code></pre></div>
 <p>این «پایین‌گذر بودن» پیامدهای مهمی برای پردازشِ اطلاعات دارد: نورون به‌تنهایی نمی‌تواند به تغییراتِ بسیار سریعِ ورودی پاسخِ زیرآستانه بدهد، و همین، یکی از دلایلی است که چرا اطلاعاتِ سریع در مغز اغلب با <strong>زمان‌بندیِ اسپایک‌ها</strong> کدگذاری می‌شود، نه با ولتاژِ زیرآستانه.</p>
 <hr />
-<div class="admonition example">
-<p class="admonition-title">تمرین‌ها</p>
-<ol>
-<li>
+<h2 id="_4">تمرین‌ها</h2>
+<p>هر تمرین با کدِ <code>simulate</code> همین فصل حل می‌شود. نخست خودتان بنویسید، سپس پاسخ را باز کنید.</p>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۱</p>
 <p><strong>قانونِ اهم.</strong> با کدِ <code>simulate</code>، پاسخِ پله‌ای را برای سه جریانِ <span class="arithmatex">\(I_0=60,120,240\)</span> پیکوآمپر رسم کنید. نشان دهید که <span class="arithmatex">\(V_\infty-E_L\)</span> با <span class="arithmatex">\(I_0\)</span> خطی است و شیبِ آن <span class="arithmatex">\(R_m=1/g_L\)</span> است.</p>
-</li>
-<li>
-<p><strong>اندازه‌گیریِ <span class="arithmatex">\(\tau\)</span>.</strong> از یک شبیه‌سازیِ پله‌ای، ثابتِ زمانی را به‌صورتِ عددی برآورد کنید (زمانی که ولتاژ به ۶۳٪ مقدارِ نهایی می‌رسد) و با <span class="arithmatex">\(C/g_L\)</span> بسنجید.</p>
-</li>
-<li>
-<p><strong>صافی.</strong> غشا را با جریان‌های نوسانیِ هم‌دامنه در بسامدهای گوناگون بِرانید، دامنهٔ ولتاژِ پایا را اندازه بگیرید، و منحنیِ بهره را بازتولید کنید. تأیید کنید که در <span class="arithmatex">\(f_c=1/(2\pi\tau)\)</span> بهره به <span class="arithmatex">\(1/\sqrt2\)</span> برابرِ مقدارِ کم‌بسامد افت می‌کند.</p>
-</li>
-<li>
-<p><strong>انباشتگرِ نشت‌دار.</strong> به مدل یک <strong>آستانه</strong> بیفزایید: هرگاه <span class="arithmatex">\(V_m\)</span> از یک مقدارِ آستانه گذشت، یک «اسپایک» ثبت کنید و <span class="arithmatex">\(V_m\)</span> را به <span class="arithmatex">\(E_L\)</span> بازنشانی کنید. این همان مدلِ <strong>یکپارچه‌و‌شلیکِ نشت‌دار</strong> (LIF) است؛ بسامدِ شلیک را بر حسبِ جریانِ ثابت رسم کنید.</p>
-</li>
-</ol>
 </div>
+<details class="success">
+<summary>پاسخ</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="k">for</span> <span class="n">I0</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">240</span><span class="p">]:</span>                      <span class="c1"># pA</span>
+<span class="linenos" data-linenos="2 "></span>    <span class="n">t</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">simulate</span><span class="p">(</span><span class="k">lambda</span> <span class="n">tt</span><span class="p">:</span> <span class="n">I0</span> <span class="k">if</span> <span class="mi">20</span> <span class="o">&lt;=</span> <span class="n">tt</span> <span class="o">&lt;</span> <span class="mi">140</span> <span class="k">else</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="n">Vinf</span> <span class="o">=</span> <span class="n">V</span><span class="p">[</span><span class="n">t</span> <span class="o">&lt;</span> <span class="mi">140</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>                       <span class="c1"># steady value before the step ends</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="nb">print</span><span class="p">(</span><span class="n">I0</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">Vinf</span> <span class="o">-</span> <span class="n">E_L</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s2">&quot;mV&quot;</span><span class="p">)</span>       <span class="c1"># 6, 12, 24 mV  -&gt; linear</span>
+</code></pre></div>
+<p>با <span class="arithmatex">\(g_L=10\)</span> نانوزیمنس، <span class="arithmatex">\(R_m=1/g_L=100\)</span> مگا‌اهم. پس <span class="arithmatex">\(V_\infty-E_L = I_0 R_m\)</span>: برای <span class="arithmatex">\(120\)</span> پیکوآمپر برابرِ <span class="arithmatex">\(12\)</span> میلی‌ولت. اگر <span class="arithmatex">\(V_\infty-E_L\)</span> را بر حسبِ <span class="arithmatex">\(I_0\)</span> رسم کنید یک <strong>خطِ راست</strong> با شیبِ <span class="arithmatex">\(R_m\)</span> می‌گیرید — همان <strong>قانونِ اهم</strong> برای غشای زیرآستانه.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۲</p>
+<p><strong>اندازه‌گیریِ <span class="arithmatex">\(\tau\)</span>.</strong> از یک شبیه‌سازیِ پله‌ای، ثابتِ زمانی را به‌صورتِ عددی برآورد کنید (زمانی که ولتاژ به ۶۳٪ مقدارِ نهایی می‌رسد) و با <span class="arithmatex">\(C/g_L\)</span> بسنجید.</p>
+</div>
+<details class="success">
+<summary>پاسخ</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos="2 "></span><span class="n">t</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">simulate</span><span class="p">(</span><span class="k">lambda</span> <span class="n">tt</span><span class="p">:</span> <span class="mf">120.0</span> <span class="k">if</span> <span class="n">tt</span> <span class="o">&gt;=</span> <span class="mi">20</span> <span class="k">else</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="linenos" data-linenos="3 "></span><span class="n">V0</span><span class="p">,</span> <span class="n">Vinf</span> <span class="o">=</span> <span class="n">E_L</span><span class="p">,</span> <span class="n">V</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos" data-linenos="4 "></span><span class="n">target</span> <span class="o">=</span> <span class="n">V0</span> <span class="o">+</span> <span class="mf">0.63</span><span class="o">*</span><span class="p">(</span><span class="n">Vinf</span> <span class="o">-</span> <span class="n">V0</span><span class="p">)</span>                  <span class="c1"># 63% of the way up</span>
+<span class="linenos" data-linenos="5 "></span><span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">((</span><span class="n">t</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">V</span> <span class="o">&gt;=</span> <span class="n">target</span><span class="p">))</span>
+<span class="linenos" data-linenos="6 "></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;tau (measured) =&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s2">&quot;ms   vs  C/gL =&quot;</span><span class="p">,</span> <span class="n">C</span><span class="o">/</span><span class="n">g_L</span><span class="p">)</span>
+</code></pre></div>
+<p>زمانِ رسیدن به ۶۳٪ حدودِ <span class="arithmatex">\(10\)</span> میلی‌ثانیه است، دقیقاً برابرِ <span class="arithmatex">\(\tau = C/g_L = 100/10 = 10\)</span> میلی‌ثانیه. این روش، همان کاری است که یک الکتروفیزیولوژیست روی داده‌های واقعیِ پاسخِ پله‌ای انجام می‌دهد.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۳</p>
+<p><strong>صافی.</strong> غشا را با جریان‌های نوسانیِ هم‌دامنه در بسامدهای گوناگون بِرانید، دامنهٔ ولتاژِ پایا را اندازه بگیرید، و منحنیِ بهره را بازتولید کنید. تأیید کنید که در <span class="arithmatex">\(f_c=1/(2\pi\tau)\)</span> بهره به <span class="arithmatex">\(1/\sqrt2\)</span> برابرِ مقدارِ کم‌بسامد افت می‌کند.</p>
+</div>
+<details class="success">
+<summary>پاسخ</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos="2 "></span><span class="k">def</span> <span class="nf">gain</span><span class="p">(</span><span class="n">f_hz</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="mf">50.0</span><span class="p">):</span>
+<span class="linenos" data-linenos="3 "></span>    <span class="n">t</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">simulate</span><span class="p">(</span><span class="k">lambda</span> <span class="n">tt</span><span class="p">:</span> <span class="n">A</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f_hz</span><span class="o">*</span><span class="n">tt</span><span class="o">/</span><span class="mi">1000</span><span class="p">),</span> <span class="n">T</span><span class="o">=</span><span class="mf">400.0</span><span class="p">)</span>
+<span class="linenos" data-linenos="4 "></span>    <span class="n">tail</span> <span class="o">=</span> <span class="n">V</span><span class="p">[</span><span class="n">t</span> <span class="o">&gt;</span> <span class="mi">200</span><span class="p">]</span>                           <span class="c1"># ignore the transient</span>
+<span class="linenos" data-linenos="5 "></span>    <span class="k">return</span> <span class="p">(</span><span class="n">tail</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">tail</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">/</span> <span class="mi">2</span>        <span class="c1"># voltage amplitude</span>
+<span class="linenos" data-linenos="6 "></span><span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="linenos" data-linenos="7 "></span><span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">gain</span><span class="p">(</span><span class="n">fi</span><span class="p">)</span> <span class="k">for</span> <span class="n">fi</span> <span class="ow">in</span> <span class="n">f</span><span class="p">])</span>
+<span class="linenos" data-linenos="8 "></span><span class="n">fc</span> <span class="o">=</span> <span class="mi">1000</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="p">(</span><span class="n">C</span><span class="o">/</span><span class="n">g_L</span><span class="p">))</span>                      <span class="c1"># ~16 Hz</span>
+<span class="linenos" data-linenos="9 "></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;gain(fc)/gain(low) =&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">gain</span><span class="p">(</span><span class="n">fc</span><span class="p">)</span><span class="o">/</span><span class="n">g</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">3</span><span class="p">))</span>   <span class="c1"># ~0.707 = 1/sqrt(2)</span>
+</code></pre></div>
+<p>منحنیِ بهره در بسامدهای پایین تخت است و بالای <span class="arithmatex">\(f_c\approx16\)</span> هرتز مانندِ <span class="arithmatex">\(1/f\)</span> افت می‌کند؛ درست در <span class="arithmatex">\(f_c\)</span> بهره به <span class="arithmatex">\(1/\sqrt2\approx0.707\)</span> برابرِ مقدارِ کم‌بسامد می‌رسد — تعریفِ استانداردِ <strong>بسامدِ برش</strong>. این تأیید می‌کند که غشا یک <strong>صافیِ پایین‌گذرِ</strong> مرتبهٔ اول است.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۴</p>
+<p><strong>انباشتگرِ نشت‌دار (LIF).</strong> به مدل یک <strong>آستانه</strong> بیفزایید: هرگاه <span class="arithmatex">\(V_m\)</span> از یک مقدارِ آستانه گذشت، یک «اسپایک» ثبت کنید و <span class="arithmatex">\(V_m\)</span> را به <span class="arithmatex">\(E_L\)</span> بازنشانی کنید. بسامدِ شلیک را بر حسبِ جریانِ ثابت رسم کنید.</p>
+</div>
+<details class="success">
+<summary>پاسخ</summary>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="k">def</span> <span class="nf">lif_rate</span><span class="p">(</span><span class="n">I0</span><span class="p">,</span> <span class="n">Vth</span><span class="o">=-</span><span class="mf">50.0</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">dt</span><span class="p">);</span> <span class="n">V</span> <span class="o">=</span> <span class="n">E_L</span><span class="p">;</span> <span class="n">spikes</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 5 "></span>        <span class="n">V</span> <span class="o">+=</span> <span class="p">(</span><span class="o">-</span><span class="n">g_L</span><span class="o">*</span><span class="p">(</span><span class="n">V</span> <span class="o">-</span> <span class="n">E_L</span><span class="p">)</span> <span class="o">+</span> <span class="n">I0</span><span class="p">)</span><span class="o">/</span><span class="n">C</span> <span class="o">*</span> <span class="n">dt</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="k">if</span> <span class="n">V</span> <span class="o">&gt;=</span> <span class="n">Vth</span><span class="p">:</span>                             <span class="c1"># threshold crossed</span>
+<span class="linenos" data-linenos=" 7 "></span>            <span class="n">spikes</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">V</span> <span class="o">=</span> <span class="n">E_L</span>                 <span class="c1"># emit spike and reset</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="k">return</span> <span class="n">spikes</span> <span class="o">/</span> <span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span>                     <span class="c1"># Hz</span>
+<span class="linenos" data-linenos=" 9 "></span><span class="k">for</span> <span class="n">I0</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">]:</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="nb">print</span><span class="p">(</span><span class="n">I0</span><span class="p">,</span> <span class="s2">&quot;pA -&gt;&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">lif_rate</span><span class="p">(</span><span class="n">I0</span><span class="p">),</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;Hz&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>زیرِ یک جریانِ بحرانی (که در آن <span class="arithmatex">\(V_\infty=E_L+I_0R_m\)</span> تازه به آستانه می‌رسد) نورون <strong>هرگز</strong> شلیک نمی‌کند؛ بالای آن، بسامد با جریان بالا می‌رود و به‌شکلِ مشخصهٔ <strong>f-I</strong> درمی‌آید. این ساده‌ترین مدلِ نورونِ شلیک‌کننده است — پلی مستقیم از غشای غیرفعالِ این فصل به مدل‌های نورونیِ فصل‌های بعد.</p>
+</details>
 
 
 

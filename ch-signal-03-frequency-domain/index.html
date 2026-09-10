@@ -2204,6 +2204,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix-open-datasets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پایگاه‌های دادهٔ باز در علوم اعصاب
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2572,9 +2600,10 @@ x(t) = \frac{4}{\pi}\!\left[\sin(\omega_0 t) + \frac{\sin(3\omega_0 t)}{3} + \fr
 </div>
 <p><strong>نتیجه.</strong> هرچه شمارِ هم‌نواها بیشتر شود، مجموع بیشتر شبیهِ موجِ مربعی می‌شود. پس یک موجِ مربعی—با همهٔ لبه‌های تیزش—را می‌توان از جمعِ هم‌نواهای سینوسیِ هموار ساخت. همین ایده است که در ادامه، با تبدیلِ فوریه، به سیگنال‌های نامتناوب نیز تعمیم می‌یابد.</p>
 <h2 id="_4">تمرین‌ها</h2>
+<p>پیش از باز کردنِ پاسخ، خودتان دست به کار شوید: مسئله را روی کاغذ یا با چند خط کد حل کنید، و آنگاه روی «پاسخ» کلیک کنید تا راهِ‌حل و—آنجا که کد کمک می‌کند—قطعهٔ اجراشدنیِ آن را ببینید.</p>
 <div class="admonition question">
-<p class="admonition-title">تمرینِ ۱ — سری فوریهٔ موجِ مربعی</p>
-<p>موجِ مربعیِ متناوب با دورهٔ <span class="arithmatex">\(T_0\)</span> را در نظر بگیرید:</p>
+<p class="admonition-title">تمرینِ ۱</p>
+<p><strong>سری فوریهٔ موجِ مربعی.</strong> موجِ مربعیِ متناوب با دورهٔ <span class="arithmatex">\(T_0\)</span> را در نظر بگیرید:</p>
 <div class="arithmatex">\[
 x(t) =
 \begin{cases}
@@ -2584,8 +2613,9 @@ x(t) =
 \]</div>
 <p>عبارت‌های ضرایبِ <span class="arithmatex">\(a_0\)</span>، <span class="arithmatex">\(a_k\)</span> و <span class="arithmatex">\(b_k\)</span> (با <span class="arithmatex">\(k\in\mathbb{N}^+\)</span>) از سری فوریهٔ حقیقیِ این سیگنال را به‌دست آورید و سپس عبارتِ کاملِ سری را بنویسید.</p>
 <p><em>راهنما: نخست یک طرحِ سرانگشتی از <span class="arithmatex">\(x(t)\)</span> بکشید. تقارنِ تابع را بررسی کنید (زوج است یا فرد؟). در جایی از محاسبه، رابطهٔ <span class="arithmatex">\(\omega_0 = 2\pi/T_0\)</span> به کارتان می‌آید.</em></p>
+</div>
 <details class="success">
-<summary>راهِ‌حل</summary>
+<summary>پاسخ</summary>
 <p><strong>میانگین.</strong> سطحِ مثبت و منفیِ موج برابرند، پس میانگین صفر است: <span class="arithmatex">\(a_0 = 0\)</span>.</p>
 <p><strong>ضرایبِ کسینوسی.</strong> موجِ مربعی (با این تعریف) تابعی <strong>فرد</strong> است (<span class="arithmatex">\(x(-t) = -x(t)\)</span>). از آنجا که کسینوس تابعی زوج است، انتگرالِ <span class="arithmatex">\(x(t)\cos(k\omega_0 t)\)</span> بر یک دورهٔ متقارن صفر می‌شود: <span class="arithmatex">\(a_k = 0\)</span> برای همهٔ <span class="arithmatex">\(k\)</span>.</p>
 <p><strong>ضرایبِ سینوسی.</strong> تنها سینوس‌ها می‌مانند. با محاسبهٔ انتگرال روی دو نیمهٔ دوره:</p>
@@ -2606,28 +2636,41 @@ b_k =
 x(t) = \frac{4}{\pi}\sum_{\substack{k=1\\k\ \text{odd}}}^{\infty}\frac{1}{k}\sin(k\omega_0 t)
 = \frac{4}{\pi}\!\left[\sin(\omega_0 t) + \tfrac{1}{3}\sin(3\omega_0 t) + \tfrac{1}{5}\sin(5\omega_0 t) + \cdots\right].
 \]</div>
-<p>(بالاتر در همین بخش، ساختِ عددیِ همین سری و هم‌گراییِ آن به موجِ مربعی—همراه با پدیدهٔ گیبس—را با کد دیدیم.)</p>
+<p>برای اطمینان، همین ضرایب را عددی نیز می‌سنجیم؛ انتگرال‌ها را با یک جمعِ ریمانِ ریز تقریب می‌زنیم:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="n">T0</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="n">w0</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">T0</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T0</span><span class="p">,</span> <span class="mi">200000</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="n">dt</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">t</span> <span class="o">&lt;</span> <span class="n">T0</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>          <span class="c1"># one period of the square wave</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">):</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="n">bk</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="n">T0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">w0</span><span class="o">*</span><span class="n">t</span><span class="p">))</span> <span class="o">*</span> <span class="n">dt</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">bk</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="mi">4</span><span class="o">/</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
+</code></pre></div>
+<p>خروجی می‌دهد <span class="arithmatex">\(b_1 \approx 1.273\)</span>، <span class="arithmatex">\(b_3 \approx 0.424\)</span>، <span class="arithmatex">\(b_5 \approx 0.255\)</span> (یعنی همان <span class="arithmatex">\(4/(k\pi)\)</span>) و برای <span class="arithmatex">\(k\)</span> زوج تقریباً صفر—دقیقاً مطابقِ فرمولِ تحلیلی. (بالاتر در همین بخش، ساختِ عددیِ همین سری و هم‌گراییِ آن به موجِ مربعی—همراه با پدیدهٔ گیبس—را با کد دیدیم.)</p>
 </details>
-</div>
 <div class="admonition question">
-<p class="admonition-title">تمرینِ ۲ — تقارن و حذفِ ضرایب</p>
-<p>بدونِ محاسبهٔ هیچ انتگرالی، توضیح دهید که برای هر یک از حالت‌های زیر کدام دسته از ضرایب لزوماً صفرند:</p>
+<p class="admonition-title">تمرینِ ۲</p>
+<p><strong>تقارن و حذفِ ضرایب.</strong> بدونِ محاسبهٔ هیچ انتگرالی، توضیح دهید که برای هر یک از حالت‌های زیر کدام دسته از ضرایب لزوماً صفرند:</p>
 <ol>
 <li>سیگنالِ <span class="arithmatex">\(x(t)\)</span> تابعی <strong>زوج</strong> باشد (<span class="arithmatex">\(x(-t) = x(t)\)</span>).</li>
 <li>سیگنالِ <span class="arithmatex">\(x(t)\)</span> تابعی <strong>فرد</strong> باشد (<span class="arithmatex">\(x(-t) = -x(t)\)</span>).</li>
 </ol>
+</div>
 <details class="success">
-<summary>راهِ‌حل</summary>
+<summary>پاسخ</summary>
 <p><strong>حالتِ زوج.</strong> کسینوس زوج و سینوس فرد است؛ حاصل‌ضربِ تابعِ زوجِ <span class="arithmatex">\(x(t)\)</span> در سینوسِ فرد، تابعی فرد است و انتگرالش بر بازهٔ متقارن صفر می‌شود. پس همهٔ <span class="arithmatex">\(b_k = 0\)</span> و سیگنال تنها از <strong>کسینوس‌ها</strong> (و <span class="arithmatex">\(a_0\)</span>) ساخته می‌شود.</p>
 <p><strong>حالتِ فرد.</strong> برعکس: حاصل‌ضربِ <span class="arithmatex">\(x(t)\)</span> فرد در کسینوسِ زوج، فرد است؛ پس <span class="arithmatex">\(a_0 = 0\)</span> و همهٔ <span class="arithmatex">\(a_k = 0\)</span>، و سیگنال تنها از <strong>سینوس‌ها</strong> ساخته می‌شود. موجِ مربعیِ تمرینِ ۱ نمونه‌ای از همین حالت است.</p>
 <p>این تقارن، یک میان‌بُرِ نیرومند است: پیش از هر محاسبه‌ای، نیمی از ضرایب را می‌توان با یک نگاه به تقارنِ سیگنال صفر گذاشت.</p>
 </details>
-</div>
 <div class="admonition question">
-<p class="admonition-title">تمرینِ ۳ — فاز و تأخیرِ زمانی</p>
-<p>سیگنالِ <span class="arithmatex">\(x(t) = A\cos(2\pi f_0 t + \theta)\)</span> را با <span class="arithmatex">\(f_0 = 10\)</span> هرتز و <span class="arithmatex">\(\theta = \pi/2\)</span> در نظر بگیرید. تأخیرِ زمانیِ <span class="arithmatex">\(\theta_t\)</span> ناشی از این فاز را بیابید. اگر بسامد به <span class="arithmatex">\(f_0 = 40\)</span> هرتز افزایش یابد (و فاز ثابت بماند)، تأخیرِ زمانی چه می‌شود؟</p>
+<p class="admonition-title">تمرینِ ۳</p>
+<p><strong>فاز و تأخیرِ زمانی.</strong> سیگنالِ <span class="arithmatex">\(x(t) = A\cos(2\pi f_0 t + \theta)\)</span> را با <span class="arithmatex">\(f_0 = 10\)</span> هرتز و <span class="arithmatex">\(\theta = \pi/2\)</span> در نظر بگیرید. تأخیرِ زمانیِ <span class="arithmatex">\(\theta_t\)</span> ناشی از این فاز را بیابید. اگر بسامد به <span class="arithmatex">\(f_0 = 40\)</span> هرتز افزایش یابد (و فاز ثابت بماند)، تأخیرِ زمانی چه می‌شود؟</p>
+</div>
 <details class="success">
-<summary>راهِ‌حل</summary>
+<summary>پاسخ</summary>
 <p>از رابطهٔ <span class="arithmatex">\(\theta_t = \theta/(2\pi f_0)\)</span>:</p>
 <div class="arithmatex">\[
 \theta_t = \frac{\pi/2}{2\pi \cdot 10} = \frac{1}{40} = 0{.}025\ \text{s} = 25\ \text{ms}.
@@ -2638,7 +2681,6 @@ x(t) = \frac{4}{\pi}\sum_{\substack{k=1\\k\ \text{odd}}}^{\infty}\frac{1}{k}\sin
 \]</div>
 <p>پس فازِ یکسان در بسامدِ بالاتر، تأخیرِ زمانیِ کوچک‌تری می‌سازد—نکته‌ای که هنگامِ مقایسهٔ تأخیرِ میانِ باندهای بسامدیِ مختلفِ مغزی باید به آن توجه کرد.</p>
 </details>
-</div>
 <h2 id="_5">سری فوریه مختلط</h2>
 <p>با کمکِ فرمولِ اویلر، <span class="arithmatex">\(e^{j\omega t} = \cos(\omega t) + j\sin(\omega t)\)</span>، می‌توان سری فوریه را به شکلِ فشرده‌ترِ <strong>مختلط</strong> نوشت. سینوس و کسینوس را می‌توان به‌صورتِ ترکیبی از <span class="arithmatex">\(e^{j k\omega_0 t}\)</span> و <span class="arithmatex">\(e^{-j k\omega_0 t}\)</span> بیان کرد، و سری به این شکل درمی‌آید:</p>
 <div class="arithmatex">\[

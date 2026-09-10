@@ -1409,6 +1409,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تمرین‌ها و پروژه‌ها
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2175,6 +2186,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix-open-datasets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پایگاه‌های دادهٔ باز در علوم اعصاب
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2314,6 +2353,17 @@
     <span class="md-ellipsis">
       
         پیوند با علوم اعصاب و پروژه‌ها
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تمرین‌ها و پروژه‌ها
       
     </span>
   </a>
@@ -2543,23 +2593,80 @@ J \big\rvert_{u,v} =
 <hr />
 <h2 id="_10">پیوند با علوم اعصاب و پروژه‌ها</h2>
 <p>سازوکارِ این کلید — دو حالتِ پایدار که با یک زین جدا شده‌اند — همان سازوکاری است که در مدل‌های <strong>حافظهٔ کاری</strong> و <strong>تصمیم‌گیریِ</strong> عصبی به کار می‌رود؛ آنجا <span class="arithmatex">\(u\)</span> و <span class="arithmatex">\(v\)</span> به‌جای غلظتِ پروتئین، نرخِ آتشِ دو جمعیتِ رقیبِ نورونی‌اند. منطق یکسان است: بازخوردِ مثبتِ متقابل + مهارِ به‌اندازهٔ‌کافی‌تند = دو حالتِ پایدار = حافظه.</p>
-<div class="admonition example">
-<p class="admonition-title">تمرین‌ها و پروژه‌ها</p>
-<ol>
-<li>
-<p><strong>(تمرین)</strong> نمودارِ فاز را برای <span class="arithmatex">\(\beta=2\)</span> و <span class="arithmatex">\(\beta=10\)</span> بازتولید کنید و با شمارشِ تقاطعِ نولکلین‌ها تأیید کنید که گذار به دوپایداری رخ داده. آستانهٔ تقریبیِ <span class="arithmatex">\(\beta\)</span> را با ادامهٔ عددی بیابید.</p>
-</li>
-<li>
-<p><strong>(تمرین)</strong> از دو شرطِ اولیهٔ نزدیک به هم اما در دو سوی زین شبیه‌سازی کنید و نشان دهید به حالت‌های پایدارِ متفاوت می‌رسند. این همان <em>به‌خاطرسپردنِ</em> ورودی است.</p>
-</li>
-<li>
-<p><strong>(پروژه)</strong> مدلِ نامتقارن را پیاده کنید و نقشهٔ کاملِ <span class="arithmatex">\((\beta_1,\beta_2)\)</span> را بسازید. نوکِ کاسپ را مکان‌یابی کنید. سپس یک محرکِ گذرا به یکی از متغیرها بدهید و نشان دهید چگونه می‌توان دستگاه را میانِ دو حالت <strong>سوئیچ</strong> کرد (همان عملیاتِ نوشتنِ حافظه).</p>
-</li>
-<li>
-<p><strong>(پروژه)</strong> نوفه را به مدل بیفزایید (با اویلر–مارویاما، فصلِ <a href="https://computational-neuroscience.ir/ch-num-07-sde/">SDE</a>) و بررسی کنید که نوفه چگونه می‌تواند دستگاه را به‌طورِ خودبه‌خودی میانِ دو حالت بپراند (سوئیچِ القاشده با نوفه) — پدیده‌ای که در بیانِ ژن و در ادراکِ دوحالته اهمیت دارد.</p>
-</li>
-</ol>
+<h2 id="_11">تمرین‌ها و پروژه‌ها</h2>
+<p>نخست بکوشید هر مسئله را با توابعِ همین فصل خودتان حل کنید؛ سپس پاسخ یا راهنمای حل را بگشایید.</p>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۱</p>
+<p><strong>(تمرین) شمارشِ تعادل‌ها و آستانهٔ دوپایداری.</strong> نمودارِ فاز را برای <span class="arithmatex">\(\beta=2\)</span> و <span class="arithmatex">\(\beta=10\)</span> بازتولید کنید و با شمارشِ تقاطعِ نولکلین‌ها تأیید کنید که گذار به دوپایداری رخ داده. آستانهٔ تقریبیِ <span class="arithmatex">\(\beta\)</span> را با ادامهٔ عددی بیابید.</p>
 </div>
+<details class="success">
+<summary>پاسخ</summary>
+<p>برای شمارشِ تعادل‌ها به‌جای رسمِ چشمی، از همان <code>find_unique_equilibria</code> فصل استفاده می‌کنیم و از شبکه‌ای از حدس‌های آغازین شروع می‌کنیم. برای یافتنِ آستانه، تعادلِ متقارنِ <span class="arithmatex">\(u=v=s\)</span> با <span class="arithmatex">\(s(1+s^\beta)=1\)</span> را در نظر می‌گیریم: این نقطه هنگامی به زین بدل می‌شود (یعنی دوپایداری آغاز می‌شود) که جفتیدگیِ خارج‌قطریِ ژاکوبین، <span class="arithmatex">\(g=\beta\,s^{\beta-1}/(1+s^\beta)^2\)</span>، از ۱ بگذرد. ریشه‌یابیِ <span class="arithmatex">\(g(\beta)=1\)</span> آستانه را می‌دهد.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">brentq</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="k">def</span> <span class="nf">s_star</span><span class="p">(</span><span class="n">beta</span><span class="p">):</span>                       <span class="c1"># symmetric equilibrium, alpha = 1</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="k">return</span> <span class="n">brentq</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s</span><span class="o">**</span><span class="n">beta</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 6 "></span>
+<span class="linenos" data-linenos=" 7 "></span><span class="k">def</span> <span class="nf">coupling</span><span class="p">(</span><span class="n">beta</span><span class="p">):</span>                     <span class="c1"># off-diagonal Jacobian term at the symmetric point</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="n">s</span> <span class="o">=</span> <span class="n">s_star</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 9 "></span>    <span class="k">return</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">s</span><span class="o">**</span><span class="p">(</span><span class="n">beta</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s</span><span class="o">**</span><span class="n">beta</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="linenos" data-linenos="10 "></span>
+<span class="linenos" data-linenos="11 "></span><span class="n">beta_star</span> <span class="o">=</span> <span class="n">brentq</span><span class="p">(</span><span class="k">lambda</span> <span class="n">b</span><span class="p">:</span> <span class="n">coupling</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">)</span>
+<span class="linenos" data-linenos="12 "></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;bistability threshold beta* =&quot;</span><span class="p">,</span> <span class="n">beta_star</span><span class="p">)</span>
+<span class="linenos" data-linenos="13 "></span><span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;beta=</span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">: coupling=</span><span class="si">{</span><span class="n">coupling</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos="15 "></span>          <span class="s2">&quot;-&gt; bistable&quot;</span> <span class="k">if</span> <span class="n">coupling</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">&quot;-&gt; monostable&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>خروجی: آستانه <span class="arithmatex">\(\beta^\ast\approx 4.14\)</span>. برای <span class="arithmatex">\(\beta=2\)</span> جفتیدگی <span class="arithmatex">\(0.64&lt;1\)</span> است (یک تعادل، تک‌پایدار) و برای <span class="arithmatex">\(\beta=10\)</span> جفتیدگی <span class="arithmatex">\(1.56&gt;1\)</span> (سه تعادل، دوپایدار) — دقیقاً همان چیزی که شمارشِ تقاطعِ نولکلین‌ها نشان می‌دهد. این آستانه همان نقطهٔ انشعابِ چنگالیِ فوق‌بحرانیِ نمودارِ بخشِ ۸ است (<span class="arithmatex">\(\beta\approx 4\)</span>).</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۲</p>
+<p><strong>(تمرین) از دو شرطِ اولیهٔ نزدیک به هم اما در دو سوی زین شبیه‌سازی کنید و نشان دهید به حالت‌های پایدارِ متفاوت می‌رسند. این همان <em>به‌خاطرسپردنِ</em> ورودی است.</strong></p>
+</div>
+<details class="success">
+<summary>پاسخ</summary>
+<p>برای <span class="arithmatex">\(\beta=10\)</span> تعادلِ زین همان نقطهٔ متقارنِ <span class="arithmatex">\(u=v\approx 0.844\)</span> است (از <code>s_star(10)</code>). دو شرطِ اولیهٔ بسیار نزدیک را درست در دو سوی این زین می‌گیریم و با <code>odeint</code> و تابعِ <code>cellular_switch</code> فصل پیش می‌رانیم.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="o">,</span> <span class="nn">scipy.integrate</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="linenos" data-linenos=" 3 "></span>
+<span class="linenos" data-linenos=" 4 "></span><span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+<span class="linenos" data-linenos=" 5 "></span><span class="n">saddle</span> <span class="o">=</span> <span class="mf">0.844</span>                                   <span class="c1"># symmetric saddle for beta=10</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="k">for</span> <span class="n">eps</span> <span class="ow">in</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="o">+</span><span class="mf">0.02</span><span class="p">):</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="n">ic</span> <span class="o">=</span> <span class="p">(</span><span class="n">saddle</span> <span class="o">+</span> <span class="n">eps</span><span class="p">,</span> <span class="n">saddle</span> <span class="o">-</span> <span class="n">eps</span><span class="p">)</span>            <span class="c1"># just across the saddle</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="n">end</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">odeint</span><span class="p">(</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="n">partial</span><span class="p">(</span><span class="n">cellular_switch</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span> <span class="n">y0</span><span class="o">=</span><span class="n">ic</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">time</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;IC </span><span class="si">{</span><span class="n">ic</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>خروجی: یکی به حالتِ «<span class="arithmatex">\(u\)</span> بالا، <span class="arithmatex">\(v\)</span> پایین» (<span class="arithmatex">\(\approx(1.0,\,0.5)\)</span>) و دیگری به حالتِ آینه‌ایِ آن (<span class="arithmatex">\(\approx(0.5,\,1.0)\)</span>) می‌رسد. جابه‌جاییِ ناچیزِ آغازین سرنوشتِ نهایی را تعیین می‌کند: زین مرزِ میانِ دو حوضهٔ جذب است، و همین حساسیت به شرطِ آغازین، معنای <em>ذخیرهٔ یک بیتِ حافظه</em> است.</p>
+</details>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۳</p>
+<p><strong>(پروژه)</strong> مدلِ نامتقارن را پیاده کنید و نقشهٔ کاملِ <span class="arithmatex">\((\beta_1,\beta_2)\)</span> را بسازید. نوکِ کاسپ را مکان‌یابی کنید. سپس یک محرکِ گذرا به یکی از متغیرها بدهید و نشان دهید چگونه می‌توان دستگاه را میانِ دو حالت <strong>سوئیچ</strong> کرد (همان عملیاتِ نوشتنِ حافظه).</p>
+</div>
+<details class="success">
+<summary>راهنمای حل</summary>
+<p>این پروژه سه گام دارد؛ همه با ابزارهای همین فصل ساختنی‌اند.</p>
+<ul>
+<li><strong>نقشهٔ <span class="arithmatex">\((\beta_1,\beta_2)\)</span>:</strong> جریانِ نامتقارنِ بخشِ ۹ را پیاده کنید و برای هر جفتِ <span class="arithmatex">\((\beta_1,\beta_2)\)</span> روی یک شبکه، شمارِ تعادل‌های پایدار را بشمارید (همان <code>find_unique_equilibria</code> + <code>stability</code>). خانه‌ها را بر پایهٔ «یک حالت» یا «دو حالت» رنگ کنید تا ناحیهٔ دوپایدار پدیدار شود.</li>
+<li><strong>نوکِ کاسپ:</strong> مرزِ ناحیهٔ دوپایدار از دو خمِ زین–گره ساخته شده که در نوکِ کاسپ به‌هم می‌رسند، نزدیکِ <span class="arithmatex">\(\beta_1=\beta_2\approx 4\)</span> (همان آستانهٔ متقارنِ مسئلهٔ ۱). با ریزکردنِ شبکه در آن ناحیه، نوک را دقیق‌تر مکان‌یابی کنید.</li>
+<li><strong>نوشتنِ حافظه:</strong> پارامترها را در ناحیهٔ دوپایدار ثابت کنید، دستگاه را در یک حالت بنشانید، سپس در یک بازهٔ کوتاه یک جملهٔ محرکِ بزرگ به معادلهٔ <span class="arithmatex">\(u\)</span> بیفزایید (مثلاً <code>I_pulse</code> برای <span class="arithmatex">\(t\in[t_1,t_2]\)</span>) تا مسیر از مرزِ زین بگذرد و در حالتِ دیگر بنشیند. ردِ <span class="arithmatex">\(u(t)\)</span> باید پرشِ پلکانیِ ماندگار میانِ دو حالت را نشان دهد.</li>
+</ul>
+</details>
+<div class="admonition question">
+<p class="admonition-title">تمرینِ ۴</p>
+<p><strong>(پروژه)</strong> نوفه را به مدل بیفزایید (با اویلر–مارویاما، فصلِ <a href="https://computational-neuroscience.ir/ch-num-07-sde/">SDE</a>) و بررسی کنید که نوفه چگونه می‌تواند دستگاه را به‌طورِ خودبه‌خودی میانِ دو حالت بپراند (سوئیچِ القاشده با نوفه) — پدیده‌ای که در بیانِ ژن و در ادراکِ دوحالته اهمیت دارد.</p>
+</div>
+<details class="success">
+<summary>راهنمای حل</summary>
+<p>جریانِ قطعی را با یک جملهٔ نوفه بیامیزید و با اویلر–مارویاما حل کنید (همان طرحی که در فصلِ فیتزهیو–ناگومو نیز به کار می‌رود): در هر گام <span class="arithmatex">\(\;y \leftarrow y + F(y)\,dt + \sigma\,\sqrt{dt}\,\xi\;\)</span> با <span class="arithmatex">\(\xi\sim\mathcal{N}(0,1)\)</span>. دستگاه را در ناحیهٔ دوپایدار (<span class="arithmatex">\(\beta=10\)</span>) نگه دارید و دامنهٔ نوفهٔ <span class="arithmatex">\(\sigma\)</span> را جارو کنید:</p>
+<ul>
+<li>برای <span class="arithmatex">\(\sigma\)</span> کوچک، دستگاه در یک حوضهٔ جذب می‌لرزد و به‌ندرت می‌پرد.</li>
+<li>با افزایشِ <span class="arithmatex">\(\sigma\)</span>، گاه‌به‌گاه یک تلنگرِ نوفه‌ای، مسیر را از فرازِ زین می‌گذراند و به حوضهٔ دیگر می‌اندازد — <strong>پرش‌های خودبه‌خودی</strong> میانِ دو حالت.</li>
+<li>آهنگِ این پرش‌ها با <span class="arithmatex">\(\sigma\)</span> به‌شدت (به‌صورتِ نمایی، طبقِ قانونِ کرامرس) افزایش می‌یابد.</li>
+</ul>
+<p>یک نمودارِ سریِ‌زمانیِ <span class="arithmatex">\(u(t)\)</span> که پرش‌های نامنظمِ دوحالته را نشان دهد، شاهدِ خوبی برای این پدیده است. همین سازوکار، پایهٔ <em>تغییرپذیریِ سلول‌به‌سلولِ</em> بیانِ ژن و <em>وارونگیِ ادراکِ</em> دوحالته است.</p>
+</details>
 
 
 
