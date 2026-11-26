@@ -1,5 +1,16 @@
 {% extends "base.html" %}
 
+{% block extrahead %}
+  {{ super() }}
+  <!-- Google tag (Google Analytics) -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WB2DGV6V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+{% endblock %}
+
 {% block content %}
   {{ super() }}
 
